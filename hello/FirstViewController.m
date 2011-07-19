@@ -11,6 +11,7 @@
 #import "ExpenseManager.h"
 #import "Database.h"
 #import "BudgetManager.h"
+#import "Statistics.h"
 
 
 @implementation FirstViewController
@@ -19,6 +20,7 @@
 @synthesize transactionCell;
 @synthesize dateLabel;
 @synthesize balanceLabel;
+@synthesize savingLabel;
 @synthesize transactionTable;
 @synthesize stampView;
 
@@ -66,8 +68,10 @@ static NSString* cellId = @"cellTransaction";
     [transactionTable reloadData];
     
     // update budget label
-    double balance = [expMan getBalanceOfDay:today];
+    double balance = [Statistics getBalanceOfDay:today];
     budgetLabel.text = [NSString stringWithFormat:@"¥ %.f", balance];
+    balanceLabel.text = [NSString stringWithFormat:@"¥ %.f", [Statistics getBalanceOfMonth:today]];
+    savingLabel.text = [NSString stringWithFormat:@"¥ %.f", [Statistics getSavingOfMonth:today]];
     stampView.hidden = balance > 0;
 }
 

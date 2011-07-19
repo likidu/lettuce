@@ -16,5 +16,6 @@ extern NSString* formatDisplayDate(NSDate* date);
 extern NSDate*   dateFromSqlDate(NSString* dateStr);
 extern BOOL      isWeekend(NSDate* date);
 extern BOOL      compareDate(NSDate* date1, NSDate* date2);
-
+extern NSArray*  getDaysOfMonth(NSDate* dayOfMonth);
+extern int       getDayAmountOfMonth(NSDate* dayOfMonth);
 #endif

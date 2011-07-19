@@ -74,3 +74,56 @@ BOOL compareDate(NSDate* date1, NSDate* date2) {
     return ([date1 compare:date2] == NSOrderedSame);
 }
 
+bool isLeapYear(int year) {
+    if (year % 4)
+        return false;
+    if (year % 100)
+        return true;
+    if (year % 400)
+        return false;
+    return true;
+}
+
+int getNumberOfDaysInMonth(int month, int year) {
+    switch (month) {
+        case 2:
+            if (isLeapYear(year))
+                return 29;
+            else
+                return 28;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30;
+            break;
+            
+        default:
+            return 31;
+            break;
+    }
+}
+
+int getDayAmountOfMonth(NSDate* dayOfMonth) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit fromDate:dayOfMonth];
+    return getNumberOfDaysInMonth(components.month, components.year);
+}
+
+
+NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSWeekdayCalendarUnit fromDate:dayOfMonth];
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity: getDayAmountOfMonth(dayOfMonth)];
+    for (int i = 0; i < array.count; i++) {
+        components.day = i;
+        int dayCode = 0;
+        if (components.weekday == 1 || components.weekday == 7)
+            dayCode = 1;
+        [array insertObject:[NSNumber numberWithInt:dayCode ] atIndex:i];
+    }
+    return [NSArray arrayWithArray:array];
+}
+
+

@@ -21,6 +21,7 @@
 @property(nonatomic, retain) IBOutlet UITableViewCell *transactionCell;
 @property(nonatomic, retain) IBOutlet UILabel *dateLabel;
 @property(nonatomic, retain) IBOutlet UILabel *balanceLabel;
+@property(nonatomic, retain) IBOutlet UILabel* savingLabel;
 @property(nonatomic, retain) IBOutlet UITableView *transactionTable;
 @property(nonatomic, retain) IBOutlet UIImageView* stampView;
 
