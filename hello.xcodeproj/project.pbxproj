@@ -58,8 +58,6 @@
 		1AA3059B13CC8ECD0032296C /* lesure.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3056D13CC8ECD0032296C /* lesure.png */; };
 		1AA3059C13CC8ECD0032296C /* living_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3056E13CC8ECD0032296C /* living_h.png */; };
 		1AA3059D13CC8ECD0032296C /* living.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3056F13CC8ECD0032296C /* living.png */; };
-		1AA3059E13CC8ECD0032296C /* movie_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3057013CC8ECD0032296C /* movie_h.png */; };
-		1AA3059F13CC8ECD0032296C /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3057113CC8ECD0032296C /* movie.png */; };
 		1AA305A013CC8ECD0032296C /* network_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3057213CC8ECD0032296C /* network_h.png */; };
 		1AA305A113CC8ECD0032296C /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3057313CC8ECD0032296C /* network.png */; };
 		1AA305A213CC8ECD0032296C /* pet_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3057413CC8ECD0032296C /* pet_h.png */; };
@@ -103,6 +101,7 @@
 		1AAD13DC133345A90035BA92 /* BuddgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAD13DA133345A90035BA92 /* BuddgetView.xib */; };
 		1AAD13E813335A1C0035BA92 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD13E613335A170035BA92 /* SettingView.m */; };
 		1AAD13E913335A1C0035BA92 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAD13E713335A190035BA92 /* SettingView.xib */; };
+		1AC20BF913D5C216004A4E32 /* keyboardbglite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC20BF813D5C216004A4E32 /* keyboardbglite.png */; };
 		1AE124DC13487784002EEBD2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE124DB13487784002EEBD2 /* logo.png */; };
 		1AE124DF1348B3A9002EEBD2 /* lettuce57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE124DE1348B3A9002EEBD2 /* lettuce57x57.png */; };
 		1AE124E11348CA4E002EEBD2 /* CellTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE124E01348CA4E002EEBD2 /* CellTransaction.xib */; };
@@ -170,8 +169,6 @@
 		1AA3056D13CC8ECD0032296C /* lesure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lesure.png; path = cats/lesure.png; sourceTree = "<group>"; };
 		1AA3056E13CC8ECD0032296C /* living_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = living_h.png; path = cats/living_h.png; sourceTree = "<group>"; };
 		1AA3056F13CC8ECD0032296C /* living.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = living.png; path = cats/living.png; sourceTree = "<group>"; };
-		1AA3057013CC8ECD0032296C /* movie_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movie_h.png; path = cats/movie_h.png; sourceTree = "<group>"; };
-		1AA3057113CC8ECD0032296C /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movie.png; path = cats/movie.png; sourceTree = "<group>"; };
 		1AA3057213CC8ECD0032296C /* network_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = network_h.png; path = cats/network_h.png; sourceTree = "<group>"; };
 		1AA3057313CC8ECD0032296C /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = network.png; path = cats/network.png; sourceTree = "<group>"; };
 		1AA3057413CC8ECD0032296C /* pet_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pet_h.png; path = cats/pet_h.png; sourceTree = "<group>"; };
@@ -227,6 +224,7 @@
 		1AAD13E513335A160035BA92 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		1AAD13E613335A170035BA92 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
 		1AAD13E713335A190035BA92 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		1AC20BF813D5C216004A4E32 /* keyboardbglite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardbglite.png; path = arts/keyboardbglite.png; sourceTree = "<group>"; };
 		1AE124DB13487784002EEBD2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = icons/logo.png; sourceTree = "<group>"; };
 		1AE124DE1348B3A9002EEBD2 /* lettuce57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lettuce57x57.png; path = icons/lettuce57x57.png; sourceTree = "<group>"; };
 		1AE124E01348CA4E002EEBD2 /* CellTransaction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTransaction.xib; sourceTree = "<group>"; };
@@ -286,8 +284,6 @@
 				1AA3056D13CC8ECD0032296C /* lesure.png */,
 				1AA3056E13CC8ECD0032296C /* living_h.png */,
 				1AA3056F13CC8ECD0032296C /* living.png */,
-				1AA3057013CC8ECD0032296C /* movie_h.png */,
-				1AA3057113CC8ECD0032296C /* movie.png */,
 				1AA3057213CC8ECD0032296C /* network_h.png */,
 				1AA3057313CC8ECD0032296C /* network.png */,
 				1AA3057413CC8ECD0032296C /* pet_h.png */,
@@ -314,6 +310,7 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AC20BF813D5C216004A4E32 /* keyboardbglite.png */,
 				1A459DA9138808A000036EC2 /* keyboarddownbg.png */,
 				1A459DA11387D1CD00036EC2 /* buttonbg.png */,
 				1A459D9F1387D06C00036EC2 /* keyboardbg.png */,
@@ -544,8 +541,6 @@
 				1AA3059B13CC8ECD0032296C /* lesure.png in Resources */,
 				1AA3059C13CC8ECD0032296C /* living_h.png in Resources */,
 				1AA3059D13CC8ECD0032296C /* living.png in Resources */,
-				1AA3059E13CC8ECD0032296C /* movie_h.png in Resources */,
-				1AA3059F13CC8ECD0032296C /* movie.png in Resources */,
 				1AA305A013CC8ECD0032296C /* network_h.png in Resources */,
 				1AA305A113CC8ECD0032296C /* network.png in Resources */,
 				1AA305A213CC8ECD0032296C /* pet_h.png in Resources */,
@@ -566,6 +561,7 @@
 				1AA305B113CC8ECD0032296C /* workout.png in Resources */,
 				1AA305B413CCAD5E0032296C /* misc_h.png in Resources */,
 				1AA305B513CCAD5E0032296C /* misc.png in Resources */,
+				1AC20BF913D5C216004A4E32 /* keyboardbglite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

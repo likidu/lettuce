@@ -442,7 +442,10 @@
 							<reference key="NSNextKeyView" ref="187261328"/>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUIImage" ref="814333660"/>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">keyboardbglite.png</string>
+							</object>
 						</object>
 						<object class="IBUIScrollView" id="187261328">
 							<reference key="NSNextResponder" ref="381115760"/>
@@ -1597,11 +1600,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="parent" ref="381115760"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">102</int>
-						<reference key="object" ref="187261328"/>
-						<reference key="parent" ref="381115760"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">226</int>
 						<reference key="object" ref="900575928"/>
 						<reference key="parent" ref="381115760"/>
@@ -1624,6 +1622,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<int key="objectID">302</int>
 						<reference key="object" ref="408996909"/>
 						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">102</int>
+						<reference key="object" ref="187261328"/>
+						<reference key="parent" ref="381115760"/>
 					</object>
 				</object>
 			</object>
@@ -2032,6 +2035,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>greenpaper.png</string>
 				<string>header.png</string>
 				<string>keyboardbg.png</string>
+				<string>keyboardbglite.png</string>
 				<string>keyboarddownbg.png</string>
 				<string>landscape.png</string>
 				<string>pin.png</string>
@@ -2045,6 +2049,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>{595, 1}</string>
 				<string>{640, 744}</string>
 				<string>{640, 95}</string>
+				<string>{76, 430}</string>
 				<string>{76, 430}</string>
 				<string>{141, 91}</string>
 				<string>{24, 18}</string>

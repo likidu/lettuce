@@ -57,7 +57,7 @@ CGSize categoryButtonSize = {60, 72};
     
     // colors
     UIColor * colorNormal = [UIColor blackColor];
-    UIColor * colorHighlight = [UIColor blueColor];
+    UIColor * colorHighlight = [UIColor colorWithRed:76.0/255.0 green:108.0/255.0 blue:0.0 alpha:1.0];
     
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
