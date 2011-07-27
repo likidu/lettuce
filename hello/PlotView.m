@@ -153,7 +153,7 @@ PlotViewDefaultTheme* g_defaultTheme = nil;
     CGContextRestoreGState(context);
     
     [[UIColor redColor]setFill];
-    CGContextFillRect(context, CGRectMake(0, 0, 10, 10));
+    CGContextFillRect(context, CGRectMake(0, 0, 20, 10));
     
     [super drawRect:rect];
 }

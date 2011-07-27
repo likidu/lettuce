@@ -17,6 +17,8 @@
 @synthesize dates;
 @synthesize transactionCache;
 @synthesize transactionCell;
+@synthesize transactionHeaderCell;
+@synthesize transactionFooterCell;
 @synthesize transactionView;
 @synthesize datePicker;
 @synthesize headerView;
@@ -44,7 +46,7 @@ static NSString* cellId = @"cellTransaction";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return YES;
+    return NO;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -144,7 +146,7 @@ static NSString* cellId = @"cellTransaction";
         else
             catName.text = cat.categoryName;
         catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
-        catImage.image = [catMan iconNamed:cat.iconName];
+        catImage.image = [catMan iconNamed:cat.smallIconName];
         UIImage* imageNote = [[ExpenseManager instance]getImageNoteIconByExpenseId: expense.expenseId];
         tagImage.hidden = !showNotes && !imageNote;
         if (imageNote)
@@ -170,6 +172,7 @@ static NSString* cellId = @"cellTransaction";
     return [self.dates count];
 }
 
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -218,10 +221,6 @@ static NSString* cellId = @"cellTransaction";
     return 35;
 }
 
-- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section < dates.count) {
         ExpenseManager* expMan = [ExpenseManager instance];
@@ -238,6 +237,11 @@ static NSString* cellId = @"cellTransaction";
         return [NSString stringWithFormat:@"总消费 ¥ %.2f\n%@", totalExpense, balanceStr];
     }
     return @"";
+}
+ */
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

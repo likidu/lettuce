@@ -18,6 +18,8 @@
 
 @synthesize budgetLabel;
 @synthesize transactionCell;
+@synthesize transactionHeaderCell;
+@synthesize transactionFooterCell;
 @synthesize dateLabel;
 @synthesize balanceLabel;
 @synthesize savingLabel;
@@ -124,7 +126,7 @@ static NSString* cellId = @"cellTransaction";
         else
             catName.text = cat.categoryName;
         catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
-        catImage.image = [catMan iconNamed:cat.iconName];
+        catImage.image = [catMan iconNamed:cat.smallIconName];
         UIImage* imageNote = [[ExpenseManager instance]getImageNoteIconByExpenseId:expense.expenseId];
         tagImage.hidden = !showNotes && !imageNote;
         if (imageNote)

@@ -57,6 +57,7 @@ CGSize categoryButtonSize = {60, 72};
     
     // colors
     UIColor * colorNormal = [UIColor blackColor];
+    UIColor * colorShadow = [[UIColor whiteColor]colorWithAlphaComponent:0.5];
     UIColor * colorHighlight = [UIColor colorWithRed:76.0/255.0 green:108.0/255.0 blue:0.0 alpha:1.0];
     
     CategoryManager* catMan = [CategoryManager instance];
@@ -83,6 +84,9 @@ CGSize categoryButtonSize = {60, 72};
             [button setTitleColor:colorNormal forState:UIControlStateNormal];
             [button setTitleColor:colorHighlight forState:UIControlStateHighlighted];
             [button setTitleColor:colorHighlight forState:UIControlStateSelected];
+            [button setTitleShadowColor:colorShadow forState:UIControlStateNormal];
+            [button setTitleShadowColor:colorShadow forState:UIControlStateHighlighted];
+            [button setTitleShadowColor:colorShadow forState:UIControlStateSelected];
 
             [button setImage:image forState:UIControlStateNormal];
             [button setImage:[catMan iconNamed:cat.hilitedIconName] forState:UIControlStateHighlighted];
@@ -91,6 +95,7 @@ CGSize categoryButtonSize = {60, 72};
             button.frame = buttonFrame;
             button.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
             button.titleLabel.textAlignment = UITextAlignmentCenter;
+            button.titleLabel.shadowOffset = CGSizeMake(0, 1);
             CGRect titleFrame = [button titleRectForContentRect:buttonFrame];
             CGRect imageFrame = [button imageRectForContentRect:buttonFrame];
             button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);

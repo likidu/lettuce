@@ -388,6 +388,14 @@
     [actionSheet showInView: self.view];
 }
 
+- (void)onShowCategory:(id)sender {
+    
+}
+
+- (void)onShowKeyboard:(id)sender {
+    [self.uiNotes becomeFirstResponder];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

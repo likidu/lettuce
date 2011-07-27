@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *categoryName;
 @property (nonatomic, retain) NSString *iconName;
 @property (nonatomic, retain) NSString *hilitedIconName;
+@property (nonatomic, retain) NSString *smallIconName;
 
 @end
 

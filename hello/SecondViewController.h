@@ -18,6 +18,8 @@
 @property(nonatomic, retain) NSMutableDictionary* transactionCache;
 
 @property(nonatomic, retain) IBOutlet UITableViewCell* transactionCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell* transactionHeaderCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell* transactionFooterCell;
 @property(nonatomic, retain) IBOutlet UITableView* transactionView;
 @property(nonatomic, retain) IBOutlet UIView* headerView;
 @property(nonatomic, retain) IBOutlet UIView* footerView;

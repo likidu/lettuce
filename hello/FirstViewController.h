@@ -19,6 +19,8 @@
 
 @property(nonatomic, retain) IBOutlet UILabel *budgetLabel;
 @property(nonatomic, retain) IBOutlet UITableViewCell *transactionCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell *transactionHeaderCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell *transactionFooterCell;
 @property(nonatomic, retain) IBOutlet UILabel *dateLabel;
 @property(nonatomic, retain) IBOutlet UILabel *balanceLabel;
 @property(nonatomic, retain) IBOutlet UILabel* savingLabel;
