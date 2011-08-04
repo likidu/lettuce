@@ -56,6 +56,8 @@
     if (catId == -1) {
         setButtonTitleForStates(categoryButton, @"", UIControlStateHighlighted|UIControlStateSelected);
         setButtonImageForStates(categoryButton, imageUnknown, UIControlStateHighlighted|UIControlStateSelected);
+        categoryButton.titleEdgeInsets = UIEdgeInsetsZero;
+        categoryButton.imageEdgeInsets = UIEdgeInsetsZero;
         return;
     }
     CategoryManager* catMan = [CategoryManager instance];

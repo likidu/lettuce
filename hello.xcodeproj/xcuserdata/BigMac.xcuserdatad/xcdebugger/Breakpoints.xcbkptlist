@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "131"
-         endingLineNumber = "131"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
          landmarkName = "-onSave:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "115"
-         endingLineNumber = "115"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
          landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
@@ -233,11 +233,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "321"
-         endingLineNumber = "321"
+         startingLineNumber = "323"
+         endingLineNumber = "323"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -247,11 +247,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "322"
-         endingLineNumber = "322"
+         startingLineNumber = "324"
+         endingLineNumber = "324"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,11 +261,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
          landmarkName = "-loadButtons"
          landmarkType = "5">
       </FileBreakpoint>
@@ -275,11 +275,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-loadButtons"
          landmarkType = "5">
       </FileBreakpoint>
@@ -303,11 +303,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
          landmarkName = "-pageChaged:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -317,11 +317,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "338"
-         endingLineNumber = "338"
+         startingLineNumber = "340"
+         endingLineNumber = "340"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -331,11 +331,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "-setSelectedCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -345,11 +345,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
          landmarkName = "-categorySelected:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -359,11 +359,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
          landmarkName = "-setSelectedCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -527,11 +527,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "342"
-         endingLineNumber = "342"
+         startingLineNumber = "344"
+         endingLineNumber = "344"
          landmarkName = "-onSelectCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -555,11 +555,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "366"
-         endingLineNumber = "366"
+         startingLineNumber = "368"
+         endingLineNumber = "368"
          landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -583,11 +583,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "334167940.135597"
+         timestampString = "334172204.988797"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-onSave:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -779,11 +779,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "95"
+         endingLineNumber = "95"
          landmarkName = "-loadButtons"
          landmarkType = "5">
       </FileBreakpoint>
@@ -793,11 +793,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -807,11 +807,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/CategoryViewController.m"
-         timestampString = "334165184.521359"
+         timestampString = "334171951.419043"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
          landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
          landmarkType = "5">
       </FileBreakpoint>
