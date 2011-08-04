@@ -159,11 +159,11 @@ static NSString* footerCellId = @"footerCellTransaction";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     UITableViewCell* headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellId];
     UITableViewCell* footerCell = [tableView dequeueReusableCellWithIdentifier:footerCellId];
-    if (cell == nil) {
+    if (!cell || !headerCell || !footerCell) {
         [self loadCellFromNib];
-        cell = transactionCell;
-        headerCell = transactionHeaderCell;
-        footerCell = transactionFooterCell;
+        cell = [[transactionCell retain]autorelease];
+        headerCell = [[transactionHeaderCell retain]autorelease];
+        footerCell = [[transactionFooterCell retain]autorelease];
         self.transactionCell = nil;
         self.transactionHeaderCell = nil;
         self.transactionFooterCell = nil;
