@@ -18,4 +18,10 @@ extern BOOL      isWeekend(NSDate* date);
 extern BOOL      compareDate(NSDate* date1, NSDate* date2);
 extern NSArray*  getDaysOfMonth(NSDate* dayOfMonth);
 extern int       getDayAmountOfMonth(NSDate* dayOfMonth);
+
+extern void      makeToolButton(UIButton* button);
+extern void      setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state);
+extern void      setButtonTitleColorForStates(UIButton* button, UIColor* color, UIControlState state);
+extern void      setButtonTitleShadowColorForStates(UIButton* button, UIColor* color, UIControlState state);
+extern void      setButtonImageForStates(UIButton* button, UIImage* image, UIControlState state);
 #endif

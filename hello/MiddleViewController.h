@@ -69,10 +69,13 @@ typedef enum _Operator {
 @property(nonatomic, retain) IBOutlet UIButton* categoryButton;
 @property(nonatomic, retain) IBOutlet UIView* numPadView;
 @property(nonatomic, retain) IBOutlet UIView* datePickerView;
-@property(nonatomic, retain) IBOutlet UIImageView* imageNoteView;
+@property(nonatomic, retain) IBOutlet UIButton* imageButton;
+@property(nonatomic, retain) IBOutlet UIImageView* imageView;
+@property(nonatomic, retain) IBOutlet UIImageView* frameView;
 
 @property(nonatomic, retain) NSString* inputText;
 @property(nonatomic, retain) NSDate* currentDate;
+@property(nonatomic, retain) UIImage* imageUnknown;
 
 - (void)syncUi;
 - (void)pushOp:(Operator)op;

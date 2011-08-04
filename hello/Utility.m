@@ -127,3 +127,52 @@ NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
 }
 
 
+void makeToolButton(UIButton* button) {
+    CGRect titleFrame = [button titleRectForContentRect:button.frame];
+    CGRect imageFrame = [button imageRectForContentRect:button.frame];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
+    button.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
+}
+
+void setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state) {
+    [button setTitle:title forState:UIControlStateNormal];
+    if (state & UIControlStateHighlighted)
+        [button setTitle:title forState:UIControlStateHighlighted];
+    if (state & UIControlStateSelected)
+        [button setTitle:title forState:UIControlStateSelected];
+    if (state & UIControlStateDisabled)
+        [button setTitle:title forState:UIControlStateDisabled];
+}
+
+void setButtonTitleColorForStates(UIButton* button, UIColor* color, UIControlState state) {
+    [button setTitleColor:color forState:UIControlStateNormal];
+    if (state & UIControlStateHighlighted)
+        [button setTitleColor:color forState:UIControlStateHighlighted];
+    if (state & UIControlStateSelected)
+        [button setTitleColor:color forState:UIControlStateSelected];
+    if (state & UIControlStateDisabled)
+        [button setTitleColor:color forState:UIControlStateDisabled];
+}
+
+void setButtonTitleShadowColorForStates(UIButton* button, UIColor* color, UIControlState state) {
+    [button setTitleShadowColor:color forState:UIControlStateNormal];
+    if (state & UIControlStateHighlighted)
+        [button setTitleShadowColor:color forState:UIControlStateHighlighted];
+    if (state & UIControlStateSelected)
+        [button setTitleShadowColor:color forState:UIControlStateSelected];
+    if (state & UIControlStateDisabled)
+        [button setTitleShadowColor:color forState:UIControlStateDisabled];
+}
+
+void setButtonImageForStates(UIButton* button, UIImage* image, UIControlState state) {
+    [button setImage:image forState:UIControlStateNormal];
+    if (state & UIControlStateHighlighted)
+        [button setImage:image forState:UIControlStateHighlighted];
+    if (state & UIControlStateSelected)
+        [button setImage:image forState:UIControlStateSelected];
+    if (state & UIControlStateDisabled)
+        [button setImage:image forState:UIControlStateDisabled];
+}
+
+
+

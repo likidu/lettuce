@@ -40,6 +40,8 @@
 @synthesize addExpenseController;
 @synthesize historyController;
 @synthesize tabPanel;
+@synthesize todayButton;
+@synthesize historyButton;
 
 #pragma mark - Event handlers
 
@@ -54,18 +56,25 @@
                         }
                         completion:^(BOOL finished){
                             if (finished) {
-                                [activeController performSelector:@selector(viewWillDisappear:)];
-                                [viewController performSelector:@selector(viewWillAppear:)];
-                                activeController.view.hidden = YES;
-                                viewController.view.hidden = NO;
+                                UIViewController* old = activeController;
+                                UIViewController* new = viewController;
                                 activeController = viewController;
-                                [self.view sendSubviewToBack:activeController.view];                                
+                                
+                                [old performSelector:@selector(viewWillDisappear:)];
+                                [new performSelector:@selector(viewWillAppear:)];
+                                old.view.hidden = YES;
+                                new.view.hidden = NO;
+ 
+                                [self.view sendSubviewToBack:new.view]; 
+
                             }
                         }];
     }
 }
 
 - (void)onToday:(id)sender {
+    todayButton.selected = YES;
+    historyButton.selected = NO;
     [self presentViewController:todayController];
 }
 
@@ -74,6 +83,8 @@
 }
 
 - (void)onHistory:(id)sender {
+    historyButton.selected = YES;
+    todayButton.selected = NO;
     [self presentViewController:historyController];
 }
 
@@ -82,6 +93,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // set tab button tool button style
+    makeToolButton(self.todayButton);
+    makeToolButton(self.historyButton);
+    
     // Do any additional setup after loading the view from its nib.
     CGRect subViewBounds = self.view.bounds;
     subViewBounds.size.height -= tabPanel.bounds.size.height;
@@ -96,6 +111,7 @@
     historyController.view.hidden = YES;
     
     activeController = todayController;
+    todayButton.selected = YES;
     [activeController performSelector:@selector(viewWillAppear:)];
 }
 
@@ -107,6 +123,9 @@
     self.todayController = nil;
     self.addExpenseController = nil;
     self.historyController = nil;
+    self.tabPanel = nil;
+    self.todayButton = nil;
+    self.historyButton = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

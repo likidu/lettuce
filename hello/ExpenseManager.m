@@ -160,6 +160,17 @@ static ExpenseManager* g_instance = nil;
     return [UIImageJPEGRepresentation(icon, 1.0) writeToFile:iconFileName atomically:YES];
 }
 
+- (BOOL)checkImageNoteByExpenseId:(int)expenseId {
+    UIImage* icon = [iconCache_ objectForKey: [NSNumber numberWithInt: expenseId]];
+    if (icon)
+        return YES;
+    
+    NSString* iconFileName = [NSString stringWithFormat:@"%d_icon.jpg", expenseId];
+    NSString* imageNotePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
+    iconFileName = [imageNotePath stringByAppendingPathComponent: iconFileName];
+    return [[NSFileManager defaultManager]fileExistsAtPath:iconFileName];
+}
+
 - (UIImage*)getImageNoteIconByExpenseId:(int)expenseId {
     UIImage* icon = [iconCache_ objectForKey: [NSNumber numberWithInt: expenseId]];
     if (icon)

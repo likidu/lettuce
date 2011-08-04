@@ -45,6 +45,8 @@
 
 - (BOOL)saveImageNote:(UIImage*)image withExpenseId:(int)expenseId;
 
+- (BOOL)checkImageNoteByExpenseId:(int)expenseId;
+
 - (UIImage*)getImageNoteIconByExpenseId:(int)expenseId;
 
 - (int)getLastInsertedExpensedId;

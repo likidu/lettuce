@@ -23,4 +23,7 @@
 
 @property (nonatomic, retain) IBOutlet UIView* tabPanel;
 
+@property (nonatomic, retain) IBOutlet UIButton* todayButton;
+@property (nonatomic, retain) IBOutlet UIButton* historyButton;
+
 @end

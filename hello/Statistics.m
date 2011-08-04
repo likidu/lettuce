@@ -15,7 +15,8 @@
 
 @implementation Statistics
 
-+ (double)getBalanceOfDay:(NSDate *)day {
++(double)getTotalOfDay:(NSDate *)day {
+    
     NSString* dateStr = formatSqlDate(day);
     NSString* sqlString = [NSString stringWithFormat:@"select total(amount) as totalExpense from expense where date = %@", dateStr];
     Database* db = [Database instance];
@@ -26,7 +27,12 @@
     if (![record objectForKey:@"totalExpense"])
         return NAN;
     double totalExpense = [[record objectForKey:@"totalExpense"]doubleValue];
+    return totalExpense;
+}
+
++ (double)getBalanceOfDay:(NSDate *)day {
     BudgetManager* budMan = [BudgetManager instance];
+    double totalExpense = [Statistics getTotalOfDay:day];
     return [budMan getBudgetOfDay:day] - totalExpense;
 }
 

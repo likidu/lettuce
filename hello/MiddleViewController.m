@@ -22,10 +22,13 @@
 @synthesize categoryButton;
 @synthesize numPadView;
 @synthesize datePickerView;
-@synthesize imageNoteView;
+@synthesize imageButton;
+@synthesize imageView;
+@synthesize frameView;
 
 @synthesize inputText;
 @synthesize currentDate;
+@synthesize imageUnknown;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +37,7 @@
         // Custom initialization
         self.currentDate = [NSDate date];
         editingExpense_ = nil;
+        self.imageUnknown = [UIImage imageNamed:@"unknown.png"];
     }
     return self;
 }
@@ -45,7 +49,15 @@
 }
 
 - (void)setSelectedCategory:(NSNumber*)data {
+    if (!data)
+        return;
+    
     int catId = [data intValue];
+    if (catId == -1) {
+        setButtonTitleForStates(categoryButton, @"", UIControlStateHighlighted|UIControlStateSelected);
+        setButtonImageForStates(categoryButton, imageUnknown, UIControlStateHighlighted|UIControlStateSelected);
+        return;
+    }
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
     NSArray* categories = [catMan categoryCollection];
@@ -58,22 +70,13 @@
     }
     if (cat) {
         UIColor* color = [UIColor darkTextColor];
-        [categoryButton setTitle:cat.categoryName forState:UIControlStateNormal];
-        [categoryButton setTitle:cat.categoryName forState:UIControlStateHighlighted];
-        [categoryButton setTitle:cat.categoryName forState:UIControlStateSelected];
-        [categoryButton setTitleColor:color forState:UIControlStateNormal];
-        [categoryButton setTitleColor:color forState:UIControlStateHighlighted];
-        [categoryButton setTitleColor:color forState:UIControlStateSelected];
+        setButtonTitleForStates(categoryButton, cat.categoryName, UIControlStateHighlighted|UIControlStateSelected);
+        setButtonTitleColorForStates(categoryButton, color, UIControlStateHighlighted|UIControlStateSelected);
         UIImage * image = [catMan iconNamed:cat.iconName];
-        [categoryButton setImage:image forState:UIControlStateNormal];
-        [categoryButton setImage:image forState:UIControlStateSelected];
-        [categoryButton setImage:image forState:UIControlStateHighlighted];
+        setButtonImageForStates(categoryButton, image, UIControlStateHighlighted|UIControlStateSelected);
         categoryButton.tag = catId;
         categoryButton.titleLabel.textAlignment = UITextAlignmentCenter;
-        CGRect titleFrame = [categoryButton titleRectForContentRect:categoryButton.frame];
-        CGRect imageFrame = [categoryButton imageRectForContentRect:categoryButton.frame];
-        categoryButton.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
-        categoryButton.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
+        makeToolButton(categoryButton);
     }
 }
 
@@ -146,8 +149,8 @@
     ExpenseManager* expMan = [ExpenseManager instance];
     [expMan addExpense:expense];
     int expenseId = [expMan getLastInsertedExpensedId];
-    if (expenseId != 0) {
-        [expMan saveImageNote:imageNoteView.image withExpenseId:expenseId];
+    if (expenseId != 0 && imageView.image) {
+        [expMan saveImageNote:imageView.image withExpenseId:expenseId];
     }
 
     [self dismissModalViewControllerAnimated:YES];
@@ -161,6 +164,7 @@
 {
     [super dealloc];
     self.currentDate = nil;
+    self.imageUnknown = nil;
     [editingExpense_ release];
 }
 
@@ -295,12 +299,14 @@
     self.currentDate = [NSDate date];
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
-    Category* firstCat = [catMan.categoryCollection objectAtIndex:0];
-    if (firstCat)
-        [self setSelectedCategory:[NSNumber numberWithInt:firstCat.categoryId]];
     
-    self.imageNoteView.image = nil;
+    // Initialize the "Pick Photo" area
+    imageView.image = nil;
+    imageView.hidden = YES;
+    frameView.hidden = YES;
+    imageButton.hidden = NO;
     
+    [self setSelectedCategory:[NSNumber numberWithInt:-1]];
     [self dismissInputPad];
     [self syncUi];
 }
@@ -358,7 +364,10 @@
     UIImage* image = [info objectForKey: @"UIImagePickerControllerEditedImage"];
     if (!image)
         image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    imageNoteView.image = image;
+    [imageView setImage:image];
+    imageButton.hidden = YES;
+    imageView.hidden = NO;
+    frameView.hidden = NO;
 }
 
 // Navigation Controller Delegate for Image Picker

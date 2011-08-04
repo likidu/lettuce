@@ -11,6 +11,7 @@
 #import "CategoryManager.h"
 #import "DatePickerFullScreen.h"
 #import "Database.h"
+#import "Statistics.h"
 
 @implementation SecondViewController
 
@@ -34,6 +35,8 @@
 }
 */
 static NSString* cellId = @"cellTransaction";
+static NSString* headerCellId = @"headerCellTransaction";
+static NSString* footerCellId = @"footerCellTransaction";
 
 - (void)loadCellFromNib {
     if (transactionCell != nil)
@@ -116,45 +119,72 @@ static NSString* cellId = @"cellTransaction";
     [self forceLoadTransactionOfDateToCache: day];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        [self loadCellFromNib];
-        cell = transactionCell;
-        self.transactionCell = nil;
-    }
+- (void)fillCell:(UITableViewCell*)cell withExpense:(Expense*)expense {
     UIImageView *catImage = (UIImageView*)[cell viewWithTag:1];
     UILabel *catName = (UILabel*)[cell viewWithTag:2];
     UILabel *catAmount = (UILabel*)[cell viewWithTag:3];
     UIImageView* tagImage = (UIImageView*)[cell viewWithTag:4];
     if (catImage == nil || catName == nil || catAmount == nil || tagImage == nil)
-        return nil;
+        return;
+    
+    CategoryManager *catMan = [CategoryManager instance];
+    Category* cat = [catMan.categoryDictionary objectForKey: [NSNumber numberWithInt:expense.categoryId]];
+    BOOL showNotes = (expense.notes != nil) && (expense.notes.length > 0);
+    if (showNotes)
+        catName.text = expense.notes;
+    else
+        catName.text = cat.categoryName;
+    catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
+    catImage.image = [catMan iconNamed:cat.smallIconName];
+    BOOL hasImageNode = [[ExpenseManager instance]checkImageNoteByExpenseId: expense.expenseId];
+    tagImage.hidden = !hasImageNode;
+}
+
+- (void)fillHeaderCell:(UITableViewCell*)cell withDate:(NSDate*)date {
+    UILabel *headerLabel = (UILabel*)[cell viewWithTag:1];
+    headerLabel.text = formatDisplayDate(date);
+}
+
+- (void)fillFooterCell:(UITableViewCell*)cell withTotal:(float)total withBalance:(float)balance{
+    UILabel* amountLabel = (UILabel*)[cell viewWithTag:3];
+    if (amountLabel)
+        amountLabel.text = [NSString stringWithFormat:@"%.2f", total];
+
+    UIImageView* stamp = (UIImageView*)[cell viewWithTag:1];
+    if (stamp)
+        stamp.hidden = balance >= 0.0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    UITableViewCell* headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellId];
+    UITableViewCell* footerCell = [tableView dequeueReusableCellWithIdentifier:footerCellId];
+    if (cell == nil) {
+        [self loadCellFromNib];
+        cell = transactionCell;
+        headerCell = transactionHeaderCell;
+        footerCell = transactionFooterCell;
+        self.transactionCell = nil;
+        self.transactionHeaderCell = nil;
+        self.transactionFooterCell = nil;
+    }
     
     NSDate* date = [dates objectAtIndex: indexPath.section];
     [self loadTransactionOfDateToCache:date];
-    
     NSArray* expenses = [transactionCache objectForKey:date];
-    CategoryManager *catMan = [CategoryManager instance];
     
-    if (expenses && indexPath.row < expenses.count) {
-        Expense* expense = [expenses objectAtIndex:indexPath.row];
-        NSLog(@"catId: %d", expense.categoryId);
-        Category* cat = [catMan.categoryDictionary objectForKey: [NSNumber numberWithInt:expense.categoryId]];
-        BOOL showNotes = (expense.notes != nil) && (expense.notes.length > 0);
-        if (showNotes)
-            catName.text = expense.notes;
-        else
-            catName.text = cat.categoryName;
-        catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
-        catImage.image = [catMan iconNamed:cat.smallIconName];
-        UIImage* imageNote = [[ExpenseManager instance]getImageNoteIconByExpenseId: expense.expenseId];
-        tagImage.hidden = !showNotes && !imageNote;
-        if (imageNote)
-            tagImage.image = imageNote;
-        else
-            tagImage.image = [[ExpenseManager instance]getDefaultTagImage];
+    if (indexPath.row == 0) {
+        [self fillHeaderCell:headerCell withDate:date];
+        return headerCell;
     }
-    
+    else if (indexPath.row == expenses.count + 1) {
+        [self fillFooterCell:footerCell withTotal:[Statistics getTotalOfDay:date] withBalance:[Statistics getBalanceOfDay:date]];
+         return footerCell;
+    }
+
+    Expense* expense = [expenses objectAtIndex:(indexPath.row - 1)];
+    [self fillCell:cell withExpense:expense];
+            
     return cell;
 }
 
@@ -163,7 +193,7 @@ static NSString* cellId = @"cellTransaction";
         NSDate* date = [dates objectAtIndex:section];
         [self loadTransactionOfDateToCache:date];
         NSArray* array = [transactionCache objectForKey:date];
-        return array.count;
+        return array.count + 2;
     }
     return 0;
 }
@@ -246,11 +276,20 @@ static NSString* cellId = @"cellTransaction";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    UITableViewCell* headerCell = [tableView dequeueReusableCellWithIdentifier:headerCellId];
+    UITableViewCell* footerCell = [tableView dequeueReusableCellWithIdentifier:footerCellId];
     if (cell == nil) {
         [self loadCellFromNib];
         cell = transactionCell;
+        headerCell = transactionHeaderCell;
+        footerCell = transactionFooterCell;
         self.transactionCell = nil;
+        self.transactionHeaderCell = nil;
+        self.transactionFooterCell = nil;
     }
+    if (indexPath.row == 0)
+        return headerCell.frame.size.height;
+
     return cell.frame.size.height;
 }
 
@@ -282,7 +321,6 @@ static NSString* cellId = @"cellTransaction";
     DatePickerFullScreen* picker = [DatePickerFullScreen instance];
     picker.reactor = @selector(onEndPickDate:);
     [self presentModalViewController:picker animated:YES];
-    //[picker presentOnView:self.view];
 }
 
 - (void)onEndPickDate:(NSDate*)day {

@@ -127,12 +127,8 @@ static NSString* cellId = @"cellTransaction";
             catName.text = cat.categoryName;
         catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
         catImage.image = [catMan iconNamed:cat.smallIconName];
-        UIImage* imageNote = [[ExpenseManager instance]getImageNoteIconByExpenseId:expense.expenseId];
-        tagImage.hidden = !showNotes && !imageNote;
-        if (imageNote)
-            tagImage.image = imageNote;
-        else
-            tagImage.image = [[ExpenseManager instance]getDefaultTagImage];
+        BOOL hasImageNote = [[ExpenseManager instance]checkImageNoteByExpenseId:expense.expenseId];
+        tagImage.hidden = !hasImageNote;
     }
     
     return cell;

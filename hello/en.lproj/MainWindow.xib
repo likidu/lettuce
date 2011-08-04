@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1024</int>
-		<string key="IBDocument.SystemVersion">10K540</string>
+		<string key="IBDocument.SystemVersion">10K549</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.36</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
@@ -51,6 +51,7 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="503322308">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -95,7 +96,7 @@
 						<object class="IBUIButton" id="563326455">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{0, 417}, {100, 43}}</string>
+							<string key="NSFrame">{{5, 417}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="791599657"/>
@@ -103,13 +104,13 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
-							<object class="NSFont" key="IBUIFont" id="174882838">
+							<object class="NSFont" key="IBUIFont" id="399204237">
 								<string key="NSName">STHeitiSC-Medium</string>
-								<double key="NSSize">18</double>
+								<double key="NSSize">9</double>
 								<int key="NSfFlags">16</int>
 							</object>
-							<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUIHighlightedTitle">今日</string>
 							<string key="IBUISelectedTitle">今日</string>
@@ -135,11 +136,22 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
+							<object class="NSCustomResource" key="IBUIHighlightedImage" id="372336354">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.today.png</string>
+							</object>
+							<reference key="IBUISelectedImage" ref="372336354"/>
+							<reference key="IBUINormalImage" ref="372336354"/>
+							<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="1065202427">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.button.png</string>
+							</object>
+							<reference key="IBUISelectedBackgroundImage" ref="1065202427"/>
 						</object>
 						<object class="IBUIButton" id="791599657">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{108, 417}, {104, 43}}</string>
+							<string key="NSFrame">{{114, 417}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="109644574"/>
@@ -152,12 +164,10 @@
 								<double key="NSSize">18</double>
 								<int key="NSfFlags">16</int>
 							</object>
-							<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
-							<string key="IBUIHighlightedTitle">添加</string>
 							<string key="IBUISelectedTitle">添加</string>
-							<string key="IBUINormalTitle">添加</string>
 							<object class="NSColor" key="IBUIHighlightedTitleColor" id="974040468">
 								<int key="NSColorSpace">2</int>
 								<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
@@ -179,20 +189,27 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
+							<object class="NSCustomResource" key="IBUIHighlightedImage" id="952050990">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">add.transaction.png</string>
+							</object>
+							<reference key="IBUINormalImage" ref="952050990"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="1065202427"/>
 						</object>
 						<object class="IBUIButton" id="109644574">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{216, 417}, {104, 43}}</string>
+							<string key="NSFrame">{{223, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
-							<reference key="IBUIFont" ref="174882838"/>
-							<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
+							<reference key="IBUIFont" ref="399204237"/>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUIHighlightedTitle">历史</string>
 							<string key="IBUISelectedTitle">历史</string>
@@ -218,6 +235,14 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
+							<object class="NSCustomResource" key="IBUIHighlightedImage" id="336145608">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.history.png</string>
+							</object>
+							<reference key="IBUISelectedImage" ref="336145608"/>
+							<reference key="IBUINormalImage" ref="336145608"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="1065202427"/>
+							<reference key="IBUISelectedBackgroundImage" ref="1065202427"/>
 						</object>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -339,6 +364,22 @@
 					</object>
 					<int key="connectionID">156</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">todayButton</string>
+						<reference key="source" ref="911534254"/>
+						<reference key="destination" ref="563326455"/>
+					</object>
+					<int key="connectionID">157</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">historyButton</string>
+						<reference key="source" ref="911534254"/>
+						<reference key="destination" ref="109644574"/>
+					</object>
+					<int key="connectionID">158</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -388,10 +429,10 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="650845842"/>
-							<reference ref="563326455"/>
+							<reference ref="779025407"/>
 							<reference ref="791599657"/>
 							<reference ref="109644574"/>
-							<reference ref="779025407"/>
+							<reference ref="563326455"/>
 						</object>
 						<reference key="parent" ref="911534254"/>
 					</object>
@@ -475,11 +516,11 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="2"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
 					<string>FirstViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -510,7 +551,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">156</int>
+			<int key="maxID">158</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -629,8 +670,11 @@
 							<string>balanceLabel</string>
 							<string>budgetLabel</string>
 							<string>dateLabel</string>
+							<string>savingLabel</string>
 							<string>stampView</string>
 							<string>transactionCell</string>
+							<string>transactionFooterCell</string>
+							<string>transactionHeaderCell</string>
 							<string>transactionTable</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -638,7 +682,10 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
+							<string>UILabel</string>
 							<string>UIImageView</string>
+							<string>UITableViewCell</string>
+							<string>UITableViewCell</string>
 							<string>UITableViewCell</string>
 							<string>UITableView</string>
 						</object>
@@ -650,8 +697,11 @@
 							<string>balanceLabel</string>
 							<string>budgetLabel</string>
 							<string>dateLabel</string>
+							<string>savingLabel</string>
 							<string>stampView</string>
 							<string>transactionCell</string>
+							<string>transactionFooterCell</string>
+							<string>transactionHeaderCell</string>
 							<string>transactionTable</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -669,11 +719,23 @@
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">savingLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">stampView</string>
 								<string key="candidateClassName">UIImageView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">transactionCell</string>
+								<string key="candidateClassName">UITableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">transactionFooterCell</string>
+								<string key="candidateClassName">UITableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">transactionHeaderCell</string>
 								<string key="candidateClassName">UITableViewCell</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -701,9 +763,13 @@
 							<string>onPickPhoto:</string>
 							<string>onSave:</string>
 							<string>onSelectCategory:</string>
+							<string>onShowCategory:</string>
+							<string>onShowKeyboard:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -724,6 +790,8 @@
 							<string>onPickPhoto:</string>
 							<string>onSave:</string>
 							<string>onSelectCategory:</string>
+							<string>onShowCategory:</string>
+							<string>onShowKeyboard:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -755,6 +823,14 @@
 								<string key="name">onSelectCategory:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+							<object class="IBActionInfo">
+								<string key="name">onShowCategory:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">onShowKeyboard:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -764,7 +840,7 @@
 							<string>catViewController</string>
 							<string>categoryButton</string>
 							<string>datePickerView</string>
-							<string>imageNoteView</string>
+							<string>imageButton</string>
 							<string>inputPlaceHolder</string>
 							<string>numPadView</string>
 							<string>uiDate</string>
@@ -776,7 +852,7 @@
 							<string>CategoryViewController</string>
 							<string>UIButton</string>
 							<string>UIView</string>
-							<string>UIImageView</string>
+							<string>UIButton</string>
 							<string>UIView</string>
 							<string>UIView</string>
 							<string>UIButton</string>
@@ -791,7 +867,7 @@
 							<string>catViewController</string>
 							<string>categoryButton</string>
 							<string>datePickerView</string>
-							<string>imageNoteView</string>
+							<string>imageButton</string>
 							<string>inputPlaceHolder</string>
 							<string>numPadView</string>
 							<string>uiDate</string>
@@ -813,8 +889,8 @@
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">imageNoteView</string>
-								<string key="candidateClassName">UIImageView</string>
+								<string key="name">imageButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">inputPlaceHolder</string>
@@ -890,15 +966,19 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addExpenseController</string>
+							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
+							<string>todayButton</string>
 							<string>todayController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIViewController</string>
+							<string>UIButton</string>
 							<string>UIViewController</string>
 							<string>UIView</string>
+							<string>UIButton</string>
 							<string>UIViewController</string>
 						</object>
 					</object>
@@ -907,8 +987,10 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addExpenseController</string>
+							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
+							<string>todayButton</string>
 							<string>todayController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -918,12 +1000,20 @@
 								<string key="candidateClassName">UIViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">historyButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">historyController</string>
 								<string key="candidateClassName">UIViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tabPanel</string>
 								<string key="candidateClassName">UIView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">todayButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">todayController</string>
@@ -980,6 +1070,8 @@
 							<string>headerView</string>
 							<string>plotView</string>
 							<string>transactionCell</string>
+							<string>transactionFooterCell</string>
+							<string>transactionHeaderCell</string>
 							<string>transactionView</string>
 							<string>uiDate</string>
 						</object>
@@ -989,6 +1081,8 @@
 							<string>UIView</string>
 							<string>UIView</string>
 							<string>UIView</string>
+							<string>UITableViewCell</string>
+							<string>UITableViewCell</string>
 							<string>UITableViewCell</string>
 							<string>UITableView</string>
 							<string>UIButton</string>
@@ -1003,6 +1097,8 @@
 							<string>headerView</string>
 							<string>plotView</string>
 							<string>transactionCell</string>
+							<string>transactionFooterCell</string>
+							<string>transactionHeaderCell</string>
 							<string>transactionView</string>
 							<string>uiDate</string>
 						</object>
@@ -1026,6 +1122,14 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">transactionCell</string>
+								<string key="candidateClassName">UITableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">transactionFooterCell</string>
+								<string key="candidateClassName">UITableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">transactionHeaderCell</string>
 								<string key="candidateClassName">UITableViewCell</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -1077,8 +1181,23 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">footer.png</string>
-			<string key="NS.object.0">{640, 95}</string>
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>add.transaction.png</string>
+				<string>footer.png</string>
+				<string>tab.button.png</string>
+				<string>tab.history.png</string>
+				<string>tab.today.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{16, 16}</string>
+				<string>{640, 95}</string>
+				<string>{16, 16}</string>
+				<string>{16, 16}</string>
+				<string>{16, 16}</string>
+			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>

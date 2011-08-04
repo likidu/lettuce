@@ -96,11 +96,8 @@ CGSize categoryButtonSize = {60, 72};
             button.titleLabel.lineBreakMode = UILineBreakModeTailTruncation;
             button.titleLabel.textAlignment = UITextAlignmentCenter;
             button.titleLabel.shadowOffset = CGSizeMake(0, 1);
-            CGRect titleFrame = [button titleRectForContentRect:buttonFrame];
-            CGRect imageFrame = [button imageRectForContentRect:buttonFrame];
-            button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
-            button.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
             [button addTarget:self action:@selector(categorySelected:) forControlEvents:UIControlEventTouchUpInside];
+            makeToolButton(button);
             button.tag = cat.categoryId;
             [scrollView addSubview:button];
         }
@@ -213,11 +210,10 @@ CGSize categoryButtonSize = {60, 72};
 
 - (void)categorySelected:(id)sender {
     UIButton* button = sender;
-    button.selected = YES;
     if (currentSelectedButton != nil)
         currentSelectedButton.selected = NO;
     currentSelectedButton = button;
-    NSLog(@"%@", button.titleLabel.text);
+    currentSelectedButton.selected = YES;
     [self.responder performSelector:self.onCategorySelected withObject:[NSNumber numberWithInt: button.tag]];
 }
 
