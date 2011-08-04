@@ -23171,9 +23171,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334172827.91534299</real>
+		<real>334172854.57675898</real>
 		<string>{4242, 1749}</string>
-		<string>{5345, 0}</string>
+		<string>{4869, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -49154,10 +49154,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334172827.91595203</real>
+		<real>334172854.57730502</real>
 		<string>{4242, 1749}</string>
-		<string>{5345, 0}</string>
-		<string>-tableView:cellForRowAtIndexPath:</string>
+		<string>{4869, 0}</string>
+		<string>-fillFooterCell:withTotal:withBalance:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
