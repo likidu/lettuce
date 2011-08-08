@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingView : UIViewController {
+@interface SettingView : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     
 }
 
+@property(nonatomic, retain) IBOutlet UITableView* settingTableView;
+@property(nonatomic, retain) IBOutlet UISwitch* yesNoSwitch;
+
 - (IBAction)onOk:(id)sender;
+- (IBAction)onSwitch;
+
+@property(nonatomic, retain) UIImage* imgAbout;
+@property(nonatomic, retain) UIImage* imgStartup;
+@property(nonatomic, retain) UIImage* imgBudget;
 
 @end

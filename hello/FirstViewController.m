@@ -33,7 +33,7 @@ static NSString* cellId = @"cellTransaction";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    budgetView = [[BuddgetView alloc]initWithNibName:@"BuddgetView" bundle:[NSBundle mainBundle]];
+    budgetView = [BudgetView instance];
     settingView = [[SettingView alloc]initWithNibName:@"SettingView" bundle:[NSBundle mainBundle]];
     newTransactionView = [[MiddleViewController alloc]initWithNibName:@"MiddleView" bundle:[NSBundle mainBundle]];
     
@@ -156,8 +156,8 @@ static NSString* cellId = @"cellTransaction";
     return cell.frame.size.height;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)onChangeBudget:(id)sender {

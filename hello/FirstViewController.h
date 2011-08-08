@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BuddgetView.h"
+#import "BudgetView.h"
 #import "SettingView.h"
 #import "MiddleViewController.h"
 
 @interface FirstViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
-    BuddgetView *budgetView;
+    BudgetView *budgetView;
     SettingView *settingView;
     MiddleViewController *newTransactionView;
 }

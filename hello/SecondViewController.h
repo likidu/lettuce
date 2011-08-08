@@ -24,6 +24,8 @@
 @property(nonatomic, retain) IBOutlet UIView* headerView;
 @property(nonatomic, retain) IBOutlet UIView* footerView;
 @property(nonatomic, retain) IBOutlet UIButton* uiDate;
+@property(nonatomic, retain) IBOutlet UIButton* switchExpense;
+@property(nonatomic, retain) IBOutlet UIButton* switchSaving;
 
 @property(nonatomic, retain) IBOutlet UIView* datePicker;
 @property(nonatomic, retain) IBOutlet UIView* plotView;
@@ -31,5 +33,7 @@
 - (IBAction) onEdit:(id)sender;
 - (IBAction) onPickDate:(id)sender;
 - (void)onEndPickDate:(NSDate*)day;
+- (IBAction) onSwitchExpense;
+- (IBAction) onSwitchSaving;
 
 @end

@@ -113,6 +113,10 @@
     activeController = todayController;
     todayButton.selected = YES;
     [activeController performSelector:@selector(viewWillAppear:)];
+    
+    // set parent
+    [todayController setParentViewController: self];
+    [historyController setParentViewController: self];
 }
 
 - (void)viewDidUnload

@@ -12,6 +12,7 @@
 #import "DatePickerFullScreen.h"
 #import "Database.h"
 #import "Statistics.h"
+#import "DropDownViewController.h"
 
 @implementation SecondViewController
 
@@ -26,6 +27,8 @@
 @synthesize footerView;
 @synthesize uiDate;
 @synthesize plotView;
+@synthesize switchExpense;
+@synthesize switchSaving;
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -49,18 +52,18 @@ static NSString* footerCellId = @"footerCellTransaction";
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return NO;
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+    /*if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         [plotView removeFromSuperview];
     }
     else {
         plotView.frame = self.view.frame;
         [self.view addSubview:plotView];
         [self.view bringSubviewToFront:plotView];
-    }
+    }*/
 }
 
 
@@ -90,7 +93,8 @@ static NSString* footerCellId = @"footerCellTransaction";
     self.dates = [expMan loadExpenseDates];
     self.transactionCache = [NSMutableDictionary dictionary];
     [transactionView reloadData];
-    transactionView.allowsSelection = NO;
+    switchExpense.selected = YES;
+    switchSaving.selected = NO;
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"yyyy年M月"];
@@ -202,73 +206,16 @@ static NSString* footerCellId = @"footerCellTransaction";
     return [self.dates count];
 }
 
-/*
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString* dateStr = [dateFormatter stringFromDate:[dates objectAtIndex:section]];
-    return dateStr;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0)
+        return NO;
+    
+    return YES;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    [[NSBundle mainBundle]loadNibNamed:@"HistoryTableViewHeader" owner:self options:nil];
-    UIView* view = self.headerView;
-    self.headerView = nil;
-    NSDateFormatter* dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
-    [dateFormatter setDateFormat:@"yyyy年MM月dd日"];
-    UILabel* label = (UILabel*)[view viewWithTag: 2];
-    label.text = [dateFormatter stringFromDate:[dates objectAtIndex:section]];
-    return view;
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
 }
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    [[NSBundle mainBundle]loadNibNamed:@"HistoryTableViewFooter" owner:self options:nil];
-    UIView* view = self.footerView;
-    self.footerView = nil;
-    UILabel* label = (UILabel*)[view viewWithTag: 2];
-    UIImageView* stamp = (UIImageView*)[view viewWithTag: 3];
-    if (section < dates.count) {
-        ExpenseManager* expMan = [ExpenseManager instance];
-        double balance = [expMan getBalanceOfDay:[dates objectAtIndex:section]];
-        NSString* balanceStr;
-        if (balance < 0.0)
-            balanceStr = [NSString stringWithFormat:@"共超支 ¥ %.2f", -balance];
-        else if (compareDate([dates objectAtIndex: section], [NSDate date]))
-            balanceStr = [NSString stringWithFormat:@"预算还剩 ¥ %.2f", balance];
-        else
-            balanceStr = [NSString stringWithFormat:@"共节省 ¥ %.2f", balance];
-        label.text = balanceStr;
-        stamp.hidden = balance >= 0.0;
-    }
-    return view;    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 25;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 35;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section < dates.count) {
-        ExpenseManager* expMan = [ExpenseManager instance];
-        double totalExpense = [expMan loadTotalOfDay:[dates objectAtIndex:section]];
-        double balance = [expMan getBalanceOfDay:[dates objectAtIndex:section]];
-        NSString* balanceStr;
-        if (balance < 0.0)
-            balanceStr = [NSString stringWithFormat:@"共超支 ¥ %.2f", -balance];
-        else if (compareDate([dates objectAtIndex: section], [NSDate date]))
-            balanceStr = [NSString stringWithFormat:@"预算还剩 ¥ %.2f", balance];
-        else
-            balanceStr = [NSString stringWithFormat:@"共节省 ¥ %.2f", balance];
-        return balanceStr;
-        return [NSString stringWithFormat:@"总消费 ¥ %.2f\n%@", totalExpense, balanceStr];
-    }
-    return @"";
-}
- */
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
@@ -297,14 +244,27 @@ static NSString* footerCellId = @"footerCellTransaction";
     NSDate* day = [dates objectAtIndex: indexPath.section];
     // delete the expense from database
     NSArray* expenses = [transactionCache objectForKey:day];
-    Expense* expense = [expenses objectAtIndex: indexPath.row];
+    Expense* expense = [expenses objectAtIndex: indexPath.row - 1];
     ExpenseManager* expMan = [ExpenseManager instance];
     [expMan deleteExpenseById: expense.expenseId];
     // reload cache
     [self forceLoadTransactionOfDateToCache: day];
-    
-    NSArray * array = [NSArray arrayWithObjects:indexPath, nil];
-    [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+    expenses = [transactionCache objectForKey:day];
+    if (expenses.count < 1) {
+        // also refresh the dates collections
+        self.dates = [[ExpenseManager instance]loadExpenseDates];
+        // delete the whole section
+        NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:indexPath.section];
+        [tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else {
+        NSArray * array = [NSArray arrayWithObjects:indexPath, nil];
+        [tableView deleteRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)onEdit:(id)sender {
@@ -318,12 +278,24 @@ static NSString* footerCellId = @"footerCellTransaction";
 }
 
 - (void)onPickDate:(id)sender {
-    DatePickerFullScreen* picker = [DatePickerFullScreen instance];
-    picker.reactor = @selector(onEndPickDate:);
-    [self presentModalViewController:picker animated:YES];
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity:20];
+    for (int i = 0; i < 20; i++) {
+        [array addObject:[NSDate date]];
+    }
+    [DropDownViewController presentDropDownList:array withDelegate:self targetView:uiDate atPosition:DropDownListPositionDown withSize:CGSizeMake(150, 200)];
 }
 
 - (void)onEndPickDate:(NSDate*)day {
+}
+
+- (void)onSwitchExpense {
+    switchSaving.selected = NO;
+    switchExpense.selected = YES;
+}
+
+- (void)onSwitchSaving {
+    switchSaving.selected = YES;
+    switchExpense.selected = NO;
 }
 
 - (void)dealloc
