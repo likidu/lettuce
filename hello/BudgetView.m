@@ -6,13 +6,21 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "BuddgetView.h"
+#import "BudgetView.h"
 #import "BudgetManager.h"
 
-@implementation BuddgetView
+@implementation BudgetView
 
 @synthesize uiBudgetEditBox;
 @synthesize uiVacationBudgetEditBox;
+
+static BudgetView* g_budgetView = nil;
+
++ (BudgetView *)instance {
+    if (!g_budgetView)
+        g_budgetView = [[BudgetView alloc]initWithNibName:@"BudgetView" bundle:[NSBundle mainBundle]];
+    return g_budgetView;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

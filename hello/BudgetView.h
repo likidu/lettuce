@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BuddgetView : UIViewController {
+@interface BudgetView : UIViewController {
     
 }
 
@@ -18,5 +18,7 @@
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onSave:(id)sender;
+
++ (BudgetView*)instance;
 
 @end
