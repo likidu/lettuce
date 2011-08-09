@@ -136,7 +136,7 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Some notes here</string>
-						<object class="NSFont" key="IBUIFont" id="446200702">
+						<object class="NSFont" key="IBUIFont" id="133384597">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
@@ -157,7 +157,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="446200702"/>
+						<reference key="IBUIFont" ref="133384597"/>
 						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 						<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
@@ -167,7 +167,7 @@
 							<int key="NSColorSpace">2</int>
 							<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor" id="413202314">
+						<object class="NSColor" key="IBUINormalTitleColor" id="698204368">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
@@ -198,7 +198,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<reference key="IBUINormalTitleColor" ref="413202314"/>
+						<reference key="IBUINormalTitleColor" ref="698204368"/>
 						<reference key="IBUINormalTitleShadowColor" ref="847149283"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
@@ -622,7 +622,7 @@
 							<string key="NSResourceName">calc.minus.png</string>
 						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="387027010">
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="362008120">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">calc.button.green.png</string>
 						</object>
@@ -704,8 +704,8 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">calc.multiply.png</string>
 						</object>
-						<reference key="IBUIHighlightedBackgroundImage" ref="387027010"/>
-						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="362008120"/>
+						<reference key="IBUINormalBackgroundImage" ref="362008120"/>
 					</object>
 					<object class="IBUIButton" id="274387382">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -763,7 +763,7 @@
 							<string key="NSResourceName">calc.delete.png</string>
 						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
+						<reference key="IBUINormalBackgroundImage" ref="362008120"/>
 					</object>
 					<object class="IBUIButton" id="57378522">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -787,7 +787,7 @@
 							<string key="NSResourceName">calc.divide.png</string>
 						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
+						<reference key="IBUINormalBackgroundImage" ref="362008120"/>
 					</object>
 					<object class="IBUIButton" id="683557100">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -866,8 +866,8 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">calc.plus.png</string>
 						</object>
-						<reference key="IBUIHighlightedBackgroundImage" ref="387027010"/>
-						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
+						<reference key="IBUIHighlightedBackgroundImage" ref="362008120"/>
+						<reference key="IBUINormalBackgroundImage" ref="362008120"/>
 					</object>
 					<object class="IBUIButton" id="566408172">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -947,7 +947,7 @@
 							<string key="NSResourceName">calc.point.png</string>
 						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
+						<reference key="IBUINormalBackgroundImage" ref="362008120"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 215}</string>
@@ -1790,7 +1790,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">315</int>
+			<int key="maxID">316</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

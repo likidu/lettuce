@@ -32,7 +32,6 @@
 
 - (IBAction) onEdit:(id)sender;
 - (IBAction) onPickDate:(id)sender;
-- (void)onEndPickDate:(NSDate*)day;
 - (IBAction) onSwitchExpense;
 - (IBAction) onSwitchSaving;
 

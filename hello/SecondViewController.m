@@ -9,10 +9,8 @@
 #import "SecondViewController.h"
 #import "ExpenseManager.h"
 #import "CategoryManager.h"
-#import "DatePickerFullScreen.h"
 #import "Database.h"
 #import "Statistics.h"
-#import "DropDownViewController.h"
 
 @implementation SecondViewController
 
@@ -278,14 +276,7 @@ static NSString* footerCellId = @"footerCellTransaction";
 }
 
 - (void)onPickDate:(id)sender {
-    NSMutableArray* array = [NSMutableArray arrayWithCapacity:20];
-    for (int i = 0; i < 20; i++) {
-        [array addObject:[NSDate date]];
-    }
-    [DropDownViewController presentDropDownList:array withDelegate:self targetView:uiDate atPosition:DropDownListPositionDown withSize:CGSizeMake(150, 200)];
-}
 
-- (void)onEndPickDate:(NSDate*)day {
 }
 
 - (void)onSwitchExpense {

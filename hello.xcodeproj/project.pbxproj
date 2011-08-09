@@ -97,8 +97,6 @@
 		1AA305B113CC8ECD0032296C /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3058313CC8ECD0032296C /* workout.png */; };
 		1AA305B413CCAD5E0032296C /* misc_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA305B213CCAD5E0032296C /* misc_h.png */; };
 		1AA305B513CCAD5E0032296C /* misc.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA305B313CCAD5E0032296C /* misc.png */; };
-		1AA6B49413EE2EEA004E2E29 /* DropDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6B49213EE2EEA004E2E29 /* DropDownViewController.m */; };
-		1AA6B49513EE2EEA004E2E29 /* DropDownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA6B49313EE2EEA004E2E29 /* DropDownViewController.xib */; };
 		1AA6C1F713D2AB1E002CE001 /* Statistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6C1F613D2AB1E002CE001 /* Statistics.m */; };
 		1AA6C1FB13D2BC3A002CE001 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6C1FA13D2BC39002CE001 /* PlotView.m */; };
 		1AA75C0E13F1542E00D8016E /* sticker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C0B13F1542E00D8016E /* sticker.png */; };
@@ -130,6 +128,10 @@
 		1AA75C4413F198BE00D8016E /* settings.about.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C4013F198BE00D8016E /* settings.about.png */; };
 		1AA75C4513F198BE00D8016E /* settings.budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C4113F198BE00D8016E /* settings.budget.png */; };
 		1AA75C4613F198BE00D8016E /* settings.startup.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C4213F198BE00D8016E /* settings.startup.png */; };
+		1AA75CE413F19D7800D8016E /* switch.amount.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75CE013F19D7800D8016E /* switch.amount.png */; };
+		1AA75CE513F19D7800D8016E /* switch.amount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75CE113F19D7800D8016E /* switch.amount@2x.png */; };
+		1AA75CE613F19D7800D8016E /* switch.category.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75CE213F19D7800D8016E /* switch.category.png */; };
+		1AA75CE713F19D7800D8016E /* switch.category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75CE313F19D7800D8016E /* switch.category@2x.png */; };
 		1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD1391132BB1B00035BA92 /* UIKit.framework */; };
 		1AAD1394132BB1B00035BA92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD1393132BB1B00035BA92 /* Foundation.framework */; };
 		1AAD1396132BB1B00035BA92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD1395132BB1B00035BA92 /* CoreGraphics.framework */; };
@@ -293,9 +295,6 @@
 		1AA3058313CC8ECD0032296C /* workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workout.png; path = cats/workout.png; sourceTree = "<group>"; };
 		1AA305B213CCAD5E0032296C /* misc_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = misc_h.png; path = cats/misc_h.png; sourceTree = "<group>"; };
 		1AA305B313CCAD5E0032296C /* misc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = misc.png; path = cats/misc.png; sourceTree = "<group>"; };
-		1AA6B49113EE2EEA004E2E29 /* DropDownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownViewController.h; sourceTree = "<group>"; };
-		1AA6B49213EE2EEA004E2E29 /* DropDownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownViewController.m; sourceTree = "<group>"; };
-		1AA6B49313EE2EEA004E2E29 /* DropDownViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownViewController.xib; sourceTree = "<group>"; };
 		1AA6C1F513D2AB1E002CE001 /* Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistics.h; sourceTree = "<group>"; };
 		1AA6C1F613D2AB1E002CE001 /* Statistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statistics.m; sourceTree = "<group>"; };
 		1AA6C1F913D2BC39002CE001 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
@@ -329,6 +328,10 @@
 		1AA75C4013F198BE00D8016E /* settings.about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.about.png; path = arts/settings.about.png; sourceTree = "<group>"; };
 		1AA75C4113F198BE00D8016E /* settings.budget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.budget.png; path = arts/settings.budget.png; sourceTree = "<group>"; };
 		1AA75C4213F198BE00D8016E /* settings.startup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.startup.png; path = arts/settings.startup.png; sourceTree = "<group>"; };
+		1AA75CE013F19D7800D8016E /* switch.amount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch.amount.png; path = arts/switch.amount.png; sourceTree = "<group>"; };
+		1AA75CE113F19D7800D8016E /* switch.amount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch.amount@2x.png"; path = "arts/switch.amount@2x.png"; sourceTree = "<group>"; };
+		1AA75CE213F19D7800D8016E /* switch.category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch.category.png; path = arts/switch.category.png; sourceTree = "<group>"; };
+		1AA75CE313F19D7800D8016E /* switch.category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch.category@2x.png"; path = "arts/switch.category@2x.png"; sourceTree = "<group>"; };
 		1AAD138D132BB1B00035BA92 /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AAD1391132BB1B00035BA92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1AAD1393132BB1B00035BA92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -505,6 +508,10 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AA75CE013F19D7800D8016E /* switch.amount.png */,
+				1AA75CE113F19D7800D8016E /* switch.amount@2x.png */,
+				1AA75CE213F19D7800D8016E /* switch.category.png */,
+				1AA75CE313F19D7800D8016E /* switch.category@2x.png */,
 				1AA75C3F13F198BE00D8016E /* photo.png */,
 				1AA75C4013F198BE00D8016E /* settings.about.png */,
 				1AA75C4113F198BE00D8016E /* settings.budget.png */,
@@ -697,9 +704,6 @@
 				1AD88A6513ED90C100804635 /* ExpenseHistoryViewController.h */,
 				1AD88A6613ED90C200804635 /* ExpenseHistoryViewController.m */,
 				1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */,
-				1AA6B49113EE2EEA004E2E29 /* DropDownViewController.h */,
-				1AA6B49213EE2EEA004E2E29 /* DropDownViewController.m */,
-				1AA6B49313EE2EEA004E2E29 /* DropDownViewController.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -863,7 +867,6 @@
 				1AD88A2213ED6C8800804635 /* settings.startup@2x.png in Resources */,
 				1AD88A6913ED90C300804635 /* ExpenseHistoryViewController.xib in Resources */,
 				1AD88A6F13ED96D800804635 /* AboutViewController.xib in Resources */,
-				1AA6B49513EE2EEA004E2E29 /* DropDownViewController.xib in Resources */,
 				1AF99C3D13F04E7A008DF7D0 /* add.transaction.png in Resources */,
 				1AF99C3E13F04E7A008DF7D0 /* tab.button.png in Resources */,
 				1AF99C3F13F04E7A008DF7D0 /* tab.history.png in Resources */,
@@ -912,6 +915,10 @@
 				1AA75C4413F198BE00D8016E /* settings.about.png in Resources */,
 				1AA75C4513F198BE00D8016E /* settings.budget.png in Resources */,
 				1AA75C4613F198BE00D8016E /* settings.startup.png in Resources */,
+				1AA75CE413F19D7800D8016E /* switch.amount.png in Resources */,
+				1AA75CE513F19D7800D8016E /* switch.amount@2x.png in Resources */,
+				1AA75CE613F19D7800D8016E /* switch.category.png in Resources */,
+				1AA75CE713F19D7800D8016E /* switch.category@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,7 +948,6 @@
 				1AA6C1FB13D2BC3A002CE001 /* PlotView.m in Sources */,
 				1AD88A6813ED90C300804635 /* ExpenseHistoryViewController.m in Sources */,
 				1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */,
-				1AA6B49413EE2EEA004E2E29 /* DropDownViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
