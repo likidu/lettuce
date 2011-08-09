@@ -37,6 +37,7 @@
         // Custom initialization
         self.currentDate = [NSDate date];
         editingExpense_ = nil;
+        needReset_ = YES;
         self.imageUnknown = [UIImage imageNamed:@"unknown.png"];
     }
     return self;
@@ -45,6 +46,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil editItem:(Expense *)expense {
     id ret = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     editingExpense_ = [expense retain];
+    needReset_ = YES;
     return ret;
 }
 
@@ -188,8 +190,8 @@
     uiNumber.text = [NSString stringWithFormat:@"¥ %.2f", dispNumber];
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
-    [formatter setDateFormat:@"M月d日"];
-    
+    [formatter setDateFormat:@"M月d日\nEEEE"];
+
     [uiDate setTitle:[formatter stringFromDate:self.currentDate] forState:UIControlStateNormal];
 }
 
@@ -292,6 +294,9 @@
 #pragma mark - View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated {
+    if (!needReset_)
+        return;
+    needReset_ = NO;
     prevNumber = 0.0;
     curNumber = 0.0;
     activeOp = opNone;
@@ -314,6 +319,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    needReset_ = YES;
 }
 
 - (void)viewDidLoad

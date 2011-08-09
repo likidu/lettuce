@@ -135,10 +135,10 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText"/>
-						<object class="NSFont" key="IBUIFont" id="19121952">
+						<string key="IBUIText">Some notes here</string>
+						<object class="NSFont" key="IBUIFont" id="446200702">
 							<string key="NSName">Helvetica</string>
-							<double key="NSSize">12</double>
+							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -157,19 +157,19 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">18</double>
-							<int key="NSfFlags">16</int>
-						</object>
+						<reference key="IBUIFont" ref="446200702"/>
+						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
+						<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+						<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
+						<int key="IBUILineBreakMode">1</int>
 						<string key="IBUINormalTitle">3月25日</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="180253925">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
+						<object class="NSColor" key="IBUIHighlightedTitleColor">
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor" id="1053774872">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MAA</bytes>
+						<object class="NSColor" key="IBUINormalTitleColor" id="413202314">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
 						<object class="NSColor" key="IBUINormalTitleShadowColor" id="847149283">
 							<int key="NSColorSpace">3</int>
@@ -187,14 +187,18 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="19121952"/>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">12</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<int key="IBUILineBreakMode">4</int>
-						<reference key="IBUIHighlightedTitleColor" ref="180253925"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="180253925">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
 						</object>
+						<reference key="IBUINormalTitleColor" ref="413202314"/>
 						<reference key="IBUINormalTitleShadowColor" ref="847149283"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
@@ -401,11 +405,12 @@
 						</object>
 						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<reference key="IBUIHighlightedTitleColor" ref="180253925"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
+						<reference key="IBUINormalTitleColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="847149283"/>
+						<object class="NSCustomResource" key="IBUIHighlightedImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">camera.selected.png</string>
+						</object>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">camera.png</string>
@@ -416,7 +421,10 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="801563219"/>
-				<reference key="IBUIBackgroundColor" ref="1053774872"/>
+				<object class="NSColor" key="IBUIBackgroundColor" id="1053774872">
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MAA</bytes>
+				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -605,18 +613,19 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="547518244"/>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">6</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">-</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.minus.png</string>
+						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="387027010">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.button.green.png</string>
+						</object>
 					</object>
 					<object class="IBUIButton" id="146208706">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -687,18 +696,16 @@
 							<double key="NSSize">36</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">8</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">x</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
-						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.multiply.png</string>
+						</object>
+						<reference key="IBUIHighlightedBackgroundImage" ref="387027010"/>
+						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
 					</object>
 					<object class="IBUIButton" id="274387382">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -747,18 +754,16 @@
 							<double key="NSSize">36</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">7</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">&lt;</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.delete.png</string>
+						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
 					</object>
 					<object class="IBUIButton" id="57378522">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -773,18 +778,16 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="992167111"/>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">2</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">/</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.divide.png</string>
+						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
 					</object>
 					<object class="IBUIButton" id="683557100">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -855,18 +858,16 @@
 							<double key="NSSize">42</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">5</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">＋</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
-						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.plus.png</string>
+						</object>
+						<reference key="IBUIHighlightedBackgroundImage" ref="387027010"/>
+						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
 					</object>
 					<object class="IBUIButton" id="566408172">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -937,18 +938,16 @@
 							<double key="NSSize">48</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<double key="IBUIContentEdgeInsets.top">0.0</double>
-						<double key="IBUIContentEdgeInsets.bottom">12</double>
-						<double key="IBUIContentEdgeInsets.left">0.0</double>
-						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUITitleShadowOffset">{0, 1}</string>
-						<string key="IBUINormalTitle">.</string>
 						<reference key="IBUIHighlightedTitleColor" ref="1053774872"/>
 						<reference key="IBUINormalTitleColor" ref="1053774872"/>
 						<reference key="IBUIHighlightedTitleShadowColor" ref="180253925"/>
 						<reference key="IBUINormalTitleShadowColor" ref="180253925"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">calc.point.png</string>
+						</object>
 						<reference key="IBUIHighlightedBackgroundImage" ref="153468241"/>
-						<reference key="IBUINormalBackgroundImage" ref="254014570"/>
+						<reference key="IBUINormalBackgroundImage" ref="387027010"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 215}</string>
@@ -1453,7 +1452,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<reference ref="193735299"/>
 							<reference ref="1009741341"/>
 							<reference ref="943534583"/>
-							<reference ref="658162124"/>
 							<reference ref="146208706"/>
 							<reference ref="439641815"/>
 							<reference ref="274387382"/>
@@ -1466,6 +1464,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<reference ref="837813047"/>
 							<reference ref="46652552"/>
 							<reference ref="566408172"/>
+							<reference ref="658162124"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1697,6 +1696,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>261.IBPluginDependency</string>
 					<string>296.IBPluginDependency</string>
 					<string>307.IBPluginDependency</string>
+					<string>307.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>311.IBPluginDependency</string>
 					<string>312.IBPluginDependency</string>
 					<string>62.IBPluginDependency</string>
@@ -1737,35 +1737,36 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -2068,7 +2069,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
 				<string>buttonbg.png</string>
+				<string>calc.button.green.png</string>
+				<string>calc.delete.png</string>
+				<string>calc.divide.png</string>
+				<string>calc.minus.png</string>
+				<string>calc.multiply.png</string>
+				<string>calc.plus.png</string>
+				<string>calc.point.png</string>
 				<string>camera.png</string>
+				<string>camera.selected.png</string>
 				<string>dotline.png</string>
 				<string>frame.png</string>
 				<string>greenpaper.png</string>
@@ -2085,7 +2094,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
 				<string>{141, 92}</string>
-				<string>{16, 16}</string>
+				<string>{71, 46}</string>
+				<string>{37, 25}</string>
+				<string>{25, 26}</string>
+				<string>{24, 7}</string>
+				<string>{25, 26}</string>
+				<string>{28, 29}</string>
+				<string>{8, 8}</string>
+				<string>{24, 24}</string>
+				<string>{24, 24}</string>
 				<string>{595, 1}</string>
 				<string>{38, 38}</string>
 				<string>{640, 744}</string>

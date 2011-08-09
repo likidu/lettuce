@@ -104,9 +104,9 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
-							<object class="NSFont" key="IBUIFont" id="399204237">
+							<object class="NSFont" key="IBUIFont" id="79121249">
 								<string key="NSName">STHeitiSC-Medium</string>
-								<double key="NSSize">9</double>
+								<double key="NSSize">12</double>
 								<int key="NSfFlags">16</int>
 							</object>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
@@ -142,11 +142,14 @@
 							</object>
 							<reference key="IBUISelectedImage" ref="372336354"/>
 							<reference key="IBUINormalImage" ref="372336354"/>
-							<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="1065202427">
+							<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="525582632">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.down.png</string>
+							</object>
+							<object class="NSCustomResource" key="IBUISelectedBackgroundImage" id="809709344">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.button.png</string>
 							</object>
-							<reference key="IBUISelectedBackgroundImage" ref="1065202427"/>
 						</object>
 						<object class="IBUIButton" id="791599657">
 							<reference key="NSNextResponder" ref="1028872197"/>
@@ -194,7 +197,7 @@
 								<string key="NSResourceName">add.transaction.png</string>
 							</object>
 							<reference key="IBUINormalImage" ref="952050990"/>
-							<reference key="IBUIHighlightedBackgroundImage" ref="1065202427"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="525582632"/>
 						</object>
 						<object class="IBUIButton" id="109644574">
 							<reference key="NSNextResponder" ref="1028872197"/>
@@ -207,7 +210,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
-							<reference key="IBUIFont" ref="399204237"/>
+							<reference key="IBUIFont" ref="79121249"/>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
@@ -241,8 +244,8 @@
 							</object>
 							<reference key="IBUISelectedImage" ref="336145608"/>
 							<reference key="IBUINormalImage" ref="336145608"/>
-							<reference key="IBUIHighlightedBackgroundImage" ref="1065202427"/>
-							<reference key="IBUISelectedBackgroundImage" ref="1065202427"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="525582632"/>
+							<reference key="IBUISelectedBackgroundImage" ref="809709344"/>
 						</object>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -516,7 +519,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="2"/>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1229,6 +1232,7 @@
 				<string>add.transaction.png</string>
 				<string>footer.png</string>
 				<string>tab.button.png</string>
+				<string>tab.down.png</string>
 				<string>tab.history.png</string>
 				<string>tab.today.png</string>
 			</object>
@@ -1236,6 +1240,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{27, 26}</string>
 				<string>{324, 48}</string>
+				<string>{90, 40}</string>
 				<string>{90, 40}</string>
 				<string>{27, 26}</string>
 				<string>{26, 26}</string>

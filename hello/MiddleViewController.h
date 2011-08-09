@@ -47,6 +47,7 @@ typedef enum _Operator {
     BOOL isCurNumberDirty;
     UIView* activeFloatingView;
     Expense* editingExpense_;
+    BOOL needReset_;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil editItem:(Expense*)expense;
