@@ -39,6 +39,10 @@ static ExpenseHistoryViewController* g_instance = nil;
     self.dates = [[ExpenseManager instance]loadExpenseDates];
 }
 
+static NSString* expenseCellId = @"expenseCell";
+static NSString* headerCellId = @"headerCell";
+static NSString* footerCellId = @"footerCell";
+
 - (void)loadExpenseCell{
     if (expenseCell)
         return;
