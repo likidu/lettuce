@@ -400,17 +400,9 @@
 }
 
 - (void)onPickPhoto:(id)sender {
-    UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"用户相册", nil]autorelease];
+    UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"用户相册", nil]autorelease];
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
     [actionSheet showInView: self.view];
-}
-
-- (void)onShowCategory:(id)sender {
-    
-}
-
-- (void)onShowKeyboard:(id)sender {
-    [self.uiNotes becomeFirstResponder];
 }
 
 - (void)viewDidUnload

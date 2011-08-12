@@ -33,6 +33,8 @@
 
 - (NSArray*) loadExpensesOfDay : (NSDate*) date orderBy : (NSString*)fieldName ascending : (BOOL)isAscending;
 
+- (NSArray*) loadMonths;
+
 - (NSArray*) loadExpenseDates;
 
 - (double) loadTotalOfDay : (NSDate*) date;

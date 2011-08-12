@@ -49,11 +49,43 @@ NSString* formatDisplayDate(NSDate* date) {
     return [formatter stringFromDate:date];
 }
 
+NSString* formatMonthString(NSDate* dayOfMonth) {
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat: @"yyyy年M月"];
+    return [formatter stringFromDate:dayOfMonth];
+}
+
 NSDate* dateFromSqlDate(NSString* dateStr){    
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     [formatter setTimeZone:[NSTimeZone  timeZoneWithAbbreviation:@"UTC"]];
     return [formatter dateFromString:dateStr];
+}
+
+NSDate* dateFromMonthString(NSString* monthStr, BOOL isFirstDay) {
+    NSArray* subStrs = [monthStr componentsSeparatedByString:@"-"];
+    if (subStrs.count != 2)
+        return nil;
+    NSDateComponents* comp = [[[NSDateComponents alloc]init]autorelease];
+    int year = [[subStrs objectAtIndex:0]intValue];
+    int month = [[subStrs objectAtIndex:1]intValue];
+
+    int day = 1;
+    if (!isFirstDay) {
+        day = getNumberOfDaysInMonth(month, year);
+    }
+    [comp setYear:year];
+    [comp setMonth:month];
+    [comp setDay:day];
+    return [[NSCalendar currentCalendar]dateFromComponents:comp];
+}
+
+NSDate* firstDayOfMonth(NSDate* dayOfMonth) {
+    return dateFromMonthString(formatMonthString(dayOfMonth), YES);
+}
+
+NSDate* lastDayOfMonth(NSDate* dayOfMonth) {
+    return dateFromMonthString(formatMonthString(dayOfMonth), NO);
 }
 
 BOOL isWeekend(NSDate* date) {
@@ -126,6 +158,19 @@ NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
     return [NSArray arrayWithArray:array];
 }
 
+BOOL isSameDay(NSDate* day1, NSDate* day2){
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day1];
+    NSDateComponents* comp2 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day2];
+    return (comp1.year == comp2.year && comp1.month == comp2.month && comp1.day == comp2.day);
+}
+
+BOOL isSameMonth(NSDate* day1, NSDate* day2) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day1];
+    NSDateComponents* comp2 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day2];
+    return (comp1.year == comp2.year && comp1.month == comp2.month);
+}
 
 void makeToolButton(UIButton* button) {
     CGRect titleFrame = [button titleRectForContentRect:button.frame];

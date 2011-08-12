@@ -7,15 +7,62 @@
 //
 
 #import "ExpenseHistoryViewController.h"
-
+#import "ExpenseManager.h"
+#import "Utility.h"
+#import "Database.h"
+#import "CategoryManager.h"
 
 @implementation ExpenseHistoryViewController
+
+static ExpenseHistoryViewController* g_instance = nil;
+
++ (ExpenseHistoryViewController *)instance {
+    if (!g_instance)
+        g_instance = [[ExpenseHistoryViewController alloc]initWithStyle:UITableViewStylePlain];
+    return g_instance;
+}
+
++ (void)dispose {
+    [g_instance release];
+    g_instance = nil;
+}
+
+@synthesize startDate;
+@synthesize endDate;
+@synthesize expenseCell;
+@synthesize headerCell;
+@synthesize footerCell;
+@synthesize dates;
+@synthesize expenseDictionary;
+
+- (void)reload {
+    self.dates = [[ExpenseManager instance]loadExpenseDates];
+}
+
+- (void)loadExpenseCell{
+    if (expenseCell)
+        return;
+    [[NSBundle mainBundle]loadNibNamed:@"ExpenseCell" owner:self options:nil];
+}
+
+- (void)loadHeaderCell{
+    if (headerCell)
+        return;
+    [[NSBundle mainBundle]loadNibNamed:@"HeaderCell" owner:self options:nil];
+}
+
+- (void)loadFooterCell{
+    if (footerCell)
+        return;
+    [[NSBundle mainBundle]loadNibNamed:@"FooterCell" owner:self options:nil];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.startDate = [NSDate date];
+        self.endDate = [NSDate date];
     }
     return self;
 }
@@ -23,6 +70,8 @@
 - (void)dealloc
 {
     [super dealloc];
+    self.startDate = nil;
+    self.endDate = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,8 +98,9 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.expenseCell = nil;
+    self.headerCell = nil;
+    self.footerCell = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,14 +133,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }

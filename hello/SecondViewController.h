@@ -7,32 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlotView.h"
+#import "MonthPickerController.h"
+
+@protocol DateRangeResponder <NSObject>
+
+@required
+- (void)setStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
+
+@end
 
 
-@interface SecondViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>{
+@interface SecondViewController : UIViewController <MonthPickerControllerDelegate>{
 
 }
 
-@property(nonatomic, retain) NSArray* dates;
-@property(nonatomic, retain) NSMutableDictionary* transactionCache;
+@property(nonatomic, retain) NSArray* months;
+@property(nonatomic, retain) NSDate* currentMonth;
+@property(nonatomic, retain) MonthPickerController* monthPicker;
 
-@property(nonatomic, retain) IBOutlet UITableViewCell* transactionCell;
-@property(nonatomic, retain) IBOutlet UITableViewCell* transactionHeaderCell;
-@property(nonatomic, retain) IBOutlet UITableViewCell* transactionFooterCell;
-@property(nonatomic, retain) IBOutlet UITableView* transactionView;
-@property(nonatomic, retain) IBOutlet UIView* headerView;
-@property(nonatomic, retain) IBOutlet UIView* footerView;
-@property(nonatomic, retain) IBOutlet UIButton* uiDate;
-@property(nonatomic, retain) IBOutlet UIButton* switchExpense;
-@property(nonatomic, retain) IBOutlet UIButton* switchSaving;
+@property(nonatomic, retain) IBOutlet UIView* monthPickerPlaceholder;
+@property(nonatomic, retain) IBOutlet UIView* switchPlaceholder;
+@property(nonatomic, retain) IBOutlet UIView* expenseSwitch;
+@property(nonatomic, retain) IBOutlet UIView* filterSwitch;
+@property(nonatomic, retain) IBOutlet UIButton* filterButton;
 
-@property(nonatomic, retain) IBOutlet UIView* datePicker;
-@property(nonatomic, retain) IBOutlet UIView* plotView;
-
-- (IBAction) onEdit:(id)sender;
-- (IBAction) onPickDate:(id)sender;
-- (IBAction) onSwitchExpense;
-- (IBAction) onSwitchSaving;
+- (IBAction)onEdit:(id)sender;
+- (IBAction)onFilter;
 
 @end

@@ -93,6 +93,18 @@ static ExpenseManager* g_instance = nil;
     return array;
 }
 
+- (NSArray *)loadMonths{
+    NSString* sql = @"select distinct strftime('%Y-%m', date) as month from expense order by month";
+    NSMutableArray* array = [NSMutableArray array];
+    Database* db = [Database instance];
+    NSArray* records = [db execute:sql];
+    for (NSDictionary* dict in records) {
+        NSDate* firstDayOfMonth = dateFromMonthString([dict objectForKey:@"month"], YES);
+        [array addObject: firstDayOfMonth];
+    }
+    return array;    
+}
+
 - (void)translateTotalOfDay : (NSMutableDictionary*)dict : (id)param {
     NSMutableArray* array = (NSMutableArray*)param;
     [array addObject:[NSNumber numberWithDouble:[[dict objectForKey:@"TotalExpense"] doubleValue]]];

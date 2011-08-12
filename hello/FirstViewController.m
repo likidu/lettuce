@@ -17,9 +17,7 @@
 @implementation FirstViewController
 
 @synthesize budgetLabel;
-@synthesize transactionCell;
-@synthesize transactionHeaderCell;
-@synthesize transactionFooterCell;
+@synthesize expenseCell;
 @synthesize dateLabel;
 @synthesize balanceLabel;
 @synthesize savingLabel;
@@ -40,10 +38,10 @@ static NSString* cellId = @"cellTransaction";
 }
 
 - (void)loadCellFromNib {
-    if (transactionCell != nil)
+    if (expenseCell != nil)
         return;
     
-    [[NSBundle mainBundle] loadNibNamed:@"CellTransaction" owner:self options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"ExpenseCell" owner:self options:nil];
 }
 
 
@@ -102,8 +100,8 @@ static NSString* cellId = @"cellTransaction";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         [self loadCellFromNib];
-        cell = transactionCell;
-        self.transactionCell = nil;
+        cell = expenseCell;
+        self.expenseCell = nil;
     }
     UIImageView *catImage = (UIImageView*)[cell viewWithTag:1];
     UILabel *catName = (UILabel*)[cell viewWithTag:2];
@@ -146,14 +144,9 @@ static NSString* cellId = @"cellTransaction";
     return 0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        [self loadCellFromNib];
-        cell = transactionCell;
-        self.transactionCell = nil;
-    }
-    return cell.frame.size.height;
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 36;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

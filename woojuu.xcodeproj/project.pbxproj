@@ -61,8 +61,13 @@
 		1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */; };
 		1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */; };
 		1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */; };
-		1A6B5E4F13F2C4B6007BC798 /* CellTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5013F2C4B7007BC798 /* CellTransaction.xib */; };
+		1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */; };
 		1A6B5E5113F2C4C2007BC798 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */; };
+		1A6B5E5513F2EA75007BC798 /* ExpenseCellWithDate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */; };
+		1A6B5E5713F2EBCB007BC798 /* CellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */; };
+		1A6B5E5913F2EBFF007BC798 /* CellFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */; };
+		1A9430B313F418870040D62B /* MonthPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9430B113F418870040D62B /* MonthPickerController.m */; };
+		1A9430B413F418870040D62B /* MonthPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9430B213F418870040D62B /* MonthPickerController.xib */; };
 		1AA03954135A8D3500245B2C /* ExpenseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA03953135A8D3400245B2C /* ExpenseManager.m */; };
 		1AA3058413CC8ECD0032296C /* accesories_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3055613CC8ECD0032296C /* accesories_h.png */; };
 		1AA3058513CC8ECD0032296C /* accesories.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA3055713CC8ECD0032296C /* accesories.png */; };
@@ -111,7 +116,6 @@
 		1AA305B413CCAD5E0032296C /* misc_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA305B213CCAD5E0032296C /* misc_h.png */; };
 		1AA305B513CCAD5E0032296C /* misc.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA305B313CCAD5E0032296C /* misc.png */; };
 		1AA6C1F713D2AB1E002CE001 /* Statistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6C1F613D2AB1E002CE001 /* Statistics.m */; };
-		1AA6C1FB13D2BC3A002CE001 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA6C1FA13D2BC39002CE001 /* PlotView.m */; };
 		1AA75C0E13F1542E00D8016E /* sticker.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C0B13F1542E00D8016E /* sticker.png */; };
 		1AA75C1113F154B200D8016E /* tab.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C0F13F154B200D8016E /* tab.down.png */; };
 		1AA75C1213F154B200D8016E /* tab.down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AA75C1013F154B200D8016E /* tab.down@2x.png */; };
@@ -253,14 +257,20 @@
 		1A6B5E0F13F2BD09007BC798 /* calc.button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calc.button@2x.png"; path = "arts/calc.button@2x.png"; sourceTree = "<group>"; };
 		1A6B5E1013F2BD09007BC798 /* calc.dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calc.dot.png; path = arts/calc.dot.png; sourceTree = "<group>"; };
 		1A6B5E1113F2BD09007BC798 /* calc.dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calc.dot@2x.png"; path = "arts/calc.dot@2x.png"; sourceTree = "<group>"; };
-		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainWindow.xib; sourceTree = "<group>"; };
-		1A6B5E4613F2C48E007BC798 /* FirstView.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = FirstView.xib; sourceTree = "<group>"; };
-		1A6B5E4813F2C495007BC798 /* SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = SecondView.xib; sourceTree = "<group>"; };
-		1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = MiddleView.xib; sourceTree = "<group>"; };
-		1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = BudgetView.xib; sourceTree = "<group>"; };
-		1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = SettingView.xib; sourceTree = "<group>"; };
-		1A6B5E5013F2C4B7007BC798 /* CellTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = CellTransaction.xib; sourceTree = "<group>"; };
-		1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file; path = AboutViewController.xib; sourceTree = "<group>"; };
+		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		1A6B5E4613F2C48E007BC798 /* FirstView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
+		1A6B5E4813F2C495007BC798 /* SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondView.xib; sourceTree = "<group>"; };
+		1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleView.xib; sourceTree = "<group>"; };
+		1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
+		1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
+		1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCellWithDate.xib; sourceTree = "<group>"; };
+		1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellHeader.xib; sourceTree = "<group>"; };
+		1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellFooter.xib; sourceTree = "<group>"; };
+		1A9430B013F418870040D62B /* MonthPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthPickerController.h; sourceTree = "<group>"; };
+		1A9430B113F418870040D62B /* MonthPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthPickerController.m; sourceTree = "<group>"; };
+		1A9430B213F418870040D62B /* MonthPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthPickerController.xib; sourceTree = "<group>"; };
 		1AA03952135A8D3400245B2C /* ExpenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseManager.h; sourceTree = "<group>"; };
 		1AA03953135A8D3400245B2C /* ExpenseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseManager.m; sourceTree = "<group>"; };
 		1AA3055613CC8ECD0032296C /* accesories_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = accesories_h.png; path = cats/accesories_h.png; sourceTree = "<group>"; };
@@ -311,8 +321,6 @@
 		1AA305B313CCAD5E0032296C /* misc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = misc.png; path = cats/misc.png; sourceTree = "<group>"; };
 		1AA6C1F513D2AB1E002CE001 /* Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistics.h; sourceTree = "<group>"; };
 		1AA6C1F613D2AB1E002CE001 /* Statistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statistics.m; sourceTree = "<group>"; };
-		1AA6C1F913D2BC39002CE001 /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
-		1AA6C1FA13D2BC39002CE001 /* PlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotView.m; sourceTree = "<group>"; };
 		1AA75C0B13F1542E00D8016E /* sticker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sticker.png; path = arts/sticker.png; sourceTree = "<group>"; };
 		1AA75C0F13F154B200D8016E /* tab.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab.down.png; path = arts/tab.down.png; sourceTree = "<group>"; };
 		1AA75C1013F154B200D8016E /* tab.down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab.down@2x.png"; path = "arts/tab.down@2x.png"; sourceTree = "<group>"; };
@@ -598,6 +606,27 @@
 			name = Arts;
 			sourceTree = "<group>";
 		};
+		1A6B5E5313F2EA11007BC798 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */,
+				1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */,
+				1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */,
+				1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		1A9430AE13F4184C0040D62B /* Gadgets */ = {
+			isa = PBXGroup;
+			children = (
+				1A9430B013F418870040D62B /* MonthPickerController.h */,
+				1A9430B113F418870040D62B /* MonthPickerController.m */,
+				1A9430B213F418870040D62B /* MonthPickerController.xib */,
+			);
+			name = Gadgets;
+			sourceTree = "<group>";
+		};
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
@@ -648,10 +677,10 @@
 				1A40E91113C2B97400A60279 /* Utility.m */,
 				1AA6C1F513D2AB1E002CE001 /* Statistics.h */,
 				1AA6C1F613D2AB1E002CE001 /* Statistics.m */,
-				1AA6C1F913D2BC39002CE001 /* PlotView.h */,
-				1AA6C1FA13D2BC39002CE001 /* PlotView.m */,
 				1AAD13DE133345B80035BA92 /* Nibs */,
+				1A6B5E5313F2EA11007BC798 /* Cells */,
 				1AD88A6A13ED90DB00804635 /* Table View Controllers */,
+				1A9430AE13F4184C0040D62B /* Gadgets */,
 				1AAD13A0132BB1B00035BA92 /* helloAppDelegate.h */,
 				1AAD13A1132BB1B00035BA92 /* helloAppDelegate.mm */,
 				1AAD13A6132BB1B00035BA92 /* FirstViewController.h */,
@@ -696,7 +725,6 @@
 				1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */,
 				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
 				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
-				1A6B5E5013F2C4B7007BC798 /* CellTransaction.xib */,
 				1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */,
 			);
 			name = Nibs;
@@ -767,7 +795,7 @@
 				1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */,
 				1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */,
 				1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */,
-				1A6B5E4F13F2C4B6007BC798 /* CellTransaction.xib in Resources */,
+				1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */,
 				1A1DEACC13560D4200505A56 /* dbtemplate.sqlite in Resources */,
 				1AE433A313762B7A005AAB8F /* iconlist.plist in Resources */,
 				1A459D89138799B800036EC2 /* boxtop.png in Resources */,
@@ -925,6 +953,10 @@
 				1A6B5E1713F2BD09007BC798 /* calc.button@2x.png in Resources */,
 				1A6B5E1813F2BD09007BC798 /* calc.dot.png in Resources */,
 				1A6B5E1913F2BD09007BC798 /* calc.dot@2x.png in Resources */,
+				1A6B5E5513F2EA75007BC798 /* ExpenseCellWithDate.xib in Resources */,
+				1A6B5E5713F2EBCB007BC798 /* CellHeader.xib in Resources */,
+				1A6B5E5913F2EBFF007BC798 /* CellFooter.xib in Resources */,
+				1A9430B413F418870040D62B /* MonthPickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,9 +983,9 @@
 				1AE5C670139A2C51008EC75A /* PlanManager.m in Sources */,
 				1A40E91313C2B97400A60279 /* Utility.m in Sources */,
 				1AA6C1F713D2AB1E002CE001 /* Statistics.m in Sources */,
-				1AA6C1FB13D2BC3A002CE001 /* PlotView.m in Sources */,
 				1AD88A6813ED90C300804635 /* ExpenseHistoryViewController.m in Sources */,
 				1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */,
+				1A9430B313F418870040D62B /* MonthPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

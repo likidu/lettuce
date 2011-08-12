@@ -47,6 +47,8 @@
 
 - (void)presentViewController:(UIViewController*)viewController {
     if (activeController != viewController) {
+        [activeController performSelector:@selector(viewWillDisappear:)];
+        [viewController performSelector:@selector(viewWillAppear:)];
         [UIView transitionWithView:self.view
                           duration:0.5
                            options:UIViewAnimationOptionTransitionCurlUp
@@ -56,17 +58,10 @@
                         }
                         completion:^(BOOL finished){
                             if (finished) {
-                                UIViewController* old = activeController;
-                                UIViewController* new = viewController;
+                                [self.view sendSubviewToBack:activeController.view]; 
+                                [activeController performSelector:@selector(viewDidDisappear:)];
                                 activeController = viewController;
-                                
-                                [old performSelector:@selector(viewWillDisappear:)];
-                                [new performSelector:@selector(viewWillAppear:)];
-                                old.view.hidden = YES;
-                                new.view.hidden = NO;
- 
-                                [self.view sendSubviewToBack:new.view]; 
-
+                                [activeController performSelector:@selector(viewDidAppear:)];
                             }
                         }];
     }
@@ -133,11 +128,24 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (activeController) {
+    if (activeController)
         [activeController performSelector:@selector(viewWillAppear:)];
-    }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    if (activeController)
+        [activeController performSelector:@selector(viewDidAppear:)];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (activeController)
+        [activeController performSelector:@selector(viewWillDisappear:)];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (activeController)
+        [activeController performSelector:@selector(viewDidDisappear:)];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
