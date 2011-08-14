@@ -59,6 +59,7 @@ static ExpenseManager* g_instance = nil;
     expense.amount = [[dict objectForKey:@"Amount"] doubleValue];
     expense.notes  = [dict objectForKey:@"Notes"];
     expense.pictureRef = [dict objectForKey:@"PictureRef"];
+    expense.date = normalizeDate(dateFromSqlDate([dict objectForKey:@"Date"]));
 
     NSMutableArray* array = (NSMutableArray*)param;
     if (array == nil)
@@ -78,11 +79,33 @@ static ExpenseManager* g_instance = nil;
     return array;
 }
 
+- (NSArray*)getExpensesBetween:(NSDate *)startDate endDate:(NSDate *)endDate orderBy:(NSString *)fieldName assending :(BOOL)assending {
+    NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat:@"select * from expense where Date >= %@ and date <= %@", start, end];
+    if (fieldName) {
+        NSString* order = @"DESC";
+        if (assending)
+            order = @"ASC";
+        sql = [NSString stringWithFormat:@"%@ order by %@ %@", sql, fieldName, order];
+    }
+    NSMutableArray* array = [[[NSMutableArray alloc]init]autorelease];
+    [[Database instance]execute:sql :self :@selector(translateExpense::) :array];
+    return array;
+}
+
 - (void)translateExpenseDate : (NSMutableDictionary*)dict : (id)param {
     NSString* dateStr = [dict objectForKey:@"Date"];
     NSDate* date = dateFromSqlDate(dateStr);
     NSMutableArray* array = (NSMutableArray*)param;
     [array addObject:date];
+}
+
+- (NSArray *)getAvailableDatesBetween:(NSDate *)startDate endDate:(NSDate *)endDate {
+    NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat:@"select distinct date from expense where Date >= %@ and date <= %@ order by date desc", start, end];
+    NSMutableArray* array = [NSMutableArray array];
+    [[Database instance]execute:sql :self :@selector(translateExpenseDate::) :array];
+    return array;
 }
 
 - (NSArray*)loadExpenseDates {
@@ -119,6 +142,31 @@ static ExpenseManager* g_instance = nil;
     return [[array objectAtIndex:0]doubleValue];
 }
 
+- (NSDictionary *)loadTotalBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat:@"select total(amount) as TotalExpense, date from expense where date >= %@ and date <= %@ group by date", start, end];
+    NSArray* data = [[Database instance]execute:sql];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:data.count];
+    for (NSDictionary* record in data) {
+        NSDate* date = dateFromSqlDate([record objectForKey:@"Date"]);
+        NSObject* value = [NSNumber numberWithDouble:[[record objectForKey:@"TotalExpense"]doubleValue]];
+        [dict setObject:value forKey:DATESTR(date)];
+    }
+    return dict;
+}
+
+- (double)loadTotalOfMonth:(NSDate *)dayOfMonth {
+    NSString* start = formatSqlDate(firstDayOfMonth(dayOfMonth)), *end = formatSqlDate(lastDayOfMonth(dayOfMonth));
+    NSString* sql = [NSString stringWithFormat:@"select total(amount) as TotalExpense from expense where date >= %@ and date <= %@", start, end];
+    NSArray* data = [[Database instance]execute:sql];
+    NSDictionary* record = [data lastObject];
+    double total = 0.0;
+    if (record) {
+        total = [[record objectForKey:@"TotalExpense"]doubleValue];
+    }
+    return total;
+}
+
 - (BOOL)addExpense:(Expense *)expense {
     NSString* categoryIdStr = [NSString stringWithFormat:@"%d", expense.categoryId];
     NSString* amountStr = [NSString stringWithFormat:@"%f", expense.amount];
@@ -136,6 +184,19 @@ static ExpenseManager* g_instance = nil;
 - (double)getBalanceOfDay:(NSDate *)day {
     BudgetManager* budMan = [BudgetManager instance];
     return [budMan getBudgetOfDay:day] - [self loadTotalOfDay:day];
+}
+
+- (NSDictionary *)getBalanceBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    NSArray* dates = getDatesBetween(startDate, endDate);
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:dates.count];
+    NSDictionary* totals = [self loadTotalBetweenStartDate:startDate endDate:endDate];
+    for (NSDate* date in dates) {
+        double budget = [[BudgetManager instance]getBudgetOfDay:date];
+        double total = [[totals objectForKey:DATESTR(date)]doubleValue];
+        NSNumber* value = [NSNumber numberWithDouble:budget - total];
+        [dict setObject:value forKey:DATESTR(date)];
+    }
+    return dict;
 }
 
 - (BOOL)deleteExpenseById:(NSInteger)expenseId {
@@ -220,6 +281,17 @@ static ExpenseManager* g_instance = nil;
 
 - (UIImage*)getDefaultTagImage {
     return defaultTagImage_;
+}
+
++ (NSDictionary *)groupExpensesByDate:(NSArray *)expenses {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:expenses.count];
+    for (Expense* e in expenses) {
+        if (![dict objectForKey:DATESTR(e.date)])
+            [dict setObject:[NSMutableArray array] forKey:DATESTR(e.date)];
+        NSMutableArray* arr = [dict objectForKey:DATESTR(e.date)];
+        [arr addObject:e];
+    }
+    return dict;
 }
 
 @end

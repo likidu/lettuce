@@ -18,12 +18,13 @@
 }
 
 @property(nonatomic, retain) IBOutlet UILabel *budgetLabel;
-@property(nonatomic, retain) IBOutlet UITableViewCell *expenseCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell *cellTemplate;
 @property(nonatomic, retain) IBOutlet UILabel *dateLabel;
 @property(nonatomic, retain) IBOutlet UILabel *balanceLabel;
 @property(nonatomic, retain) IBOutlet UILabel* savingLabel;
 @property(nonatomic, retain) IBOutlet UITableView *transactionTable;
 @property(nonatomic, retain) IBOutlet UIImageView* stampView;
+@property(nonatomic, retain) IBOutlet UIImageView* progressView;
 
 - (IBAction)onChangeBudget:(id)sender;
 - (IBAction)onSettings:(id)sender;

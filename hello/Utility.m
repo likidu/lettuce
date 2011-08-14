@@ -16,6 +16,17 @@ NSString* formatSqlString(NSString* sourceStr) {
     return [NSString stringWithFormat:@"'%@'", encodedStr];
 }
 
+NSString* shortDateString(NSDate* date) {
+    if (date == nil)
+        return @"NULL";
+    
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    [formatter setTimeZone:[NSTimeZone localTimeZone]];
+    NSString* dateStr = [formatter stringFromDate:date];
+    return dateStr;
+}
+
 NSString* formatSqlDate(NSDate* date) {
     if (date == nil)
         return @"NULL";
@@ -55,6 +66,12 @@ NSString* formatMonthString(NSDate* dayOfMonth) {
     return [formatter stringFromDate:dayOfMonth];
 }
 
+NSString* formatMonthDayString(NSDate* day) {
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat: @"M/d"];
+    return [formatter stringFromDate:day];    
+}
+
 NSDate* dateFromSqlDate(NSString* dateStr){    
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -81,17 +98,17 @@ NSDate* dateFromMonthString(NSString* monthStr, BOOL isFirstDay) {
 }
 
 NSDate* firstDayOfMonth(NSDate* dayOfMonth) {
-    return dateFromMonthString(formatMonthString(dayOfMonth), YES);
+    return dateFromMonthString(formatSqlYearMonth(dayOfMonth), YES);
 }
 
 NSDate* lastDayOfMonth(NSDate* dayOfMonth) {
-    return dateFromMonthString(formatMonthString(dayOfMonth), NO);
+    return dateFromMonthString(formatSqlYearMonth(dayOfMonth), NO);
 }
 
 BOOL isWeekend(NSDate* date) {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* components = [calendar components:NSWeekdayOrdinalCalendarUnit| NSWeekdayCalendarUnit | NSWeekCalendarUnit fromDate:date];
-    NSLog(@"%d, %d, %d", components.week, components.weekday, components.weekdayOrdinal);
+    //NSLog(@"%d, %d, %d", components.week, components.weekday, components.weekdayOrdinal);
     if (components.weekday == 1 || components.weekday == 7)
         return TRUE;
     return NO;
@@ -158,6 +175,25 @@ NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
     return [NSArray arrayWithArray:array];
 }
 
+NSDate* normalizeDate(NSDate* date) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:date];
+    return [calendar dateFromComponents:comp];
+}
+
+NSArray*  getDatesBetween(NSDate* startDate, NSDate* endDate) {
+    startDate = normalizeDate(startDate);
+    endDate = normalizeDate(endDate);
+    if ([endDate timeIntervalSinceDate:startDate] < 0)
+        return nil;
+    NSMutableArray* array = [NSMutableArray array];
+    do {
+        [array addObject:startDate];
+        startDate = [startDate dateByAddingTimeInterval:TIME_INTERVAL_DAY];
+    }while ([endDate timeIntervalSinceDate:startDate] >= 1.0);
+    return array;
+}
+
 BOOL isSameDay(NSDate* day1, NSDate* day2){
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day1];
@@ -219,5 +255,12 @@ void setButtonImageForStates(UIButton* button, UIImage* image, UIControlState st
         [button setImage:image forState:UIControlStateDisabled];
 }
 
+
+NSString* formatAmount(double amount, BOOL withPrecision) {
+    if (withPrecision)
+        return [NSString stringWithFormat:@"￥%.2f", amount];
+
+    return [NSString stringWithFormat:@"￥%.f", amount];;
+}
 
 

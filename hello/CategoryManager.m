@@ -125,6 +125,11 @@ CategoryManager* g_catMan = nil;
     return ret;
 }
 
++ (Category *)categoryById:(int)catId {
+    NSDictionary* dict = [[CategoryManager instance]categoryDictionary];
+    return [dict objectForKey:[NSNumber numberWithInt:catId]];
+}
+
 - (void)dealloc {
     [super dealloc];
     [categoryCollection release];

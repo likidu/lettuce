@@ -14,51 +14,80 @@
 
 @implementation ExpenseHistoryViewController
 
-static ExpenseHistoryViewController* g_instance = nil;
-
-+ (ExpenseHistoryViewController *)instance {
-    if (!g_instance)
-        g_instance = [[ExpenseHistoryViewController alloc]initWithStyle:UITableViewStylePlain];
-    return g_instance;
-}
-
-+ (void)dispose {
-    [g_instance release];
-    g_instance = nil;
++ (ExpenseHistoryViewController *)createInstance {
+    ExpenseHistoryViewController* table = [[ExpenseHistoryViewController alloc]initWithNibName:@"ExpenseHistoryViewController" bundle:[NSBundle mainBundle]];
+    return table;
 }
 
 @synthesize startDate;
 @synthesize endDate;
-@synthesize expenseCell;
-@synthesize headerCell;
-@synthesize footerCell;
+@synthesize cellTemplate;
 @synthesize dates;
-@synthesize expenseDictionary;
+@synthesize expenseData;
+@synthesize totalData;
+@synthesize balanceData;
 
-- (void)reload {
-    self.dates = [[ExpenseManager instance]loadExpenseDates];
+@synthesize editing;
+
+#pragma mark - Date range responder
+
+- (void)setStartDate:(NSDate *)date1 endDate:(NSDate *)date2 {
+    self.startDate = date1;
+    self.endDate = date2;
+    [self reload];
 }
 
-static NSString* expenseCellId = @"expenseCell";
+- (void)reload {
+    self.dates = [[ExpenseManager instance]getAvailableDatesBetween:startDate endDate:endDate];
+    NSArray* expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:nil assending:YES];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    for (Expense* exp in expenses) {
+        if ([dict objectForKey:DATESTR(exp.date)] == nil)
+            [dict setObject:[NSMutableArray array] forKey:DATESTR(exp.date)];
+        NSMutableArray* array = [dict objectForKey:DATESTR(exp.date)];
+        [array addObject:exp];
+    }
+    self.expenseData = dict;
+    self.totalData = [[ExpenseManager instance]loadTotalBetweenStartDate:startDate endDate:endDate];
+    self.balanceData = [[ExpenseManager instance]getBalanceBetweenStartDate:startDate endDate:endDate];
+    [self.tableView reloadData];
+}
+
+- (BOOL)canEdit {
+    return YES;
+}
+
+- (BOOL)editing {
+    return editing;
+}
+
+- (void)setEditing:(BOOL)value {
+    editing = value;
+    [self.tableView setEditing:value animated:YES];
+}
+
+#pragma mark - implementation
+
+static NSString* cellId = @"expenseCell";
 static NSString* headerCellId = @"headerCell";
 static NSString* footerCellId = @"footerCell";
 
 - (void)loadExpenseCell{
-    if (expenseCell)
+    if (cellTemplate)
         return;
     [[NSBundle mainBundle]loadNibNamed:@"ExpenseCell" owner:self options:nil];
 }
 
 - (void)loadHeaderCell{
-    if (headerCell)
+    if (cellTemplate)
         return;
-    [[NSBundle mainBundle]loadNibNamed:@"HeaderCell" owner:self options:nil];
+    [[NSBundle mainBundle]loadNibNamed:@"CellHeader" owner:self options:nil];
 }
 
 - (void)loadFooterCell{
-    if (footerCell)
+    if (cellTemplate)
         return;
-    [[NSBundle mainBundle]loadNibNamed:@"FooterCell" owner:self options:nil];
+    [[NSBundle mainBundle]loadNibNamed:@"CellFooter" owner:self options:nil];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -102,9 +131,7 @@ static NSString* footerCellId = @"footerCell";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.expenseCell = nil;
-    self.headerCell = nil;
-    self.footerCell = nil;
+    self.cellTemplate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -137,81 +164,129 @@ static NSString* footerCellId = @"footerCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 0;
+    return dates.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 0;
+    NSDate* date = [dates objectAtIndex:section];
+    NSArray* expenses = [expenseData objectForKey:DATESTR(date)];
+    return expenses.count + 2;
+}
+
+- (BOOL)isHeaderAtIndexPath:(NSIndexPath*)indexPath {
+    return indexPath.row == 0;
+}
+
+- (BOOL)isFooterAtIndexPath:(NSIndexPath*)indexPath {
+    NSDate* date = [dates objectAtIndex:indexPath.section];
+    NSArray* expenses = [expenseData objectForKey:DATESTR(date)];
+    return indexPath.row == expenses.count + 1;
+}
+
+- (UITableViewCell*)getProperCell:(UITableView*)tableView forIndexPath:(NSIndexPath*)indexPath{
+    UITableViewCell* cell = nil;
+    if ([self isHeaderAtIndexPath:indexPath]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:headerCellId];
+        if (!cell)
+            [self loadHeaderCell];
+    }
+    else if ([self isFooterAtIndexPath:indexPath]){
+        cell = [tableView dequeueReusableCellWithIdentifier:footerCellId];
+        if (!cell)
+            [self loadFooterCell];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (!cell)
+            [self loadExpenseCell];
+        
+    }
+    if (!cell) {
+        cell = self.cellTemplate;
+        self.cellTemplate = nil;
+    }
+    return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [self getProperCell:tableView forIndexPath:indexPath];
+    NSDate* date = (NSDate*)[dates objectAtIndex:indexPath.section];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    if ([self isHeaderAtIndexPath:indexPath]) {
+        UILabel* label = (UILabel*)[cell viewWithTag:kHeaderText];
+        label.text = formatDisplayDate(date);
     }
-    
-    // Configure the cell...
+    else if ([self isFooterAtIndexPath:indexPath]) {
+        UIImageView* stamp = (UIImageView*)[cell viewWithTag:kFooterStamp];
+        stamp.hidden = [[balanceData objectForKey:DATESTR(date)]doubleValue] >= 0.0;
+        UILabel* label = (UILabel*)[cell viewWithTag:kFooterAmount];
+        double total = [[totalData objectForKey:DATESTR(date)]doubleValue];
+        label.text = [NSString stringWithFormat:@"￥%.2f", total];
+    }
+    else {
+        Expense* exp = [[expenseData objectForKey:DATESTR(date)]objectAtIndex:indexPath.row-1];
+        Category* cat = [CategoryManager categoryById:exp.categoryId];
+        UIImageView* catIcon = (UIImageView*)[cell viewWithTag:kCellCategoryIcon];
+        catIcon.image = [[CategoryManager instance]iconNamed:cat.smallIconName];
+        UILabel* catText = (UILabel*)[cell viewWithTag:kCellCategoryText];
+        if (exp.notes && exp.notes.length > 0)
+            catText.text = exp.notes;
+        else
+            catText.text = cat.categoryName;
+        UIImageView* photoIcon = (UIImageView*)[cell viewWithTag:kCellPhotoIcon];
+        photoIcon.hidden = (exp.pictureRef == nil || exp.pictureRef.length == 0);
+        UILabel* amount = (UILabel*)[cell viewWithTag:kCellAmount];
+        amount.text = [NSString stringWithFormat:@"￥%.2f", exp.amount];
+    }
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath])
+        return NO;
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        // delete expense record from database
+        NSDate* date = (NSDate*)[dates objectAtIndex:indexPath.section];
+        NSMutableArray* expenses = [expenseData objectForKey:DATESTR(date)];
+        Expense* exp = [expenses objectAtIndex:indexPath.row-1];
+        [[ExpenseManager instance]deleteExpenseById:exp.expenseId];
+        [expenses removeObjectAtIndex:indexPath.row-1];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        if (expenses.count == 0) {
+            // no data for this day. delete the whole section
+            [((NSMutableDictionary*)expenseData)removeObjectForKey:DATESTR(date)];
+            [((NSMutableArray*)dates)removeObjectAtIndex:indexPath.section];
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+            return;
+        }
+        // we still have some records of the day. so refresh the statistics
+        double total = [[ExpenseManager instance]loadTotalOfDay:date];
+        [((NSMutableDictionary*)totalData)setObject:[NSNumber numberWithDouble:total] forKey:DATESTR(date)];
+        double balance = [[ExpenseManager instance]getBalanceOfDay:date];
+        [((NSMutableDictionary*)balanceData)setObject:[NSNumber numberWithDouble:balance] forKey:DATESTR(date)];
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+    }    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
 }
 
 @end

@@ -7,22 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewProtocol.h"
 
 
-@interface ExpenseHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ExpenseHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DateRangeResponder> {
 }
 
-+ (ExpenseHistoryViewController*)instance;
-+ (void)dispose;
++ (ExpenseHistoryViewController*)createInstance;
 
 @property(nonatomic, retain) NSDate* startDate;
 @property(nonatomic, retain) NSDate* endDate;
 @property(nonatomic, retain) NSArray* dates;
-@property(nonatomic, retain) NSDictionary* expenseDictionary;
+@property(nonatomic, retain) NSDictionary* expenseData;
+@property(nonatomic, retain) NSDictionary* totalData;
+@property(nonatomic, retain) NSDictionary* balanceData;
 
-@property(nonatomic, retain) IBOutlet UITableViewCell* expenseCell;
-@property(nonatomic, retain) IBOutlet UITableViewCell* headerCell;
-@property(nonatomic, retain) IBOutlet UITableViewCell* footerCell;
+@property(nonatomic, retain) IBOutlet UITableViewCell* cellTemplate;
 
 - (void)reload;
 

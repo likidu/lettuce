@@ -21,6 +21,7 @@
 @synthesize months;
 @synthesize delegate;
 @synthesize sampleLabel;
+@synthesize labels;
 
 - (UILabel*)makeLabelWithFrame:(CGRect)frame {
     UILabel* label = [[[UILabel alloc]initWithFrame:frame]autorelease];
@@ -41,6 +42,7 @@
         [view removeFromSuperview];
     }
 
+    NSMutableArray* arr = [NSMutableArray arrayWithCapacity:months.count];
     CGRect frame = self.view.frame;
     CGSize contentSize = frame.size;
     contentSize.width = frame.size.width * months.count;
@@ -51,8 +53,10 @@
         UILabel* label = [self makeLabelWithFrame:rc];
         label.text = formatMonthString(dayOfMonth);
         [view addSubview:label];
+        [arr addObject:label];
         rc = CGRectOffset(rc, frame.size.width, 0.0);
     }
+    self.labels = arr;
     view.contentOffset = CGPointMake(-rc.size.width, 0.0);
 }
 
@@ -118,8 +122,23 @@
 
 #pragma mark - Scroll view
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    float pageWidth = scrollView.frame.size.width;
+    float viewportCenter = scrollView.contentOffset.x + pageWidth * 0.5;
+    for (int i = 0; i < labels.count; i++) {
+        float pageCenter = ((float)i + 0.5) * pageWidth;
+        float delta = (viewportCenter - pageCenter) * 0.5;
+        UILabel* label = [labels objectAtIndex:i];
+        CGRect frame = {CGPointZero, scrollView.frame.size};
+        frame = CGRectOffset(frame, i * pageWidth + delta, 0.0);
+        label.frame = frame;
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self.delegate monthPicked: [months objectAtIndex:scrollView.tag]];
+    CGRect rect = {scrollView.contentOffset, scrollView.frame.size};
+    int index = CGRectGetMidX(rect) / scrollView.frame.size.width;
+    [self.delegate monthPicked: [months objectAtIndex:index]];
 }
 
 @end

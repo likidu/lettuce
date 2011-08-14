@@ -25,6 +25,7 @@
 @synthesize imageButton;
 @synthesize imageView;
 @synthesize frameView;
+@synthesize datePicker;
 
 @synthesize inputText;
 @synthesize currentDate;
@@ -312,6 +313,9 @@
     imageView.hidden = YES;
     frameView.hidden = YES;
     imageButton.hidden = NO;
+    
+    // the maximum date is today
+    datePicker.maximumDate = [NSDate date];
     
     [self setSelectedCategory:[NSNumber numberWithInt:-1]];
     [self dismissInputPad];

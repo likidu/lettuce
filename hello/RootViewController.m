@@ -110,8 +110,10 @@
     [activeController performSelector:@selector(viewWillAppear:)];
     
     // set parent
-    [todayController setParentViewController: self];
-    [historyController setParentViewController: self];
+    [todayController performSelector:@selector(setParentViewController:) withObject:self];
+    [historyController performSelector:@selector(setParentViewController:) withObject:self];
+    //[todayController setParentViewController: self];
+    //[historyController setParentViewController: self];
 }
 
 - (void)viewDidUnload

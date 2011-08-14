@@ -26,6 +26,7 @@
 }
 
 + (CategoryManager*)instance;
++ (Category*)categoryById:(int)catId;
 
 @property (nonatomic, retain) NSArray *categoryCollection;
 @property (nonatomic, retain) NSDictionary* categoryDictionary;

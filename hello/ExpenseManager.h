@@ -38,10 +38,13 @@
 - (NSArray*) loadExpenseDates;
 
 - (double) loadTotalOfDay : (NSDate*) date;
+- (NSDictionary*) loadTotalBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
+- (double)loadTotalOfMonth:(NSDate*)dayOfMonth;
 
 - (BOOL) addExpense : (Expense*) expense;
 
 - (double)getBalanceOfDay:(NSDate*)day;
+- (NSDictionary*)getBalanceBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
 
 - (BOOL)deleteExpenseById:(NSInteger)expenseId;
 
@@ -56,5 +59,11 @@
 - (UIImage*)getDefaultTagImage;
 
 - (void)releaseCache;
+
+- (NSArray*)getAvailableDatesBetween:(NSDate*)startDate endDate:(NSDate*)endDate;
+
+- (NSArray*)getExpensesBetween:(NSDate*)startDate endDate:(NSDate*)endDate orderBy:(NSString*)fieldName assending:(BOOL)assending;
+
++ (NSDictionary*)groupExpensesByDate:(NSArray*)expenses;
 
 @end

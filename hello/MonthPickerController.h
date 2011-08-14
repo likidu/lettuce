@@ -23,6 +23,7 @@
 + (MonthPickerController*)pickerWithMonths:(NSArray*)months;
 
 @property(nonatomic, retain) NSArray* months;
+@property(nonatomic, retain) NSArray* labels;
 @property(nonatomic, assign) id<MonthPickerControllerDelegate> delegate;
 
 @property(nonatomic, retain) IBOutlet UILabel* sampleLabel;

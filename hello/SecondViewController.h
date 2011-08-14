@@ -8,17 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "MonthPickerController.h"
+#import "TableViewProtocol.h"
 
-@protocol DateRangeResponder <NSObject>
+enum TableIds {
+    kExpense = 0,
+    kSaving = 1,
+    kByAmount = 2,
+    kByCategory = 3
+};
 
-@required
-- (void)setStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
-
-@end
-
+enum SwitchArea {
+    kMonthPicker,
+    kExpenseSaving,
+    kFilter
+};
 
 @interface SecondViewController : UIViewController <MonthPickerControllerDelegate>{
-
+    NSMutableArray* tables_;
+    int activeTable;
+    int activeSwitch;
 }
 
 @property(nonatomic, retain) NSArray* months;
@@ -26,12 +34,20 @@
 @property(nonatomic, retain) MonthPickerController* monthPicker;
 
 @property(nonatomic, retain) IBOutlet UIView* monthPickerPlaceholder;
-@property(nonatomic, retain) IBOutlet UIView* switchPlaceholder;
-@property(nonatomic, retain) IBOutlet UIView* expenseSwitch;
-@property(nonatomic, retain) IBOutlet UIView* filterSwitch;
 @property(nonatomic, retain) IBOutlet UIButton* filterButton;
+@property(nonatomic, retain) IBOutlet UIButton* editButton;
+@property(nonatomic, retain) IBOutlet UIView* tablePlaceholder;
+@property(nonatomic, retain) IBOutlet UIButton* switchButtonExpense;
+@property(nonatomic, retain) IBOutlet UIButton* switchButtonSaving;
+@property(nonatomic, retain) IBOutlet UISegmentedControl* filterSegment;
+@property(nonatomic, retain) IBOutlet UIView* switchPlaceholder;
+@property(nonatomic, retain) IBOutlet UIButton* monthButton;
 
 - (IBAction)onEdit:(id)sender;
 - (IBAction)onFilter;
+- (IBAction)onSwitchButtonExpense;
+- (IBAction)onSwitchButtonSaving;
+- (IBAction)onFilterSegmentChange;
+- (IBAction)onMonthButton;
 
 @end

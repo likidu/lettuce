@@ -55,7 +55,7 @@ BudgetManager* g_budgetMan = nil;
     if (!col) 
         return;
     Budget* b = [[Budget alloc]init];
-    b.date = dateFromSqlDate([dict objectForKey:@"Date"]);
+    b.date = normalizeDate(dateFromSqlDate([dict objectForKey:@"Date"]));
     b.amount = [[dict objectForKey:@"Amount"] doubleValue];
     b.vacationAmount = [[dict objectForKey:@"VacationAmount"] doubleValue];
     b.budgetId = [[dict objectForKey:@"BudgetId"]intValue];
@@ -129,6 +129,15 @@ BudgetManager* g_budgetMan = nil;
 - (double)getCurrentVacationBudget {
     Budget* budget = [self getRawBudgetOfDay:[NSDate date]];
     return budget.vacationAmount;
+}
+
+- (double)getTotalBudgetOfMonth:(NSDate *)dayOfMonth {
+    NSArray* days = getDatesBetween(firstDayOfMonth(dayOfMonth), lastDayOfMonth(dayOfMonth));
+    double budget = 0.0;
+    for (NSDate* day in days) {
+        budget += [self getBudgetOfDay:day];
+    }
+    return budget;
 }
 
 @end

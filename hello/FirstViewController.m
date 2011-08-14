@@ -17,12 +17,13 @@
 @implementation FirstViewController
 
 @synthesize budgetLabel;
-@synthesize expenseCell;
+@synthesize cellTemplate;
 @synthesize dateLabel;
 @synthesize balanceLabel;
 @synthesize savingLabel;
 @synthesize transactionTable;
 @synthesize stampView;
+@synthesize progressView;
 
 @synthesize todayExpenses;
 
@@ -38,7 +39,7 @@ static NSString* cellId = @"cellTransaction";
 }
 
 - (void)loadCellFromNib {
-    if (expenseCell != nil)
+    if (cellTemplate != nil)
         return;
     
     [[NSBundle mainBundle] loadNibNamed:@"ExpenseCell" owner:self options:nil];
@@ -69,10 +70,18 @@ static NSString* cellId = @"cellTransaction";
     
     // update budget label
     double balance = [Statistics getBalanceOfDay:today];
-    budgetLabel.text = [NSString stringWithFormat:@"¥ %.f", balance];
-    balanceLabel.text = [NSString stringWithFormat:@"¥ %.f", [Statistics getBalanceOfMonth:today]];
-    savingLabel.text = [NSString stringWithFormat:@"¥ %.f", [Statistics getSavingOfMonth:today]];
+    budgetLabel.text = formatAmount(balance, NO);
+    double balanceOfMonth = [Statistics getBalanceOfMonth:today];
+    balanceLabel.text = formatAmount(balanceOfMonth, NO);
+    double savingOfMonth = [Statistics getSavingOfMonth:today];
+    savingLabel.text = formatAmount(savingOfMonth, NO);
     stampView.hidden = balance > 0;
+    
+    // update saving progress
+    double totalBudgetOfMonth = [[BudgetManager instance]getTotalBudgetOfMonth:today];
+    CGRect frame = progressView.frame;
+    frame.size.width = 320 * savingOfMonth / totalBudgetOfMonth;
+    progressView.frame = frame;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -100,8 +109,8 @@ static NSString* cellId = @"cellTransaction";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         [self loadCellFromNib];
-        cell = expenseCell;
-        self.expenseCell = nil;
+        cell = cellTemplate;
+        self.cellTemplate = nil;
     }
     UIImageView *catImage = (UIImageView*)[cell viewWithTag:1];
     UILabel *catName = (UILabel*)[cell viewWithTag:2];
