@@ -26,6 +26,10 @@
 @synthesize imageView;
 @synthesize frameView;
 @synthesize datePicker;
+@synthesize editingItem;
+@synthesize imageEditButton;
+@synthesize formulaLabel;
+@synthesize imageNoteViewController;
 
 @synthesize inputText;
 @synthesize currentDate;
@@ -83,6 +87,8 @@
         categoryButton.titleLabel.textAlignment = UITextAlignmentCenter;
         makeToolButton(categoryButton);
     }
+    
+    [catViewController resetState:catId];
 }
 
 - (void)presentView:(UIView*)view {
@@ -126,12 +132,13 @@
 }
 
 - (void)onCancel:(id)sender {
+    self.editingItem = nil;
+    needReset_ = YES;
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)onSave:(id)sender {
     Expense* expense = [[[Expense alloc]init]autorelease];
-    expense.categoryId = 2;
     
     double amount = curNumber;
     if (activeOp != opNone) {
@@ -146,17 +153,41 @@
         else if (activeOp == opDivide && !fuzzyEqual(curNumber, 0.0))
             amount = prevNumber / curNumber;
     }
+    
+    if (amount < 0 || fuzzyEqual(amount, 0.0)) {
+        UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
+        [alertView show];
+        return;
+    }
+    if (categoryButton.tag <= 0) {
+        UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"请选择一个支出类别。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
+        [alertView show];
+        return;
+    }
         
     expense.amount = amount;
     expense.notes = uiNotes.text;
     expense.date = self.currentDate;
     expense.categoryId = categoryButton.tag;
+    
     ExpenseManager* expMan = [ExpenseManager instance];
-    [expMan addExpense:expense];
-    int expenseId = [expMan getLastInsertedExpensedId];
-    if (expenseId != 0 && imageView.image) {
-        [expMan saveImageNote:imageView.image withExpenseId:expenseId];
+    if (imageUpdated_) {
+        if (editingItem)
+            [expMan deleteImageNote:editingItem.pictureRef];
+        expense.pictureRef = [expMan saveImageNote:imageView.image];
     }
+    else if (editingItem)
+        expense.pictureRef = editingItem.pictureRef;
+    
+    if (editingItem) {
+        expense.expenseId = editingItem.expenseId;
+        [expMan updateExpense:expense];
+    }
+    else
+        [expMan addExpense:expense];
+    
+    self.editingItem = nil;
+    needReset_ = YES;
 
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -181,6 +212,8 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - num pad
+
 - (void)syncUi {
     curNumber = [inputText doubleValue];
     
@@ -189,6 +222,20 @@
         dispNumber = curNumber;
 
     uiNumber.text = [NSString stringWithFormat:@"¥ %.2f", dispNumber];
+    if (activeOp != opNone) {
+        NSString* opStr = nil;
+        if (activeOp == opPlus)
+            opStr = @"+";
+        else if (activeOp == opMinus)
+            opStr = @"-";
+        else if (activeOp == opMultiply)
+            opStr = @"×";
+        else if (activeOp == opDivide)
+            opStr = @"÷";
+        formulaLabel.text = [NSString stringWithFormat:@"%.2f %@", prevNumber, opStr];
+    }
+    else
+        formulaLabel.text = @"";
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"M月d日\nEEEE"];
@@ -275,7 +322,6 @@
                     prevNumber = 0.0;
                     activeOp = opNone;
                 }
-                    
             }
             break;
             
@@ -299,31 +345,47 @@
         return;
     needReset_ = NO;
     prevNumber = 0.0;
-    curNumber = 0.0;
+    curNumber = editingItem ? editingItem.amount : 0.0;
     activeOp = opNone;
-    self.inputText = @"";
+    self.inputText = editingItem ? [NSString stringWithFormat:@"%.2f", curNumber] : @"";
     isCurNumberDirty = NO;
-    self.uiNotes.text = @"";
-    self.currentDate = [NSDate date];
+    self.uiNotes.text = editingItem ? editingItem.notes : @"";
+    self.currentDate = editingItem? editingItem.date : [NSDate date];
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
     
     // Initialize the "Pick Photo" area
-    imageView.image = nil;
-    imageView.hidden = YES;
-    frameView.hidden = YES;
-    imageButton.hidden = NO;
+    if (!editingItem || editingItem.pictureRef == nil || editingItem.pictureRef.length == 0) {
+        imageView.image = nil;
+        imageView.hidden = YES;
+        frameView.hidden = YES;
+        imageEditButton.hidden = YES;
+        imageButton.hidden = NO;
+    }
+    else {
+        UIImage* image = [[ExpenseManager instance]loadImageNote:editingItem.pictureRef];
+        imageView.image = image;
+        imageView.hidden = NO;
+        frameView.hidden = NO;
+        imageButton.hidden = YES;
+        imageEditButton.hidden = NO;
+    }
+    
+    imageUpdated_ = NO;
     
     // the maximum date is today
     datePicker.maximumDate = [NSDate date];
+    datePicker.date = currentDate;
     
-    [self setSelectedCategory:[NSNumber numberWithInt:-1]];
-    [self dismissInputPad];
+    int catId = editingItem ? editingItem.categoryId : -1;
+    [self setSelectedCategory:[NSNumber numberWithInt:catId]];
+    [catViewController resetState:catId];
+    [self switchFloatingView:numPadView];
     [self syncUi];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    needReset_ = YES;
+
 }
 
 - (void)viewDidLoad
@@ -347,6 +409,8 @@
     
     activeFloatingView = numPadView;
     
+    self.imageNoteViewController = [[UIImageNoteViewController alloc]initWithNibName:@"UIImageNoteViewController" bundle:[NSBundle mainBundle]];
+    imageNoteViewController.delegate = self;
 }
 
 - (void)onSelectCategory:(id)sender {
@@ -366,6 +430,7 @@
     [self syncUi];
 }
 
+#pragma mark - image picker delegate
 // Image Picker Delegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissModalViewControllerAnimated: YES];
@@ -376,10 +441,16 @@
     UIImage* image = [info objectForKey: @"UIImagePickerControllerEditedImage"];
     if (!image)
         image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    if (!image)
+        return;
+    
     [imageView setImage:image];
     imageButton.hidden = YES;
+    imageEditButton.hidden = NO;
     imageView.hidden = NO;
     frameView.hidden = NO;
+    imageUpdated_ = YES;
 }
 
 // Navigation Controller Delegate for Image Picker
@@ -407,6 +478,23 @@
     UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"用户相册", nil]autorelease];
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
     [actionSheet showInView: self.view];
+}
+
+#pragma mark - image note view controller delegate
+
+- (void)imageDeleted {
+    imageView.image = nil;
+    imageView.hidden = YES;
+    frameView.hidden = YES;
+    imageEditButton.hidden = YES;
+    imageButton.hidden = NO;
+    imageUpdated_ = YES;
+}
+
+- (void)onImageEditButton {
+    imageNoteViewController.delegate = self;
+    imageNoteViewController.imageNote = imageView.image;
+    [self presentModalViewController:imageNoteViewController animated:YES];
 }
 
 - (void)viewDidUnload

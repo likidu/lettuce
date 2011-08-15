@@ -42,17 +42,26 @@
 - (double)loadTotalOfMonth:(NSDate*)dayOfMonth;
 
 - (BOOL) addExpense : (Expense*) expense;
+- (BOOL)updateExpense:(Expense*)expense;
 
 - (double)getBalanceOfDay:(NSDate*)day;
 - (NSDictionary*)getBalanceBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
 
 - (BOOL)deleteExpenseById:(NSInteger)expenseId;
+- (Expense*)getExpenseById:(NSInteger)expenseId;
 
+/*
 - (BOOL)saveImageNote:(UIImage*)image withExpenseId:(int)expenseId;
 
 - (BOOL)checkImageNoteByExpenseId:(int)expenseId;
 
 - (UIImage*)getImageNoteIconByExpenseId:(int)expenseId;
+ */
+
+#pragma mark - image note
+- (NSString*)saveImageNote:(UIImage*)image;
+- (UIImage*)loadImageNote:(NSString*)fileName;
+- (void)deleteImageNote:(NSString*)fileName;
 
 - (int)getLastInsertedExpensedId;
 
@@ -65,5 +74,8 @@
 - (NSArray*)getExpensesBetween:(NSDate*)startDate endDate:(NSDate*)endDate orderBy:(NSString*)fieldName assending:(BOOL)assending;
 
 + (NSDictionary*)groupExpensesByDate:(NSArray*)expenses;
+
++ (NSDate*)firstDayOfExpense;
++ (NSDate*)lastDayOfExpense;
 
 @end

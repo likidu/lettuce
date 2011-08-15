@@ -9,6 +9,7 @@
 #import "ExpenseHistoryByCategoryViewController.h"
 #import "ExpenseManager.h"
 #import "CategoryManager.h"
+#import "RootViewController.h"
 
 @implementation ExpenseHistoryByCategoryViewController
 
@@ -23,6 +24,7 @@
 @synthesize totalData;
 @synthesize expenses;
 @synthesize categories;
+@synthesize tableUpdateDelegate;
 
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {
     self.startDate = start;
@@ -257,6 +259,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath])
+        return;
+    NSNumber* catId = (NSNumber*)[categories objectAtIndex:indexPath.section];
+    NSArray* arr = [expenseData objectForKey:catId];
+    Expense* expense = [arr objectAtIndex:indexPath.row-1];
+    UIApplication* app = [UIApplication sharedApplication];
+    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
+    [rootView presentAddTransactionDialog:expense];
 }
 
 @end

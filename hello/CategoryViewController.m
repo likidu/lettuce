@@ -205,22 +205,22 @@ CGSize categoryButtonSize = {60, 72};
 
 - (void)categorySelected:(id)sender {
     UIButton* button = sender;
+    if (currentSelectedButton == button)
+        return;
     if (currentSelectedButton != nil)
         currentSelectedButton.selected = NO;
     currentSelectedButton = button;
     currentSelectedButton.selected = YES;
+    selectedCategoryId = currentSelectedButton.tag;
     [self.responder performSelector:self.onCategorySelected withObject:[NSNumber numberWithInt: button.tag]];
 }
 
 - (void)resetState:(int)selectedCatId {
     for (UIButton* button in scrollView.subviews) {
-        if (button.tag == selectedCategoryId) {
-            button.selected = NO;
-            button.selected = YES;
-        }
-        else
-            button.selected = NO;
+        button.selected = (button.tag == selectedCatId);
     }
+    selectedCategoryId = selectedCatId;
+    currentSelectedButton = nil;
 }
 
 - (void)pageChaged:(id)sender {

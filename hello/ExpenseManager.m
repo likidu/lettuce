@@ -125,6 +125,8 @@ static ExpenseManager* g_instance = nil;
         NSDate* firstDayOfMonth = dateFromMonthString([dict objectForKey:@"month"], YES);
         [array addObject: firstDayOfMonth];
     }
+    if (array.count == 0)
+        [array addObject:[NSDate date]];
     return array;    
 }
 
@@ -181,6 +183,18 @@ static ExpenseManager* g_instance = nil;
     return [db execute:sqlStr :nil :nil :nil];
 }
 
+- (BOOL)updateExpense:(Expense *)expense {
+    NSString* idStr = [NSString stringWithFormat:@"%d", expense.expenseId];
+    NSString* categoryIdStr = [NSString stringWithFormat:@"%d", expense.categoryId];
+    NSString* amountStr = [NSString stringWithFormat:@"%f", expense.amount];
+    NSString* dateStr = formatSqlDate(expense.date);
+    NSString* notesStr = formatSqlString(expense.notes);
+    NSString* pictureRefStr = formatSqlString(expense.pictureRef); 
+    
+    NSString* sql = [NSString stringWithFormat:@"update expense set categoryid = %@, amount = %@, date = %@, notes = %@, pictureref = %@ where expenseid = %@", categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr, idStr];
+    return [[Database instance]execute:sql :nil :nil :nil];
+}
+
 - (double)getBalanceOfDay:(NSDate *)day {
     BudgetManager* budMan = [BudgetManager instance];
     return [budMan getBudgetOfDay:day] - [self loadTotalOfDay:day];
@@ -199,12 +213,67 @@ static ExpenseManager* g_instance = nil;
     return dict;
 }
 
+- (Expense *)getExpenseById:(NSInteger)expenseId {
+    NSString* sql = [NSString stringWithFormat:@"select * from expense where expenseid = %d", expenseId];
+    NSMutableArray* array = [NSMutableArray array];
+    if (![[Database instance]execute:sql :self :@selector(translateExpense::) :array])
+        return nil;
+    if (array && array.count > 0)
+        return [array objectAtIndex:0];
+    return nil;
+}
+
 - (BOOL)deleteExpenseById:(NSInteger)expenseId {
+    // check if there's an image attached
+    Expense* expense = [self getExpenseById:expenseId];
+    if (expense) {
+        if (expense.pictureRef && expense.pictureRef.length > 0)
+            [self deleteImageNote:expense.pictureRef];
+    }
     NSString * sqlStr = [NSString stringWithFormat: @"delete from expense where expenseid = %d", expenseId];
     Database* db = [Database instance];
     return [db execute:sqlStr :nil :nil :nil];
 }
 
+- (NSString*)generateImageFileName {
+    return [NSString stringWithFormat: @"%@.jpg", generateUUID()];
+}
+
+#pragma mark - image note
+
+- (NSString *)saveImageNote:(UIImage*)image {
+    if (!image)
+        return nil;
+    NSString* imgNoteDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
+    NSString* fileName = [self generateImageFileName];
+    NSString* imgFileName = [imgNoteDir stringByAppendingPathComponent:fileName];
+    if (![UIImageJPEGRepresentation(image, 0.8) writeToFile:imgFileName atomically:YES])
+        return nil;
+    return fileName;
+}
+
+- (UIImage*)loadImageNote:(NSString*)fileName {
+    if (!fileName)
+        return nil;
+    NSString* imgNoteDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
+    NSString* imgFileName = [imgNoteDir stringByAppendingPathComponent:fileName];
+    if (![[NSFileManager defaultManager]fileExistsAtPath:imgFileName])
+        return nil;
+    
+    return [UIImage imageWithContentsOfFile:imgFileName];
+}
+
+- (void)deleteImageNote:(NSString *)fileName {
+    if (!fileName)
+        return;
+    NSString* imgNoteDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
+    NSString* imgFileName = [imgNoteDir stringByAppendingPathComponent:fileName];
+    if (![[NSFileManager defaultManager]fileExistsAtPath:imgFileName])
+        return;
+    [[NSFileManager defaultManager]removeItemAtPath:imgFileName error:nil];
+}
+
+/*
 - (BOOL)saveImageNote:(UIImage *)image withExpenseId:(int)expenseId {
     NSString* iconFileName = [NSString stringWithFormat:@"%d_icon.jpg", expenseId];
     NSString* originalFileName = [NSString stringWithFormat:@"%d.jpg", expenseId];
@@ -262,6 +331,7 @@ static ExpenseManager* g_instance = nil;
     
     return icon;
 }
+ */
 
 - (void)translateIntId : (NSMutableDictionary*)dict : (id)param {
     int* data = (int*)param;
@@ -292,6 +362,30 @@ static ExpenseManager* g_instance = nil;
         [arr addObject:e];
     }
     return dict;
+}
+
++ (NSDate *)firstDayOfExpense {
+    NSString* sql = @"select min(date) MinDate from expense";
+    NSArray* records = [[Database instance]execute:sql];
+    if (!records || records.count == 0)
+        return nil;
+    NSDictionary* record = [records objectAtIndex:0];
+    if ([record objectForKey:@"MinDate"] == nil)
+        return nil;
+    NSDate* date = normalizeDate(dateFromSqlDate([record objectForKey:@"MinDate"]));
+    return date;
+}
+
++ (NSDate*)lastDayOfExpense {
+    NSString* sql = @"select max(date) MaxDate from expense";
+    NSArray* records = [[Database instance]execute:sql];
+    if (!records || records.count == 0)
+        return nil;
+    NSDictionary* record = [records objectAtIndex:0];
+    if ([record objectForKey:@"MaxDate"] == nil)
+        return nil;
+    NSDate* date = normalizeDate(dateFromSqlDate([record objectForKey:@"MaxDate"]));
+    return date;    
 }
 
 @end

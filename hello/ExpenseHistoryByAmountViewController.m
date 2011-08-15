@@ -9,6 +9,7 @@
 #import "ExpenseHistoryByAmountViewController.h"
 #import "ExpenseManager.h"
 #import "CategoryManager.h"
+#import "RootViewController.h"
 
 @implementation ExpenseHistoryByAmountViewController
 
@@ -17,6 +18,7 @@
 @synthesize startDate;
 @synthesize endDate;
 @synthesize expenses;
+@synthesize tableUpdateDelegate;
 
 + (ExpenseHistoryByAmountViewController*)createInstance {
     ExpenseHistoryByAmountViewController* t = [[[ExpenseHistoryByAmountViewController alloc]initWithNibName:@"ExpenseHistoryByAmountViewController" bundle:[NSBundle mainBundle]]autorelease];
@@ -64,7 +66,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.tableView.allowsSelection = NO;
 }
 
 - (void)viewDidUnload
@@ -149,7 +150,7 @@
     amountLabel.text = formatAmount(expense.amount, YES);
     // photo icon
     UIImageView* photoIcon = (UIImageView*)[cell viewWithTag:kCellPhotoIcon];
-    photoIcon.hidden = (expense.pictureRef && expense.pictureRef.length > 0);
+    photoIcon.hidden = (!expense.pictureRef || expense.pictureRef.length == 0);
     // date label
     UILabel* dateLabel = (UILabel*)[cell viewWithTag:kCellDate];
     dateLabel.text = formatMonthDayString(expense.date);
@@ -163,5 +164,12 @@
 }
 #pragma mark - Table view delegate
 
+- (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [table deselectRowAtIndexPath:indexPath animated:YES];
+    Expense* expense = [expenses objectAtIndex:indexPath.row];
+    UIApplication* app = [UIApplication sharedApplication];
+    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
+    [rootView presentAddTransactionDialog:expense];
+}
 
 @end

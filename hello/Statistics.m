@@ -36,47 +36,37 @@
     return [budMan getBudgetOfDay:day] - totalExpense;
 }
 
-+ (double)getBalanceOfMonth:(NSDate *)dayInMonth {
-    NSDateComponents* components = [[NSCalendar currentCalendar]components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:dayInMonth];
-    int days = getDayAmountOfMonth(dayInMonth);
-    int day = components.day;
-    if (day > days)
-        return NAN;
-    double balance = [self getBalanceOfDay: dayInMonth];
-    BudgetManager* budMan = [BudgetManager instance];
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    for (int i = day + 1; i <= days; i++) {
-        [components setDay:i];
-        balance += [budMan getBudgetOfDay: [calendar dateFromComponents:components]];
-    }
++ (double)getBalanceOfMonth {
+    NSDate* today = normalizeDate([NSDate date]);
+    NSDate* lastDay = lastDayOfMonth(today);
+    NSArray* days = getDatesBetween(today, lastDay);
+    double balance = 0.0;
+    for (NSDate* day in days)
+        balance += [[BudgetManager instance]getBudgetOfDay:day];
+    balance -= [Statistics getTotalOfDay:today];
+    if (balance < 0)
+        balance = 0.0;
     return balance;
 }
 
 + (double)getSavingOfMonth:(NSDate *)dayInMonth {
-    NSDateComponents* components = [[NSCalendar currentCalendar]components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:dayInMonth];
-    int day = components.day;
+    NSDate* firstDay = [ExpenseManager firstDayOfExpense];
+    NSDate* today = normalizeDate([NSDate date]);
+    if (firstDay == nil)
+        return 0.0;
+    NSDate* firstMonthDay = firstDayOfMonth(dayInMonth);
+    NSDate* lastMonthDay = lastDayOfMonth(dayInMonth);
+    firstMonthDay = maxDay(firstDay, firstMonthDay);
+    lastMonthDay = minDay(lastMonthDay, today);
+    double total = [[ExpenseManager instance]loadTotalOfMonth:dayInMonth];
+    NSArray* days = getDatesBetween(firstMonthDay, lastMonthDay);
     double saving = 0.0;
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    for (int i = 1; i <= day; i++) {
-        [components setDay:i];
-        saving += [self getBalanceOfDay:[calendar dateFromComponents:components]];
-    }
+    for (NSDate* day in days)
+        saving += [[BudgetManager instance]getBudgetOfDay:day];
+    saving -= total;
+    if (saving < 0)
+        saving = 0.0;
     return saving;
 }
-
-/*
- NSString* yearMonthStr = formatSqlYearMonth(dayInMonth);
- NSString* sqlString = [NSString stringWithFormat:@"select total(amount) as totalExpense from expense where strftime('%%Y-%%m', date) = '%@'", yearMonthStr];
- Database* db = [Database instance];
- NSArray* records = [db execute:sqlString];
- if (records.count < 1)
- return NAN;
- NSDictionary* record = [records objectAtIndex:0];
- if (![record objectForKey:@"totalExpense"])
- return NAN;
- double totalExpense = [[record objectForKey:@"totalExpense"]doubleValue];
- 
- return totalExpense;
- */
 
 @end

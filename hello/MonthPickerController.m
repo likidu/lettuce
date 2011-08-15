@@ -33,6 +33,8 @@
     label.backgroundColor = sampleLabel.backgroundColor;
     label.multipleTouchEnabled = sampleLabel.multipleTouchEnabled;
     label.userInteractionEnabled = sampleLabel.userInteractionEnabled;
+    label.adjustsFontSizeToFitWidth = sampleLabel.adjustsFontSizeToFitWidth;
+    label.minimumFontSize = sampleLabel.minimumFontSize;
     return label;
 }
 
@@ -131,6 +133,7 @@
         UILabel* label = [labels objectAtIndex:i];
         CGRect frame = {CGPointZero, scrollView.frame.size};
         frame = CGRectOffset(frame, i * pageWidth + delta, 0.0);
+        frame = CGRectInset(frame, (pageWidth - sampleLabel.frame.size.width) * (ABS(viewportCenter - pageCenter) / pageWidth * 0.5), 0.0);
         label.frame = frame;
     }
 }
@@ -138,6 +141,8 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGRect rect = {scrollView.contentOffset, scrollView.frame.size};
     int index = CGRectGetMidX(rect) / scrollView.frame.size.width;
+    if (index < 0 || index >= months.count)
+        return;
     [self.delegate monthPicked: [months objectAtIndex:index]];
 }
 

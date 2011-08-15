@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CategoryViewController.h"
 #import "ExpenseManager.h"
+#import "UIImageNoteViewController.h"
 
 enum KeyTag {
     key1 = 1,
@@ -40,7 +41,7 @@ typedef enum _Operator {
 #define TOL 0.0000001;
 #define fuzzyEqual(a, b) ({ABS(a - b) < TOL})
 
-@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate> {
     double prevNumber;
     double curNumber;
     Operator activeOp;
@@ -48,6 +49,7 @@ typedef enum _Operator {
     UIView* activeFloatingView;
     Expense* editingExpense_;
     BOOL needReset_;
+    BOOL imageUpdated_;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil editItem:(Expense*)expense;
@@ -59,6 +61,7 @@ typedef enum _Operator {
 - (IBAction)onPickDate:(id)sender;
 - (IBAction)onDateChanged:(id)sender;
 - (IBAction)onPickPhoto:(id)sender;
+- (IBAction)onImageEditButton;
 
 @property(nonatomic, retain) IBOutlet UITextView* uiNotes;
 @property(nonatomic, retain) IBOutlet UILabel* uiNumber;
@@ -69,13 +72,17 @@ typedef enum _Operator {
 @property(nonatomic, retain) IBOutlet UIView* numPadView;
 @property(nonatomic, retain) IBOutlet UIView* datePickerView;
 @property(nonatomic, retain) IBOutlet UIButton* imageButton;
+@property(nonatomic, retain) IBOutlet UIButton* imageEditButton;
 @property(nonatomic, retain) IBOutlet UIImageView* imageView;
 @property(nonatomic, retain) IBOutlet UIImageView* frameView;
 @property(nonatomic, retain) IBOutlet UIDatePicker* datePicker;
+@property(nonatomic, retain) IBOutlet UILabel* formulaLabel;
 
 @property(nonatomic, retain) NSString* inputText;
 @property(nonatomic, retain) NSDate* currentDate;
 @property(nonatomic, retain) UIImage* imageUnknown;
+@property(nonatomic, retain) Expense* editingItem;
+@property(nonatomic, retain) UIImageNoteViewController* imageNoteViewController;
 
 - (void)syncUi;
 - (void)pushOp:(Operator)op;

@@ -12,7 +12,7 @@
 #import "Database.h"
 #import "BudgetManager.h"
 #import "Statistics.h"
-
+#import "RootViewController.h"
 
 @implementation FirstViewController
 
@@ -71,7 +71,7 @@ static NSString* cellId = @"cellTransaction";
     // update budget label
     double balance = [Statistics getBalanceOfDay:today];
     budgetLabel.text = formatAmount(balance, NO);
-    double balanceOfMonth = [Statistics getBalanceOfMonth:today];
+    double balanceOfMonth = [Statistics getBalanceOfMonth];
     balanceLabel.text = formatAmount(balanceOfMonth, NO);
     double savingOfMonth = [Statistics getSavingOfMonth:today];
     savingLabel.text = formatAmount(savingOfMonth, NO);
@@ -119,13 +119,10 @@ static NSString* cellId = @"cellTransaction";
     if (catImage == nil || catName == nil || catAmount == nil || tagImage == nil)
         return nil;
     
-    NSLog(@"Row index: %d", indexPath.row);
-    
     CategoryManager *catMan = [CategoryManager instance];
     
     if (indexPath.row < todayExpenses.count) {
         Expense* expense = [todayExpenses objectAtIndex:indexPath.row];
-        NSLog(@"catId: %d", expense.categoryId);
         Category* cat = [catMan.categoryDictionary objectForKey: [NSNumber numberWithInt:expense.categoryId]];
         BOOL showNotes = (expense.notes != nil) && (expense.notes.length > 0);
         if (showNotes)
@@ -134,7 +131,7 @@ static NSString* cellId = @"cellTransaction";
             catName.text = cat.categoryName;
         catAmount.text = [NSString stringWithFormat:@"¥ %.2f", expense.amount];
         catImage.image = [catMan iconNamed:cat.smallIconName];
-        BOOL hasImageNote = [[ExpenseManager instance]checkImageNoteByExpenseId:expense.expenseId];
+        BOOL hasImageNote = expense.pictureRef && expense.pictureRef.length > 0;
         tagImage.hidden = !hasImageNote;
     }
     
@@ -147,7 +144,6 @@ static NSString* cellId = @"cellTransaction";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        NSLog(@"Expense count: %d", todayExpenses.count);
         return todayExpenses.count;
     }
     return 0;
@@ -160,6 +156,10 @@ static NSString* cellId = @"cellTransaction";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Expense* expense = [todayExpenses objectAtIndex:indexPath.row];
+    UIApplication* app = [UIApplication sharedApplication];
+    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
+    [rootView presentAddTransactionDialog:expense];
 }
 
 - (void)onChangeBudget:(id)sender {

@@ -10,20 +10,13 @@
 #import "MonthPickerController.h"
 #import "TableViewProtocol.h"
 
-enum TableIds {
-    kExpense = 0,
-    kSaving = 1,
-    kByAmount = 2,
-    kByCategory = 3
-};
-
 enum SwitchArea {
     kMonthPicker,
     kExpenseSaving,
     kFilter
 };
 
-@interface SecondViewController : UIViewController <MonthPickerControllerDelegate>{
+@interface SecondViewController : UIViewController <MonthPickerControllerDelegate, TableUpdateDelegate>{
     NSMutableArray* tables_;
     int activeTable;
     int activeSwitch;
@@ -39,15 +32,17 @@ enum SwitchArea {
 @property(nonatomic, retain) IBOutlet UIView* tablePlaceholder;
 @property(nonatomic, retain) IBOutlet UIButton* switchButtonExpense;
 @property(nonatomic, retain) IBOutlet UIButton* switchButtonSaving;
-@property(nonatomic, retain) IBOutlet UISegmentedControl* filterSegment;
 @property(nonatomic, retain) IBOutlet UIView* switchPlaceholder;
 @property(nonatomic, retain) IBOutlet UIButton* monthButton;
+@property(nonatomic, retain) IBOutlet UIButton* byAmountButton;
+@property(nonatomic, retain) IBOutlet UIButton* byCategoryButton;
 
 - (IBAction)onEdit:(id)sender;
 - (IBAction)onFilter;
+- (IBAction)onMonthButton;
 - (IBAction)onSwitchButtonExpense;
 - (IBAction)onSwitchButtonSaving;
-- (IBAction)onFilterSegmentChange;
-- (IBAction)onMonthButton;
+- (IBAction)onSwitchButtonByAmount;
+- (IBAction)onSwitchButtonByCategory;
 
 @end

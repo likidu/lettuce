@@ -15,7 +15,7 @@
 // balance
 + (double)getTotalOfDay:(NSDate*)day;
 + (double)getBalanceOfDay:(NSDate*)day;
-+ (double)getBalanceOfMonth:(NSDate*)dayInMonth;
++ (double)getBalanceOfMonth;
 + (double)getSavingOfMonth:(NSDate*)dayInMonth;
 
 @end

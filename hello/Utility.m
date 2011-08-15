@@ -108,7 +108,6 @@ NSDate* lastDayOfMonth(NSDate* dayOfMonth) {
 BOOL isWeekend(NSDate* date) {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* components = [calendar components:NSWeekdayOrdinalCalendarUnit| NSWeekdayCalendarUnit | NSWeekCalendarUnit fromDate:date];
-    //NSLog(@"%d, %d, %d", components.week, components.weekday, components.weekdayOrdinal);
     if (components.weekday == 1 || components.weekday == 7)
         return TRUE;
     return NO;
@@ -187,10 +186,12 @@ NSArray*  getDatesBetween(NSDate* startDate, NSDate* endDate) {
     if ([endDate timeIntervalSinceDate:startDate] < 0)
         return nil;
     NSMutableArray* array = [NSMutableArray array];
+    double interval = 0.0;
     do {
         [array addObject:startDate];
         startDate = [startDate dateByAddingTimeInterval:TIME_INTERVAL_DAY];
-    }while ([endDate timeIntervalSinceDate:startDate] >= 1.0);
+        interval = [endDate timeIntervalSinceDate:startDate];
+    }while (FUZZYEQUAL(interval, 0.0) || interval > TIME_INTERVAL_HOUR);
     return array;
 }
 
@@ -213,6 +214,13 @@ void makeToolButton(UIButton* button) {
     CGRect imageFrame = [button imageRectForContentRect:button.frame];
     button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
     button.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
+}
+
+void makeButtonImageRightSide(UIButton* button) {
+    CGRect titleFrame = [button titleRectForContentRect:button.frame];
+    CGRect imageFrame = [button imageRectForContentRect:button.frame];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width * 2.0, 0.0, 0.0);
+    button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, -titleFrame.size.width * 2.0);
 }
 
 void setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state) {
@@ -263,4 +271,18 @@ NSString* formatAmount(double amount, BOOL withPrecision) {
     return [NSString stringWithFormat:@"￥%.f", amount];;
 }
 
+NSDate*   minDay(NSDate* day1, NSDate* day2) {
+    return ([day1 timeIntervalSinceDate:day2] < 0 ? day1 : day2);
+}
+NSDate*   maxDay(NSDate* day1, NSDate* day2) {
+    return ([day1 timeIntervalSinceDate:day2] > 0 ? day1 : day2);
+}
 
+NSString* generateUUID() {
+    CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
+	CFStringRef newUniqueIdString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);
+    NSString* uuid = [NSString stringWithString:(NSString*)newUniqueIdString];
+	CFRelease(newUniqueId);
+	CFRelease(newUniqueIdString);
+    return uuid;
+}

@@ -16,6 +16,7 @@
 - (IBAction)onToday:(id)sender;
 - (IBAction)onAddExpense:(id)sender;
 - (IBAction)onHistory:(id)sender;
+- (void)presentAddTransactionDialog:(NSObject*)data;
 
 @property (nonatomic, retain) IBOutlet UIViewController* todayController;
 @property (nonatomic, retain) IBOutlet UIViewController* addExpenseController;

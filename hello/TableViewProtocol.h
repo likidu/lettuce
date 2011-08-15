@@ -25,6 +25,22 @@ enum CellSubViewTags {
     kSavingBudget = 4,
 };
 
+enum TableIds {
+    kExpense = 0,
+    kSaving = 1,
+    kByAmount = 2,
+    kByCategory = 3
+};
+
+
+@protocol TableUpdateDelegate <NSObject>
+
+@optional
+- (void)navigateTo:(int)tableId withData:(NSObject*)data;
+- (void)dataChanged;
+
+@end
+
 @protocol DateRangeResponder <NSObject>
 
 @required
@@ -34,5 +50,7 @@ enum CellSubViewTags {
 
 @optional
 @property(nonatomic, assign) BOOL editing;
+@property(nonatomic, assign) id<TableUpdateDelegate> tableUpdateDelegate;
+- (void)navigateToData:(NSObject*)data;
 
 @end

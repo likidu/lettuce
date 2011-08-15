@@ -11,6 +11,7 @@
 #import "Utility.h"
 #import "Database.h"
 #import "CategoryManager.h"
+#import "RootViewController.h"
 
 @implementation ExpenseHistoryViewController
 
@@ -26,6 +27,7 @@
 @synthesize expenseData;
 @synthesize totalData;
 @synthesize balanceData;
+@synthesize tableUpdateDelegate;
 
 @synthesize editing;
 
@@ -64,6 +66,23 @@
 - (void)setEditing:(BOOL)value {
     editing = value;
     [self.tableView setEditing:value animated:YES];
+}
+
+- (void)navigateToData:(NSObject *)data {
+    if ([data isKindOfClass:[NSDate class]]) {
+        NSDate* date = (NSDate*)data;
+        int section = -1;
+        for (int i = 0; i < dates.count; i++) {
+            if (isSameDay(date, [dates objectAtIndex:i])) {
+                section = i;
+                break;
+            }
+        }
+        if (section != -1){
+            UITableView* tableView = (UITableView*)self.view;
+            [tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }
+    }
 }
 
 #pragma mark - implementation
@@ -267,15 +286,17 @@ static NSString* footerCellId = @"footerCell";
             [((NSMutableDictionary*)expenseData)removeObjectForKey:DATESTR(date)];
             [((NSMutableArray*)dates)removeObjectAtIndex:indexPath.section];
             [tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
-            return;
         }
-        // we still have some records of the day. so refresh the statistics
-        double total = [[ExpenseManager instance]loadTotalOfDay:date];
-        [((NSMutableDictionary*)totalData)setObject:[NSNumber numberWithDouble:total] forKey:DATESTR(date)];
-        double balance = [[ExpenseManager instance]getBalanceOfDay:date];
-        [((NSMutableDictionary*)balanceData)setObject:[NSNumber numberWithDouble:balance] forKey:DATESTR(date)];
-        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
-    }    
+        else {
+            // we still have some records of the day. so refresh the statistics
+            double total = [[ExpenseManager instance]loadTotalOfDay:date];
+            [((NSMutableDictionary*)totalData)setObject:[NSNumber numberWithDouble:total] forKey:DATESTR(date)];
+            double balance = [[ExpenseManager instance]getBalanceOfDay:date];
+            [((NSMutableDictionary*)balanceData)setObject:[NSNumber numberWithDouble:balance] forKey:DATESTR(date)];
+            [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+    [tableUpdateDelegate dataChanged];
 }
 
 #pragma mark - Table view delegate
@@ -283,6 +304,14 @@ static NSString* footerCellId = @"footerCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // goto the transaction dialog to edit the selected item
+    if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath])
+        return;
+    NSDate* date = (NSDate*)[dates objectAtIndex:indexPath.section];
+    Expense* expense = [[expenseData objectForKey:DATESTR(date)]objectAtIndex:indexPath.row-1];
+    UIApplication* app = [UIApplication sharedApplication];
+    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
+    [rootView presentAddTransactionDialog:expense];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {

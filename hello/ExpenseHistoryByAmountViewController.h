@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TableViewProtocol.h"
 
-@interface ExpenseHistoryByAmountViewController : UIViewController<DateRangeResponder> {
+@interface ExpenseHistoryByAmountViewController : UIViewController<UITableViewDelegate, DateRangeResponder> {
     
 }
 

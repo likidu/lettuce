@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-
+#import "MiddleViewController.h"
 
 @implementation RootViewController
 
@@ -73,8 +73,18 @@
     [self presentViewController:todayController];
 }
 
-- (void)onAddExpense:(id)sender {
+- (void)presentAddTransactionDialog:(NSObject*)data {
+    if (self.modalViewController)
+        return;
+    if (data) {
+        MiddleViewController* vc = (MiddleViewController*)addExpenseController;
+        vc.editingItem = (Expense*)data;
+    }
     [self presentModalViewController: self.addExpenseController animated: YES];
+}
+
+- (void)onAddExpense:(id)sender {
+    [self presentAddTransactionDialog: nil];
 }
 
 - (void)onHistory:(id)sender {

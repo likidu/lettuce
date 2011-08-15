@@ -19,6 +19,7 @@
 @synthesize startDate;
 @synthesize endDate;
 @synthesize cellTemplate;
+@synthesize tableUpdateDelegate;
 
 + (SavingHistoryViewController *)createInstance {
     SavingHistoryViewController* t = [[[SavingHistoryViewController alloc]initWithNibName:@"SavingHistoryViewController" bundle:[NSBundle mainBundle]]autorelease];
@@ -28,11 +29,20 @@
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {
     self.startDate = start;
     self.endDate = end;
+    NSDate* firstDay = [ExpenseManager firstDayOfExpense];
+    NSDate* today = normalizeDate([NSDate date]);
+    if (firstDay == nil)
+        firstDay = today;
+    firstDay = maxDay(firstDay, startDate);
+    NSDate* lastDay = minDay(endDate, today);
+    self.startDate = firstDay;
+    self.endDate = lastDay;
     [self reload];
 }
 
 - (void)reload {
     self.dates = getDatesBetween(startDate, endDate);
+    self.dates = [[dates reverseObjectEnumerator]allObjects];
     NSMutableArray* b = [NSMutableArray arrayWithCapacity:dates.count];
     for (NSDate* date in dates) {
         double value = [[BudgetManager instance]getBudgetOfDay:date];
@@ -80,7 +90,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    table.allowsSelection = NO;
 }
 
 - (void)viewDidUnload
@@ -185,5 +194,10 @@
 }
 
 #pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableUpdateDelegate navigateTo:kExpense withData:[dates objectAtIndex:indexPath.row]];
+}
 
 @end

@@ -10,6 +10,7 @@
 #import "Database.h"
 #import "CategoryManager.h"
 #import "ExpenseManager.h"
+#import "RootViewController.h"
 
 @implementation helloAppDelegate
 
@@ -53,9 +54,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"]) {
+        UIApplication* app = [UIApplication sharedApplication];
+        RootViewController* vc = (RootViewController*)app.keyWindow.rootViewController;
+        [vc presentAddTransactionDialog:nil];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -68,7 +72,6 @@
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-    [ExpenseManager instance];
 }
 
 - (void)dealloc

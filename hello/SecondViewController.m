@@ -28,9 +28,10 @@
 @synthesize tablePlaceholder;
 @synthesize switchButtonSaving;
 @synthesize switchButtonExpense;
-@synthesize filterSegment;
 @synthesize switchPlaceholder;
 @synthesize monthButton;
+@synthesize byAmountButton;
+@synthesize byCategoryButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,27 +54,31 @@
     
     // create tables
     // expense table
-    UITableViewController* table = [ExpenseHistoryViewController createInstance];
+    ExpenseHistoryViewController* table = [ExpenseHistoryViewController createInstance];
+    table.tableUpdateDelegate = self;
     table.view.frame = tablePlaceholder.frame;
     [self.view addSubview:table.view];
     [self.view bringSubviewToFront:table.view];
     [tables_ addObject:table];
     // saving table
-    UIViewController* savingTable = [SavingHistoryViewController createInstance];
+    SavingHistoryViewController* savingTable = [SavingHistoryViewController createInstance];
+    savingTable.tableUpdateDelegate = self;
     savingTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:savingTable.view];
     [self.view bringSubviewToFront:savingTable.view];
     savingTable.view.hidden = YES;
     [tables_ addObject:savingTable];
     // by amount table
-    UIViewController* byAmountTable = [ExpenseHistoryByAmountViewController createInstance];
+    ExpenseHistoryByAmountViewController* byAmountTable = [ExpenseHistoryByAmountViewController createInstance];
+    byAmountTable.tableUpdateDelegate = self;
     byAmountTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:byAmountTable.view];
     [self.view bringSubviewToFront:byAmountTable.view];
     byAmountTable.view.hidden = YES;
     [tables_ addObject:byAmountTable];
     // by category table
-    UIViewController* byCategoryTable = [ExpenseHistoryByCategoryViewController createInstance];
+    ExpenseHistoryByCategoryViewController* byCategoryTable = [ExpenseHistoryByCategoryViewController createInstance];
+    byCategoryTable.tableUpdateDelegate = self;
     byCategoryTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:byCategoryTable.view];
     [self.view bringSubviewToFront:byCategoryTable.view];
@@ -172,11 +177,16 @@
     [self presentTable:kExpense];
 }
 
-- (void)onFilterSegmentChange {
-    if (filterSegment.selectedSegmentIndex == 0)
-        [self presentTable:kByAmount];
-    else
-        [self presentTable:kByCategory];
+- (void)onSwitchButtonByAmount {
+    byAmountButton.selected = YES;
+    byCategoryButton.selected = NO;
+    [self presentTable:kByAmount];
+}
+
+- (void)onSwitchButtonByCategory {
+    byAmountButton.selected = NO;
+    byCategoryButton.selected = YES;
+    [self presentTable:kByCategory];
 }
 
 - (void)presentSwitchArea:(int)area {
@@ -198,7 +208,7 @@
                                      [self presentTable:kSaving];
                              }
                              else if (activeSwitch == kFilter) {
-                                 if (filterSegment.selectedSegmentIndex == 0)
+                                 if (byAmountButton.selected)
                                      [self presentTable:kByAmount];
                                  else
                                      [self presentTable:kByCategory];
@@ -207,7 +217,31 @@
                      }];
 }
 
+- (void)navigateTo:(int)tableId withData:(NSObject *)data {
+    if (tableId == kExpense || tableId == kSaving) {
+        switchButtonExpense.selected = tableId == kExpense;
+        switchButtonSaving.selected = tableId == kSaving;
+        [self presentSwitchArea:kExpenseSaving];
+    }
+    else {
+        byAmountButton.selected = tableId == kByAmount;
+        byCategoryButton.selected = tableId == kByCategory;
+        [self presentSwitchArea:kFilter];
+    }
+    
+    // use data to navigate
+    UIViewController* table = (UIViewController*)[tables_ objectAtIndex:tableId];
+    id<DateRangeResponder> responder = (UIViewController<DateRangeResponder>*)table;
+    [responder navigateToData:data];
+
+}
+
+- (void)dataChanged {
+    [self updateSwitchButtonData];
+}
+
 - (void)onMonthButton{
+    monthButton.selected = !monthButton.selected;
     [self presentSwitchArea:kMonthPicker];
 }
 
@@ -236,8 +270,14 @@
     [self updateSwitchButtonData];
 }
 
+- (void)updateMonthButtonTitle:(NSString*)title {
+    [monthButton setTitle:title forState:UIControlStateNormal];
+    makeButtonImageRightSide(monthButton);
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [monthPicker pickMonth:currentMonth];
+    [self updateMonthButtonTitle:formatMonthString(currentMonth)];
 }
 
 - (void)onEdit:(id)sender {
@@ -270,7 +310,7 @@
     id<DateRangeResponder> responder = (UIViewController<DateRangeResponder>*)[tables_ objectAtIndex:activeTable];
     [responder setStartDate:firstDayOfMonth(currentMonth) endDate:lastDayOfMonth(currentMonth)];
     [self updateSwitchButtonData];
-    [monthButton setTitle:formatMonthString(dayOfMonth) forState:UIControlStateNormal];
+    [self updateMonthButtonTitle:formatMonthString(dayOfMonth)];
 }
 
 - (void)dealloc

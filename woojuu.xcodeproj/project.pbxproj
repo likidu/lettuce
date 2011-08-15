@@ -178,6 +178,10 @@
 		1AB6820A13EAF32200AF7265 /* sticker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB6820913EAF32200AF7265 /* sticker@2x.png */; };
 		1AB6820C13EAFAB900AF7265 /* unknown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB6820B13EAFAB900AF7265 /* unknown@2x.png */; };
 		1AB6820E13EAFAC100AF7265 /* frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB6820D13EAFAC100AF7265 /* frame@2x.png */; };
+		1AC0FA7313F8D542003A4E93 /* arrow.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0FA6F13F8D542003A4E93 /* arrow.down.png */; };
+		1AC0FA7413F8D542003A4E93 /* arrow.down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0FA7013F8D542003A4E93 /* arrow.down@2x.png */; };
+		1AC0FA7513F8D542003A4E93 /* arrow.up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0FA7113F8D542003A4E93 /* arrow.up.png */; };
+		1AC0FA7613F8D542003A4E93 /* arrow.up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC0FA7213F8D542003A4E93 /* arrow.up@2x.png */; };
 		1AC167F513E8495500FB1044 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC167F413E8495400FB1044 /* photo@2x.png */; };
 		1AC1F13213DEF96400A1C7AD /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F12E13DEF96400A1C7AD /* camera@2x.png */; };
 		1AC20BF913D5C216004A4E32 /* keyboardbglite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC20BF813D5C216004A4E32 /* keyboardbglite.png */; };
@@ -187,6 +191,8 @@
 		1AD88A6813ED90C300804635 /* ExpenseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6613ED90C200804635 /* ExpenseHistoryViewController.m */; };
 		1AD88A6913ED90C300804635 /* ExpenseHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */; };
 		1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6C13ED96D600804635 /* AboutViewController.m */; };
+		1AE3573113F97E090015EB86 /* UIImageNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3572F13F97E060015EB86 /* UIImageNoteViewController.m */; };
+		1AE3573213F97E090015EB86 /* UIImageNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3573013F97E070015EB86 /* UIImageNoteViewController.xib */; };
 		1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4339F1375AC82005AAB8F /* QuartzCore.framework */; };
 		1AE433A313762B7A005AAB8F /* iconlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE433A213762B7A005AAB8F /* iconlist.plist */; };
 		1AE433A613763514005AAB8F /* BudgetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE433A513763513005AAB8F /* BudgetManager.m */; };
@@ -405,6 +411,10 @@
 		1AB6820913EAF32200AF7265 /* sticker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sticker@2x.png"; path = "arts/sticker@2x.png"; sourceTree = "<group>"; };
 		1AB6820B13EAFAB900AF7265 /* unknown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unknown@2x.png"; path = "arts/unknown@2x.png"; sourceTree = "<group>"; };
 		1AB6820D13EAFAC100AF7265 /* frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frame@2x.png"; path = "arts/frame@2x.png"; sourceTree = "<group>"; };
+		1AC0FA6F13F8D542003A4E93 /* arrow.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.down.png; path = arts/arrow.down.png; sourceTree = "<group>"; };
+		1AC0FA7013F8D542003A4E93 /* arrow.down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow.down@2x.png"; path = "arts/arrow.down@2x.png"; sourceTree = "<group>"; };
+		1AC0FA7113F8D542003A4E93 /* arrow.up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.up.png; path = arts/arrow.up.png; sourceTree = "<group>"; };
+		1AC0FA7213F8D542003A4E93 /* arrow.up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow.up@2x.png"; path = "arts/arrow.up@2x.png"; sourceTree = "<group>"; };
 		1AC167F413E8495400FB1044 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo@2x.png"; path = "arts/photo@2x.png"; sourceTree = "<group>"; };
 		1AC1F12E13DEF96400A1C7AD /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera@2x.png"; path = "arts/camera@2x.png"; sourceTree = "<group>"; };
 		1AC20BF813D5C216004A4E32 /* keyboardbglite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardbglite.png; path = arts/keyboardbglite.png; sourceTree = "<group>"; };
@@ -418,6 +428,9 @@
 		1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryViewController.xib; sourceTree = "<group>"; };
 		1AD88A6B13ED96D500804635 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1AD88A6C13ED96D600804635 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1AE3572E13F97E040015EB86 /* UIImageNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageNoteViewController.h; path = ../UIImageNoteViewController.h; sourceTree = "<group>"; };
+		1AE3572F13F97E060015EB86 /* UIImageNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageNoteViewController.m; path = ../UIImageNoteViewController.m; sourceTree = "<group>"; };
+		1AE3573013F97E070015EB86 /* UIImageNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIImageNoteViewController.xib; path = ../UIImageNoteViewController.xib; sourceTree = "<group>"; };
 		1AE4339F1375AC82005AAB8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AE433A213762B7A005AAB8F /* iconlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iconlist.plist; sourceTree = "<group>"; };
 		1AE433A413763513005AAB8F /* BudgetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetManager.h; sourceTree = "<group>"; };
@@ -544,6 +557,10 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AC0FA6F13F8D542003A4E93 /* arrow.down.png */,
+				1AC0FA7013F8D542003A4E93 /* arrow.down@2x.png */,
+				1AC0FA7113F8D542003A4E93 /* arrow.up.png */,
+				1AC0FA7213F8D542003A4E93 /* arrow.up@2x.png */,
 				1A96CD3713F7BBF600AA4D45 /* saving.progress.png */,
 				1A96CD3813F7BBF600AA4D45 /* saving.progress@2x.png */,
 				1A6B5E0A13F2BD09007BC798 /* calc.button.down.png */,
@@ -651,6 +668,9 @@
 		1A9430AE13F4184C0040D62B /* Gadgets */ = {
 			isa = PBXGroup;
 			children = (
+				1AE3572E13F97E040015EB86 /* UIImageNoteViewController.h */,
+				1AE3572F13F97E060015EB86 /* UIImageNoteViewController.m */,
+				1AE3573013F97E070015EB86 /* UIImageNoteViewController.xib */,
 				1A9430B013F418870040D62B /* MonthPickerController.h */,
 				1A9430B113F418870040D62B /* MonthPickerController.m */,
 				1A9430B213F418870040D62B /* MonthPickerController.xib */,
@@ -716,20 +736,26 @@
 				1AAD13A1132BB1B00035BA92 /* helloAppDelegate.mm */,
 				1AAD13A6132BB1B00035BA92 /* FirstViewController.h */,
 				1AAD13A7132BB1B00035BA92 /* FirstViewController.m */,
+				1A6B5E4613F2C48E007BC798 /* FirstView.xib */,
 				1AAD13A9132BB1B00035BA92 /* SecondViewController.h */,
 				1AAD13AA132BB1B00035BA92 /* SecondViewController.m */,
+				1A6B5E4813F2C495007BC798 /* SecondView.xib */,
 				1AAD13B7132BB5770035BA92 /* MiddleViewController.h */,
 				1AAD13B8132BB5770035BA92 /* MiddleViewController.m */,
+				1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */,
 				1A05809913752FBD00933267 /* CategoryViewController.h */,
 				1A05809A13752FBD00933267 /* CategoryViewController.m */,
 				1AD88A6413ED88E300804635 /* BudgetView.h */,
 				1AAD13D9133345A90035BA92 /* BudgetView.m */,
+				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
 				1AAD13E513335A160035BA92 /* SettingView.h */,
 				1AAD13E613335A170035BA92 /* SettingView.m */,
+				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
 				1AAD139D132BB1B00035BA92 /* woojuu-Prefix.pch */,
 				1AAD139E132BB1B00035BA92 /* main.m */,
 				1AD88A6B13ED96D500804635 /* AboutViewController.h */,
 				1AD88A6C13ED96D600804635 /* AboutViewController.m */,
+				1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */,
 				1AAD1398132BB1B00035BA92 /* Supporting Files */,
 			);
 			name = woojuu;
@@ -751,12 +777,6 @@
 			isa = PBXGroup;
 			children = (
 				1A6B5E4413F2C47C007BC798 /* MainWindow.xib */,
-				1A6B5E4613F2C48E007BC798 /* FirstView.xib */,
-				1A6B5E4813F2C495007BC798 /* SecondView.xib */,
-				1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */,
-				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
-				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
-				1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -1006,6 +1026,11 @@
 				1A90D99613F8110600865709 /* ExpenseHistoryByCategoryViewController.xib in Resources */,
 				1A90D99913F8220F00865709 /* CellHeaderWithIcon.xib in Resources */,
 				1A90D99B13F82A5700865709 /* CellFooterAmountOnly.xib in Resources */,
+				1AC0FA7313F8D542003A4E93 /* arrow.down.png in Resources */,
+				1AC0FA7413F8D542003A4E93 /* arrow.down@2x.png in Resources */,
+				1AC0FA7513F8D542003A4E93 /* arrow.up.png in Resources */,
+				1AC0FA7613F8D542003A4E93 /* arrow.up@2x.png in Resources */,
+				1AE3573213F97E090015EB86 /* UIImageNoteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1063,7 @@
 				1A96CD3213F6B82800AA4D45 /* SavingHistoryViewController.m in Sources */,
 				1A96CD3E13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.m in Sources */,
 				1A90D99513F8110600865709 /* ExpenseHistoryByCategoryViewController.m in Sources */,
+				1AE3573113F97E090015EB86 /* UIImageNoteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
