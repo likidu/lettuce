@@ -27,4 +27,8 @@
 @property (nonatomic, retain) IBOutlet UIButton* todayButton;
 @property (nonatomic, retain) IBOutlet UIButton* historyButton;
 
+@property (nonatomic, retain) UIImage* firstUxImage;
+@property (nonatomic, retain) UIImageView* firstUxImageView;
+@property (nonatomic, retain) UIButton* firstUxButton;
+
 @end

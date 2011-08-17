@@ -41,18 +41,16 @@ typedef enum _Operator {
 #define TOL 0.0000001;
 #define fuzzyEqual(a, b) ({ABS(a - b) < TOL})
 
-@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate> {
+@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate,UITextViewDelegate> {
     double prevNumber;
     double curNumber;
     Operator activeOp;
     BOOL isCurNumberDirty;
     UIView* activeFloatingView;
-    Expense* editingExpense_;
     BOOL needReset_;
     BOOL imageUpdated_;
+    int defaultCatId_;
 }
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil editItem:(Expense*)expense;
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onSave:(id)sender;

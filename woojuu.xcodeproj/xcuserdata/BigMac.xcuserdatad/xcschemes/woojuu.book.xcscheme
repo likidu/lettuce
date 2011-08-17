@@ -70,7 +70,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Distribution"
+      customArchiveName = "woojuu.book"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

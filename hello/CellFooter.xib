@@ -54,6 +54,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{241, 8}, {69, 20}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="252320463">
 									<int key="NSColorSpace">3</int>
@@ -84,8 +85,9 @@
 							<object class="IBUILabel" id="406374535">
 								<reference key="NSNextResponder" ref="517017005"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{159, 8}, {69, 20}}</string>
+								<string key="NSFrame">{{160, 8}, {62, 20}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="202199249"/>
 								<reference key="IBUIBackgroundColor" ref="252320463"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -111,6 +113,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{72, 0}, {1, 36}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="406374535"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -128,6 +131,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{232, 0}, {1, 36}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="908412669"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -143,8 +147,9 @@
 							<object class="IBUIImageView" id="782692062">
 								<reference key="NSNextResponder" ref="517017005"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{14, 2}, {52, 31}}</string>
+								<string key="NSFrame">{{14, 0}, {52, 31}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="145774272"/>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">1</int>
@@ -160,6 +165,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 35}, {320, 1}}</string>
 								<reference key="NSSuperview" ref="517017005"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="943135883"/>
 								<int key="IBUIContentMode">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -172,7 +178,8 @@
 						</object>
 						<string key="NSFrameSize">{320, 36}</string>
 						<reference key="NSSuperview" ref="734763920"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="782692062"/>
 						<reference key="IBUIBackgroundColor" ref="252320463"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -183,6 +190,7 @@
 				</object>
 				<string key="NSFrameSize">{320, 36}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="517017005"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -313,7 +321,30 @@
 			<nil key="sourceID"/>
 			<int key="maxID">11</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">ExpenseHistoryViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">cellTemplate</string>
+						<string key="NS.object.0">UITableViewCell</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">cellTemplate</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">cellTemplate</string>
+							<string key="candidateClassName">UITableViewCell</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ExpenseHistoryViewController.h</string>
+					</object>
+				</object>
+			</object>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">

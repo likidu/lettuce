@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface AboutViewController : UIViewController {
+@interface AboutViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     
 }
 
 + (AboutViewController*) instance;
 
 - (IBAction)onOk;
+
+@property(nonatomic, retain) IBOutlet UITableView* table;
 
 @end

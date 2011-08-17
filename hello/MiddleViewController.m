@@ -41,18 +41,11 @@
     if (self) {
         // Custom initialization
         self.currentDate = [NSDate date];
-        editingExpense_ = nil;
         needReset_ = YES;
         self.imageUnknown = [UIImage imageNamed:@"unknown.png"];
+        defaultCatId_ = 26; // General Category
     }
     return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil editItem:(Expense *)expense {
-    id ret = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    editingExpense_ = [expense retain];
-    needReset_ = YES;
-    return ret;
 }
 
 - (void)setSelectedCategory:(NSNumber*)data {
@@ -60,33 +53,31 @@
         return;
     
     int catId = [data intValue];
-    if (catId == -1) {
-        setButtonTitleForStates(categoryButton, @"", UIControlStateHighlighted|UIControlStateSelected);
-        setButtonImageForStates(categoryButton, imageUnknown, UIControlStateHighlighted|UIControlStateSelected);
-        categoryButton.titleEdgeInsets = UIEdgeInsetsZero;
-        categoryButton.imageEdgeInsets = UIEdgeInsetsZero;
-        return;
-    }
-    CategoryManager* catMan = [CategoryManager instance];
-    [catMan loadCategoryDataFromDatabase:NO];
-    NSArray* categories = [catMan categoryCollection];
+    categoryButton.tag = catId;
+    
     Category* cat = nil;
-    for (Category* tmp in categories) {
-        if (tmp.categoryId == catId) {
-            cat = tmp;
-            break;
+    CategoryManager* catMan = [CategoryManager instance];
+    if (catId != -1) {
+        [catMan loadCategoryDataFromDatabase:NO];
+        NSArray* categories = [catMan categoryCollection];
+        for (Category* tmp in categories) {
+            if (tmp.categoryId == catId) {
+                cat = tmp;
+                break;
+            }
         }
     }
-    if (cat) {
-        UIColor* color = [UIColor darkTextColor];
-        setButtonTitleForStates(categoryButton, cat.categoryName, UIControlStateHighlighted|UIControlStateSelected);
-        setButtonTitleColorForStates(categoryButton, color, UIControlStateHighlighted|UIControlStateSelected);
-        UIImage * image = [catMan iconNamed:cat.iconName];
-        setButtonImageForStates(categoryButton, image, UIControlStateHighlighted|UIControlStateSelected);
-        categoryButton.tag = catId;
-        categoryButton.titleLabel.textAlignment = UITextAlignmentCenter;
-        makeToolButton(categoryButton);
-    }
+    
+    NSString* catName = !cat ? @"选择类别" : cat.categoryName;
+    UIImage* catIcon = !cat ? imageUnknown : [catMan iconNamed:cat.iconName];
+
+    UIColor* color = [UIColor darkTextColor];
+    setButtonTitleForStates(categoryButton, catName, UIControlStateHighlighted|UIControlStateSelected);
+    setButtonTitleColorForStates(categoryButton, color, UIControlStateHighlighted|UIControlStateSelected);
+    setButtonImageForStates(categoryButton, catIcon, UIControlStateHighlighted|UIControlStateSelected);
+    categoryButton.titleLabel.textAlignment = UITextAlignmentCenter;
+    
+    makeToolButton(categoryButton);
     
     [catViewController resetState:catId];
 }
@@ -159,16 +150,16 @@
         [alertView show];
         return;
     }
-    if (categoryButton.tag <= 0) {
-        UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"请选择一个支出类别。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
-        [alertView show];
-        return;
-    }
         
     expense.amount = amount;
-    expense.notes = uiNotes.text;
+    
+    if (uiNotes.tag != -1)
+        expense.notes = uiNotes.text;
+    else
+        expense.notes = @"";
+    
     expense.date = self.currentDate;
-    expense.categoryId = categoryButton.tag;
+    expense.categoryId = (categoryButton.tag > 0) ? categoryButton.tag : defaultCatId_;
     
     ExpenseManager* expMan = [ExpenseManager instance];
     if (imageUpdated_) {
@@ -201,7 +192,6 @@
     [super dealloc];
     self.currentDate = nil;
     self.imageUnknown = nil;
-    [editingExpense_ release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -340,6 +330,14 @@
 
 #pragma mark - View lifecycle
 
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if (textView.tag == -1) {
+        textView.text = @"";
+        textView.textColor = [UIColor darkTextColor];
+        textView.tag = 0;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if (!needReset_)
         return;
@@ -349,7 +347,20 @@
     activeOp = opNone;
     self.inputText = editingItem ? [NSString stringWithFormat:@"%.2f", curNumber] : @"";
     isCurNumberDirty = NO;
-    self.uiNotes.text = editingItem ? editingItem.notes : @"";
+    
+    // notes
+    NSString* notes = editingItem ? editingItem.notes : @"";
+    if (notes.length < 1) {
+        notes = @"添加备注...";
+        uiNotes.textColor = [UIColor lightGrayColor];
+        uiNotes.tag = -1;
+    }
+    else {
+        uiNotes.textColor = [UIColor darkTextColor];
+        uiNotes.tag = 0;
+    }
+    self.uiNotes.text = notes;
+
     self.currentDate = editingItem? editingItem.date : [NSDate date];
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
@@ -380,6 +391,7 @@
     int catId = editingItem ? editingItem.categoryId : -1;
     [self setSelectedCategory:[NSNumber numberWithInt:catId]];
     [catViewController resetState:catId];
+    [self setSelectedCategory:[NSNumber numberWithInt:catId]];
     [self switchFloatingView:numPadView];
     [self syncUi];
 }

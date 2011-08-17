@@ -120,7 +120,7 @@
     double total = [[ExpenseManager instance]loadTotalOfMonth:currentMonth];
     double saving = [Statistics getSavingOfMonth:currentMonth];
     [switchButtonExpense setTitle:[NSString stringWithFormat:@"消费￥%.f", total] forState:UIControlStateNormal];
-    [switchButtonSaving setTitle:[NSString stringWithFormat:@"结余￥%.f", saving] forState:UIControlStateNormal];
+    [switchButtonSaving setTitle:[NSString stringWithFormat:@"已省￥%.f", saving] forState:UIControlStateNormal];
 }
 
 - (void)presentTable:(int)tableIndex {

@@ -11,6 +11,8 @@
 
 @implementation RootViewController
 
+static NSString* g_key1stUx = @"DidShow1stUx";
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,6 +44,9 @@
 @synthesize tabPanel;
 @synthesize todayButton;
 @synthesize historyButton;
+@synthesize firstUxImage;
+@synthesize firstUxImageView;
+@synthesize firstUxButton;
 
 #pragma mark - Event handlers
 
@@ -139,9 +144,44 @@
     self.historyButton = nil;
 }
 
+- (void)onFirstUxButton{
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:g_key1stUx];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         self.firstUxImageView.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         if (finished) {
+                             [firstUxImageView removeFromSuperview];
+                             [firstUxButton removeFromSuperview];
+                             self.firstUxImageView = nil;
+                             self.firstUxButton = nil;
+                             self.firstUxImage = nil;
+                         }
+                     }];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if (activeController)
         [activeController performSelector:@selector(viewWillAppear:)];
+    
+    // show 1st user experience image
+    if (![[NSUserDefaults standardUserDefaults]boolForKey: g_key1stUx]) {
+        self.firstUxImage = [UIImage imageNamed:@"1st.ux.png"];
+        self.firstUxImageView = [[[UIImageView alloc]initWithFrame:self.view.bounds]autorelease];
+        firstUxImageView.backgroundColor = [UIColor clearColor];
+        firstUxImageView.image = firstUxImage;
+        firstUxImageView.contentMode = UIViewContentModeScaleToFill;
+        self.firstUxButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        firstUxButton.frame = self.view.bounds;
+        firstUxButton.backgroundColor = [UIColor clearColor];
+        [firstUxButton addTarget:self action:@selector(onFirstUxButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:firstUxImageView];
+        [self.view bringSubviewToFront:firstUxImageView];
+        [self.view addSubview:firstUxButton];
+        [self.view bringSubviewToFront:firstUxButton];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

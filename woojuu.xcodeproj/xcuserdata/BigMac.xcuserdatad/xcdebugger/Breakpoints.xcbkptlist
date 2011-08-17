@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335188664.698232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
          landmarkName = "-onSave:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -205,11 +205,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "395"
-         endingLineNumber = "395"
+         startingLineNumber = "407"
+         endingLineNumber = "407"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
+         startingLineNumber = "408"
+         endingLineNumber = "408"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,11 +289,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "414"
-         endingLineNumber = "414"
+         startingLineNumber = "426"
+         endingLineNumber = "426"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -303,11 +303,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335119236.269589"
+         timestampString = "335188664.698232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
          landmarkName = "-setSelectedCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -323,20 +323,6 @@
          startingLineNumber = "215"
          endingLineNumber = "215"
          landmarkName = "-categorySelected:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "hello/MiddleViewController.m"
-         timestampString = "335119236.269589"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
-         landmarkName = "-setSelectedCategory:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -471,11 +457,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "418"
-         endingLineNumber = "418"
+         startingLineNumber = "430"
+         endingLineNumber = "430"
          landmarkName = "-onSelectCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -485,11 +471,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120933.16374"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "447"
-         endingLineNumber = "447"
+         startingLineNumber = "459"
+         endingLineNumber = "459"
          landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -681,11 +667,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335119236.269589"
+         timestampString = "335188664.698232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-setSelectedCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -765,11 +751,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/RootViewController.m"
-         timestampString = "334774910.188224"
+         timestampString = "335196179.383394"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "51"
-         endingLineNumber = "51"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-presentViewController:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1001,11 +987,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "417"
-         endingLineNumber = "417"
+         startingLineNumber = "429"
+         endingLineNumber = "429"
          landmarkName = "-onSelectCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1029,11 +1015,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "387"
-         endingLineNumber = "387"
+         startingLineNumber = "399"
+         endingLineNumber = "399"
          landmarkName = "-viewWillDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1043,11 +1029,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "383"
-         endingLineNumber = "383"
+         startingLineNumber = "395"
+         endingLineNumber = "395"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1057,11 +1043,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335197479.814356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "344"
-         endingLineNumber = "344"
+         startingLineNumber = "342"
+         endingLineNumber = "342"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1071,11 +1057,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120889.98295"
+         timestampString = "335197479.814356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
          landmarkName = "-onSave:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1085,11 +1071,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120933.16374"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "486"
-         endingLineNumber = "486"
+         startingLineNumber = "498"
+         endingLineNumber = "498"
          landmarkName = "-imageDeleted"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1113,16 +1099,16 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/MiddleViewController.m"
-         timestampString = "335120933.16374"
+         timestampString = "335198320.157788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "491"
-         endingLineNumber = "491"
+         startingLineNumber = "503"
+         endingLineNumber = "503"
          landmarkName = "-imageDeleted"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -1133,6 +1119,102 @@
          startingLineNumber = "228"
          endingLineNumber = "228"
          landmarkName = "-deleteExpenseById:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/MiddleViewController.m"
+         timestampString = "335188664.698232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "-setSelectedCategory:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/RootViewController.m"
+         timestampString = "335196593.816655"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/RootViewController.m"
+         timestampString = "335196593.816655"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
+         landmarkName = "-onFirstUxButton"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/RootViewController.m"
+         timestampString = "335196636.411973"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/MiddleViewController.m"
+         timestampString = "335197479.814356"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "354"
+         endingLineNumber = "354"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/main.m"
+         timestampString = "335197709.287451"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5"
+         endingLineNumber = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/MiddleViewController.m"
+         timestampString = "335198120.005966"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "352"
+         endingLineNumber = "352"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

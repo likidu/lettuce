@@ -43,7 +43,7 @@
     double balance = 0.0;
     for (NSDate* day in days)
         balance += [[BudgetManager instance]getBudgetOfDay:day];
-    balance -= [Statistics getTotalOfDay:today];
+    balance -= [[ExpenseManager instance]loadTotalOfMonth:today];
     if (balance < 0)
         balance = 0.0;
     return balance;

@@ -166,7 +166,7 @@
 - (void)loadExpenseCell{
     if (cellTemplate)
         return;
-    [[NSBundle mainBundle]loadNibNamed:@"ExpenseCellWithDate" owner:self options:nil];
+    [[NSBundle mainBundle]loadNibNamed:@"ExpenseCellWithDateNoIcon" owner:self options:nil];
 }
 
 - (void)loadHeaderCell{
@@ -231,8 +231,8 @@
         NSArray* arr = [expenseData objectForKey:catId];
         Expense* exp = [arr objectAtIndex:indexPath.row-1];
         Category* cat = [CategoryManager categoryById:exp.categoryId];
-        UIImageView* catIcon = (UIImageView*)[cell viewWithTag:kCellCategoryIcon];
-        catIcon.image = [[CategoryManager instance]iconNamed:cat.smallIconName];
+        //UIImageView* catIcon = (UIImageView*)[cell viewWithTag:kCellCategoryIcon];
+        //catIcon.image = [[CategoryManager instance]iconNamed:cat.smallIconName];
         UILabel* catText = (UILabel*)[cell viewWithTag:kCellCategoryText];
         if (exp.notes && exp.notes.length > 0)
             catText.text = exp.notes;

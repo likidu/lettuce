@@ -11,6 +11,8 @@
 
 @implementation AboutViewController
 
+@synthesize table;
+
 static AboutViewController* g_aboutViewController = nil;
 
 + (AboutViewController *)instance {
@@ -47,6 +49,8 @@ static AboutViewController* g_aboutViewController = nil;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    table.allowsSelection = YES;
+    table.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidUnload
@@ -64,6 +68,47 @@ static AboutViewController* g_aboutViewController = nil;
 
 - (void)onOk {
     [self dismissModalViewControllerAnimated: YES];
+}
+
+#pragma mark - table view
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* kCellId = @"UrlCell";
+    
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellId]autorelease];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
+    }
+
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"访问莴苣网站";
+    }
+    else {
+        cell.textLabel.text = @"关注莴苣微博";
+    }
+
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIApplication* app = [UIApplication sharedApplication];
+    if (indexPath.row == 0) {
+        [app openURL:[NSURL URLWithString:@"http://www.woojuu.cc"]];
+    }
+    else {
+        [app openURL:[NSURL URLWithString:@"http://www.weibo.com/woojuu"]];
+    }
 }
 
 @end

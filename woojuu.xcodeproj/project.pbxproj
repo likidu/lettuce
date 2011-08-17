@@ -169,6 +169,10 @@
 		1AAD13BA132BB5770035BA92 /* MiddleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD13B8132BB5770035BA92 /* MiddleViewController.m */; };
 		1AAD13DB133345A90035BA92 /* BudgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD13D9133345A90035BA92 /* BudgetView.m */; };
 		1AAD13E813335A1C0035BA92 /* SettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AAD13E613335A170035BA92 /* SettingView.m */; };
+		1AADB47013FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AADB46F13FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib */; };
+		1AADB47313FA9EF7003E2434 /* woojuu.art.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AADB47213FA9EF7003E2434 /* woojuu.art.png */; };
+		1AADB47513FAABC8003E2434 /* 1st.ux.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AADB47413FAABC8003E2434 /* 1st.ux.png */; };
+		1AADB47713FABC56003E2434 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AADB47613FABC56003E2434 /* Icon-Small.png */; };
 		1AB681F713EADFCF00AF7265 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB681F613EADFCF00AF7265 /* arrow@2x.png */; };
 		1AB681FE13EAE05300AF7265 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB681FB13EAE05300AF7265 /* settings@2x.png */; };
 		1AB6820213EAE26200AF7265 /* add.transaction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB681FF13EAE26200AF7265 /* add.transaction@2x.png */; };
@@ -383,7 +387,7 @@
 		1AA75CE113F19D7800D8016E /* switch.amount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch.amount@2x.png"; path = "arts/switch.amount@2x.png"; sourceTree = "<group>"; };
 		1AA75CE213F19D7800D8016E /* switch.category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch.category.png; path = arts/switch.category.png; sourceTree = "<group>"; };
 		1AA75CE313F19D7800D8016E /* switch.category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch.category@2x.png"; path = "arts/switch.category@2x.png"; sourceTree = "<group>"; };
-		1AAD138D132BB1B00035BA92 /* woojuu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = woojuu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AAD138D132BB1B00035BA92 /* woojuu.book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = woojuu.book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AAD1391132BB1B00035BA92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1AAD1393132BB1B00035BA92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1AAD1395132BB1B00035BA92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -402,6 +406,10 @@
 		1AAD13D9133345A90035BA92 /* BudgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetView.m; sourceTree = "<group>"; };
 		1AAD13E513335A160035BA92 /* SettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingView.h; sourceTree = "<group>"; };
 		1AAD13E613335A170035BA92 /* SettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingView.m; sourceTree = "<group>"; };
+		1AADB46F13FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCellWithDateNoIcon.xib; sourceTree = "<group>"; };
+		1AADB47213FA9EF7003E2434 /* woojuu.art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = woojuu.art.png; path = arts/woojuu.art.png; sourceTree = "<group>"; };
+		1AADB47413FAABC8003E2434 /* 1st.ux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1st.ux.png; path = arts/1st.ux.png; sourceTree = "<group>"; };
+		1AADB47613FABC56003E2434 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "arts/Icon-Small.png"; sourceTree = "<group>"; };
 		1AB681F613EADFCF00AF7265 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "arts/arrow@2x.png"; sourceTree = "<group>"; };
 		1AB681FB13EAE05300AF7265 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings@2x.png"; path = "arts/settings@2x.png"; sourceTree = "<group>"; };
 		1AB681FF13EAE26200AF7265 /* add.transaction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add.transaction@2x.png"; path = "arts/add.transaction@2x.png"; sourceTree = "<group>"; };
@@ -557,6 +565,9 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AADB47613FABC56003E2434 /* Icon-Small.png */,
+				1AADB47413FAABC8003E2434 /* 1st.ux.png */,
+				1AADB47213FA9EF7003E2434 /* woojuu.art.png */,
 				1AC0FA6F13F8D542003A4E93 /* arrow.down.png */,
 				1AC0FA7013F8D542003A4E93 /* arrow.down@2x.png */,
 				1AC0FA7113F8D542003A4E93 /* arrow.up.png */,
@@ -656,6 +667,7 @@
 			children = (
 				1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */,
 				1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */,
+				1AADB46F13FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib */,
 				1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */,
 				1A90D99813F8220F00865709 /* CellHeaderWithIcon.xib */,
 				1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */,
@@ -692,7 +704,7 @@
 		1AAD138E132BB1B00035BA92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AAD138D132BB1B00035BA92 /* woojuu.app */,
+				1AAD138D132BB1B00035BA92 /* woojuu.book.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -818,7 +830,7 @@
 			);
 			name = woojuu;
 			productName = hello;
-			productReference = 1AAD138D132BB1B00035BA92 /* woojuu.app */;
+			productReference = 1AAD138D132BB1B00035BA92 /* woojuu.book.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1031,6 +1043,10 @@
 				1AC0FA7513F8D542003A4E93 /* arrow.up.png in Resources */,
 				1AC0FA7613F8D542003A4E93 /* arrow.up@2x.png in Resources */,
 				1AE3573213F97E090015EB86 /* UIImageNoteViewController.xib in Resources */,
+				1AADB47013FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib in Resources */,
+				1AADB47313FA9EF7003E2434 /* woojuu.art.png in Resources */,
+				1AADB47513FAABC8003E2434 /* 1st.ux.png in Resources */,
+				1AADB47713FABC56003E2434 /* Icon-Small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1094,9 +1110,9 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "莴苣账本";
-				PROVISIONING_PROFILE = "2FEDAB86-45EF-4C70-B612-A895DF152555";
+				PROVISIONING_PROFILE = "87D0C1C6-259C-4641-93E5-B29B4B8DF213";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1111,10 +1127,10 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "莴苣账本";
-				PROVISIONING_PROFILE = "2FEDAB86-45EF-4C70-B612-A895DF152555";
+				PROVISIONING_PROFILE = "87D0C1C6-259C-4641-93E5-B29B4B8DF213";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1133,7 +1149,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
 				);
-				PRODUCT_NAME = woojuu;
+				PRODUCT_NAME = woojuu.book;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1152,12 +1168,51 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
 				);
-				PRODUCT_NAME = woojuu;
+				PRODUCT_NAME = woojuu.book;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
+		};
+		1AADB47813FABFBB003E2434 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: RONG LI";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RONG LI";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "莴苣账本";
+				PROVISIONING_PROFILE = "E205603C-A5E9-4FEB-8963-7DF087FE03B6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E205603C-A5E9-4FEB-8963-7DF087FE03B6";
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		1AADB47913FABFBB003E2434 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
+				INFOPLIST_FILE = "hello/woojuu-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
+				);
+				PRODUCT_NAME = woojuu.book;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1167,6 +1222,7 @@
 			buildConfigurations = (
 				1AAD13B2132BB1B00035BA92 /* Debug */,
 				1AAD13B3132BB1B00035BA92 /* Release */,
+				1AADB47813FABFBB003E2434 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1176,6 +1232,7 @@
 			buildConfigurations = (
 				1AAD13B5132BB1B00035BA92 /* Debug */,
 				1AAD13B6132BB1B00035BA92 /* Release */,
+				1AADB47913FABFBB003E2434 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
