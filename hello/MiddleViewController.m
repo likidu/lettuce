@@ -42,7 +42,7 @@
         // Custom initialization
         self.currentDate = [NSDate date];
         needReset_ = YES;
-        self.imageUnknown = [UIImage imageNamed:@"unknown.png"];
+        self.imageUnknown = [UIImage imageNamed:@"unknown"];
         defaultCatId_ = 26; // General Category
     }
     return self;
@@ -230,7 +230,7 @@
         formulaLabel.text = @"";
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
-    [formatter setDateFormat:@"M月d日\nEEEE"];
+    [formatter setDateFormat:@"M月d日\nEE"];
 
     [uiDate setTitle:[formatter stringFromDate:self.currentDate] forState:UIControlStateNormal];
 }

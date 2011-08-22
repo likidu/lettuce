@@ -44,9 +44,14 @@ CategoryManager* g_catMan = nil;
     NSString* path = [[NSBundle mainBundle]pathForResource:@"iconlist" ofType:@"plist"];
     NSArray* iconList = [NSArray arrayWithContentsOfFile:path];
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:iconList.count];
+    BOOL isHiRes = [[UIScreen mainScreen]scale] == 2.0;
     for (NSString* iconName in iconList) {
-        UIImage* image = [UIImage imageNamed:iconName];
-        image = [UIImage imageWithCGImage:[image CGImage] scale:2.0 orientation:UIImageOrientationUp];
+        NSString* fileName = iconName;
+        if (isHiRes)
+            fileName = [iconName stringByReplacingOccurrencesOfString:@".png" withString:@"@2x.png"];
+        UIImage* image = [UIImage imageNamed:fileName];
+        if (isHiRes)
+            image = [UIImage imageWithCGImage:image.CGImage scale:2.0 orientation:UIImageOrientationUp];
         [dict setObject:image forKey:iconName];
     }
     iconDict = [dict retain];
