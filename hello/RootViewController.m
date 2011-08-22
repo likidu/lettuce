@@ -13,16 +13,6 @@
 
 static NSString* g_key1stUx = @"DidShow1stUx";
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        activeController = nil;
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [super dealloc];
@@ -88,7 +78,7 @@ static NSString* g_key1stUx = @"DidShow1stUx";
         MiddleViewController* vc = (MiddleViewController*)addExpenseController;
         vc.editingItem = (Expense*)data;
     }
-    [self presentModalViewController: self.addExpenseController animated: YES];
+    [[self rootViewController]presentModalViewController: self.addExpenseController animated: YES];
 }
 
 - (void)onAddExpense:(id)sender {
@@ -106,6 +96,11 @@ static NSString* g_key1stUx = @"DidShow1stUx";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (viewInitialized)
+        return;
+    viewInitialized = YES;
+    
     // set tab button tool button style
     makeToolButton(self.todayButton);
     makeToolButton(self.historyButton);
@@ -126,15 +121,13 @@ static NSString* g_key1stUx = @"DidShow1stUx";
     activeController = todayController;
     todayButton.selected = YES;
     [activeController performSelector:@selector(viewWillAppear:)];
-    
-    // set parent
-    [todayController performSelector:@selector(setParentViewController:) withObject:self];
-    [historyController performSelector:@selector(setParentViewController:) withObject:self];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    viewInitialized = NO;
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.todayController = nil;

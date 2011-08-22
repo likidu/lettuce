@@ -286,3 +286,16 @@ NSString* generateUUID() {
 	CFRelease(newUniqueIdString);
     return uuid;
 }
+
+
+@implementation UIViewController(ModalViewExtension)
+
+- (UIViewController *)rootViewController {
+    UIApplication* app = [UIApplication sharedApplication];
+    UIViewController* rootVc = app.keyWindow.rootViewController;
+    if (self.parentViewController == rootVc)
+        return self;
+    return rootVc;
+}
+
+@end

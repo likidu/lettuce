@@ -274,13 +274,12 @@
 							<object class="IBUIButton" id="307942431">
 								<reference key="NSNextResponder" ref="908984210"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{670, 8}, {115, 24}}</string>
+								<string key="NSFrame">{{820, 8}, {115, 24}}</string>
 								<reference key="NSSuperview" ref="908984210"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="658950470"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<bool key="IBUISelected">YES</bool>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="690686454"/>
@@ -300,12 +299,13 @@
 							<object class="IBUIButton" id="658950470">
 								<reference key="NSNextResponder" ref="908984210"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{820, 8}, {115, 24}}</string>
+								<string key="NSFrame">{{670, 8}, {115, 24}}</string>
 								<reference key="NSSuperview" ref="908984210"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="5472410"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUISelected">YES</bool>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="690686454"/>

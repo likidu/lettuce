@@ -12,6 +12,7 @@
 #import "Database.h"
 #import "CategoryManager.h"
 #import "RootViewController.h"
+#import "BudgetManager.h"
 
 @implementation ExpenseHistoryViewController
 
@@ -42,16 +43,32 @@
 - (void)reload {
     self.dates = [[ExpenseManager instance]getAvailableDatesBetween:startDate endDate:endDate];
     NSArray* expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:nil assending:YES];
-    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:dates.count];
+    NSMutableDictionary* totals = [NSMutableDictionary dictionaryWithCapacity:dates.count];
+    NSMutableDictionary* balances = [NSMutableDictionary dictionaryWithCapacity:dates.count];
+    BudgetManager* budMan = [BudgetManager instance];
     for (Expense* exp in expenses) {
-        if ([dict objectForKey:DATESTR(exp.date)] == nil)
-            [dict setObject:[NSMutableArray array] forKey:DATESTR(exp.date)];
-        NSMutableArray* array = [dict objectForKey:DATESTR(exp.date)];
+        NSString* strDate = DATESTR(exp.date);
+        if ([dict objectForKey:strDate] == nil)
+            [dict setObject:[NSMutableArray array] forKey:strDate];
+        NSMutableArray* array = [dict objectForKey:strDate];
         [array addObject:exp];
+        // add expense to total
+        if ([totals objectForKey:strDate] == nil)
+            [totals setObject:[NSNumber numberWithDouble:0.0] forKey:strDate];
+        NSNumber* total = [totals objectForKey:strDate];
+        total = [NSNumber numberWithDouble:[total doubleValue] + exp.amount];
+        [totals setObject:total forKey:strDate];
+        // substract from balance
+        if ([balances objectForKey:strDate] == nil)
+            [balances setObject:[NSNumber numberWithDouble:[budMan getBudgetOfDay:exp.date]] forKey:strDate];
+        NSNumber* balance = [balances objectForKey:strDate];
+        balance = [NSNumber numberWithDouble:[balance doubleValue] - exp.amount];
+        [balances setObject:balance forKey:strDate];
     }
     self.expenseData = dict;
-    self.totalData = [[ExpenseManager instance]loadTotalBetweenStartDate:startDate endDate:endDate];
-    self.balanceData = [[ExpenseManager instance]getBalanceBetweenStartDate:startDate endDate:endDate];
+    self.totalData = totals;
+    self.balanceData = balances;
     [self.tableView reloadData];
 }
 
@@ -143,7 +160,7 @@ static NSString* footerCellId = @"footerCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

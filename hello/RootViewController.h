@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface RootViewController : UIViewController {
     UIViewController* activeController;
+    BOOL viewInitialized;
 }
 
 - (IBAction)onToday:(id)sender;

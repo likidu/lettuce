@@ -24,7 +24,6 @@
 @synthesize transactionTable;
 @synthesize stampView;
 @synthesize progressView;
-
 @synthesize todayExpenses;
 
 static NSString* cellId = @"cellTransaction";
@@ -32,6 +31,11 @@ static NSString* cellId = @"cellTransaction";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (viewInitialized)
+        return;
+    viewInitialized = YES;
+    
     budgetView = [BudgetView instance];
     settingView = [[SettingView alloc]initWithNibName:@"SettingView" bundle:[NSBundle mainBundle]];    
 }
@@ -94,7 +98,7 @@ static NSString* cellId = @"cellTransaction";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    viewInitialized = NO;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.budgetLabel = nil;
@@ -165,11 +169,11 @@ static NSString* cellId = @"cellTransaction";
 }
 
 - (void)onChangeBudget:(id)sender {
-    [self presentModalViewController:budgetView animated:YES];
+    [[self rootViewController]presentModalViewController:budgetView animated:YES];
 }
 
 - (void)onSettings:(id)sender {
-    [self presentModalViewController:settingView animated:YES];
+    [[self rootViewController]presentModalViewController:settingView animated:YES];
 }
 
 - (void)dealloc

@@ -124,14 +124,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
-        [self presentModalViewController:[BudgetView instance] animated:YES];
+        [[self rootViewController]presentModalViewController:[BudgetView instance] animated:YES];
     }
     else if (indexPath.section == 1) {
-        [self presentModalViewController:[AboutViewController instance] animated:YES];
+        [[self rootViewController]presentModalViewController:[AboutViewController instance] animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
 
 @end

@@ -41,7 +41,7 @@ typedef enum _Operator {
 #define TOL 0.0000001;
 #define fuzzyEqual(a, b) ({ABS(a - b) < TOL})
 
-@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate,UITextViewDelegate> {
+@interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate,UITextViewDelegate,CategoryViewControllerDelegate> {
     double prevNumber;
     double curNumber;
     Operator activeOp;
@@ -50,6 +50,7 @@ typedef enum _Operator {
     BOOL needReset_;
     BOOL imageUpdated_;
     int defaultCatId_;
+    BOOL viewInitialized;
 }
 
 - (IBAction)onCancel:(id)sender;

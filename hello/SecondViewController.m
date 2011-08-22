@@ -46,9 +46,9 @@
 {
     [super viewDidLoad];
     
-    static bool initialized = NO;
-    if (initialized)
+    if (viewInitialized)
         return;
+    viewInitialized = YES;
     
     activeSwitch = kExpenseSaving;
     
@@ -94,8 +94,6 @@
     monthPicker.delegate = self;
     [monthPickerPlaceholder.superview addSubview:monthPicker.view];
     [monthPickerPlaceholder.superview bringSubviewToFront:monthPicker.view];
-    
-    initialized = YES;
 }
 
 
@@ -117,7 +115,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    viewInitialized = NO;
     // Release any retained subviews of the main view.
     self.monthPickerPlaceholder = nil;
     self.filterButton = nil;
@@ -164,7 +162,7 @@
     CATransition* animation = [CATransition animation];
     animation.type = kCATransitionPush;
     animation.subtype = kCATransitionFromRight;
-    animation.duration = 0.15;
+    animation.duration = 0.2;
     oldTable.view.hidden = YES;
     [oldTable.view.layer addAnimation:animation forKey:@""];
     [CATransaction commit];
@@ -173,7 +171,7 @@
     animation = [CATransition animation];
     animation.type = kCATransitionMoveIn;
     animation.subtype = kCATransitionFromRight;
-    animation.duration = 0.15;
+    animation.duration = 0.2;
     newTable.view.hidden = NO;
     [newTable.view.layer addAnimation:animation forKey:@""];
     [CATransaction commit];
@@ -208,7 +206,9 @@
 - (void)presentSwitchArea:(int)area {
     if (activeSwitch == area)
         area = kExpenseSaving;
-    [UIView animateWithDuration:0.2
+    monthButton.selected = area == kMonthPicker;
+    filterButton.selected = area == kFilter;
+    [UIView animateWithDuration:0.5
                      animations:^{
                          CGRect frame = switchPlaceholder.frame;
                          frame.origin.x = -320 * (float)area;
@@ -257,7 +257,6 @@
 }
 
 - (void)onMonthButton{
-    monthButton.selected = !monthButton.selected;
     [self presentSwitchArea:kMonthPicker];
 }
 
@@ -309,7 +308,6 @@
 }
 
 - (void)onFilter {
-    filterButton.selected = !filterButton.selected;
     [self presentSwitchArea:kFilter];
 }
 

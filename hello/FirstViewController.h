@@ -14,6 +14,7 @@
 @interface FirstViewController : UIViewController <UITableViewDataSource,UITableViewDelegate> {
     BudgetView *budgetView;
     SettingView *settingView;
+    BOOL viewInitialized;
 }
 
 @property(nonatomic, retain) IBOutlet UILabel *budgetLabel;

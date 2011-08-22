@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CategoryViewControllerDelegate <NSObject>
+
+- (void)categorySelected:(NSNumber*)data;
+
+@end
 
 @interface CategoryViewController : UIViewController <UIScrollViewDelegate> {
     BOOL pageControlUsed;
@@ -25,7 +30,6 @@
 - (void)loadButtons;
 - (void)resetState:(int)selectedCatId;
 
-@property (nonatomic, retain) NSObject* responder;
-@property (nonatomic) SEL onCategorySelected;
+@property (nonatomic, assign) id<CategoryViewControllerDelegate> delegate;
 
 @end

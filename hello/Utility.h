@@ -50,4 +50,10 @@ extern NSString* generateUUID();
 
 #define DATESTR(x) shortDateString(x)
 
+@interface UIViewController (ModalViewExtension)
+
+- (UIViewController*)rootViewController;
+
+@end
+
 #endif

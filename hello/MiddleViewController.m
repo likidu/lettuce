@@ -47,8 +47,7 @@
     }
     return self;
 }
-
-- (void)setSelectedCategory:(NSNumber*)data {
+- (void)categorySelected:(NSNumber *)data {
     if (!data)
         return;
     
@@ -87,7 +86,7 @@
     CATransition* animation = [CATransition animation];
     animation.type = kCATransitionMoveIn;
     animation.subtype = kCATransitionFromRight;
-    animation.duration = 0.15;
+    animation.duration = 0.2;
     view.hidden = NO;
     [view.layer addAnimation:animation forKey:@""];
     [CATransaction commit];
@@ -110,11 +109,11 @@
         CATransition* animation = [CATransition animation];
         animation.type = kCATransitionPush;
         animation.subtype = kCATransitionFromRight;
-        animation.duration = 0.15;
+        animation.duration = 0.2;
         [activeFloatingView.layer addAnimation:animation forKey:@""];
         [CATransaction commit];
         activeFloatingView.hidden = YES;
-        [self performSelector:@selector(presentView:) withObject:view afterDelay:0.15];
+        [self performSelector:@selector(presentView:) withObject:view];
     }
     else
         [self presentView:view];
@@ -392,9 +391,8 @@
     datePicker.date = currentDate;
     
     int catId = editingItem ? editingItem.categoryId : -1;
-    [self setSelectedCategory:[NSNumber numberWithInt:catId]];
+    [self categorySelected:[NSNumber numberWithInt:catId]];
     [catViewController resetState:catId];
-    [self setSelectedCategory:[NSNumber numberWithInt:catId]];
     [self switchFloatingView:numPadView];
     [self syncUi];
 }
@@ -403,16 +401,22 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self categorySelected:[NSNumber numberWithInt:categoryButton.tag]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (viewInitialized)
+        return;
+    viewInitialized = YES;
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:catViewController.view];
     catViewController.view.frame = inputPlaceHolder.frame;
     [catViewController loadButtons];
     catViewController.view.hidden = YES;
-    catViewController.responder = self;
-    catViewController.onCategorySelected = @selector(setSelectedCategory:);
+    catViewController.delegate = self;
     
     numPadView.frame = inputPlaceHolder.frame;
     [self.view addSubview:numPadView];
@@ -479,14 +483,18 @@
     UIImagePickerController* picker = [[[UIImagePickerController alloc]init]autorelease];
     picker.delegate = self;
     
-    if ([actionSheet buttonTitleAtIndex:buttonIndex] == @"拍照") {
+    if (buttonIndex == 0) { // take a photo
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            return;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
-    else if ([actionSheet buttonTitleAtIndex:buttonIndex] == @"用户相册") {
+    else if (buttonIndex == 1) { // pick from library
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+            return;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     picker.allowsEditing = YES;
-    [self presentModalViewController:picker animated:YES];
+    [[self rootViewController]presentModalViewController:picker animated:YES];
 }
 
 - (void)onPickPhoto:(id)sender {
@@ -509,12 +517,13 @@
 - (void)onImageEditButton {
     imageNoteViewController.delegate = self;
     imageNoteViewController.imageNote = imageView.image;
-    [self presentModalViewController:imageNoteViewController animated:YES];
+    [[self rootViewController]presentModalViewController:imageNoteViewController animated:YES];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    viewInitialized = NO;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.uiNotes = nil;

@@ -20,6 +20,7 @@ enum SwitchArea {
     NSMutableArray* tables_;
     int activeTable;
     int activeSwitch;
+    BOOL viewInitialized;
 }
 
 @property(nonatomic, retain) NSArray* months;

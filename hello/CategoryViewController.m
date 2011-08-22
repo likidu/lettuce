@@ -17,8 +17,7 @@ CGSize categoryButtonSize = {60, 72};
 
 @synthesize scrollView;
 @synthesize pageControl;
-@synthesize onCategorySelected;
-@synthesize responder;
+@synthesize delegate;
 @synthesize topCategoryIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,7 +33,6 @@ CGSize categoryButtonSize = {60, 72};
 {
     [super dealloc];
     self.topCategoryIndicator = nil;
-    self.responder = nil;
 }
 
 - (void)removeAllCategoryButtons {
@@ -215,7 +213,7 @@ CGSize categoryButtonSize = {60, 72};
     currentSelectedButton = button;
     currentSelectedButton.selected = YES;
     selectedCategoryId = currentSelectedButton.tag;
-    [self.responder performSelector:self.onCategorySelected withObject:[NSNumber numberWithInt: button.tag]];
+    [self.delegate categorySelected:[NSNumber numberWithInt: button.tag]];
 }
 
 - (void)resetState:(int)selectedCatId {
