@@ -69,6 +69,11 @@
 - (void)dealloc
 {
     [super dealloc];
+    self.startDate = nil;
+    self.endDate = nil;
+    self.dates = nil;
+    self.budgets = nil;
+    self.totals = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,6 +102,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.table = nil;
+    self.cellTemplate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -179,8 +186,6 @@
     double budget = [[budgets objectAtIndex:indexPath.row]doubleValue];
     UILabel* balanceLabel = (UILabel*)[cell viewWithTag:kSavingBalance];
     double balance = budget - total;
-    if (balance < 0)
-        balance = 0.0;
     balanceLabel.text = formatAmount(balance, NO);
     UILabel* budgetLabel = (UILabel*)[cell viewWithTag:kSavingBudget];
     budgetLabel.text = formatAmount(budget, NO);

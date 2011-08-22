@@ -33,6 +33,8 @@ CGSize categoryButtonSize = {60, 72};
 - (void)dealloc
 {
     [super dealloc];
+    self.topCategoryIndicator = nil;
+    self.responder = nil;
 }
 
 - (void)removeAllCategoryButtons {
@@ -194,7 +196,8 @@ CGSize categoryButtonSize = {60, 72};
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    self.topCategoryIndicator = nil;
+    self.scrollView = nil;
+    self.pageControl = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -16,8 +16,11 @@
 
 + (SavingHistoryViewController*)createInstance;
 
+// set to nil at viewDidUnload
 @property(nonatomic,retain) IBOutlet UITableView* table;
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
+
+// set to nil at dealloc
 @property(nonatomic,retain) NSDate* startDate;
 @property(nonatomic,retain) NSDate* endDate;
 @property(nonatomic,retain) NSArray* dates;

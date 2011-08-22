@@ -33,9 +33,7 @@ static NSString* cellId = @"cellTransaction";
 {
     [super viewDidLoad];
     budgetView = [BudgetView instance];
-    settingView = [[SettingView alloc]initWithNibName:@"SettingView" bundle:[NSBundle mainBundle]];
-    newTransactionView = [[MiddleViewController alloc]initWithNibName:@"MiddleView" bundle:[NSBundle mainBundle]];
-    
+    settingView = [[SettingView alloc]initWithNibName:@"SettingView" bundle:[NSBundle mainBundle]];    
 }
 
 - (void)loadCellFromNib {
@@ -50,10 +48,6 @@ static NSString* cellId = @"cellTransaction";
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)onNewTransaction {
-    [self presentModalViewController:newTransactionView animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,6 +97,14 @@ static NSString* cellId = @"cellTransaction";
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.budgetLabel = nil;
+    self. cellTemplate = nil;
+    self.dateLabel = nil;
+    self.balanceLabel = nil;
+    self.savingLabel = nil;
+    self.transactionTable = nil;
+    self.stampView = nil;
+    self.progressView = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -175,7 +177,7 @@ static NSString* cellId = @"cellTransaction";
     [super dealloc];
     [budgetView release];
     [settingView release];
-    [newTransactionView release];
+    self.todayExpenses = nil;
 }
 
 @end

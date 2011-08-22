@@ -26,6 +26,9 @@ static NSString* g_key1stUx = @"DidShow1stUx";
 - (void)dealloc
 {
     [super dealloc];
+    self.firstUxImage = nil;
+    self.firstUxButton = nil;
+    self.firstUxImageView = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,8 +130,6 @@ static NSString* g_key1stUx = @"DidShow1stUx";
     // set parent
     [todayController performSelector:@selector(setParentViewController:) withObject:self];
     [historyController performSelector:@selector(setParentViewController:) withObject:self];
-    //[todayController setParentViewController: self];
-    //[historyController setParentViewController: self];
 }
 
 - (void)viewDidUnload

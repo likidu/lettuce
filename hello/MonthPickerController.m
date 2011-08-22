@@ -90,6 +90,8 @@
 - (void)dealloc
 {
     [super dealloc];
+    self.months = nil;
+    self.labels = nil;
 }
 
 - (void)didReceiveMemoryWarning

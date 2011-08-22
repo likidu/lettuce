@@ -186,7 +186,7 @@
 						<string key="NSFrame">{{192, 4}, {38, 22}}</string>
 						<reference key="NSSuperview" ref="677962134"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="685368305"/>
+						<reference key="NSNextKeyView" ref="975466597"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -207,7 +207,7 @@
 						<string key="NSFrame">{{186, 15}, {44, 20}}</string>
 						<reference key="NSSuperview" ref="677962134"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="975466597"/>
+						<reference key="NSNextKeyView" ref="62323325"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -251,7 +251,7 @@
 						<string key="NSFrame">{{106, 16}, {44, 20}}</string>
 						<reference key="NSSuperview" ref="677962134"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="62323325"/>
+						<reference key="NSNextKeyView" ref="685368305"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -277,7 +277,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">已省</string>
+						<string key="IBUIText">结余</string>
 						<reference key="IBUIFont" ref="870172065"/>
 						<reference key="IBUITextColor" ref="609591215"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -298,7 +298,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">SAVING</string>
+						<string key="IBUIText">BALANCE</string>
 						<reference key="IBUIFont" ref="738194933"/>
 						<reference key="IBUITextColor" ref="609591215"/>
 						<nil key="IBUIHighlightedColor"/>

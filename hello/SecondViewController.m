@@ -88,6 +88,13 @@
     // set active table
     activeTable = kExpense;
     
+    // create month picker
+    self.monthPicker = [MonthPickerController pickerWithMonths:months];
+    monthPicker.view.frame = monthPickerPlaceholder.frame;
+    monthPicker.delegate = self;
+    [monthPickerPlaceholder.superview addSubview:monthPicker.view];
+    [monthPickerPlaceholder.superview bringSubviewToFront:monthPicker.view];
+    
     initialized = YES;
 }
 
@@ -112,8 +119,17 @@
     [super viewDidUnload];
 
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
     self.monthPickerPlaceholder = nil;
+    self.filterButton = nil;
+    self.editButton = nil;
+    self.tablePlaceholder = nil;
+    self.switchButtonExpense = nil;
+    self.switchButtonSaving = nil;
+    self.switchPlaceholder = nil;
+    self.monthButton = nil;
+    self.byAmountButton = nil;
+    self.byCategoryButton = nil;
+    self.monthPicker = nil;
 }
 
 - (void)updateSwitchButtonData {
@@ -249,16 +265,10 @@
     ExpenseManager* expMan = [ExpenseManager instance];
     
     // show the month list
-    if (monthPicker)
-        [monthPicker.view removeFromSuperview];
     self.months = [expMan loadMonths];
     self.currentMonth = [months lastObject];
-    self.monthPicker = [MonthPickerController pickerWithMonths:months];
-    monthPicker.view.frame = monthPickerPlaceholder.frame;
-    [monthPicker reload];
-    monthPicker.delegate = self;
-    [monthPickerPlaceholder.superview addSubview:monthPicker.view];
-    [monthPickerPlaceholder.superview bringSubviewToFront:monthPicker.view];
+    self.monthPicker.months = self.months;
+    [self.monthPicker reload];
     
     // load table data
     UIViewController* table = (UIViewController*)[tables_ objectAtIndex:activeTable];
@@ -315,8 +325,10 @@
 
 - (void)dealloc
 {
-    CLEAN_RELEASE(tables_);
     [super dealloc];
+    CLEAN_RELEASE(tables_);
+    self.months = nil;
+    self.currentMonth = nil;
 }
 
 @end

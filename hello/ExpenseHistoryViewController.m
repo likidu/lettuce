@@ -124,6 +124,10 @@ static NSString* footerCellId = @"footerCell";
     [super dealloc];
     self.startDate = nil;
     self.endDate = nil;
+    self.dates = nil;
+    self.expenseData = nil;
+    self.totalData = nil;
+    self.balanceData = nil;
 }
 
 - (void)didReceiveMemoryWarning

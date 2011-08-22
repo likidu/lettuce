@@ -190,8 +190,11 @@
 - (void)dealloc
 {
     [super dealloc];
+    self.inputText = nil;
     self.currentDate = nil;
     self.imageUnknown = nil;
+    self.editingItem = nil;
+    self.imageNoteViewController = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -518,6 +521,17 @@
     self.uiNumber = nil;
     self.uiDate = nil;
     self.catViewController = nil;
+    self.inputPlaceHolder = nil;
+    self.categoryButton = nil;
+    self.numPadView = nil;
+    self.datePickerView = nil;
+    self.imageButton = nil;
+    self.imageEditButton = nil;
+    self.imageView = nil;
+    self.frameView = nil;
+    self.datePicker = nil;
+    self.formulaLabel = nil;
+    needReset_ = YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

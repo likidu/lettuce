@@ -45,6 +45,9 @@
 - (void)dealloc
 {
     [super dealloc];
+    self.startDate = nil;
+    self.endDate = nil;
+    self.expenses = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +76,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.tableView = nil;
+    self.cellTemplate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated

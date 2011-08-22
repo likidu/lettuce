@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1AAD138C132BB1B00035BA92"
-               BuildableName = "woojuu.app"
+               BuildableName = "woojuu.book.app"
                BlueprintName = "woojuu"
                ReferencedContainer = "container:woojuu.xcodeproj">
             </BuildableReference>
@@ -41,7 +41,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AAD138C132BB1B00035BA92"
-            BuildableName = "woojuu.app"
+            BuildableName = "woojuu.book.app"
             BlueprintName = "woojuu"
             ReferencedContainer = "container:woojuu.xcodeproj">
          </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1AAD138C132BB1B00035BA92"
-            BuildableName = "woojuu.app"
+            BuildableName = "woojuu.book.app"
             BlueprintName = "woojuu"
             ReferencedContainer = "container:woojuu.xcodeproj">
          </BuildableReference>

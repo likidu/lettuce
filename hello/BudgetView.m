@@ -89,6 +89,8 @@ static BudgetView* g_budgetView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.uiBudgetEditBox = nil;
+    self.uiVacationBudgetEditBox = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
