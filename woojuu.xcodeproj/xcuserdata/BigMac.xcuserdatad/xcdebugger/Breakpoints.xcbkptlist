@@ -1055,7 +1055,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SettingView.m"
-         timestampString = "335715790.229005"
+         timestampString = "337002205.654719"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "127"
@@ -1069,7 +1069,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SettingView.m"
-         timestampString = "335715792.452918"
+         timestampString = "337002205.654719"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "130"
@@ -1120,7 +1120,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"

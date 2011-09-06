@@ -103,7 +103,7 @@
             cell.imageView.image = imgBudget;
         }
         else {
-            cell.textLabel.text = @"开启程序开始记账";
+            cell.textLabel.text = @"快速记账";
             cell.imageView.image = imgStartup;
             cell.accessoryView = yesNoSwitch;
         }
@@ -130,6 +130,12 @@
         [[self rootViewController]presentModalViewController:[AboutViewController instance] animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == 0)
+        return @"每次打开程序直接进入记账界面";
+    return @"";    
 }
 
 @end

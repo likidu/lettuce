@@ -274,6 +274,7 @@
 		1AE433A313762B7A005AAB8F /* iconlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE433A213762B7A005AAB8F /* iconlist.plist */; };
 		1AE433A613763514005AAB8F /* BudgetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE433A513763513005AAB8F /* BudgetManager.m */; };
 		1AE5C670139A2C51008EC75A /* PlanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE5C66F139A2C51008EC75A /* PlanManager.m */; };
+		1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEA7F221416481600B74B8A /* MessageUI.framework */; };
 		1AF99C3D13F04E7A008DF7D0 /* add.transaction.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF99C3913F04E7A008DF7D0 /* add.transaction.png */; };
 		1AF99C3E13F04E7A008DF7D0 /* tab.button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF99C3A13F04E7A008DF7D0 /* tab.button.png */; };
 		1AF99C3F13F04E7A008DF7D0 /* tab.history.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF99C3B13F04E7A008DF7D0 /* tab.history.png */; };
@@ -589,6 +590,7 @@
 		1AE433A513763513005AAB8F /* BudgetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetManager.m; sourceTree = "<group>"; };
 		1AE5C66E139A2C51008EC75A /* PlanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanManager.h; sourceTree = "<group>"; };
 		1AE5C66F139A2C51008EC75A /* PlanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanManager.m; sourceTree = "<group>"; };
+		1AEA7F221416481600B74B8A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1AF99C3913F04E7A008DF7D0 /* add.transaction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.transaction.png; path = arts/add.transaction.png; sourceTree = "<group>"; };
 		1AF99C3A13F04E7A008DF7D0 /* tab.button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab.button.png; path = arts/tab.button.png; sourceTree = "<group>"; };
 		1AF99C3B13F04E7A008DF7D0 /* tab.history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab.history.png; path = arts/tab.history.png; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */,
 				1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */,
 				1A1DEAD51356135D00505A56 /* libstdc++.dylib in Frameworks */,
 				1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */,
@@ -925,6 +928,7 @@
 		1AAD1390132BB1B00035BA92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AEA7F221416481600B74B8A /* MessageUI.framework */,
 				1AE4339F1375AC82005AAB8F /* QuartzCore.framework */,
 				1AAD1391132BB1B00035BA92 /* UIKit.framework */,
 				1AAD1393132BB1B00035BA92 /* Foundation.framework */,

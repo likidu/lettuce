@@ -238,7 +238,7 @@
 								<string key="NSFrame">{{500, 8}, {115, 24}}</string>
 								<reference key="NSSuperview" ref="908984210"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="307942431"/>
+								<reference key="NSNextKeyView" ref="658950470"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -277,7 +277,7 @@
 								<string key="NSFrame">{{820, 8}, {115, 24}}</string>
 								<reference key="NSSuperview" ref="908984210"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="658950470"/>
+								<reference key="NSNextKeyView" ref="5472410"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -285,7 +285,7 @@
 								<reference key="IBUIFont" ref="690686454"/>
 								<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 								<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
-								<string key="IBUINormalTitle">按金额排序</string>
+								<string key="IBUINormalTitle">按金额查看</string>
 								<reference key="IBUIHighlightedTitleColor" ref="288166328"/>
 								<reference key="IBUISelectedTitleColor" ref="288166328"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
@@ -302,7 +302,7 @@
 								<string key="NSFrame">{{670, 8}, {115, 24}}</string>
 								<reference key="NSSuperview" ref="908984210"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="5472410"/>
+								<reference key="NSNextKeyView" ref="307942431"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<bool key="IBUISelected">YES</bool>
@@ -311,7 +311,7 @@
 								<reference key="IBUIFont" ref="690686454"/>
 								<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 								<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
-								<string key="IBUINormalTitle">按分类统计</string>
+								<string key="IBUINormalTitle">按分类查看</string>
 								<reference key="IBUIHighlightedTitleColor" ref="288166328"/>
 								<reference key="IBUISelectedTitleColor" ref="288166328"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
