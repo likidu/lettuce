@@ -15,7 +15,7 @@
 
 @end
 
-@interface UIImageNoteViewController : UIViewController <UIAlertViewDelegate, UIScrollViewDelegate> {
+@interface UIImageNoteViewController : UIViewController <UIActionSheetDelegate, UIScrollViewDelegate> {
     
 }
 

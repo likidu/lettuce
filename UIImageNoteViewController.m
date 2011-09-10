@@ -77,14 +77,15 @@
 }
 
 - (void)onDeleteImage {
-    UIAlertView* view = [[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"即将删除图片，本操作不可恢复，确定要这样吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认删除", nil];
-    [view show];
+    UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除照片" otherButtonTitles:nil]autorelease];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionSheet showInView: self.view];
 }
 
-#pragma mark - alert view delegate
+#pragma mark - action sheet delegate
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != [alertView cancelButtonIndex]) {
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
         [self dismissModalViewControllerAnimated:YES];
         [delegate imageDeleted];
     }

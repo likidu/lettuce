@@ -875,11 +875,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "UIImageNoteViewController.m"
-         timestampString = "335605384.988756"
+         timestampString = "337319766.717619"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
          landmarkName = "-viewForZoomingInScrollView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1159,6 +1159,20 @@
          startingLineNumber = "47"
          endingLineNumber = "47"
          landmarkName = "-init"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "UIImageNoteViewController.m"
+         timestampString = "337319766.717619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
+         landmarkName = "-actionSheet:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
