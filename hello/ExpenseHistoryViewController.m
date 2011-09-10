@@ -279,6 +279,7 @@ static NSString* footerCellId = @"footerCell";
         photoIcon.hidden = (exp.pictureRef == nil || exp.pictureRef.length == 0);
         UILabel* amount = (UILabel*)[cell viewWithTag:kCellAmount];
         amount.text = [NSString stringWithFormat:@"￥%.2f", exp.amount];
+        amount.hidden = NO;
     }
     
     return cell;
@@ -290,6 +291,18 @@ static NSString* footerCellId = @"footerCell";
     if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath])
         return NO;
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIView* amountLabel = [cell viewWithTag:kCellAmount];
+    amountLabel.hidden = YES;
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIView* amountLabel = [cell viewWithTag:kCellAmount];
+    amountLabel.hidden = NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
