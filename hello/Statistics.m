@@ -38,8 +38,9 @@
 
 + (double)getBalanceOfMonth {
     NSDate* today = normalizeDate([NSDate date]);
+    NSDate* firstDay = firstDayOfMonth(today);
     NSDate* lastDay = lastDayOfMonth(today);
-    NSArray* days = getDatesBetween(today, lastDay);
+    NSArray* days = getDatesBetween(firstDay, lastDay);
     double balance = 0.0;
     for (NSDate* day in days)
         balance += [[BudgetManager instance]getBudgetOfDay:day];

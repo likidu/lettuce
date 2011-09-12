@@ -144,6 +144,9 @@
             amount = prevNumber / curNumber;
     }
     
+    if (fuzzyEqual(amount, 0.0) && editingItem)
+        amount = editingItem.amount;
+    
     if (amount < 0 || fuzzyEqual(amount, 0.0)) {
         UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
         [alertView show];
@@ -345,9 +348,9 @@
         return;
     needReset_ = NO;
     prevNumber = 0.0;
-    curNumber = editingItem ? editingItem.amount : 0.0;
+    curNumber = 0.0;
     activeOp = opNone;
-    self.inputText = editingItem ? [NSString stringWithFormat:@"%.2f", curNumber] : @"";
+    self.inputText = @"";
     isCurNumberDirty = NO;
     
     // notes
@@ -395,6 +398,9 @@
     [catViewController resetState:catId];
     [self switchFloatingView:numPadView];
     [self syncUi];
+    if (editingItem) {
+        uiNumber.text = [NSString stringWithFormat:@"¥ %.2f", editingItem.amount];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
