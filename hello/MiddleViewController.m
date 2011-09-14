@@ -231,10 +231,11 @@
     }
     else
         formulaLabel.text = @"";
-    
+}
+
+- (void)syncDate {
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"M月d日\nEE"];
-
     [uiDate setTitle:[formatter stringFromDate:self.currentDate] forState:UIControlStateNormal];
 }
 
@@ -343,6 +344,14 @@
     }
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text.length == 0) {
+        textView.text = @"添加备注...";
+        textView.textColor = [UIColor lightGrayColor];
+        textView.tag = -1;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if (!needReset_)
         return;
@@ -398,6 +407,7 @@
     [catViewController resetState:catId];
     [self switchFloatingView:numPadView];
     [self syncUi];
+    [self syncDate];
     if (editingItem) {
         uiNumber.text = [NSString stringWithFormat:@"¥ %.2f", editingItem.amount];
     }
@@ -452,7 +462,7 @@
 - (void)onDateChanged:(id)sender {
     UIDatePicker* picker = (UIDatePicker*)sender;
     self.currentDate = picker.date;
-    [self syncUi];
+    [self syncDate];
 }
 
 #pragma mark - image picker delegate

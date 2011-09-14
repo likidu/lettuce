@@ -69,6 +69,10 @@ static NSString* cellId = @"cellTransaction";
     // update budget label
     double balance = [Statistics getBalanceOfDay:today];
     budgetLabel.text = formatAmount(balance, NO);
+    if (balance < 0)
+        budgetLabel.textColor = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
+    else
+        budgetLabel.textColor = [UIColor darkTextColor];
     double balanceOfMonth = [Statistics getBalanceOfMonth];
     balanceLabel.text = formatAmount(balanceOfMonth, NO);
     double savingOfMonth = [Statistics getSavingOfMonth:today];

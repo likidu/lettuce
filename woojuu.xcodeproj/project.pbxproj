@@ -264,6 +264,10 @@
 		1AC167F513E8495500FB1044 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC167F413E8495400FB1044 /* photo@2x.png */; };
 		1AC1F13213DEF96400A1C7AD /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F12E13DEF96400A1C7AD /* camera@2x.png */; };
 		1AC20BF913D5C216004A4E32 /* keyboardbglite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC20BF813D5C216004A4E32 /* keyboardbglite.png */; };
+		1AC7DC29141F76070024BE9B /* about_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC25141F76070024BE9B /* about_email@2x.png */; };
+		1AC7DC2A141F76070024BE9B /* about_rateus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC26141F76070024BE9B /* about_rateus@2x.png */; };
+		1AC7DC2B141F76070024BE9B /* about_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC27141F76070024BE9B /* about_web@2x.png */; };
+		1AC7DC2C141F76070024BE9B /* about_weibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC28141F76070024BE9B /* about_weibo@2x.png */; };
 		1AD88A2013ED6C8800804635 /* settings.about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1D13ED6C8800804635 /* settings.about@2x.png */; };
 		1AD88A2113ED6C8800804635 /* settings.budget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1E13ED6C8800804635 /* settings.budget@2x.png */; };
 		1AD88A2213ED6C8800804635 /* settings.startup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1F13ED6C8800804635 /* settings.startup@2x.png */; };
@@ -272,6 +276,10 @@
 		1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6C13ED96D600804635 /* AboutViewController.m */; };
 		1AE3573113F97E090015EB86 /* UIImageNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3572F13F97E060015EB86 /* UIImageNoteViewController.m */; };
 		1AE3573213F97E090015EB86 /* UIImageNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3573013F97E070015EB86 /* UIImageNoteViewController.xib */; };
+		1AE4193F141F85FE00950CD7 /* about_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE4193B141F85FE00950CD7 /* about_email.png */; };
+		1AE41940141F85FE00950CD7 /* about_rateus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE4193C141F85FE00950CD7 /* about_rateus.png */; };
+		1AE41941141F85FE00950CD7 /* about_web.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE4193D141F85FE00950CD7 /* about_web.png */; };
+		1AE41942141F85FE00950CD7 /* about_weibo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE4193E141F85FE00950CD7 /* about_weibo.png */; };
 		1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4339F1375AC82005AAB8F /* QuartzCore.framework */; };
 		1AE433A313762B7A005AAB8F /* iconlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE433A213762B7A005AAB8F /* iconlist.plist */; };
 		1AE433A613763514005AAB8F /* BudgetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE433A513763513005AAB8F /* BudgetManager.m */; };
@@ -576,6 +584,10 @@
 		1AC1F12E13DEF96400A1C7AD /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera@2x.png"; path = "arts/camera@2x.png"; sourceTree = "<group>"; };
 		1AC20BF813D5C216004A4E32 /* keyboardbglite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardbglite.png; path = arts/keyboardbglite.png; sourceTree = "<group>"; };
 		1AC7D60413F57AE600A82B2B /* TableViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewProtocol.h; sourceTree = "<group>"; };
+		1AC7DC25141F76070024BE9B /* about_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_email@2x.png"; path = "arts/about_email@2x.png"; sourceTree = "<group>"; };
+		1AC7DC26141F76070024BE9B /* about_rateus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_rateus@2x.png"; path = "arts/about_rateus@2x.png"; sourceTree = "<group>"; };
+		1AC7DC27141F76070024BE9B /* about_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_web@2x.png"; path = "arts/about_web@2x.png"; sourceTree = "<group>"; };
+		1AC7DC28141F76070024BE9B /* about_weibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_weibo@2x.png"; path = "arts/about_weibo@2x.png"; sourceTree = "<group>"; };
 		1AD88A1D13ED6C8800804635 /* settings.about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.about@2x.png"; path = "arts/settings.about@2x.png"; sourceTree = "<group>"; };
 		1AD88A1E13ED6C8800804635 /* settings.budget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.budget@2x.png"; path = "arts/settings.budget@2x.png"; sourceTree = "<group>"; };
 		1AD88A1F13ED6C8800804635 /* settings.startup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.startup@2x.png"; path = "arts/settings.startup@2x.png"; sourceTree = "<group>"; };
@@ -588,6 +600,10 @@
 		1AE3572E13F97E040015EB86 /* UIImageNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageNoteViewController.h; path = ../UIImageNoteViewController.h; sourceTree = "<group>"; };
 		1AE3572F13F97E060015EB86 /* UIImageNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageNoteViewController.m; path = ../UIImageNoteViewController.m; sourceTree = "<group>"; };
 		1AE3573013F97E070015EB86 /* UIImageNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIImageNoteViewController.xib; path = ../UIImageNoteViewController.xib; sourceTree = "<group>"; };
+		1AE4193B141F85FE00950CD7 /* about_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_email.png; path = arts/about_email.png; sourceTree = "<group>"; };
+		1AE4193C141F85FE00950CD7 /* about_rateus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_rateus.png; path = arts/about_rateus.png; sourceTree = "<group>"; };
+		1AE4193D141F85FE00950CD7 /* about_web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_web.png; path = arts/about_web.png; sourceTree = "<group>"; };
+		1AE4193E141F85FE00950CD7 /* about_weibo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_weibo.png; path = arts/about_weibo.png; sourceTree = "<group>"; };
 		1AE4339F1375AC82005AAB8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AE433A213762B7A005AAB8F /* iconlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iconlist.plist; sourceTree = "<group>"; };
 		1AE433A413763513005AAB8F /* BudgetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetManager.h; sourceTree = "<group>"; };
@@ -783,6 +799,14 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AE4193B141F85FE00950CD7 /* about_email.png */,
+				1AE4193C141F85FE00950CD7 /* about_rateus.png */,
+				1AE4193D141F85FE00950CD7 /* about_web.png */,
+				1AE4193E141F85FE00950CD7 /* about_weibo.png */,
+				1AC7DC25141F76070024BE9B /* about_email@2x.png */,
+				1AC7DC26141F76070024BE9B /* about_rateus@2x.png */,
+				1AC7DC27141F76070024BE9B /* about_web@2x.png */,
+				1AC7DC28141F76070024BE9B /* about_weibo@2x.png */,
 				1AB3B21B141C968B00FD46EB /* delete.png */,
 				1A973994141B41C400D8507F /* delete@2x.png */,
 				1AB3C6721402CD6D0025FA99 /* Icon-Small@2x.png */,
@@ -1343,6 +1367,14 @@
 				1AB3C6791402CD6E0025FA99 /* iTunesArtwork.png in Resources */,
 				1A973995141B41C400D8507F /* delete@2x.png in Resources */,
 				1AB3B21C141C968B00FD46EB /* delete.png in Resources */,
+				1AC7DC29141F76070024BE9B /* about_email@2x.png in Resources */,
+				1AC7DC2A141F76070024BE9B /* about_rateus@2x.png in Resources */,
+				1AC7DC2B141F76070024BE9B /* about_web@2x.png in Resources */,
+				1AC7DC2C141F76070024BE9B /* about_weibo@2x.png in Resources */,
+				1AE4193F141F85FE00950CD7 /* about_email.png in Resources */,
+				1AE41940141F85FE00950CD7 /* about_rateus.png in Resources */,
+				1AE41941141F85FE00950CD7 /* about_web.png in Resources */,
+				1AE41942141F85FE00950CD7 /* about_weibo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

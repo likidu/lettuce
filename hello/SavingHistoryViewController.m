@@ -187,6 +187,10 @@
     UILabel* balanceLabel = (UILabel*)[cell viewWithTag:kSavingBalance];
     double balance = budget - total;
     balanceLabel.text = formatAmount(balance, NO);
+    if (balance < 0.0)
+        balanceLabel.textColor = [UIColor colorWithRed:0.64 green:0.0 blue:0.0 alpha:1.0];
+    else
+        balanceLabel.textColor = [UIColor darkTextColor];
     UILabel* budgetLabel = (UILabel*)[cell viewWithTag:kSavingBudget];
     budgetLabel.text = formatAmount(budget, NO);
     

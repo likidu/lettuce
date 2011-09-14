@@ -92,7 +92,7 @@ static AboutViewController* g_aboutViewController = nil;
         return;
     MFMailComposeViewController* controller = [[[MFMailComposeViewController alloc]init]autorelease];
     controller.mailComposeDelegate = self;
-    [controller setSubject:@"莴苣账本问题反馈"];
+    [controller setSubject:@"我有话想说"];
     [controller setToRecipients:[NSArray arrayWithObject:@"support@woojuu.cc"]];
     [self presentModalViewController:controller animated:YES];
 }
