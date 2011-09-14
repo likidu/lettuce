@@ -144,9 +144,6 @@
             amount = prevNumber / curNumber;
     }
     
-    if (fuzzyEqual(amount, 0.0) && editingItem)
-        amount = editingItem.amount;
-    
     if (amount < 0 || fuzzyEqual(amount, 0.0)) {
         UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
         [alertView show];
@@ -291,7 +288,7 @@
                 cstr[0] = '0';
             NSString* str = [NSString stringWithCString: cstr encoding:NSASCIIStringEncoding];
             
-            if (inputText.length >= 15)
+            if (posDot == NSNotFound && inputText.length >= 6)
                 break;
             
             if (posDot == NSNotFound || inputText.length - posDot < 3)
@@ -352,16 +349,27 @@
     }
 }
 
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.text.length > 140)
+        textView.text = [textView.text substringToIndex:140];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     if (!needReset_)
         return;
     needReset_ = NO;
     prevNumber = 0.0;
-    curNumber = 0.0;
+    curNumber = editingItem ? editingItem.amount : 0.0;
     activeOp = opNone;
-    self.inputText = @"";
+    self.inputText = editingItem ? [NSString stringWithFormat:@"%.2f", editingItem.amount] : @"";
     isCurNumberDirty = NO;
-    
+
+    // remove the unnecessary dot and zeros
+    while ([inputText characterAtIndex:inputText.length-1] == '0')
+        self.inputText = [inputText substringToIndex:inputText.length-1];
+    if ([inputText characterAtIndex:inputText.length-1] == '.')
+        self.inputText = [inputText substringToIndex:inputText.length-1];
+        
     // notes
     NSString* notes = editingItem ? editingItem.notes : @"";
     if (notes.length < 1) {
@@ -408,9 +416,6 @@
     [self switchFloatingView:numPadView];
     [self syncUi];
     [self syncDate];
-    if (editingItem) {
-        uiNumber.text = [NSString stringWithFormat:@"¥ %.2f", editingItem.amount];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
