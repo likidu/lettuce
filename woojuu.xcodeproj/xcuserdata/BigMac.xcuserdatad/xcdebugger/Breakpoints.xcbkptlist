@@ -791,11 +791,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/Statistics.m"
-         timestampString = "337414867.299087"
+         timestampString = "337860146.836175"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "+getSavingOfMonth:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1299,6 +1299,34 @@
          startingLineNumber = "356"
          endingLineNumber = "356"
          landmarkName = "-textViewDidChange:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/Statistics.m"
+         timestampString = "337859831.958651"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "+getBalanceOfMonth"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/SavingHistoryViewController.m"
+         timestampString = "337860999.268243"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-setStartDate:endDate:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

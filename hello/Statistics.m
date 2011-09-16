@@ -38,8 +38,13 @@
 
 + (double)getBalanceOfMonth {
     NSDate* today = normalizeDate([NSDate date]);
-    NSDate* firstDay = firstDayOfMonth(today);
     NSDate* lastDay = lastDayOfMonth(today);
+    NSDate* firstDay = today;
+    NSDate* firstDayOfAction = [Statistics getFirstDayOfUserAction];
+
+    if (firstDayOfAction)
+        firstDay = minDay(firstDayOfAction, firstDay);
+    
     NSArray* days = getDatesBetween(firstDay, lastDay);
     double balance = 0.0;
     for (NSDate* day in days)
@@ -51,7 +56,7 @@
 }
 
 + (double)getSavingOfMonth:(NSDate *)dayInMonth {
-    NSDate* firstDay = [ExpenseManager firstDayOfExpense];
+    NSDate* firstDay = [Statistics getFirstDayOfUserAction];
     NSDate* today = normalizeDate([NSDate date]);
     if (firstDay == nil)
         return 0.0;
@@ -68,6 +73,18 @@
     if (saving < 0)
         saving = 0.0;
     return saving;
+}
+
++ (NSDate *)getFirstDayOfUserAction {
+    NSDate* firstDayOfExpense = [ExpenseManager firstDayOfExpense];
+    NSDate* firstDayOfCustomBudget = [[BudgetManager instance]getFirstDayOfCustomBudget];
+    if (firstDayOfExpense && firstDayOfCustomBudget)
+        return minDay(firstDayOfExpense, firstDayOfCustomBudget);
+    if (firstDayOfExpense)
+        return firstDayOfExpense;
+    if (firstDayOfCustomBudget)
+        return firstDayOfCustomBudget;
+    return nil;
 }
 
 @end

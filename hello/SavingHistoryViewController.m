@@ -9,6 +9,7 @@
 #import "SavingHistoryViewController.h"
 #import "BudgetManager.h"
 #import "ExpenseManager.h"
+#import "Statistics.h"
 
 @implementation SavingHistoryViewController
 
@@ -29,7 +30,7 @@
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {
     self.startDate = start;
     self.endDate = end;
-    NSDate* firstDay = [ExpenseManager firstDayOfExpense];
+    NSDate* firstDay = [Statistics getFirstDayOfUserAction];
     NSDate* today = normalizeDate([NSDate date]);
     if (firstDay == nil)
         firstDay = today;

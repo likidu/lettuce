@@ -101,6 +101,16 @@ BudgetManager* g_budgetMan = nil;
     return ret;
 }
 
+- (NSDate *)getFirstDayOfCustomBudget {
+    Database* db = [Database instance];
+    NSArray* records = [db execute:@"select * from budget where budgetid <> 1 order by budgetid asc"];
+    if (records.count < 1)
+        return nil;
+    NSDictionary* fields = [records objectAtIndex:0];
+    NSDate* date = normalizeDate(dateFromSqlDate([fields objectForKey:@"Date"]));
+    return date;
+}
+
 - (Budget*)getRawBudgetOfDay:(NSDate*)day {
     Budget* budget = [budgetList objectAtIndex:0];
     for (Budget* b in budgetList) {

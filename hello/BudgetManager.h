@@ -33,4 +33,6 @@
 - (double)getCurrentVacationBudget;
 - (double)getTotalBudgetOfMonth:(NSDate*) dayOfMonth;
 
+- (NSDate*)getFirstDayOfCustomBudget;
+
 @end
