@@ -39,11 +39,13 @@
 + (double)getBalanceOfMonth {
     NSDate* today = normalizeDate([NSDate date]);
     NSDate* lastDay = lastDayOfMonth(today);
-    NSDate* firstDay = today;
+    NSDate* firstDay = firstDayOfMonth(today);
     NSDate* firstDayOfAction = [Statistics getFirstDayOfUserAction];
 
     if (firstDayOfAction)
-        firstDay = minDay(firstDayOfAction, firstDay);
+        firstDay = maxDay(firstDayOfAction, firstDay);
+    else
+        firstDay = maxDay(firstDay, today);
     
     NSArray* days = getDatesBetween(firstDay, lastDay);
     double balance = 0.0;
