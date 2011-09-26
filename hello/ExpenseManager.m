@@ -18,6 +18,9 @@
 @synthesize date;
 @synthesize notes;
 @synthesize pictureRef;
+@synthesize useLocation;
+@synthesize latitude;
+@synthesize longitude;
 
 - (Expense*) init {
     date = nil;
@@ -60,6 +63,9 @@ static ExpenseManager* g_instance = nil;
     expense.notes  = [dict objectForKey:@"Notes"];
     expense.pictureRef = [dict objectForKey:@"PictureRef"];
     expense.date = normalizeDate(dateFromSqlDate([dict objectForKey:@"Date"]));
+    expense.useLocation = [[dict objectForKey:@"UseLocation"]boolValue];
+    expense.latitude = [[dict objectForKey:@"Latitude"]doubleValue];
+    expense.longitude = [[dict objectForKey:@"Longitude"]doubleValue];
 
     NSMutableArray* array = (NSMutableArray*)param;
     if (array == nil)
@@ -175,9 +181,12 @@ static ExpenseManager* g_instance = nil;
     NSString* dateStr = formatSqlDate(expense.date);
     NSString* notesStr = formatSqlString(expense.notes);
     NSString* pictureRefStr = formatSqlString(expense.pictureRef);
+    NSString* useLocationStr = expense.useLocation ? @"1" : @"0";
+    NSString* latitudeStr = [NSString stringWithFormat:@"%f", expense.latitude];
+    NSString* longitudeStr = [NSString stringWithFormat:@"%f", expense.longitude];
     
-    NSString* formatStr = @"insert into expense (categoryid, amount, date, notes, pictureref) values (%@, %@, %@, %@, %@)";
-    NSString* sqlStr = [NSString stringWithFormat:formatStr, categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr];
+    NSString* formatStr = @"insert into expense (categoryid, amount, date, notes, pictureref, uselocation, latitude, longitude) values (%@, %@, %@, %@, %@, %@, %@, %@)";
+    NSString* sqlStr = [NSString stringWithFormat:formatStr, categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr, useLocationStr, latitudeStr, longitudeStr];
     
     Database* db = [Database instance];
     return [db execute:sqlStr :nil :nil :nil];
@@ -190,8 +199,12 @@ static ExpenseManager* g_instance = nil;
     NSString* dateStr = formatSqlDate(expense.date);
     NSString* notesStr = formatSqlString(expense.notes);
     NSString* pictureRefStr = formatSqlString(expense.pictureRef); 
+    NSString* useLocationStr = expense.useLocation ? @"1" : @"0";
+    NSString* latitudeStr = [NSString stringWithFormat:@"%f", expense.latitude];
+    NSString* longitudeStr = [NSString stringWithFormat:@"%f", expense.longitude];
     
-    NSString* sql = [NSString stringWithFormat:@"update expense set categoryid = %@, amount = %@, date = %@, notes = %@, pictureref = %@ where expenseid = %@", categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr, idStr];
+    
+    NSString* sql = [NSString stringWithFormat:@"update expense set categoryid = %@, amount = %@, date = %@, notes = %@, pictureref = %@, uselocation = %@, latitude = %@, longitude = %@ where expenseid = %@", categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr, useLocationStr, latitudeStr, longitudeStr, idStr];
     return [[Database instance]execute:sql :nil :nil :nil];
 }
 
@@ -272,66 +285,6 @@ static ExpenseManager* g_instance = nil;
         return;
     [[NSFileManager defaultManager]removeItemAtPath:imgFileName error:nil];
 }
-
-/*
-- (BOOL)saveImageNote:(UIImage *)image withExpenseId:(int)expenseId {
-    NSString* iconFileName = [NSString stringWithFormat:@"%d_icon.jpg", expenseId];
-    NSString* originalFileName = [NSString stringWithFormat:@"%d.jpg", expenseId];
-    NSString* imageNotePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
-    iconFileName = [imageNotePath stringByAppendingPathComponent: iconFileName];
-    originalFileName = [imageNotePath stringByAppendingPathComponent: originalFileName];
-    NSFileManager* fileMan = [NSFileManager defaultManager];
-    if ([fileMan fileExistsAtPath:iconFileName isDirectory:nil])
-        [fileMan removeItemAtPath:iconFileName error:nil];
-    if ([fileMan fileExistsAtPath:originalFileName isDirectory:nil])
-        [fileMan removeItemAtPath:originalFileName error:nil];
-    if (![UIImageJPEGRepresentation(image, 0.8) writeToFile:originalFileName atomically:YES])
-        return NO;
-    
-    // save the thumbnail 64 * 64 image
-    UIGraphicsBeginImageContext(CGSizeMake(64, 64));
-    [image drawInRect:CGRectMake(0, 0, 64, 64)];
-    UIImage* icon = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    if (!iconCache_)
-        iconCache_ = [[NSMutableDictionary alloc]init];
-    if (icon)
-        [iconCache_ setObject:icon forKey: [NSNumber numberWithInt: expenseId]];
-    
-    return [UIImageJPEGRepresentation(icon, 1.0) writeToFile:iconFileName atomically:YES];
-}
-
-- (BOOL)checkImageNoteByExpenseId:(int)expenseId {
-    UIImage* icon = [iconCache_ objectForKey: [NSNumber numberWithInt: expenseId]];
-    if (icon)
-        return YES;
-    
-    NSString* iconFileName = [NSString stringWithFormat:@"%d_icon.jpg", expenseId];
-    NSString* imageNotePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
-    iconFileName = [imageNotePath stringByAppendingPathComponent: iconFileName];
-    return [[NSFileManager defaultManager]fileExistsAtPath:iconFileName];
-}
-
-- (UIImage*)getImageNoteIconByExpenseId:(int)expenseId {
-    UIImage* icon = [iconCache_ objectForKey: [NSNumber numberWithInt: expenseId]];
-    if (icon)
-        return icon;
-    
-    if (!iconCache_)
-        iconCache_ = [[NSMutableDictionary alloc]init];
-    
-    NSString* iconFileName = [NSString stringWithFormat:@"%d_icon.jpg", expenseId];
-    NSString* imageNotePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/ImageNotes"];
-    iconFileName = [imageNotePath stringByAppendingPathComponent: iconFileName];
-    icon = [UIImage imageWithContentsOfFile:iconFileName];
-    
-    if (icon)
-        [iconCache_ setObject:icon forKey: [NSNumber numberWithInt: expenseId]];
-    
-    return icon;
-}
- */
 
 - (void)translateIntId : (NSMutableDictionary*)dict : (id)param {
     int* data = (int*)param;

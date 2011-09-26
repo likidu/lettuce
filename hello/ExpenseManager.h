@@ -19,6 +19,9 @@
 @property (nonatomic, retain)   NSDate*         date;
 @property (nonatomic, retain)   NSString*       notes;
 @property (nonatomic, retain)   NSString*       pictureRef;
+@property (nonatomic)           BOOL            useLocation;
+@property (nonatomic)           double          latitude;
+@property (nonatomic)           double          longitude;
 
 @end
 

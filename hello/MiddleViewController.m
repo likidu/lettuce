@@ -11,6 +11,7 @@
 #import "ExpenseManager.h"
 #import "Foundation/NSRange.h"
 #import "CategoryManager.h"
+#import "LocationManager.h"
 
 @implementation MiddleViewController
 
@@ -168,6 +169,21 @@
     }
     else if (editingItem)
         expense.pictureRef = editingItem.pictureRef;
+    
+    // only update location when adding new expense. never update when editing
+    if (!editingItem) {
+        if ([LocationManager isLocationAvailable]) {
+            expense.useLocation = YES;
+            CLLocationCoordinate2D location = [LocationManager getCurrentLocation];
+            expense.latitude = location.latitude;
+            expense.longitude = location.longitude;
+        }
+        else {
+            expense.useLocation = NO;
+            expense.latitude = 0.0;
+            expense.longitude = 0.0;
+        }
+    }
     
     if (editingItem) {
         expense.expenseId = editingItem.expenseId;

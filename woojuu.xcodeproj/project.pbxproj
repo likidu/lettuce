@@ -24,6 +24,9 @@
 		1A459D93138799B800036EC2 /* thread.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A459D85138799B800036EC2 /* thread.png */; };
 		1A459D95138799B800036EC2 /* whitepaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A459D87138799B800036EC2 /* whitepaper.png */; };
 		1A459DA01387D06C00036EC2 /* keyboardbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A459D9F1387D06C00036EC2 /* keyboardbg.png */; };
+		1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A54C0181430B380003444B1 /* CoreLocation.framework */; };
+		1A54C01D1430C013003444B1 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A54C01C1430C013003444B1 /* LocationManager.m */; };
+		1A54C0201430C7B3003444B1 /* DbTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A54C01F1430C7B3003444B1 /* DbTransitionManager.m */; };
 		1A6B5E1213F2BD09007BC798 /* calc.button.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E0A13F2BD09007BC798 /* calc.button.down.png */; };
 		1A6B5E1313F2BD09007BC798 /* calc.button.down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E0B13F2BD09007BC798 /* calc.button.down@2x.png */; };
 		1A6B5E1413F2BD09007BC798 /* calc.button.green.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E0C13F2BD09007BC798 /* calc.button.green.down.png */; };
@@ -329,6 +332,11 @@
 		1A459D85138799B800036EC2 /* thread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thread.png; path = arts/thread.png; sourceTree = "<group>"; };
 		1A459D87138799B800036EC2 /* whitepaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitepaper.png; path = arts/whitepaper.png; sourceTree = "<group>"; };
 		1A459D9F1387D06C00036EC2 /* keyboardbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardbg.png; path = arts/keyboardbg.png; sourceTree = "<group>"; };
+		1A54C0181430B380003444B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1A54C01B1430C013003444B1 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		1A54C01C1430C013003444B1 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		1A54C01E1430C7B3003444B1 /* DbTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DbTransitionManager.h; path = ../DbTransitionManager.h; sourceTree = "<group>"; };
+		1A54C01F1430C7B3003444B1 /* DbTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DbTransitionManager.m; path = ../DbTransitionManager.m; sourceTree = "<group>"; };
 		1A6B5E0A13F2BD09007BC798 /* calc.button.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calc.button.down.png; path = arts/calc.button.down.png; sourceTree = "<group>"; };
 		1A6B5E0B13F2BD09007BC798 /* calc.button.down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calc.button.down@2x.png"; path = "arts/calc.button.down@2x.png"; sourceTree = "<group>"; };
 		1A6B5E0C13F2BD09007BC798 /* calc.button.green.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calc.button.green.down.png; path = arts/calc.button.green.down.png; sourceTree = "<group>"; };
@@ -637,6 +645,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */,
 				1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */,
 				1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */,
 				1A1DEAD51356135D00505A56 /* libstdc++.dylib in Frameworks */,
@@ -958,6 +967,7 @@
 		1AAD1390132BB1B00035BA92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A54C0181430B380003444B1 /* CoreLocation.framework */,
 				1AEA7F221416481600B74B8A /* MessageUI.framework */,
 				1AE4339F1375AC82005AAB8F /* QuartzCore.framework */,
 				1AAD1391132BB1B00035BA92 /* UIKit.framework */,
@@ -988,6 +998,10 @@
 				1A40E91113C2B97400A60279 /* Utility.m */,
 				1AA6C1F513D2AB1E002CE001 /* Statistics.h */,
 				1AA6C1F613D2AB1E002CE001 /* Statistics.m */,
+				1A54C01E1430C7B3003444B1 /* DbTransitionManager.h */,
+				1A54C01F1430C7B3003444B1 /* DbTransitionManager.m */,
+				1A54C01B1430C013003444B1 /* LocationManager.h */,
+				1A54C01C1430C013003444B1 /* LocationManager.m */,
 				1AAD13DE133345B80035BA92 /* Nibs */,
 				1A6B5E5313F2EA11007BC798 /* Cells */,
 				1AD88A6A13ED90DB00804635 /* Table View Controllers */,
@@ -1408,6 +1422,8 @@
 				1A96CD3E13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.m in Sources */,
 				1A90D99513F8110600865709 /* ExpenseHistoryByCategoryViewController.m in Sources */,
 				1AE3573113F97E090015EB86 /* UIImageNoteViewController.m in Sources */,
+				1A54C01D1430C013003444B1 /* LocationManager.m in Sources */,
+				1A54C0201430C7B3003444B1 /* DbTransitionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

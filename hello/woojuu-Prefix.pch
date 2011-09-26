@@ -13,6 +13,7 @@
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
     #import <QuartzCore/CoreAnimation.h>
+    #import <CoreLocation/CoreLocation.h>
     #import "Utility.h"
 #endif
 
