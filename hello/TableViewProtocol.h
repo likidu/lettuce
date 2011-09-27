@@ -29,7 +29,8 @@ enum TableIds {
     kExpense = 0,
     kSaving = 1,
     kByAmount = 2,
-    kByCategory = 3
+    kByCategory = 3,
+    kByLocation = 4
 };
 
 

@@ -37,6 +37,7 @@ enum SwitchArea {
 @property(nonatomic, retain) IBOutlet UIButton* monthButton;
 @property(nonatomic, retain) IBOutlet UIButton* byAmountButton;
 @property(nonatomic, retain) IBOutlet UIButton* byCategoryButton;
+@property(nonatomic, retain) IBOutlet UIButton* byLocationButton;
 
 - (IBAction)onEdit:(id)sender;
 - (IBAction)onFilter;
@@ -45,5 +46,6 @@ enum SwitchArea {
 - (IBAction)onSwitchButtonSaving;
 - (IBAction)onSwitchButtonByAmount;
 - (IBAction)onSwitchButtonByCategory;
+- (IBAction)onSwitchButtonByLocation;
 
 @end

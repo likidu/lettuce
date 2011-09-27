@@ -271,6 +271,10 @@
 		1AC7DC2A141F76070024BE9B /* about_rateus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC26141F76070024BE9B /* about_rateus@2x.png */; };
 		1AC7DC2B141F76070024BE9B /* about_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC27141F76070024BE9B /* about_web@2x.png */; };
 		1AC7DC2C141F76070024BE9B /* about_weibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC28141F76070024BE9B /* about_weibo@2x.png */; };
+		1AC8AF001432048000B2638B /* whitepaper2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC8AEFF1432048000B2638B /* whitepaper2.png */; };
+		1AC8AF05143210B700B2638B /* ExpenseHistoryByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */; };
+		1AC8AF06143210B700B2638B /* ExpenseHistoryByLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */; };
+		1AC8AF081432129100B2638B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC8AF071432129100B2638B /* MapKit.framework */; };
 		1AD88A2013ED6C8800804635 /* settings.about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1D13ED6C8800804635 /* settings.about@2x.png */; };
 		1AD88A2113ED6C8800804635 /* settings.budget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1E13ED6C8800804635 /* settings.budget@2x.png */; };
 		1AD88A2213ED6C8800804635 /* settings.startup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A1F13ED6C8800804635 /* settings.startup@2x.png */; };
@@ -596,6 +600,11 @@
 		1AC7DC26141F76070024BE9B /* about_rateus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_rateus@2x.png"; path = "arts/about_rateus@2x.png"; sourceTree = "<group>"; };
 		1AC7DC27141F76070024BE9B /* about_web@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_web@2x.png"; path = "arts/about_web@2x.png"; sourceTree = "<group>"; };
 		1AC7DC28141F76070024BE9B /* about_weibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_weibo@2x.png"; path = "arts/about_weibo@2x.png"; sourceTree = "<group>"; };
+		1AC8AEFF1432048000B2638B /* whitepaper2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitepaper2.png; path = arts/whitepaper2.png; sourceTree = "<group>"; };
+		1AC8AF02143210B700B2638B /* ExpenseHistoryByLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseHistoryByLocationViewController.h; sourceTree = "<group>"; };
+		1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByLocationViewController.m; sourceTree = "<group>"; };
+		1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryByLocationViewController.xib; sourceTree = "<group>"; };
+		1AC8AF071432129100B2638B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1AD88A1D13ED6C8800804635 /* settings.about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.about@2x.png"; path = "arts/settings.about@2x.png"; sourceTree = "<group>"; };
 		1AD88A1E13ED6C8800804635 /* settings.budget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.budget@2x.png"; path = "arts/settings.budget@2x.png"; sourceTree = "<group>"; };
 		1AD88A1F13ED6C8800804635 /* settings.startup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings.startup@2x.png"; path = "arts/settings.startup@2x.png"; sourceTree = "<group>"; };
@@ -645,6 +654,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AC8AF081432129100B2638B /* MapKit.framework in Frameworks */,
 				1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */,
 				1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */,
 				1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */,
@@ -808,6 +818,7 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AC8AEFF1432048000B2638B /* whitepaper2.png */,
 				1AE4193B141F85FE00950CD7 /* about_email.png */,
 				1AE4193C141F85FE00950CD7 /* about_rateus.png */,
 				1AE4193D141F85FE00950CD7 /* about_web.png */,
@@ -967,6 +978,7 @@
 		1AAD1390132BB1B00035BA92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1AC8AF071432129100B2638B /* MapKit.framework */,
 				1A54C0181430B380003444B1 /* CoreLocation.framework */,
 				1AEA7F221416481600B74B8A /* MessageUI.framework */,
 				1AE4339F1375AC82005AAB8F /* QuartzCore.framework */,
@@ -1070,6 +1082,9 @@
 				1A90D99313F8110500865709 /* ExpenseHistoryByCategoryViewController.m */,
 				1A90D99413F8110600865709 /* ExpenseHistoryByCategoryViewController.xib */,
 				1AC7D60413F57AE600A82B2B /* TableViewProtocol.h */,
+				1AC8AF02143210B700B2638B /* ExpenseHistoryByLocationViewController.h */,
+				1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */,
+				1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -1389,6 +1404,8 @@
 				1AE41940141F85FE00950CD7 /* about_rateus.png in Resources */,
 				1AE41941141F85FE00950CD7 /* about_web.png in Resources */,
 				1AE41942141F85FE00950CD7 /* about_weibo.png in Resources */,
+				1AC8AF001432048000B2638B /* whitepaper2.png in Resources */,
+				1AC8AF06143210B700B2638B /* ExpenseHistoryByLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1424,6 +1441,7 @@
 				1AE3573113F97E090015EB86 /* UIImageNoteViewController.m in Sources */,
 				1A54C01D1430C013003444B1 /* LocationManager.m in Sources */,
 				1A54C0201430C7B3003444B1 /* DbTransitionManager.m in Sources */,
+				1AC8AF05143210B700B2638B /* ExpenseHistoryByLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

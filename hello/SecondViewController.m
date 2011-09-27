@@ -16,6 +16,7 @@
 #import "SavingHistoryViewController.h"
 #import "ExpenseHistoryByAmountViewController.h"
 #import "ExpenseHistoryByCategoryViewController.h"
+#import "ExpenseHistoryByLocationViewController.h"
 
 @implementation SecondViewController
 
@@ -32,6 +33,7 @@
 @synthesize monthButton;
 @synthesize byAmountButton;
 @synthesize byCategoryButton;
+@synthesize byLocationButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -84,6 +86,13 @@
     [self.view bringSubviewToFront:byCategoryTable.view];
     byCategoryTable.view.hidden = YES;
     [tables_ addObject:byCategoryTable];
+    // by location view
+    ExpenseHistoryByLocationViewController* byLocationView = [ExpenseHistoryByLocationViewController createInstance];
+    byLocationView.view.frame = tablePlaceholder.frame;
+    [self.view addSubview:byLocationView.view];
+    [self.view bringSubviewToFront:byLocationView.view];
+    byLocationView.view.hidden = YES;
+    [tables_ addObject:byLocationView];
     
     // set active table
     activeTable = kExpense;
@@ -194,13 +203,22 @@
 - (void)onSwitchButtonByAmount {
     byAmountButton.selected = YES;
     byCategoryButton.selected = NO;
+    byLocationButton.selected = NO;
     [self presentTable:kByAmount];
 }
 
 - (void)onSwitchButtonByCategory {
     byAmountButton.selected = NO;
     byCategoryButton.selected = YES;
+    byLocationButton.selected = NO;
     [self presentTable:kByCategory];
+}
+
+- (void)onSwitchButtonByLocation {
+    byAmountButton.selected = NO;
+    byCategoryButton.selected = NO;
+    byLocationButton.selected = YES;
+    [self presentTable:kByLocation];
 }
 
 - (void)presentSwitchArea:(int)area {
@@ -226,8 +244,10 @@
                              else if (activeSwitch == kFilter) {
                                  if (byAmountButton.selected)
                                      [self presentTable:kByAmount];
-                                 else
+                                 else if (byCategoryButton.selected)
                                      [self presentTable:kByCategory];
+                                 else
+                                     [self presentTable:kByLocation];
                              }
                          }
                      }];
@@ -242,6 +262,7 @@
     else {
         byAmountButton.selected = tableId == kByAmount;
         byCategoryButton.selected = tableId == kByCategory;
+        byLocationButton.selected = tableId == kByLocation;
         [self presentSwitchArea:kFilter];
     }
     
