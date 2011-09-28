@@ -21,6 +21,7 @@
 @synthesize endDate;
 @synthesize expenses;
 @synthesize annotations;
+@synthesize mapRect;
 
 @synthesize mapView;
 
@@ -37,39 +38,9 @@
     
     self.expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:nil assending:YES];
     
-    // gets the boundary first
-    double minLatitude, maxLatitude, minLongitude, maxLongitude;
-    BOOL doInit = YES;
-    for (Expense* exp in expenses) {
-        if (!exp.useLocation)
-            continue;
-        if (doInit) {
-            doInit = NO;
-            minLatitude = exp.latitude;
-            maxLatitude = exp.latitude;
-            minLongitude = exp.longitude;
-            maxLongitude = exp.longitude;
-        }
-        minLatitude = MIN(minLatitude, exp.latitude);
-        maxLatitude = MAX(maxLatitude, exp.latitude);
-        minLongitude = MIN(minLongitude, exp.longitude);
-        maxLongitude = MAX(maxLongitude, exp.longitude);
-    }
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLatitude + maxLatitude) * 0.5, (minLongitude + maxLongitude) * 0.5);
-    MKCoordinateRegion region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(maxLatitude - minLatitude, maxLongitude - minLongitude));
+    MKCoordinateRegion region = [self getBoundsOfExpenses:expenses];
     region = [mapView regionThatFits:region];
-    [mapView setRegion:region animated:YES];
-    
-    NSMutableArray* array = [NSMutableArray arrayWithCapacity:expenses.count];
-    for (Expense* exp in expenses) {
-        if (!exp.useLocation)
-            continue;
-        MKPointAnnotation* anno = [[MKPointAnnotation alloc]init];
-        anno.coordinate = CLLocationCoordinate2DMake(exp.latitude, exp.longitude);
-        anno.title = formatAmount(exp.amount, YES);
-        [array addObject:anno];
-    }
-    [mapView addAnnotations:array];
+    [mapView setRegion:region];
 }
 
 - (BOOL)canEdit {
@@ -131,7 +102,7 @@
     static NSString* viewId = @"ReusableAnnotationView";
     MKPinAnnotationView* view = (MKPinAnnotationView*)[map dequeueReusableAnnotationViewWithIdentifier:viewId];
     if (!view)
-        view = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:viewId];
+        view = [[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:viewId]autorelease];
     UIButton* accessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     view.rightCalloutAccessoryView = accessory;
     view.canShowCallout = YES;
@@ -140,8 +111,91 @@
     return view;
 }
 
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+- (void)mapView:(MKMapView *)map regionWillChangeAnimated:(BOOL)animated {
+    self.mapRect = mapView.visibleMapRect;
+}
+
+- (void)mapView:(MKMapView *)map regionDidChangeAnimated:(BOOL)animated {
+    if (!MKMapSizeEqualToSize(mapRect.size, mapView.visibleMapRect.size))
+        [self generateAnnotationsThatFits];
+}
+
+#pragma mark - Utility Functions
+
+- (void)generateAnnotationsThatFits {
+    [mapView removeAnnotations: mapView.annotations];
     
+    MKCoordinateRegion bounds = [self getBoundsOfExpenses:expenses];
+    CGRect boundsRect = [mapView convertRegion:bounds toRectToView:mapView];
+    CGPoint origin = boundsRect.origin;
+    
+    NSMutableDictionary* cells = [NSMutableDictionary dictionaryWithCapacity:expenses.count];
+    float cellWidth = mapView.frame.size.width / 8.0;
+    float cellHeight = mapView.frame.size.height / 8.0;
+    for (Expense* exp in expenses) {
+        if (!exp.useLocation)
+            continue;
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(exp.latitude, exp.longitude);
+        CGPoint point = [mapView convertCoordinate:coordinate toPointToView:mapView];
+        int x = (int)((point.x - origin.x) / cellWidth);
+        int y = (int)((point.y - origin.y) / cellHeight);
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:y inSection:x];
+        NSMutableArray* expensesInCell = [cells objectForKey:indexPath];
+        if (!expensesInCell) {
+            expensesInCell = [NSMutableArray array];
+            [cells setObject:expensesInCell forKey:indexPath];
+        }
+        [expensesInCell addObject:exp];
+    }
+    self.annotations = cells;
+    
+    NSArray* cellKeys = [cells allKeys];
+    for (NSIndexPath* indexPath in cellKeys) {
+        NSArray* cellExpenses = [cells objectForKey:indexPath];
+        double total = 0.0;
+        double totalX = 0.0, totalY = 0.0;
+        for (Expense* exp in cellExpenses) {
+            total += exp.amount;
+            CGPoint point = [mapView convertCoordinate:CLLocationCoordinate2DMake(exp.latitude, exp.longitude) toPointToView:mapView];
+            totalX += point.x;
+            totalY += point.y;
+        }
+        int expenseCount = cellExpenses.count;
+        NSString* subtitle = [NSString stringWithFormat:@"%d笔消费", expenseCount];
+
+        MKPointAnnotation* anno = [[[MKPointAnnotation alloc]init]autorelease];
+        // centroid of points
+        CGPoint centroid = CGPointMake(totalX / expenseCount, totalY / expenseCount);
+        anno.coordinate = [mapView convertPoint:centroid toCoordinateFromView:mapView];
+        anno.title = formatAmount(total, YES);
+        anno.subtitle = subtitle;
+        
+        [mapView addAnnotation:anno];
+    }
+}
+
+- (MKCoordinateRegion)getBoundsOfExpenses:(NSArray *)exps {
+    // gets the boundary first
+    double minLatitude, maxLatitude, minLongitude, maxLongitude;
+    BOOL doInit = YES;
+    for (Expense* exp in exps) {
+        if (!exp.useLocation)
+            continue;
+        if (doInit) {
+            doInit = NO;
+            minLatitude = exp.latitude;
+            maxLatitude = exp.latitude;
+            minLongitude = exp.longitude;
+            maxLongitude = exp.longitude;
+        }
+        minLatitude = MIN(minLatitude, exp.latitude);
+        maxLatitude = MAX(maxLatitude, exp.latitude);
+        minLongitude = MIN(minLongitude, exp.longitude);
+        maxLongitude = MAX(maxLongitude, exp.longitude);
+    }
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLatitude + maxLatitude) * 0.5, (minLongitude + maxLongitude) * 0.5);
+    MKCoordinateRegion region = MKCoordinateRegionMake(center, MKCoordinateSpanMake(maxLatitude - minLatitude, maxLongitude - minLongitude));
+    return region;
 }
 
 @end
