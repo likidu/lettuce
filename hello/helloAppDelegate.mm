@@ -12,18 +12,26 @@
 #import "ExpenseManager.h"
 #import "RootViewController.h"
 #import "LocationManager.h"
+#import "FlurryAnalytics.h"
 
+void uncaughtExceptionHandler(NSException* exception) {
+    [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
+}
+                              
 @implementation helloAppDelegate
 
 @synthesize window=_window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     [self.window makeKeyAndVisible];
     
     [application setStatusBarStyle: UIStatusBarStyleBlackOpaque animated: YES];
+    
+    [FlurryAnalytics startSession:@"U39ZXPZ2BCQEWCEH3HN1"];
     
     // setup location service
     [LocationManager tryUpdateLocation];

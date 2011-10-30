@@ -12,6 +12,9 @@
 #import "Foundation/NSRange.h"
 #import "CategoryManager.h"
 #import "LocationManager.h"
+#import "FlurryAnalytics.h"
+
+#define FLURRY_TS_ADD_TRANSACTION_EVENT_NAME        @"Time Add Transaction"
 
 @implementation MiddleViewController
 
@@ -126,6 +129,9 @@
     self.editingItem = nil;
     needReset_ = YES;
     [self dismissModalViewControllerAnimated:YES];
+    
+    // flurry
+    [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
 }
 
 - (void)onSave:(id)sender {
@@ -196,6 +202,9 @@
     needReset_ = YES;
 
     [self dismissModalViewControllerAnimated:YES];
+    
+    // flurry
+    [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -432,6 +441,9 @@
     [self switchFloatingView:numPadView];
     [self syncUi];
     [self syncDate];
+    
+    // flurry to start log user time on using add transaction view
+    [FlurryAnalytics logEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME timed:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

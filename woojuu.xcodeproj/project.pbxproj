@@ -267,6 +267,7 @@
 		1AC167F513E8495500FB1044 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC167F413E8495400FB1044 /* photo@2x.png */; };
 		1AC1F13213DEF96400A1C7AD /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC1F12E13DEF96400A1C7AD /* camera@2x.png */; };
 		1AC20BF913D5C216004A4E32 /* keyboardbglite.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC20BF813D5C216004A4E32 /* keyboardbglite.png */; };
+		1AC28564145CEC280085C866 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC28563145CEC280085C866 /* libFlurryAnalytics.a */; };
 		1AC7DC29141F76070024BE9B /* about_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC25141F76070024BE9B /* about_email@2x.png */; };
 		1AC7DC2A141F76070024BE9B /* about_rateus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC26141F76070024BE9B /* about_rateus@2x.png */; };
 		1AC7DC2B141F76070024BE9B /* about_web@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC7DC27141F76070024BE9B /* about_web@2x.png */; };
@@ -595,6 +596,8 @@
 		1AC167F413E8495400FB1044 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo@2x.png"; path = "arts/photo@2x.png"; sourceTree = "<group>"; };
 		1AC1F12E13DEF96400A1C7AD /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera@2x.png"; path = "arts/camera@2x.png"; sourceTree = "<group>"; };
 		1AC20BF813D5C216004A4E32 /* keyboardbglite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyboardbglite.png; path = arts/keyboardbglite.png; sourceTree = "<group>"; };
+		1AC28562145CEC280085C866 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = hello/FlurryAnalytics/FlurryAnalytics.h; sourceTree = "<group>"; };
+		1AC28563145CEC280085C866 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = hello/FlurryAnalytics/libFlurryAnalytics.a; sourceTree = "<group>"; };
 		1AC7D60413F57AE600A82B2B /* TableViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewProtocol.h; sourceTree = "<group>"; };
 		1AC7DC25141F76070024BE9B /* about_email@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_email@2x.png"; path = "arts/about_email@2x.png"; sourceTree = "<group>"; };
 		1AC7DC26141F76070024BE9B /* about_rateus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_rateus@2x.png"; path = "arts/about_rateus@2x.png"; sourceTree = "<group>"; };
@@ -663,6 +666,7 @@
 				1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */,
 				1AAD1394132BB1B00035BA92 /* Foundation.framework in Frameworks */,
 				1AAD1396132BB1B00035BA92 /* CoreGraphics.framework in Frameworks */,
+				1AC28564145CEC280085C866 /* libFlurryAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +963,8 @@
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
+				1AC28562145CEC280085C866 /* FlurryAnalytics.h */,
+				1AC28563145CEC280085C866 /* libFlurryAnalytics.a */,
 				1A1DEAD41356135D00505A56 /* libstdc++.dylib */,
 				1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */,
 				1AAD1397132BB1B00035BA92 /* woojuu */,
@@ -1462,7 +1468,7 @@
 		1AAD13B2132BB1B00035BA92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1482,7 +1488,7 @@
 		1AAD13B3132BB1B00035BA92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1510,6 +1516,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
+					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1529,6 +1536,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
+					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1540,7 +1548,7 @@
 		1AADB47813FABFBB003E2434 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: RONG LI";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RONG LI";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1568,6 +1576,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
+					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
 				TARGETED_DEVICE_FAMILY = 1;
