@@ -24,7 +24,9 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // log all unhandled exceptions using Flurry
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     [self.window makeKeyAndVisible];
