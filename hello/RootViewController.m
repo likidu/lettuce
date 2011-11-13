@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "MiddleViewController.h"
+#import "RestKit/RestKit.h"
 
 @implementation RootViewController
 
