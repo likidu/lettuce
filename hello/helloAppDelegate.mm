@@ -13,6 +13,7 @@
 #import "RootViewController.h"
 #import "LocationManager.h"
 #import "FlurryAnalytics.h"
+#import "PasscodeView.h"
 
 void uncaughtExceptionHandler(NSException* exception) {
     [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
@@ -72,8 +73,13 @@ void uncaughtExceptionHandler(NSException* exception) {
         UIApplication* app = [UIApplication sharedApplication];
         RootViewController* vc = (RootViewController*)app.keyWindow.rootViewController;
         [vc presentAddTransactionDialog:nil];
-        
     }
+    
+    // test code
+    [PasscodeView setPasscode];
+    
+    // stop user here
+    [PasscodeView checkPasscode];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

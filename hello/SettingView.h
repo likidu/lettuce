@@ -22,5 +22,10 @@
 @property(nonatomic, retain) UIImage* imgAbout;
 @property(nonatomic, retain) UIImage* imgStartup;
 @property(nonatomic, retain) UIImage* imgBudget;
+@property(nonatomic, retain) UIImage* imgAccount;
+@property(nonatomic, retain) UIImage* imgBackup;
+@property(nonatomic, retain) UIImage* imgCategory;
+@property(nonatomic, retain) UIImage* imgPassword;
+@property(nonatomic, retain) UIImage* imgReminder;
 
 @end

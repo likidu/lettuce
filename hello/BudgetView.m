@@ -66,7 +66,8 @@ static BudgetView* g_budgetView = nil;
 - (void)dealloc
 {
     [super dealloc];
-}
+    self.uiBudgetEditBox = nil;
+    self.uiVacationBudgetEditBox = nil;}
 
 - (void)didReceiveMemoryWarning
 {

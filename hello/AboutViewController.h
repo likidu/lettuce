@@ -13,7 +13,7 @@
     
 }
 
-+ (AboutViewController*) instance;
++ (AboutViewController*)createInstance;
 
 - (IBAction)onOk;
 - (IBAction)onWebsite;

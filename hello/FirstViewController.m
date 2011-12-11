@@ -106,7 +106,7 @@ static NSString* cellId = @"cellTransaction";
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.budgetLabel = nil;
-    self. cellTemplate = nil;
+    self.cellTemplate = nil;
     self.dateLabel = nil;
     self.balanceLabel = nil;
     self.savingLabel = nil;
@@ -186,6 +186,15 @@ static NSString* cellId = @"cellTransaction";
     [budgetView release];
     [settingView release];
     self.todayExpenses = nil;
+
+    self.budgetLabel = nil;
+    self.cellTemplate = nil;
+    self.dateLabel = nil;
+    self.balanceLabel = nil;
+    self.savingLabel = nil;
+    self.transactionTable = nil;
+    self.stampView = nil;
+    self.progressView = nil;
 }
 
 @end

@@ -348,6 +348,18 @@
     CLEAN_RELEASE(tables_);
     self.months = nil;
     self.currentMonth = nil;
+    
+    self.monthPickerPlaceholder = nil;
+    self.filterButton = nil;
+    self.editButton = nil;
+    self.tablePlaceholder = nil;
+    self.switchButtonExpense = nil;
+    self.switchButtonSaving = nil;
+    self.switchPlaceholder = nil;
+    self.monthButton = nil;
+    self.byAmountButton = nil;
+    self.byCategoryButton = nil;
+    self.monthPicker = nil;
 }
 
 @end

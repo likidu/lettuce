@@ -18,6 +18,11 @@
 @synthesize imgAbout;
 @synthesize imgBudget;
 @synthesize imgStartup;
+@synthesize imgAccount;
+@synthesize imgBackup;
+@synthesize imgCategory;
+@synthesize imgPassword;
+@synthesize imgReminder;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +32,11 @@
         self.imgAbout = [UIImage imageNamed:@"settings.about.png"];
         self.imgBudget = [UIImage imageNamed:@"settings.budget.png"];
         self.imgStartup = [UIImage imageNamed:@"settings.startup.png"];
+        self.imgAccount = [UIImage imageNamed:@"settings.account.png"];
+        self.imgBackup = [UIImage imageNamed:@"settings.backup.png"];
+        self.imgCategory = [UIImage imageNamed:@"settings.category.png"];
+        self.imgPassword = [UIImage imageNamed:@"settings.password.png"];
+        self.imgReminder = [UIImage imageNamed:@"settings.reminder.png"];
     }
     return self;
 }
@@ -37,6 +47,13 @@
     self.imgAbout = nil;
     self.imgBudget = nil;
     self.imgStartup = nil;
+    self.imgAccount = nil;
+    self.imgBackup = nil;
+    self.imgCategory = nil;
+    self.imgPassword = nil;
+    self.imgReminder = nil;
+    self.settingTableView = nil;
+    self.yesNoSwitch = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,7 +103,20 @@
 #pragma mark - Table view
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? 2 : 1;
+    switch (section) {
+        case 0:
+            return 5;
+            break;
+            
+        case 1:
+            return 2;
+            break;
+            
+        case 2:
+            return 1;
+            break;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -98,14 +128,38 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"收入与预算设置";
+                cell.imageView.image = imgBudget;               
+                break;
+            case 1:
+                cell.textLabel.text = @"本地密码保护";
+                cell.imageView.image = imgPassword;               
+                break;
+            case 2:
+                cell.textLabel.text = @"记账提醒";
+                cell.imageView.image = imgReminder;               
+                break;
+            case 3:
+                cell.textLabel.text = @"调整类别次序";
+                cell.imageView.image = imgCategory;               
+                break;
+            case 4:
+                cell.textLabel.text = @"快速记账";
+                cell.imageView.image = imgStartup;
+                cell.accessoryView = yesNoSwitch;
+                break;
+        }
+    }
+    else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.textLabel.text = @"设置预算";
-            cell.imageView.image = imgBudget;
+            cell.textLabel.text = @"备份与恢复";
+            cell.imageView.image = imgBackup;
         }
         else {
-            cell.textLabel.text = @"快速记账";
-            cell.imageView.image = imgStartup;
-            cell.accessoryView = yesNoSwitch;
+            cell.textLabel.text = @"我的账号";
+            cell.imageView.image = imgAccount;
         }
     }
     else {
@@ -113,21 +167,25 @@
         cell.textLabel.text = @"关于";
         cell.imageView.image = imgAbout;
     }
+
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    if (indexPath.section == 0) {
         [[self rootViewController]presentModalViewController:[BudgetView instance] animated:YES];
     }
     else if (indexPath.section == 1) {
-        [[self rootViewController]presentModalViewController:[AboutViewController instance] animated:YES];
+        [[self rootViewController]presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
+    }
+    else {
+        [self presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

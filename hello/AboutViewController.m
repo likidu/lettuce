@@ -14,12 +14,9 @@
 @synthesize contentView;
 @synthesize scrollView;
 
-static AboutViewController* g_aboutViewController = nil;
-
-+ (AboutViewController *)instance {
-    if (!g_aboutViewController)
-        g_aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:[NSBundle mainBundle]];
-    return g_aboutViewController;
++ (AboutViewController *)createInstance {
+    AboutViewController* instance = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:[NSBundle mainBundle]];
+    return instance;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,6 +31,8 @@ static AboutViewController* g_aboutViewController = nil;
 - (void)dealloc
 {
     [super dealloc];
+    self.contentView = nil;
+    self.scrollView = nil;
 }
 
 - (void)didReceiveMemoryWarning
