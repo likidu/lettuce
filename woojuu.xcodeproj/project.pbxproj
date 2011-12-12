@@ -1085,6 +1085,9 @@
 /* Begin PBXProject section */
 		1AAD1384132BB1AF0035BA92 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Jingxi Mill";
+			};
 			buildConfigurationList = 1AAD1387132BB1AF0035BA92 /* Build configuration list for PBXProject "woojuu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
