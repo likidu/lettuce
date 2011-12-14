@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgressView.h"
 
 @interface TodayViewController : UIViewController
+
+@property(nonatomic,retain) IBOutlet ProgressView* progressView;
 
 @end
