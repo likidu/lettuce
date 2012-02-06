@@ -24,3 +24,7 @@
 #ifndef CLEAN_RELEASE
 #define CLEAN_RELEASE(x) {[x release]; x = nil;}
 #endif
+
+#ifndef FIXED_EXPENSE_CATEGORY_ID_START
+#define FIXED_EXPENSE_CATEGORY_ID_START     100000
+#endif

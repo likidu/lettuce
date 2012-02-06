@@ -11,12 +11,12 @@
 #import "Utility.h"
 #import "ExpenseManager.h"
 #import "BudgetManager.h"
+#import "PlanManager.h"
 
 
 @implementation Statistics
 
-+(double)getTotalOfDay:(NSDate *)day {
-    
++ (double)getTotalOfDay:(NSDate *)day {
     NSString* dateStr = formatSqlDate(day);
     NSString* sqlString = [NSString stringWithFormat:@"select total(amount) as totalExpense from expense where date = %@", dateStr];
     Database* db = [Database instance];
@@ -30,43 +30,31 @@
     return totalExpense;
 }
 
-+ (double)getBalanceOfDay:(NSDate *)day {
-    BudgetManager* budMan = [BudgetManager instance];
-    double totalExpense = [Statistics getTotalOfDay:day];
-    return [budMan getBudgetOfDay:day] - totalExpense;
++ (double)getTotalOfMonth:(NSDate *)dayOfMonth {
+    ExpenseManager* expMan = [ExpenseManager instance];
+    return [expMan loadTotalOfMonth:dayOfMonth];
 }
 
-+ (double)getBalanceOfMonth {
-    NSDate* today = normalizeDate([NSDate date]);
-    NSDate* lastDay = lastDayOfMonth(today);
-    NSDate* firstDay = firstDayOfMonth(today);
-    NSDate* firstDayOfAction = [Statistics getFirstDayOfUserAction];
++ (double)getBalanceOfDay:(NSDate *)day {
+    double totalExpense = [Statistics getTotalOfDay:day];
+    return [PlanManager getBudgetOfDay:day] - totalExpense;
+}
 
-    if (firstDayOfAction)
-        firstDay = maxDay(firstDayOfAction, firstDay);
-    else
-        firstDay = maxDay(firstDay, today);
-    
-    NSArray* days = getDatesBetween(firstDay, lastDay);
-    double balance = 0.0;
-    for (NSDate* day in days)
-        balance += [[BudgetManager instance]getBudgetOfDay:day];
-    balance -= [[ExpenseManager instance]loadTotalOfMonth:today];
-    if (balance < 0)
-        balance = 0.0;
++ (double)getBalanceOfMonth:(NSDate*)dayOfMonth {
+    double balance = [PlanManager getBudgetOfMonth:dayOfMonth] - [Statistics getTotalOfMonth:dayOfMonth];
     return balance;
 }
 
-+ (double)getSavingOfMonth:(NSDate *)dayInMonth {
++ (double)getSavingOfMonth:(NSDate *)dayOfMonth {
     NSDate* firstDay = [Statistics getFirstDayOfUserAction];
     NSDate* today = normalizeDate([NSDate date]);
     if (firstDay == nil)
         return 0.0;
-    NSDate* firstMonthDay = firstDayOfMonth(dayInMonth);
-    NSDate* lastMonthDay = lastDayOfMonth(dayInMonth);
+    NSDate* firstMonthDay = firstDayOfMonth(dayOfMonth);
+    NSDate* lastMonthDay = lastDayOfMonth(dayOfMonth);
     firstMonthDay = maxDay(firstDay, firstMonthDay);
     lastMonthDay = minDay(lastMonthDay, today);
-    double total = [[ExpenseManager instance]loadTotalOfMonth:dayInMonth];
+    double total = [[ExpenseManager instance]loadTotalOfMonth:dayOfMonth];
     NSArray* days = getDatesBetween(firstMonthDay, lastMonthDay);
     double saving = 0.0;
     for (NSDate* day in days)
@@ -79,13 +67,13 @@
 
 + (NSDate *)getFirstDayOfUserAction {
     NSDate* firstDayOfExpense = [ExpenseManager firstDayOfExpense];
-    NSDate* firstDayOfCustomBudget = [[BudgetManager instance]getFirstDayOfCustomBudget];
-    if (firstDayOfExpense && firstDayOfCustomBudget)
-        return minDay(firstDayOfExpense, firstDayOfCustomBudget);
+    NSDate* firstDayOfPlan = [PlanManager firstDayOfPlan];
+    if (firstDayOfExpense && firstDayOfPlan)
+        return minDay(firstDayOfExpense, firstDayOfPlan);
     if (firstDayOfExpense)
         return firstDayOfExpense;
-    if (firstDayOfCustomBudget)
-        return firstDayOfCustomBudget;
+    if (firstDayOfPlan)
+        return firstDayOfPlan;
     return nil;
 }
 

@@ -12,6 +12,7 @@
 CGSize categoryButtonSize = {60, 72};
 #define CAT_PER_ROW 4
 #define ROW_PER_PAGE 2
+#define CAT_PER_PAGE 8
 
 @implementation CategoryViewController
 
@@ -64,12 +65,23 @@ CGSize categoryButtonSize = {60, 72};
     
     CategoryManager* catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase:NO];
+    
+    int activePageCount = 0;
 
-    for (int page = 0; page < catMan.topCategoryCollection.count; page++) {
-        Category* topCat = [catMan.topCategoryCollection objectAtIndex:page];
+    for (Category* topCat in catMan.topCategoryCollection) {
+        if (!topCat.isActive)
+            continue;
+        ++activePageCount;
         NSArray* subCats = [catMan getSubCategoriesWithCategoryId:topCat.categoryId];
-        for (int i = 0; i < subCats.count; i ++) {
-            Category* cat = [subCats objectAtIndex:i];
+        int activeCatCount = 0;
+        for (Category* cat in subCats) {
+            if (!cat.isActive)
+                continue;
+            ++activeCatCount;
+            if (activeCatCount % CAT_PER_PAGE == 1 && activeCatCount / CAT_PER_PAGE > 0)
+                ++activePageCount;
+            int page = activePageCount - 1;
+            int i = (activeCatCount - 1) % CAT_PER_PAGE;
             int column = i % CAT_PER_ROW;
             int row = i / CAT_PER_ROW;
             CGRect buttonFrame;
@@ -100,10 +112,14 @@ CGSize categoryButtonSize = {60, 72};
         }
     }
 
-    pageControl.numberOfPages = catMan.topCategoryCollection.count;
-    pageControl.currentPage = 0;
+    pageControl.numberOfPages = activePageCount;
+    pageControl.currentPage = activePageCount > 1 ? 1 : 0;
     
-    scrollView.contentSize = CGSizeMake(frame.size.width * catMan.topCategoryCollection.count, frame.size.height);
+    scrollView.contentSize = CGSizeMake(frame.size.width * activePageCount, frame.size.height);
+    CGRect visibleRect = scrollView.frame;
+    visibleRect.origin.x = frame.size.width * pageControl.currentPage;
+    visibleRect.origin.y = 0;
+    [scrollView scrollRectToVisible:visibleRect animated:NO];
 }
 
 - (void)awakeFromNib {
@@ -154,6 +170,8 @@ CGSize categoryButtonSize = {60, 72};
 - (void)showTopCategoryIndicator {
     static int currentShowingPage = -1;
     if (pageControl.currentPage == currentShowingPage)
+        return;
+    if (currentShowingPage > 0 && pageControl.currentPage > 0)
         return;
     currentShowingPage = pageControl.currentPage;
     

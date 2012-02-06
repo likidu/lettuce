@@ -209,6 +209,21 @@ BOOL isSameMonth(NSDate* day1, NSDate* day2) {
     return (comp1.year == comp2.year && comp1.month == comp2.month);
 }
 
+int compareMonth(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:dayOfMonth1];
+    NSDateComponents* comp2 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:dayOfMonth2];
+    if (comp1.year > comp2.year)
+        return 1;
+    if (comp1.year < comp2.year)
+        return -1;
+    if (comp1.month > comp2.month)
+        return 1;
+    if (comp1.month < comp2.month)
+        return -1;
+    return 0;
+}
+
 void makeToolButton(UIButton* button) {
     CGRect titleFrame = [button titleRectForContentRect:button.frame];
     CGRect imageFrame = [button imageRectForContentRect:button.frame];
@@ -285,6 +300,11 @@ NSString* generateUUID() {
 	CFRelease(newUniqueId);
 	CFRelease(newUniqueIdString);
     return uuid;
+}
+
+int getDay(NSDate* day) {
+    NSDateComponents* components = [[NSCalendar currentCalendar]components:NSDayCalendarUnit fromDate:day];
+    return components.day;
 }
 
 

@@ -14,9 +14,10 @@
 
 // balance
 + (double)getTotalOfDay:(NSDate*)day;
++ (double)getTotalOfMonth:(NSDate*)dayOfMonth;
 + (double)getBalanceOfDay:(NSDate*)day;
-+ (double)getBalanceOfMonth;
-+ (double)getSavingOfMonth:(NSDate*)dayInMonth;
++ (double)getBalanceOfMonth:(NSDate*)dayOfMonth;
++ (double)getSavingOfMonth:(NSDate*)dayOfMonth;
 + (NSDate*)getFirstDayOfUserAction;
 
 @end

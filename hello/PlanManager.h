@@ -22,15 +22,28 @@
 
 @end
 
-@interface PlanManager : NSObject {
-    NSArray* budgetList;
+@interface MonthlyPlan : NSObject {
+@private
+
 }
 
-+ (PlanManager*)instance;
+@property (nonatomic) int planId;
+@property (nonatomic) double income;
+@property (nonatomic) double budget;
+@property (nonatomic, retain) NSDate* dayOfMonth;
 
-- (void)loadFromDb;
-- (double)getBudgetOfDay:(NSDate*) day;
+@end
 
-@property (nonatomic, readonly) BOOL needInitialize;
+@interface PlanManager : NSObject {
+}
+
++ (void)loadFromDb;
+
++ (double)getIncomeOfMonth:(NSDate*)dayOfMonth;
++ (double)getBudgetOfMonth:(NSDate*)dayOfMonth;
++ (double)getBudgetOfDay:(NSDate*)day;
++ (void)setIncome:(double)income ofMonth:(NSDate*)dayOfMonth;
++ (void)setBudget:(double)budget ofMonth:(NSDate*)dayOfMonth;
++ (NSDate*)firstDayOfPlan;
 
 @end

@@ -7,6 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+@interface ProgressLayer : CALayer
+
+@property(nonatomic,assign) double progress;
+@property(nonatomic,assign) double flagProgress;
+@property(nonatomic,retain) NSDictionary* theme;
+
+@end
 
 @interface ProgressView : UIView {
     NSMutableDictionary* themeDict;
@@ -17,5 +26,7 @@
 @property(nonatomic,retain) NSString* activeThemeName;
 
 - (void)registerTheme:(NSDictionary*)resDict withName:(NSString*)themeName;
+
+- (void)setProgress:(float)progress animated:(BOOL)animated;
 
 @end

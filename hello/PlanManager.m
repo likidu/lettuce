@@ -30,27 +30,46 @@
 
 @end
 
-PlanManager* g_instance = nil;
-
-@implementation PlanManager
-
-+ (PlanManager*)instance {
-    if (g_instance == nil)
-        g_instance = [[PlanManager alloc]init];
-    return g_instance;
-}
+@implementation MonthlyPlan
 
 - (id)init {
-    [super init];
-    budgetList = nil;
+    self = [super init];
+    if (self) {
+        self.planId = 0;
+        self.income = 0.0;
+        self.budget = 0.0;
+        self.dayOfMonth = nil;
+    }
     return self;
 }
 
-- (void)dealloc {
-    [budgetList release];
-    [super dealloc];
-}
+@synthesize planId;
+@synthesize income;
+@synthesize budget;
+@synthesize dayOfMonth;
 
+@end
+
+NSArray* g_planList = nil;
+
+@implementation PlanManager
+
++ (void)loadFromDb {
+    CLEAN_RELEASE(g_planList);
+    Database* db = [Database instance];
+    NSArray* records = [db execute:@"SELECT * FROM monthly_plan ORDER BY Date"];
+    NSMutableArray* list = [NSMutableArray arrayWithCapacity:records.count];
+    for (NSDictionary* rec in records) {
+        MonthlyPlan* plan = [[MonthlyPlan alloc]init];
+        plan.planId = [[rec objectForKey:@"PlanId"]intValue];
+        plan.income = [[rec objectForKey:@"Income"]doubleValue];
+        plan.budget = [[rec objectForKey:@"Budget"]doubleValue];
+        plan.dayOfMonth = normalizeDate(dateFromSqlDate([rec objectForKey:@"Date"]));
+        [list addObject:plan]; 
+    }
+    g_planList = list;
+}
+/*
 // callback - this function helps handle records loaded from database
 - (void)translateBudget : (NSMutableDictionary*)dict : (id) param {
     NSMutableArray * col = (NSMutableArray*)param;
@@ -82,73 +101,74 @@ PlanManager* g_instance = nil;
 - (BOOL)needInitialize {
     return budgetList == nil;
 }
+ 
+*/
 
-- (BOOL)isLeapYear:(int)year {
-    if (year % 4)
-        return NO;
-    if (year % 100)
-        return YES;
-    if (year % 400)
-        return NO;
-    return YES;
++ (double)getBudgetOfDay:(NSDate *)day {
+    double budget = [PlanManager getBudgetOfMonth:day];
+    double budgetOfDay = budget / (double)getDayAmountOfMonth(day);
+    return budgetOfDay;
 }
 
-- (int)getDaysOfMonth:(int)month ofYear:(int)year {
-    switch (month) {
-        case 2:
-            if ([self isLeapYear:year])
-                return 29;
-            else
-                return 28;
-            break;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            return 30;
-            break;
-            
-        default:
-            return 31;
-            break;
++ (MonthlyPlan*)getPlanOfMonth:(NSDate*)dayOfMonth {
+    if (!g_planList || g_planList.count == 0)
+        return nil;
+    MonthlyPlan* closestPlan = [g_planList objectAtIndex:0];
+    for (MonthlyPlan* plan in g_planList) {
+        if (compareMonth(plan.dayOfMonth, closestPlan.dayOfMonth) > 0)
+            closestPlan = plan;
     }
+    return closestPlan;
 }
 
-- (int)getDayAmountOfMonth:(NSDate*)dayOfMonth {
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit fromDate:dayOfMonth];
-    return [self getDaysOfMonth:components.month ofYear:components.year];
++ (double)getBudgetOfMonth:(NSDate *)dayOfMonth {
+    MonthlyPlan* plan = [PlanManager getPlanOfMonth:dayOfMonth];
+    if (plan)
+        return plan.budget;
+    return 0.0;
 }
 
-- (void)getDaysOfMonth:(NSDate*)dayOfMonth workingDays:(int*)workingDays vacationDays:(int*)vacationDays {
-    *workingDays = 0;
-    *vacationDays = 0;
++ (double)getIncomeOfMonth:(NSDate *)dayOfMonth {
+    MonthlyPlan* plan = [PlanManager getPlanOfMonth:dayOfMonth];
+    if (plan)
+        return plan.income;
+    return 0.0;
+}
+
++ (void)setBudget:(double)budget ofMonth:(NSDate *)dayOfMonth {
+    MonthlyPlan* plan = [PlanManager getPlanOfMonth:dayOfMonth];
+    NSString* sqlStr = nil;
+    if (plan && isSameMonth(plan.dayOfMonth, dayOfMonth))
+        sqlStr = [NSString stringWithFormat:@"UPDATE monthly_plan SET Budget = %f, Date = %@ WHERE PlanId = %d", budget, formatSqlDate(dayOfMonth), plan.planId];
+    else
+        sqlStr = [NSString stringWithFormat:@"INSERT INTO monthly_plan(Budget, Date) VALUES(%f, %@)", budget, formatSqlDate(dayOfMonth)];
+    Database* db = [Database instance];
+    [db execute:sqlStr];
     
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSWeekdayCalendarUnit fromDate:dayOfMonth];
-    int days = [self getDayAmountOfMonth:dayOfMonth];
-    for (int i = 0; i < days; i++) {
-        components.day = i;
-        if (components.weekday == 1 || components.weekday == 7)
-            ++(*vacationDays);
-        else
-            ++(*workingDays);
-    }
+    [PlanManager loadFromDb];
 }
 
-- (NSArray*)getDaysOfMonth:(NSDate*)dayOfMonth {
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSWeekdayCalendarUnit fromDate:dayOfMonth];
-    NSMutableArray* array = [NSMutableArray arrayWithCapacity: [self getDayAmountOfMonth:dayOfMonth]];
-    for (int i = 0; i < array.count; i++) {
-        components.day = i;
-        int dayCode = 0;
-        if (components.weekday == 1 || components.weekday == 7)
-            dayCode = 1;
-        [array insertObject:[NSNumber numberWithInt:dayCode ] atIndex:i];
-    }
-    return [NSArray arrayWithArray:array];
++ (void)setIncome:(double)income ofMonth:(NSDate *)dayOfMonth {
+    MonthlyPlan* plan = [PlanManager getPlanOfMonth:dayOfMonth];
+    NSString* sqlStr = nil;
+    if (plan && isSameMonth(plan.dayOfMonth, dayOfMonth))
+        sqlStr = [NSString stringWithFormat:@"UPDATE monthly_plan SET Income = %f, Date = %@ WHERE PlanId = %d", income, formatSqlDate(dayOfMonth), plan.planId];
+    else
+        sqlStr = [NSString stringWithFormat:@"INSERT INTO monthly_plan(Income, Date) VALUES(%f, %@)", income, formatSqlDate(dayOfMonth)];
+    Database* db = [Database instance];
+    [db execute:sqlStr];
+    
+    [PlanManager loadFromDb];
 }
+
++ (NSDate*)firstDayOfPlan {
+    if (!g_planList || g_planList.count == 0)
+        return nil;
+    MonthlyPlan* plan = (MonthlyPlan*)[g_planList objectAtIndex:0];
+    return plan.dayOfMonth;
+}
+
+/*
 
 - (void)translateDailyExpense : (NSMutableDictionary*)dict : (id) param {
     NSMutableDictionary * col = (NSMutableDictionary*)param;
@@ -216,5 +236,7 @@ PlanManager* g_instance = nil;
     double budget = [self getBudget:effectivePlan.amount ofDay:dayIndex withRange:days withExpenses:expenses withRitio:1.5];
     return budget;
 }
+ 
+*/
 
 @end

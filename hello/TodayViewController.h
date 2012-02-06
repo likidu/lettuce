@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "ProgressView.h"
 
-@interface TodayViewController : UIViewController
+@interface TodayViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic,retain) IBOutlet ProgressView* progressView;
+@property(nonatomic,retain) IBOutlet UILabel* monthlyBudgetLabel;
+@property(nonatomic,retain) IBOutlet UILabel* monthlyExpenseLabel;
+@property(nonatomic,retain) IBOutlet UILabel* monthlyBalanceLabel;
+@property(nonatomic,retain) IBOutlet UILabel* todayExpenseLabel;
+@property(nonatomic,retain) IBOutlet UITableView* expenseTable;
+@property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
+@property(nonatomic,retain) IBOutlet UILabel* dateLabel;
+
+@property(nonatomic,retain) NSArray* expenses;
 
 @end

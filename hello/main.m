@@ -10,6 +10,7 @@
 #import "Database.h"
 #import "CategoryManager.h"
 #import "DbTransitionManager.h"
+#import "PlanManager.h"
 
 int main(int argc, char *argv[])
 {
@@ -36,6 +37,8 @@ int main(int argc, char *argv[])
     
     CategoryManager *catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase: YES];
+    
+    [PlanManager loadFromDb];
 
     // create the Documents/ImageNotes directory if it does not exist
     NSString* imageNoteDir = [docDir stringByAppendingPathComponent: @"ImageNotes"];

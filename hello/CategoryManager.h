@@ -13,6 +13,7 @@
 }
 @property (nonatomic) int categoryId;
 @property (nonatomic) int parentId;
+@property (nonatomic) BOOL isActive;
 @property (nonatomic, retain) NSString *categoryName;
 @property (nonatomic, retain) NSString *iconName;
 @property (nonatomic, retain) NSString *hilitedIconName;

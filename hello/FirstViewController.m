@@ -73,7 +73,7 @@ static NSString* cellId = @"cellTransaction";
         budgetLabel.textColor = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
     else
         budgetLabel.textColor = [UIColor darkTextColor];
-    double balanceOfMonth = [Statistics getBalanceOfMonth];
+    double balanceOfMonth = [Statistics getBalanceOfMonth: [NSDate date]];
     balanceLabel.text = formatAmount(balanceOfMonth, NO);
     double savingOfMonth = [Statistics getSavingOfMonth:today];
     savingLabel.text = formatAmount(savingOfMonth, NO);

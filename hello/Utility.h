@@ -30,11 +30,14 @@ extern NSArray*  getDaysOfMonth(NSDate* dayOfMonth);
 extern NSArray*  getDatesBetween(NSDate* startDate, NSDate* endDate);
 extern int       getDayAmountOfMonth(NSDate* dayOfMonth);
 extern BOOL      isSameDay(NSDate* day1, NSDate* day2);
+extern BOOL      isSameMonth(NSDate* day1, NSDate* day2);
+extern int       compareMonth(NSDate* dayOfMonth1, NSDate* dayOfMonth2);
 extern NSDate*   minDay(NSDate* day1, NSDate* day2);
 extern NSDate*   maxDay(NSDate* day1, NSDate* day2);
-extern BOOL      isSameMonth(NSDate* day1, NSDate* day2);
 extern int       getNumberOfDaysInMonth(int month, int year);
 extern NSString* formatAmount(double amount, BOOL withPrecision);
+
+extern int       getDay(NSDate* day);
 
 extern void      makeToolButton(UIButton* button);
 extern void      makeButtonImageRightSide(UIButton* button);
