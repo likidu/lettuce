@@ -307,6 +307,17 @@ int getDay(NSDate* day) {
     return components.day;
 }
 
+void flashView(UIView* view) {
+    UIColor* originalColor = view.backgroundColor;
+    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAutoreverse animations:^(void){
+        view.backgroundColor = [UIColor redColor];
+    } completion: ^(BOOL finished){
+        if (finished) {
+            view.backgroundColor = originalColor;
+        }
+    }];
+}
+
 
 @implementation UIViewController(ModalViewExtension)
 
@@ -316,6 +327,21 @@ int getDay(NSDate* day) {
     if (self.parentViewController == rootVc)
         return self;
     return rootVc;
+}
+
+@end
+
+@implementation UIView(FirstResponder)
+
+- (UIView *)findFirstResponder {
+    if (self.isFirstResponder)
+        return self;
+    for (UIView* view in self.subviews) {
+        UIView* firstResponder = [view findFirstResponder];
+        if (firstResponder)
+            return firstResponder;
+    }
+    return nil;
 }
 
 @end

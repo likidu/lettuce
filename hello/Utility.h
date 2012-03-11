@@ -47,6 +47,8 @@ extern void      setButtonTitleShadowColorForStates(UIButton* button, UIColor* c
 extern void      setButtonImageForStates(UIButton* button, UIImage* image, UIControlState state);
 extern NSString* generateUUID();
 
+extern void      flashView(UIView* view);
+
 
 #define PRECISION 0.000001
 #define FUZZYEQUAL(x,y) (ABS(((x)-(y)))<=PRECISION)
@@ -57,6 +59,12 @@ extern NSString* generateUUID();
 
 - (UIViewController*)rootViewController;
 
+@end
+
+@interface UIView (FirstResponder)
+
+- (UIView*)findFirstResponder;
+    
 @end
 
 #endif

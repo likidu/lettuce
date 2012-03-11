@@ -15,6 +15,7 @@
 @synthesize defaultLabel;
 @synthesize errorImage;
 @synthesize errorLabel;
+@synthesize textField;
 
 + (void)checkPasscode {
     NSString* passcode = [[NSUserDefaults standardUserDefaults]stringForKey:@"Passcode"];
@@ -92,9 +93,6 @@ bool isInternalSetText = false;
             controls[i].text = @"";
     }
     isInternalSetText = false;
-    
-    if (text.length < 4)
-        [controls[text.length] becomeFirstResponder];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -104,9 +102,9 @@ bool isInternalSetText = false;
     defaultLabel.hidden = NO;
     errorImage.hidden = YES;
     errorLabel.hidden = YES;
+    self.textField.text = @"";
     
-    UITextField* inputView = (UITextField*)[self.view viewWithTag: 1];
-    [inputView becomeFirstResponder];
+    [self.textField becomeFirstResponder];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -125,6 +123,7 @@ bool isInternalSetText = false;
         defaultImage.hidden = YES;
         errorLabel.hidden = NO;
         errorImage.hidden = NO;
+        self.textField.text = @"";
     }
     [self setTextFieldText:userInputText];
 }
@@ -133,9 +132,7 @@ bool isInternalSetText = false;
     if (isInternalSetText)
         return;
     
-    UITextField* control = (UITextField*)sender;
-    if (userInputText.length < 4)
-        self.userInputText = [NSString stringWithFormat:@"%@%@", userInputText, control.text];
+    self.userInputText = self.textField.text;
     
     [self setTextFieldText:userInputText];
 

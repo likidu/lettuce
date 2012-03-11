@@ -21,6 +21,8 @@
 @property(nonatomic,retain) IBOutlet UIImageView* defaultImage;
 @property(nonatomic,retain) IBOutlet UIImageView* errorImage;
 
+@property(nonatomic,retain) IBOutlet UITextField* textField;
+
 @property(nonatomic,retain) NSString* userInputText;
 
 @end

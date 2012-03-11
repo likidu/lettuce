@@ -8,10 +8,9 @@
 
 #import "RootViewController.h"
 #import "MiddleViewController.h"
+#import "FirstExperienceView.h"
 
 @implementation RootViewController
-
-static NSString* g_key1stUx = @"DidShow1stUx";
 
 - (void)dealloc
 {
@@ -153,6 +152,12 @@ static NSString* g_key1stUx = @"DidShow1stUx";
 - (void)viewDidAppear:(BOOL)animated {
     if (activeController)
         [activeController performSelector:@selector(viewDidAppear:)];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    BOOL showWizard = ![defaults boolForKey:FIRST_UX_ENTRY_NAME];
+    if (showWizard) {
+        FirstExperienceView* view = [[[FirstExperienceView alloc]initWithNibName:@"FirstExperienceView" bundle:[NSBundle mainBundle]]autorelease];
+        [self presentModalViewController:view animated:YES];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

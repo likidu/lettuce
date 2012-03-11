@@ -136,7 +136,7 @@
     [slotImage drawAtPoint:rect.origin];
     
     if (drawingProgress > 0.0) {
-        CGRect innerRect = CGRectInset(rect, 2, 2);
+        CGRect innerRect = CGRectInset(rect, 1, 1);
         // draw start
         if (barStartImage) {
             drawRect = innerRect;
