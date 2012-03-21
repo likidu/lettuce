@@ -625,11 +625,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
+         startingLineNumber = "287"
+         endingLineNumber = "287"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -639,11 +639,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "310"
-         endingLineNumber = "310"
+         startingLineNumber = "312"
+         endingLineNumber = "312"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -679,11 +679,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -693,11 +693,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "300"
-         endingLineNumber = "300"
+         startingLineNumber = "302"
+         endingLineNumber = "302"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -707,11 +707,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "339"
-         endingLineNumber = "339"
+         startingLineNumber = "344"
+         endingLineNumber = "344"
          landmarkName = "-monthPicked:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -749,11 +749,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "304"
-         endingLineNumber = "304"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
          landmarkName = "-updateMonthButtonTitle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -763,11 +763,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "305"
-         endingLineNumber = "305"
+         startingLineNumber = "307"
+         endingLineNumber = "307"
          landmarkName = "-updateMonthButtonTitle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -915,11 +915,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -929,11 +929,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "hello/SecondViewController.m"
-         timestampString = "338827207.329648"
+         timestampString = "353417929.991301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2209,6 +2209,34 @@
          startingLineNumber = "161"
          endingLineNumber = "161"
          landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/HistoryViewFrame.m"
+         timestampString = "353417554.422677"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "-drawRect:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "hello/SecondViewController.m"
+         timestampString = "353417953.115232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "334"
+         endingLineNumber = "334"
+         landmarkName = "-onFilter"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

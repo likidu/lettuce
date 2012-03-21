@@ -18,6 +18,8 @@
 #import "ExpenseHistoryByCategoryViewController.h"
 #import "ExpenseHistoryByLocationViewController.h"
 
+#import "HistoryViewFrame.h"
+
 @implementation SecondViewController
 
 @synthesize months;
@@ -329,6 +331,9 @@
 }
 
 - (void)onFilter {
+    UIViewController* history = [[[HistoryViewFrame alloc]initWithNibName:@"HistoryViewFrame" bundle:[NSBundle mainBundle]]autorelease];
+    [self.navigationController pushViewController:history animated:YES];
+    return;
     [self presentSwitchArea:kFilter];
 }
 
