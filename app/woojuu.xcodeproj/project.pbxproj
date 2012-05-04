@@ -46,6 +46,8 @@
 		1A6B5E5713F2EBCB007BC798 /* CellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */; };
 		1A6B5E5913F2EBFF007BC798 /* CellFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */; };
 		1A81B26C1472994D00DA2994 /* libRestKitThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921C01466264C007C333D /* libRestKitThree20.a */; };
+		1A8DB7BC15515CF400B035C3 /* ExpenseByCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DB7BA15515CF400B035C3 /* ExpenseByCategoryViewController.m */; };
+		1A8DB7BD15515CF400B035C3 /* ExpenseByCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A8DB7BB15515CF400B035C3 /* ExpenseByCategoryViewController.xib */; };
 		1A90D99513F8110600865709 /* ExpenseHistoryByCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A90D99313F8110500865709 /* ExpenseHistoryByCategoryViewController.m */; };
 		1A90D99613F8110600865709 /* ExpenseHistoryByCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A90D99413F8110600865709 /* ExpenseHistoryByCategoryViewController.xib */; };
 		1A90D99913F8220F00865709 /* CellHeaderWithIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A90D99813F8220F00865709 /* CellHeaderWithIcon.xib */; };
@@ -74,6 +76,8 @@
 		1A98D26714D02FF400813274 /* real.estate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A98D25B14D02FE400813274 /* real.estate@2x.png */; };
 		1A98D26814D02FF400813274 /* transportation.card.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A98D25C14D02FE900813274 /* transportation.card.png */; };
 		1A98D26914D02FF400813274 /* transportation.card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A98D25D14D02FEE00813274 /* transportation.card@2x.png */; };
+		1A9AFCDC153EB90900BDE870 /* HistoryRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AFCDA153EB90900BDE870 /* HistoryRootView.m */; };
+		1A9AFCDD153EB90900BDE870 /* HistoryRootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AFCDB153EB90900BDE870 /* HistoryRootView.xib */; };
 		1A9DA9F21510B80D0066520C /* HistoryViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9DA9F01510B80D0066520C /* HistoryViewFrame.m */; };
 		1A9DA9F31510B80D0066520C /* HistoryViewFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9DA9F11510B80D0066520C /* HistoryViewFrame.xib */; };
 		1AA03954135A8D3500245B2C /* ExpenseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA03953135A8D3400245B2C /* ExpenseManager.m */; };
@@ -540,6 +544,9 @@
 		1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseCellWithDate.xib; sourceTree = "<group>"; };
 		1A6B5E5613F2EBCB007BC798 /* CellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellHeader.xib; sourceTree = "<group>"; };
 		1A6B5E5813F2EBFF007BC798 /* CellFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellFooter.xib; sourceTree = "<group>"; };
+		1A8DB7B915515CF400B035C3 /* ExpenseByCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseByCategoryViewController.h; sourceTree = "<group>"; };
+		1A8DB7BA15515CF400B035C3 /* ExpenseByCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseByCategoryViewController.m; sourceTree = "<group>"; };
+		1A8DB7BB15515CF400B035C3 /* ExpenseByCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseByCategoryViewController.xib; sourceTree = "<group>"; };
 		1A90D99213F8110500865709 /* ExpenseHistoryByCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseHistoryByCategoryViewController.h; sourceTree = "<group>"; };
 		1A90D99313F8110500865709 /* ExpenseHistoryByCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByCategoryViewController.m; sourceTree = "<group>"; };
 		1A90D99413F8110600865709 /* ExpenseHistoryByCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryByCategoryViewController.xib; sourceTree = "<group>"; };
@@ -572,6 +579,9 @@
 		1A98D25B14D02FE400813274 /* real.estate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "real.estate@2x.png"; path = "cats/real.estate@2x.png"; sourceTree = "<group>"; };
 		1A98D25C14D02FE900813274 /* transportation.card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transportation.card.png; path = cats/transportation.card.png; sourceTree = "<group>"; };
 		1A98D25D14D02FEE00813274 /* transportation.card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "transportation.card@2x.png"; path = "cats/transportation.card@2x.png"; sourceTree = "<group>"; };
+		1A9AFCD9153EB90900BDE870 /* HistoryRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryRootView.h; sourceTree = "<group>"; };
+		1A9AFCDA153EB90900BDE870 /* HistoryRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryRootView.m; sourceTree = "<group>"; };
+		1A9AFCDB153EB90900BDE870 /* HistoryRootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryRootView.xib; sourceTree = "<group>"; };
 		1A9DA9EF1510B80D0066520C /* HistoryViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewFrame.h; sourceTree = "<group>"; };
 		1A9DA9F01510B80D0066520C /* HistoryViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewFrame.m; sourceTree = "<group>"; };
 		1A9DA9F11510B80D0066520C /* HistoryViewFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewFrame.xib; sourceTree = "<group>"; };
@@ -1415,6 +1425,9 @@
 				1A9DA9EF1510B80D0066520C /* HistoryViewFrame.h */,
 				1A9DA9F01510B80D0066520C /* HistoryViewFrame.m */,
 				1A9DA9F11510B80D0066520C /* HistoryViewFrame.xib */,
+				1A9AFCD9153EB90900BDE870 /* HistoryRootView.h */,
+				1A9AFCDA153EB90900BDE870 /* HistoryRootView.m */,
+				1A9AFCDB153EB90900BDE870 /* HistoryRootView.xib */,
 				1A05809913752FBD00933267 /* CategoryViewController.h */,
 				1A05809A13752FBD00933267 /* CategoryViewController.m */,
 				1AD88A6413ED88E300804635 /* BudgetView.h */,
@@ -1494,6 +1507,9 @@
 				1AC8AF02143210B700B2638B /* ExpenseHistoryByLocationViewController.h */,
 				1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */,
 				1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */,
+				1A8DB7B915515CF400B035C3 /* ExpenseByCategoryViewController.h */,
+				1A8DB7BA15515CF400B035C3 /* ExpenseByCategoryViewController.m */,
+				1A8DB7BB15515CF400B035C3 /* ExpenseByCategoryViewController.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -2018,6 +2034,8 @@
 				1AA4685714FE2D58003D387F /* FirstExperienceView.xib in Resources */,
 				1AA4686214FE37B5003D387F /* NewFeaturesView.xib in Resources */,
 				1A9DA9F31510B80D0066520C /* HistoryViewFrame.xib in Resources */,
+				1A9AFCDD153EB90900BDE870 /* HistoryRootView.xib in Resources */,
+				1A8DB7BD15515CF400B035C3 /* ExpenseByCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2063,6 +2081,8 @@
 				1AA4685614FE2D58003D387F /* FirstExperienceView.m in Sources */,
 				1AA4686114FE37B5003D387F /* NewFeaturesView.m in Sources */,
 				1A9DA9F21510B80D0066520C /* HistoryViewFrame.m in Sources */,
+				1A9AFCDC153EB90900BDE870 /* HistoryRootView.m in Sources */,
+				1A8DB7BC15515CF400B035C3 /* ExpenseByCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

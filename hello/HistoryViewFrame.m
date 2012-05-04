@@ -19,6 +19,8 @@
 
 @implementation HistoryViewFrame
 
+@synthesize navController;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,6 +44,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (!self.navController) {
+        HistoryRootView* rootView = [[[HistoryRootView alloc]initWithNibName:@"HistoryRootView" bundle:[NSBundle mainBundle]]autorelease];
+        self.navController = [[[UINavigationController alloc]initWithRootViewController:rootView]autorelease];
+        [navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"headerbar.png"] forBarMetrics:UIBarMetricsDefault];
+        [self.view addSubview:navController.view];
+    }
 }
 
 - (void)viewDidUnload
@@ -49,6 +57,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.navController = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

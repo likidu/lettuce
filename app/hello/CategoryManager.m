@@ -12,6 +12,7 @@
 @implementation Category
 
 @synthesize categoryId;
+@synthesize displayId;
 @synthesize parentId;
 @synthesize categoryName;
 @synthesize iconName;
@@ -77,6 +78,7 @@ CategoryManager* g_catMan = nil;
         return;
     Category *cat = [[Category alloc]init];
     cat.categoryId = [[dict objectForKey: @"CategoryId"]intValue];
+    cat.displayId = [[dict objectForKey:@"DisplayId"]intValue];
     cat.parentId = [[dict objectForKey:@"ParentId"]intValue];
     cat.categoryName = [dict objectForKey: @"CategoryName"];
     cat.iconName = [dict objectForKey: @"IconResName"];
@@ -143,6 +145,30 @@ CategoryManager* g_catMan = nil;
     [categoryDictionary release];
     [topCategoryCollection release];
     [iconDict release];
+}
+
+// make sure to call loadCategoryDataFromDatabase: with YES to force update the category data
+- (NSArray*)moveCategory:(int)categoryIndex ofCollection:(NSArray *)collection toPosition:(int)newIndex {
+    NSMutableArray* newArray = [NSMutableArray arrayWithArray:collection];
+    Category* cat = [newArray objectAtIndex:categoryIndex];
+    [newArray insertObject:cat atIndex:newIndex];
+    if (newIndex <= categoryIndex) {
+        [newArray removeObjectAtIndex:(categoryIndex + 1)];
+    }
+    else
+        [newArray removeObjectAtIndex:categoryIndex];
+    
+    // now update the database
+    Database* db = [Database instance];
+    int displayId = 5;
+    for (Category* cat in newArray) {
+        NSString* sql = [NSString stringWithFormat:@"update category set displayid = %d where categoryid = %d", displayId, cat.categoryId];
+        [db execute:sql];
+        cat.displayId = displayId;
+        displayId += 5;
+    }
+    
+    return newArray;
 }
 
 @end
