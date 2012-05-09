@@ -1046,8 +1046,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "122"
          endingLineNumber = "122"
-         landmarkName = "-iconNamed:"
-         landmarkType = "5">
+         landmarkName = "@implementation CategoryManager"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
