@@ -33,6 +33,10 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
+# IDE files #
+#############
+*/.idea/*
+
 # Woojuu ignored files #
 ########################
 woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
