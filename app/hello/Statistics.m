@@ -78,14 +78,10 @@
 }
 
 + (NSArray*)getMonthsOfYear:(NSDate *)dayOfYear {
-    NSString* sqlStr = @"select distinct strftime('%m', date) as month from expense";
-    Database* db = [Database instance];
-    NSArray* results = [db execute:sqlStr];
-    NSMutableArray* months = [NSMutableArray arrayWithCapacity:results.count];
-    for (NSDictionary* record in results) {
-        [months addObject:[record objectForKey:@"month"]];
-    }
-    return months;
+    NSDate* firstDay = [Statistics getFirstDayOfUserAction];
+    NSDate* today = [NSDate date];
+    firstDay = [firstDay laterDate: firstMonthOfYear(today)];
+    return getMonthsBetween(firstDay, today);
 }
 
 @end

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OverviewByYearViewController.h"
 
-@interface HistoryRootView : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface HistoryRootView : UIViewController
 
-@property(nonatomic,retain) NSArray* yearData;
-@property(nonatomic,retain) IBOutlet UITableView* tableView;
-@property(nonatomic,retain) IBOutlet UIView* summaryView;
+@property(nonatomic,retain) OverviewByYearViewController* overviewByYear;
+@property(nonatomic,retain) IBOutlet UIView* tableViewPlaceHolder;
 
 @end

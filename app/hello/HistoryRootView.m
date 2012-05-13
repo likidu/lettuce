@@ -12,9 +12,8 @@
 
 @implementation HistoryRootView
 
-@synthesize yearData;
-@synthesize tableView;
-@synthesize summaryView;
+@synthesize overviewByYear;
+@synthesize tableViewPlaceHolder;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,15 +38,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"2012年";
+    self.navigationItem.title = formatYearString([NSDate date]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
+    // create and initialize the overview
+    self.overviewByYear = [OverviewByYearViewController createInstance];
+    [self.view addSubview: overviewByYear.view];
+    [self.view bringSubviewToFront:overviewByYear.view];
+    overviewByYear.view.frame = tableViewPlaceHolder.frame;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
+    self.overviewByYear = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,60 +61,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.yearData = [Statistics getMonthsOfYear:[NSDate date]];
-    self.summaryView.alpha = 1.0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [UIView animateWithDuration:0.5 animations:^() {
-        self.summaryView.alpha = 0.0;
-    }];
-}
-
-#pragma mark - table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (yearData)
-        return yearData.count;
-    else
-        return 0;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"monthOfYearCell"]autorelease];
-    NSString* titleText = [NSString stringWithFormat:@"%@月", [yearData objectAtIndex: indexPath.row]];
-    cell.textLabel.text = titleText;
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    return cell;    
-}
-
-#pragma mark - table view delegate
-
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    ExpenseByCategoryViewController* viewController = [[[ExpenseByCategoryViewController alloc]initWithNibName:@"ExpenseByCategoryViewController" bundle:[NSBundle mainBundle]]autorelease];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
-}
-
-#pragma mark - scroll view delegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
 }
 
 @end

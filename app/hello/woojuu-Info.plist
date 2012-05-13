@@ -6,8 +6,6 @@
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
 	<string>莴苣账本</string>
-	<key>CFBundleDocumentTypes</key>
-	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -24,23 +22,21 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>莴苣账本</string>
+	<string>woojuu.book</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6.3</string>
+	<string>0.7</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleURLTypes</key>
-	<array/>
 	<key>CFBundleVersion</key>
-	<string>0.6.3</string>
+	<string>0.7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UILaunchImageFile</key>
-	<string>launch.png</string>
+	<string>launch.jpg</string>
 	<key>UILaunchImageFile~iphone</key>
 	<string>launch@2x.png</string>
 	<key>UIPrerenderedIcon</key>
@@ -49,9 +45,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UTExportedTypeDeclarations</key>
-	<array/>
-	<key>UTImportedTypeDeclarations</key>
-	<array/>
 </dict>
 </plist>
