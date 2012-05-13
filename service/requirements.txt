@@ -1,0 +1,12 @@
+Flask==0.8
+GitPython==0.3.2.RC1
+Jinja2==2.6
+Werkzeug==0.8.3
+async==0.6.1
+boto==2.3.0
+clint==0.3.1
+coverage==3.5.2
+gitdb==0.5.4
+legit==0.1.1
+mock==0.8.0
+smmap==0.8.2
