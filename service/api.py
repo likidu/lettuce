@@ -1,21 +1,16 @@
-from flask import abort, Flask, request
-import logging
 import boto
 import constants
-import conf.default as settings
+import flask
+import time
+import weibo
+from flask import request
+from common import app, settings
 
-app = Flask(__name__)
-app.config.from_object("conf.default")
-
-if __name__ == "__main__":
-    import os
-    if "WOOJUU_MODE" in os.environ:
-        if os.environ["WOOJUU_MODE"].lower() == "production":
-            import conf.prod as settings
-            app.config.from_object("conf.prod")
+api = flask.Blueprint("api", __name__)
 
 def setup():
     try:
+        import main
         app.logger.info("Setup started.")
 
         app.logger.info("Setup Amazon Simple DB for cloud backup.")
@@ -38,52 +33,66 @@ def setup():
         app.logger.critical("Unexpected error in initialization: %s" % ex)
         return False
 
-@app.route("/backup_version/v1.0/<user_id>/", methods=['GET', 'POST'])
-def backup_version(user_id):
-    authenticate(user_id)
+@api.route("/login/v1.0/")
+def login():
+    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET)
+    callback = flask.url_for(".login_success", _external=True)
+    url = client.get_authorize_url(redirect_uri=callback)
+    return flask.redirect(url)
+
+@api.route("/login_success/v1.0/")
+def login_success():
+    code = request.args.get("code", "")
+    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET)
+    r = client.request_access_token(code)
+    client.set_access_token(r.access_token, r.expires_in)
+    weibo_user = client.get.account__verify_credentials()
+    weibo_id = weibo_user.id
+    response = flask.make_response("")
+    response.set_cookie("weibo_id", weibo_id)
+    response.set_cookie("weibo_access_token", r.access_token)
+    response.set_cookie("token_expires_in", r.expires_in)
+    return response
+
+@api.route("/my/backup_version/v1.0/", methods=["GET", "POST"])
+def backup_version():
+    user_id = authenticate()
     if request.method == 'GET':
-        return get_backup_version(user_id)
+        return str(get_backup_version(user_id))
     elif request.method == 'POST':
         version = request.form['version']
         app_version = request.form['app_version']
         return post_backup_version(user_id, version, app_version)
 
-@app.route("/backup_url/v1.0/<user_id>/<content_length>/", methods=["GET"])
-def get_backup_url(user_id, content_length):
-    authenticate(user_id)
+@api.route("/my/backup_url/v1.0/<content_length>/", methods=["GET"])
+def get_backup_url(content_length):
+    user_id = authenticate()
     return get_s3_pre_signed_url(user_id, "PUT", content_length)
 
-@app.route("/restore_url/v1.0/<user_id>/", methods=["GET"])
-def get_restore_url(user_id):
-    authenticate(user_id)
+@api.route("/my/restore_url/v1.0/", methods=["GET"])
+def get_restore_url():
+    user_id = authenticate()
     return get_s3_pre_signed_url(user_id, "GET")
 
-def authenticate(user_id):
-    logging.info("authenticating. user_id: %s.", user_id)
-    if is_weibo_user(user_id):
-        weibo_id = get_weibo_id(user_id)
-        request_token = request.args.get('weibo_request_token')
-
-        # TODO: Verify request token with Weibo
-        if False:
-            logging.info("Authentication failed.")
-            abort(401)
-    else:
-        logging.info("Not a weibo user. user_id: %s.", user_id)
-        # 404: Only weibo user is supported.
-        abort(404)
+def authenticate():
+    try:
+        weibo_id = request.cookies["weibo_id"]
+        access_token = request.cookie["weibo_access_token"]
+        expires_in = request.cookie["token_expires_in"]
+        if time.time() > expires_in:
+            flask.abort(401)    # Unauthenticated
+        else:
+            return "weibo_" + weibo_id
+    except KeyError:
+        flask.abort(401)        # Unauthenticated
 
 def get_backup_version(user_id):
+    # The READ here is eventually consistent. That should be fine.
     conn = boto.connect_sdb(settings.AWS_KEY_ID, settings.AWS_SECRET_KEY)
-
-    # The READ here is eventually consistent.
     domain = conn.get_domain(settings.SDB_DOMAIN_BACKUP_VERSION)
     item = domain.get_attributes(user_id, constants.ATTR_BACKUP_VERSION)
 
-    if len(item) != 0:
-        return str(item["backup_version"])
-    else:
-        return str(-1)
+    return item["backup_version"] if len(item) != 0 else -1
 
 def post_backup_version(user_id, version, app_version):
     item_attrs = { constants.ATTR_BACKUP_VERSION:   version,
@@ -94,14 +103,11 @@ def post_backup_version(user_id, version, app_version):
     domain = conn.get_domain(settings.SDB_DOMAIN_BACKUP_VERSION)
     success = retry(lambda: domain.put_attributes(user_id, item_attrs), 3)
     if not success:
-        abort(500)  # Internal Server Error
+        flask.abort(500)  # Internal Server Error
     else:
         return ""
 
 def get_s3_pre_signed_url(user_id, method, content_length = 0):
-    """
-
-    """
     conn = boto.connect_s3(settings.AWS_KEY_ID, settings.AWS_SECRET_KEY)
 
     if method == "PUT":
@@ -138,4 +144,4 @@ def retry(operation, retry):
 
 if __name__ == "__main__":
     setup()
-    app.run()
+    api.run()
