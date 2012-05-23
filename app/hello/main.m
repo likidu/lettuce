@@ -15,20 +15,20 @@
 int main(int argc, char *argv[])
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	// copy database file from bundle to Documents if it's the first run
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *docDir = [paths objectAtIndex:0];
-	NSString *dbPath = [docDir stringByAppendingPathComponent: @"db.sqlite"];
-	NSFileManager* fileManager = [NSFileManager defaultManager];
-	if (![fileManager fileExistsAtPath: dbPath])
-	{
-		NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"dbtemplate" ofType:@"sqlite"];
-		if (![fileManager copyItemAtPath:templatePath toPath:dbPath error: NULL])
-		{
-			// may need to show some alert info but not possible since the views are not present.
+    // copy database file from bundle to Documents if it's the first run
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+    NSString *dbPath = [docDir stringByAppendingPathComponent: @"db.sqlite"];
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath: dbPath])
+    {
+        NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"dbtemplate" ofType:@"sqlite"];
+        if (![fileManager copyItemAtPath:templatePath toPath:dbPath error: NULL])
+        {
+            // may need to show some alert info but not possible since the views are not present.
             return NO;
-		}
-	}
+        }
+    }
     
     // try open database
     Database *db = [Database instance];

@@ -178,7 +178,7 @@
     
     // only update location when adding new expense. never update when editing
     if (!editingItem) {
-        if ([LocationManager isLocationAvailable]) {
+        if (false) {
             expense.useLocation = YES;
             CLLocationCoordinate2D location = [LocationManager getCurrentLocation];
             expense.latitude = location.latitude;

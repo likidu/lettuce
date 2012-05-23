@@ -67,7 +67,7 @@ NSArray* g_planList = nil;
         plan.dayOfMonth = normalizeDate(dateFromSqlDate([rec objectForKey:@"Date"]));
         [list addObject:plan]; 
     }
-    g_planList = list;
+    g_planList = [list retain];
 }
 /*
 // callback - this function helps handle records loaded from database
