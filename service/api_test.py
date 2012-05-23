@@ -90,8 +90,7 @@ class ApiTestCase(unittest.TestCase):
     def test_backup_url(self):
         api.authenticate = mock.Mock(return_value="weibo_alice")
 
-        content_length = self.dummy_file_len()
-        rv = self.app.get("/my/backup_url/v1.0/%d/" % content_length)
+        rv = self.app.get("/my/backup_url/v1.0/")
         assert 200 == rv.status_code
         assert "https://" in rv.data
 
@@ -105,7 +104,7 @@ class ApiTestCase(unittest.TestCase):
         assert "testtesttest" == content
 
         api.authenticate = mock.Mock(side_effect=lambda:flask.abort(401))
-        rv = self.app.get("/my/backup_url/v1.0/%d/" % content_length)
+        rv = self.app.get("/my/backup_url/v1.0/")
         assert 401 == rv.status_code
         rv = self.app.get("/my/restore_url/v1.0/")
         assert 401 == rv.status_code

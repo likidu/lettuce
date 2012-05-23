@@ -64,10 +64,10 @@ def backup_version():
         app_version = request.form['app_version']
         return post_backup_version(user_id, version, app_version)
 
-@api.route("/my/backup_url/v1.0/<content_length>/", methods=["GET"])
-def get_backup_url(content_length):
+@api.route("/my/backup_url/v1.0/", methods=["GET"])
+def get_backup_url():
     user_id = authenticate()
-    return get_s3_pre_signed_url(user_id, "PUT", content_length)
+    return get_s3_pre_signed_url(user_id, "PUT")
 
 @api.route("/my/restore_url/v1.0/", methods=["GET"])
 def get_restore_url():
@@ -107,7 +107,7 @@ def post_backup_version(user_id, version, app_version):
     else:
         return ""
 
-def get_s3_pre_signed_url(user_id, method, content_length = 0):
+def get_s3_pre_signed_url(user_id, method):
     conn = boto.connect_s3(settings.AWS_KEY_ID, settings.AWS_SECRET_KEY)
 
     if method == "PUT":
@@ -116,9 +116,7 @@ def get_s3_pre_signed_url(user_id, method, content_length = 0):
             method = method,
             bucket = settings.S3_BUCKET_CLOUD_BACKUP,
             key = user_id + ".bak",
-            headers = {
-                "Content-Length": "%s" % content_length,
-                "Content-Type":   "application/x-sqlite3" })
+            headers = { "Content-Type":   "application/x-sqlite3" })
     elif method == "GET":
         return conn.generate_url(
             expires_in = 3600000,
