@@ -66,6 +66,18 @@ NSString* formatMonthString(NSDate* dayOfMonth) {
     return [formatter stringFromDate:dayOfMonth];
 }
 
+NSString* formatMonthOnlyString(NSDate* day) {
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat: @"M月"];
+    return [formatter stringFromDate:day];
+}
+
+NSString* formatYearString(NSDate* day) {
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat: @"yyyy年"];
+    return [formatter stringFromDate:day];
+}
+
 NSString* formatMonthDayString(NSDate* day) {
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat: @"M/d"];
@@ -103,6 +115,18 @@ NSDate* firstDayOfMonth(NSDate* dayOfMonth) {
 
 NSDate* lastDayOfMonth(NSDate* dayOfMonth) {
     return dateFromMonthString(formatSqlYearMonth(dayOfMonth), NO);
+}
+
+NSDate* firstMonthOfYear(NSDate* dayOfYear) {
+    NSDateComponents* comps = getDateComponentsWithoutTime(dayOfYear);
+    comps.month = 1;
+    return [[NSCalendar currentCalendar]dateFromComponents:comps];
+}
+
+NSDate* lastMonthOfYear(NSDate* dayOfYear) {
+    NSDateComponents* comps = getDateComponentsWithoutTime(dayOfYear);
+    comps.month = 12;
+    return [[NSCalendar currentCalendar]dateFromComponents:comps];
 }
 
 BOOL isWeekend(NSDate* date) {
@@ -174,6 +198,35 @@ NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
     return [NSArray arrayWithArray:array];
 }
 
+NSDateComponents* getDateComponentsWithoutTime(NSDate* date) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:date];
+    return comp;
+}
+
+NSArray* getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
+    NSDate* startDate = normalizeDate(dayOfMonth1);
+    NSDate* endDate = normalizeDate(dayOfMonth2);
+    if ([startDate compare:endDate] != NSOrderedAscending)
+        return nil;
+    NSMutableArray* array = [NSMutableArray array];
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDate* currentDate = startDate;
+    while ([currentDate compare:endDate] != NSOrderedDescending) {
+        [array addObject:currentDate];
+        NSDateComponents* comps = getDateComponentsWithoutTime(currentDate);
+        if (comps.month == 12) {
+            comps.year++;
+            comps.month = 1;
+        }
+        else {
+            comps.month++;
+        }
+        currentDate = [calendar dateFromComponents:comps];
+    }
+    return array;
+}
+
 NSDate* normalizeDate(NSDate* date) {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* comp = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:date];
@@ -207,6 +260,13 @@ BOOL isSameMonth(NSDate* day1, NSDate* day2) {
     NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day1];
     NSDateComponents* comp2 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day2];
     return (comp1.year == comp2.year && comp1.month == comp2.month);
+}
+
+BOOL isSameYear(NSDate* day1, NSDate* day2) {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp1 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day1];
+    NSDateComponents* comp2 = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:day2];
+    return (comp1.year == comp2.year);    
 }
 
 int compareMonth(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
