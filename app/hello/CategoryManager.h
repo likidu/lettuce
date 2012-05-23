@@ -12,6 +12,7 @@
     
 }
 @property (nonatomic) int categoryId;
+@property (nonatomic) int displayId;
 @property (nonatomic) int parentId;
 @property (nonatomic) BOOL isActive;
 @property (nonatomic, retain) NSString *categoryName;
@@ -36,5 +37,8 @@
 - (BOOL)loadCategoryDataFromDatabase : (BOOL)forceReload;
 - (UIImage*)iconNamed:(NSString*)iconName;
 - (NSArray*)getSubCategoriesWithCategoryId:(int)catId;
+
+// modify the order of sub category
+- (NSArray*)moveCategory:(int)categoryIndex ofCollection:(NSArray*)collection toPosition:(int)newIndex;
 
 @end

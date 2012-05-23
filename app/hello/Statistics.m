@@ -77,4 +77,11 @@
     return nil;
 }
 
++ (NSArray*)getMonthsOfYear:(NSDate *)dayOfYear {
+    NSDate* firstDay = [Statistics getFirstDayOfUserAction];
+    NSDate* today = [NSDate date];
+    firstDay = [firstDay laterDate: firstMonthOfYear(today)];
+    return getMonthsBetween(firstDay, today);
+}
+
 @end

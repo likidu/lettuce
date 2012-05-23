@@ -19,5 +19,6 @@
 + (double)getBalanceOfMonth:(NSDate*)dayOfMonth;
 + (double)getSavingOfMonth:(NSDate*)dayOfMonth;
 + (NSDate*)getFirstDayOfUserAction;
++ (NSArray*)getMonthsOfYear:(NSDate*)dayOfYear;
 
 @end
