@@ -419,6 +419,10 @@
 		1AEF65D414728E1B004FD202 /* PasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEF65D214728E1B004FD202 /* PasscodeView.xib */; };
 		1AF2476214934E660010B65E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2476014934E660010B65E /* TodayViewController.m */; };
 		1AF2476314934E660010B65E /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF2476114934E660010B65E /* TodayViewController.xib */; };
+		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
+		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
+		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
+		B0ECA00C157A855B00903063 /* UserAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0ECA00A157A855B00903063 /* UserAccountViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -953,6 +957,12 @@
 		1AF2475F14934E660010B65E /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		1AF2476014934E660010B65E /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		1AF2476114934E660010B65E /* TodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
+		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
+		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
+		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
+		B0ECA008157A855A00903063 /* UserAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountViewController.h; sourceTree = "<group>"; };
+		B0ECA009157A855A00903063 /* UserAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountViewController.m; sourceTree = "<group>"; };
+		B0ECA00A157A855B00903063 /* UserAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserAccountViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1409,6 +1419,7 @@
 		1AAD1397132BB1B00035BA92 /* woojuu */ = {
 			isa = PBXGroup;
 			children = (
+				B0EC9FF8157A69F400903063 /* Backup */,
 				1A0580AA137546D700933267 /* Category Icons */,
 				1A459D79138799A100036EC2 /* Arts */,
 				1A459D731387999A00036EC2 /* RootViewController.h */,
@@ -1542,6 +1553,19 @@
 				1AD5897E155F7699008FB105 /* OverviewByYearViewController.xib */,
 			);
 			name = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		B0EC9FF8157A69F400903063 /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */,
+				B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */,
+				B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */,
+				B0ECA008157A855A00903063 /* UserAccountViewController.h */,
+				B0ECA009157A855A00903063 /* UserAccountViewController.m */,
+				B0ECA00A157A855B00903063 /* UserAccountViewController.xib */,
+			);
+			name = Backup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2041,6 +2065,8 @@
 				1A8971F71563DE3200502A2E /* whitepaper.png in Resources */,
 				1A8971F81563DE3200502A2E /* whitepaper2.png in Resources */,
 				1A8971F91563DE3200502A2E /* woojuu.art.png in Resources */,
+				B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */,
+				B0ECA00C157A855B00903063 /* UserAccountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2089,6 +2115,8 @@
 				1A0AE6DA155A973600B5C4DC /* HistoryRootView.m in Sources */,
 				1A0AE6DC155A973600B5C4DC /* HistoryViewFrame.m in Sources */,
 				1AD5897F155F7699008FB105 /* OverviewByYearViewController.m in Sources */,
+				B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */,
+				B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

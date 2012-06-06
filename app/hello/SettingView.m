@@ -9,7 +9,8 @@
 #import "SettingView.h"
 #import "BudgetView.h"
 #import "AboutViewController.h"
-
+#import "BackupAndRecoverViewController.h"
+#import "UserAccountViewController.h"
 @implementation SettingView
 
 @synthesize settingTableView;
@@ -29,16 +30,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.imgAbout = [UIImage imageNamed:@"settings.about.png"];
-        self.imgBudget = [UIImage imageNamed:@"settings.budget.png"];
-        self.imgStartup = [UIImage imageNamed:@"settings.startup.png"];
-        self.imgAccount = [UIImage imageNamed:@"settings.account.png"];
-        self.imgBackup = [UIImage imageNamed:@"settings.backup.png"];
-        self.imgCategory = [UIImage imageNamed:@"settings.category.png"];
-        self.imgPassword = [UIImage imageNamed:@"settings.password.png"];
-        self.imgReminder = [UIImage imageNamed:@"settings.reminder.png"];
+        [self initImages];
     }
     return self;
+}
+
+- (void)initImages{    
+    self.imgAbout = [UIImage imageNamed:@"settings.about.png"];
+    self.imgBudget = [UIImage imageNamed:@"settings.budget.png"];
+    self.imgStartup = [UIImage imageNamed:@"settings.startup.png"];
+    self.imgAccount = [UIImage imageNamed:@"settings.account.png"];
+    self.imgBackup = [UIImage imageNamed:@"settings.backup.png"];
+    self.imgCategory = [UIImage imageNamed:@"settings.category.png"];
+    self.imgPassword = [UIImage imageNamed:@"settings.password.png"];
+    self.imgReminder = [UIImage imageNamed:@"settings.reminder.png"];
 }
 
 - (void)dealloc
@@ -70,6 +75,7 @@
 
 - (void)onSwitch {
     [[NSUserDefaults standardUserDefaults]setBool:yesNoSwitch.on forKey:@"TransactionViewAtStartup"];
+    [self.settingTableView reloadData];
 }
 
 #pragma mark - View lifecycle
@@ -79,6 +85,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     settingTableView.backgroundColor = [UIColor clearColor];
+    [self initImages];
 }
 
 - (void)viewDidUnload
@@ -130,7 +137,8 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"收入与预算设置";
+                cell.textLabel.text = @"预算设置";
+                //cell.detailTextLabel.text
                 cell.imageView.image = imgBudget;               
                 break;
             case 1:
@@ -179,20 +187,45 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        [[self rootViewController]presentModalViewController:[BudgetView instance] animated:YES];
+        if (indexPath.row == 0){
+            [[self rootViewController]presentModalViewController:[BudgetView instance] animated:YES];
+        }
     }
-    else if (indexPath.section == 1) {
-        [[self rootViewController]presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
+    else if (indexPath.section == 1) {  
+        if (indexPath.row == 0){
+            [self presentModalViewController:[BackupAndRecoverViewController instance] animated:YES];
+        }
+        else if (indexPath.row == 1){
+            [self presentModalViewController:[UserAccountViewController instance] animated:YES];
+        }
     }
-    else {
-        [self presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
+    else if (indexPath.section == 2){
+        if (indexPath.row == 0) {
+            [self presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
+        }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"常规";
+    }
+    else if (section == 1){
+        return @"云备份";
+    }
+    else{
+        return @"其他";
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == 0)
-        return @"每次打开程序直接进入记账界面";
+    if (section == 0){
+        if([[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"] == true){
+            return @"每次打开程序直接开始记账";      
+        }
+    }
+
     return @"";    
 }
 
