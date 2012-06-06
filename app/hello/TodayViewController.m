@@ -22,6 +22,7 @@
 @synthesize expenseTable;
 @synthesize cellTemplate;
 @synthesize dateLabel;
+@synthesize settingView;
 
 @synthesize expenses;
 
@@ -109,6 +110,7 @@
     self.todayExpenseLabel = nil;
     self.expenseTable = nil;
     self.dateLabel = nil;
+    self.settingView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -215,6 +217,12 @@ static NSString* cellId = @"expenseCell";
     }
     
     return cell;
+}
+
+#pragma mark - show settings
+
+-(void)onSetting {
+    [[self rootViewController]presentModalViewController:self.settingView animated:YES];
 }
 
 @end

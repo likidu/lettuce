@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ProgressView.h"
+#import "SettingView.h"
 
 @interface TodayViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
@@ -19,7 +20,10 @@
 @property(nonatomic,retain) IBOutlet UITableView* expenseTable;
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
 @property(nonatomic,retain) IBOutlet UILabel* dateLabel;
+@property(nonatomic,retain) IBOutlet SettingView* settingView;
 
 @property(nonatomic,retain) NSArray* expenses;
+
+-(IBAction) onSetting;
 
 @end
