@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ProgressView.h"
+#import "SettingView.h"
 
 @interface TodayViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property(nonatomic,retain) IBOutlet SettingView* settingView;
 @property(nonatomic,retain) IBOutlet ProgressView* progressView;
 @property(nonatomic,retain) IBOutlet UILabel* monthlyBudgetLabel;
 @property(nonatomic,retain) IBOutlet UILabel* monthlyExpenseLabel;
@@ -21,5 +23,7 @@
 @property(nonatomic,retain) IBOutlet UILabel* dateLabel;
 
 @property(nonatomic,retain) NSArray* expenses;
+
+- (IBAction)onSettings:(id)sender;
 
 @end

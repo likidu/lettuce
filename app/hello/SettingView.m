@@ -24,6 +24,11 @@
 @synthesize imgPassword;
 @synthesize imgReminder;
 
+- (id)init
+{
+    return [self initWithNibName:@"SettingView.xib" bundle:nil];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

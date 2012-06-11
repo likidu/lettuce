@@ -14,6 +14,7 @@
 
 @implementation TodayViewController
 
+@synthesize settingView;
 @synthesize progressView;
 @synthesize monthlyBudgetLabel;
 @synthesize monthlyExpenseLabel;
@@ -28,8 +29,9 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self) 
+    {
+        settingView = [[SettingView alloc]init];
     }
     return self;
 }
@@ -215,6 +217,13 @@ static NSString* cellId = @"expenseCell";
     }
     
     return cell;
+}
+
+# pragma mark - UI events
+
+- (void)onSettings:(id)sender
+{
+    [self presentViewController:settingView animated:false completion:nil];
 }
 
 @end
