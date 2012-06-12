@@ -68,13 +68,26 @@
 	<string>workout_h.png</string>
 	<string>workout.png</string>
 	<string>workout_s.png</string>
+	<string>misc_s.png</string>
 	<string>misc_h.png</string>
 	<string>misc.png</string>
 	<string>transportation.card.png</string>
+	<string>transportation.card_h.png</string>
+	<string>transportation.card_s.png</string>
 	<string>gift.png</string>
+	<string>gift_h.png</string>
+	<string>gift_s.png</string>
 	<string>housing.png</string>
+	<string>housing_h.png</string>
+	<string>housing_s.png</string>
 	<string>real.estate.png</string>
+	<string>real.estate_h.png</string>
+	<string>real.estate_s.png</string>
 	<string>nurturing.png</string>
+	<string>nurturing_h.png</string>
+	<string>nurturing_s.png</string>
 	<string>card.png</string>
+	<string>card_h.png</string>
+	<string>card_s.png</string>
 </array>
 </plist>
