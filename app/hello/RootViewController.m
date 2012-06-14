@@ -107,6 +107,10 @@
         return;
     viewInitialized = YES;
     
+    // set tab button tool button style
+    makeToolButton(self.todayButton);
+    makeToolButton(self.historyButton);
+
     // Do any additional setup after loading the view from its nib.
     CGRect subViewBounds = self.view.bounds;
     subViewBounds.size.height -= tabPanel.bounds.size.height;
@@ -141,10 +145,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // set tab button tool button style
-    makeToolButton(self.todayButton);
-    makeToolButton(self.historyButton);
-    
     if (activeController)
         [activeController performSelector:@selector(viewWillAppear:)];
 }

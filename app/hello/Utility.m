@@ -285,8 +285,8 @@ int compareMonth(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
 }
 
 void makeToolButton(UIButton* button) {
-    CGRect titleFrame = [button titleRectForContentRect:button.frame];
-    CGRect imageFrame = [button imageRectForContentRect:button.frame];
+    CGRect titleFrame = button.titleLabel.frame;//[button titleRectForContentRect:button.frame];
+    CGRect imageFrame = button.imageView.frame;//[button imageRectForContentRect:button.frame];
     button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
     button.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
 }
