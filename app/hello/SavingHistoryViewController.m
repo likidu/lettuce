@@ -50,7 +50,7 @@
         [b addObject:[NSNumber numberWithDouble:value]];
     }
     self.budgets = b;
-    self.totals = [[ExpenseManager instance]loadTotalBetweenStartDate:startDate endDate:endDate];
+    self.totals = [Statistics getTotalBetweenStartDate:startDate endDate:endDate];
     
     [table reloadData];
 }

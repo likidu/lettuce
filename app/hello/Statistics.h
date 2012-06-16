@@ -14,7 +14,11 @@
 
 // balance
 + (double)getTotalOfDay:(NSDate*)day;
++ (double)getTotalOfDay:(NSDate *)day excludeFixedExpense:(BOOL)excludeFixed;
 + (double)getTotalOfMonth:(NSDate*)dayOfMonth;
++ (double)getTotalOfMonth:(NSDate *)dayOfMonth excludeFixedExpense:(BOOL)excludeFixed;
++ (NSDictionary*)getTotalBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
++ (NSDictionary*)getTotalBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate excludeFixedExpense:(BOOL)excludeFixed;
 + (double)getBalanceOfDay:(NSDate*)day;
 + (double)getBalanceOfMonth:(NSDate*)dayOfMonth;
 + (double)getSavingOfMonth:(NSDate*)dayOfMonth;

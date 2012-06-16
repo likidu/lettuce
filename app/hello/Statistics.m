@@ -17,8 +17,15 @@
 @implementation Statistics
 
 + (double)getTotalOfDay:(NSDate *)day {
+    return [Statistics getTotalOfDay:day excludeFixedExpense:YES];
+}
+
++ (double)getTotalOfDay:(NSDate *)day excludeFixedExpense:(BOOL)excludeFixed {
     NSString* dateStr = formatSqlDate(day);
     NSString* sqlString = [NSString stringWithFormat:@"select total(amount) as totalExpense from expense where date = %@", dateStr];
+    if (excludeFixed) {
+        sqlString = [NSString stringWithFormat:@"%@ and categoryid < %d", sqlString, FIXED_EXPENSE_CATEGORY_ID_START];
+    }
     Database* db = [Database instance];
     NSArray* records = [db execute:sqlString];
     if (records.count < 1)
@@ -27,12 +34,47 @@
     if (![record objectForKey:@"totalExpense"])
         return NAN;
     double totalExpense = [[record objectForKey:@"totalExpense"]doubleValue];
-    return totalExpense;
+    return totalExpense;    
 }
 
 + (double)getTotalOfMonth:(NSDate *)dayOfMonth {
-    ExpenseManager* expMan = [ExpenseManager instance];
-    return [expMan loadTotalOfMonth:dayOfMonth];
+    return [Statistics getTotalOfMonth:dayOfMonth excludeFixedExpense:YES];
+}
+
++ (double)getTotalOfMonth:(NSDate *)dayOfMonth excludeFixedExpense:(BOOL)excludeFixed {
+    NSString* start = formatSqlDate(firstDayOfMonth(dayOfMonth)), *end = formatSqlDate(lastDayOfMonth(dayOfMonth));
+    NSString* sql = [NSString stringWithFormat:@"select total(amount) as TotalExpense from expense where date >= %@ and date <= %@", start, end];
+    if (excludeFixed) {
+        sql = [NSString stringWithFormat:@"%@ and categoryid < %d", sql, FIXED_EXPENSE_CATEGORY_ID_START];
+    }
+    NSArray* data = [[Database instance]execute:sql];
+    NSDictionary* record = [data lastObject];
+    double total = 0.0;
+    if (record) {
+        total = [[record objectForKey:@"TotalExpense"]doubleValue];
+    }
+    return total;    
+}
+
++ (NSDictionary *)getTotalBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate {
+    return [Statistics getTotalBetweenStartDate:startDate endDate:endDate excludeFixedExpense:YES];
+}
+
++ (NSDictionary *)getTotalBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate excludeFixedExpense:(BOOL)excludeFixed {
+    NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat:@"select total(amount) as TotalExpense, date from expense where date >= %@ and date <= %@", start, end];
+    if (excludeFixed) {
+        sql = [NSString stringWithFormat: @"%@ and categoryid < %d", sql, FIXED_EXPENSE_CATEGORY_ID_START];
+    }
+    sql = [NSString stringWithFormat:@"%@ group by date", sql];
+    NSArray* data = [[Database instance]execute:sql];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:data.count];
+    for (NSDictionary* record in data) {
+        NSDate* date = dateFromSqlDate([record objectForKey:@"Date"]);
+        NSObject* value = [NSNumber numberWithDouble:[[record objectForKey:@"TotalExpense"]doubleValue]];
+        [dict setObject:value forKey:DATESTR(date)];
+    }
+    return dict;    
 }
 
 + (double)getBalanceOfDay:(NSDate *)day {
@@ -54,7 +96,7 @@
     NSDate* lastMonthDay = lastDayOfMonth(dayOfMonth);
     firstMonthDay = maxDay(firstDay, firstMonthDay);
     lastMonthDay = minDay(lastMonthDay, today);
-    double total = [[ExpenseManager instance]loadTotalOfMonth:dayOfMonth];
+    double total = [Statistics getTotalOfMonth:dayOfMonth];
     NSArray* days = getDatesBetween(firstMonthDay, lastMonthDay);
     double saving = 0.0;
     for (NSDate* day in days)

@@ -40,15 +40,15 @@
 
 - (NSArray*) loadExpenseDates;
 
-- (double) loadTotalOfDay : (NSDate*) date;
-- (NSDictionary*) loadTotalBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
-- (double)loadTotalOfMonth:(NSDate*)dayOfMonth;
+//- (double) loadTotalOfDay : (NSDate*) date;
+//- (NSDictionary*) loadTotalBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
+//- (double)loadTotalOfMonth:(NSDate*)dayOfMonth;
 
-- (BOOL) addExpense : (Expense*) expense;
+- (BOOL)addExpense : (Expense*) expense;
 - (BOOL)updateExpense:(Expense*)expense;
 
-- (double)getBalanceOfDay:(NSDate*)day;
-- (NSDictionary*)getBalanceBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
+//- (double)getBalanceOfDay:(NSDate*)day;
+//- (NSDictionary*)getBalanceBetweenStartDate:(NSDate*)startDate endDate:(NSDate*)endDate;
 
 - (BOOL)deleteExpenseById:(NSInteger)expenseId;
 - (Expense*)getExpenseById:(NSInteger)expenseId;

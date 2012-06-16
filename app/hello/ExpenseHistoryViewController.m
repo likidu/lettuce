@@ -13,6 +13,7 @@
 #import "CategoryManager.h"
 #import "RootViewController.h"
 #import "BudgetManager.h"
+#import "Statistics.h"
 
 @implementation ExpenseHistoryViewController
 
@@ -323,9 +324,9 @@ static NSString* footerCellId = @"footerCell";
         }
         else {
             // we still have some records of the day. so refresh the statistics
-            double total = [[ExpenseManager instance]loadTotalOfDay:date];
+            double total = [Statistics getTotalOfDay:date];
             [((NSMutableDictionary*)totalData)setObject:[NSNumber numberWithDouble:total] forKey:DATESTR(date)];
-            double balance = [[ExpenseManager instance]getBalanceOfDay:date];
+            double balance = [Statistics getBalanceOfDay:date];
             [((NSMutableDictionary*)balanceData)setObject:[NSNumber numberWithDouble:balance] forKey:DATESTR(date)];
             [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         }
