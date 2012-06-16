@@ -81,6 +81,7 @@
 - (void)setProgress:(float)progressValue animated:(BOOL)animated {
     if (!animated) {
         self.progress = progressValue;
+        [self setNeedsDisplay];
         return;
     }
     
@@ -93,6 +94,7 @@
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     
     [self.layer addAnimation:animation forKey:@"animateProgress"];
+    
     [CATransaction commit];
     
     self.progress = progressValue;

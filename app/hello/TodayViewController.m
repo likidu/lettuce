@@ -166,6 +166,10 @@
     [progressView setProgress:(expenseOfMonth/budgetOfMonth) animated:YES];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [progressView setProgress:0.0 animated:NO];
+}
+
 #pragma mark - table view data source
 
 static NSString* cellId = @"expenseCell";
@@ -217,6 +221,12 @@ static NSString* cellId = @"expenseCell";
     }
     
     return cell;
+}
+
+#pragma mark - table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - show settings
