@@ -40,6 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setNeedsLayout];
+    
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = formatYearString([NSDate date]);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
@@ -48,11 +50,13 @@
     [self.view addSubview: overviewByMonth.view];
     [self.view bringSubviewToFront:overviewByMonth.view];
     overviewByMonth.view.frame = tableViewPlaceHolder.frame;
+    [overviewByMonth.view layoutSubviews];
     
     self.overviewByCategory = [OverviewByCategoryViewController createInstance];
     [self.view addSubview: overviewByCategory.view];
     [self.view bringSubviewToFront:overviewByCategory.view];
     overviewByCategory.view.frame = tableViewPlaceHolder.frame;
+    [overviewByCategory.view layoutSubviews];
     overviewByCategory.view.hidden = YES;
 }
 
