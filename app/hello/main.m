@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
     if (![db load : dbPath])
         return NO;
     
+    // let the database transition manager work
+    [DbTransitionManager migrateToCurrentVersion];
+    
     CategoryManager *catMan = [CategoryManager instance];
     [catMan loadCategoryDataFromDatabase: YES];
     
@@ -47,9 +50,6 @@ int main(int argc, char *argv[])
         if (![fileManager createDirectoryAtPath:imageNoteDir withIntermediateDirectories:YES attributes:nil error:nil])
             return NO;
     }
-    
-    // let the database transition manager work
-    [DbTransitionManager migrateToCurrentVersion];
     
     int retVal = UIApplicationMain(argc, argv, nil, nil);
     [pool release];
