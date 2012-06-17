@@ -25,4 +25,6 @@
 + (NSDate*)getFirstDayOfUserAction;
 + (NSArray*)getMonthsOfYear:(NSDate*)dayOfYear;
 
++ (NSDictionary*)getTotalByCategoryfromDate:(NSDate*)startDate toDate:(NSDate*)endDate excludeFixedExpenses:(BOOL)excludeFixed;
+
 @end

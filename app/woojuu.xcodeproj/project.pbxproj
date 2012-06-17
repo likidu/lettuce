@@ -87,6 +87,9 @@
 		1A25D9B3158C4C3200510799 /* numpad.zero.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D971158C4C3200510799 /* numpad.zero.png */; };
 		1A25D9B4158C4C3200510799 /* numpad.zero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D972158C4C3200510799 /* numpad.zero@2x.png */; };
 		1A25D9B6158C4F9E00510799 /* numpad.multiply.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D9B5158C4F9E00510799 /* numpad.multiply.down.png */; };
+		1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A25D9B8158D8B6F00510799 /* OverviewByCategoryViewController.m */; };
+		1A25D9BB158D8B6F00510799 /* OverviewByCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D9B9158D8B6F00510799 /* OverviewByCategoryViewController.xib */; };
+		1A25D9BD158D8ED200510799 /* OverviewByCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */; };
 		1A40E91313C2B97400A60279 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40E91113C2B97400A60279 /* Utility.m */; };
 		1A459D761387999A00036EC2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A459D741387999A00036EC2 /* RootViewController.m */; };
 		1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A54C0181430B380003444B1 /* CoreLocation.framework */; };
@@ -692,6 +695,10 @@
 		1A25D971158C4C3200510799 /* numpad.zero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numpad.zero.png; path = "arts/Add Transaction/numpad.zero.png"; sourceTree = "<group>"; };
 		1A25D972158C4C3200510799 /* numpad.zero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "numpad.zero@2x.png"; path = "arts/Add Transaction/numpad.zero@2x.png"; sourceTree = "<group>"; };
 		1A25D9B5158C4F9E00510799 /* numpad.multiply.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numpad.multiply.down.png; path = "arts/Add Transaction/numpad.multiply.down.png"; sourceTree = "<group>"; };
+		1A25D9B7158D8B6F00510799 /* OverviewByCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewByCategoryViewController.h; sourceTree = "<group>"; };
+		1A25D9B8158D8B6F00510799 /* OverviewByCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewByCategoryViewController.m; sourceTree = "<group>"; };
+		1A25D9B9158D8B6F00510799 /* OverviewByCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByCategoryViewController.xib; sourceTree = "<group>"; };
+		1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByCategoryCell.xib; sourceTree = "<group>"; };
 		1A40E91113C2B97400A60279 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		1A40E91213C2B97400A60279 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		1A459D731387999A00036EC2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -1561,6 +1568,7 @@
 				1A90D99A13F82A5700865709 /* CellFooterAmountOnly.xib */,
 				1A96CD3513F6B89600AA4D45 /* SavingCell.xib */,
 				1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */,
+				1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1853,6 +1861,9 @@
 				1AD5897C155F7699008FB105 /* OverviewByYearViewController.h */,
 				1AD5897D155F7699008FB105 /* OverviewByYearViewController.m */,
 				1AD5897E155F7699008FB105 /* OverviewByYearViewController.xib */,
+				1A25D9B7158D8B6F00510799 /* OverviewByCategoryViewController.h */,
+				1A25D9B8158D8B6F00510799 /* OverviewByCategoryViewController.m */,
+				1A25D9B9158D8B6F00510799 /* OverviewByCategoryViewController.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -2467,6 +2478,8 @@
 				1A25D9B3158C4C3200510799 /* numpad.zero.png in Resources */,
 				1A25D9B4158C4C3200510799 /* numpad.zero@2x.png in Resources */,
 				1A25D9B6158C4F9E00510799 /* numpad.multiply.down.png in Resources */,
+				1A25D9BB158D8B6F00510799 /* OverviewByCategoryViewController.xib in Resources */,
+				1A25D9BD158D8ED200510799 /* OverviewByCategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2517,6 +2530,7 @@
 				1AD5897F155F7699008FB105 /* OverviewByYearViewController.m in Sources */,
 				B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */,
 				B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */,
+				1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

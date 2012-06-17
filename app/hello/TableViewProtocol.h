@@ -21,6 +21,7 @@ enum CellSubViewTags {
     kCellDate = 5,
     kCellAmount2 = 6,
     kCellAmount3 = 7,
+    kCellNumber = 8,
     kSavingDate = 1,
     kSavingExpense = 2,
     kSavingBalance = 3,

@@ -126,4 +126,32 @@
     return getMonthsBetween(firstDay, today);
 }
 
++ (NSDictionary*)getTotalByCategoryfromDate:(NSDate *)startDate toDate:(NSDate *)endDate excludeFixedExpenses:(BOOL)excludeFixed {
+    NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat: @"select categoryid, total(amount) as TotalExpense, count(categoryid) as TotalNumber from expense where date >= %@ and date <= %@", start, end];
+    if (excludeFixed) {
+        sql = [NSString stringWithFormat:@"%@ and categoryid < %d", sql, FIXED_EXPENSE_CATEGORY_ID_START];
+    }
+    sql = [NSString stringWithFormat:@"%@ group by categoryid order by TotalExpense DESC", sql];
+    Database* db = [Database instance];
+    NSArray* records = [db execute:sql];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    NSMutableArray* categories = [NSMutableArray arrayWithCapacity:records.count];
+    NSMutableArray* numbers = [NSMutableArray arrayWithCapacity:records.count];
+    NSMutableArray* amounts = [NSMutableArray arrayWithCapacity:records.count];
+    
+    for (NSDictionary* rec in records) {
+        int catId = [[rec valueForKey:@"CategoryId"]intValue];
+        int number = [[rec valueForKey:@"TotalNumber"]intValue];
+        double amount = [[rec valueForKey:@"TotalExpense"]doubleValue];
+        [categories addObject:[NSNumber numberWithInt:catId]];
+        [numbers addObject:[NSNumber numberWithInt:number]];
+        [amounts addObject:[NSNumber numberWithDouble:amount]];
+    }
+    [dict setValue:categories forKey:@"categories"];
+    [dict setValue:numbers forKey:@"numbers"];
+    [dict setValue:amounts forKey:@"amounts"];
+    return dict;
+}
+
 @end
