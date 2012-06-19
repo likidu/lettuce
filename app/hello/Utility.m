@@ -285,17 +285,17 @@ int compareMonth(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
 }
 
 void makeToolButton(UIButton* button) {
-    CGRect titleFrame = button.titleLabel.frame;//[button titleRectForContentRect:button.frame];
-    CGRect imageFrame = button.imageView.frame;//[button imageRectForContentRect:button.frame];
+    CGRect titleFrame = button.titleLabel.frame;
+    CGRect imageFrame = button.imageView.frame;
     button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, -imageFrame.size.height, 0.0);
     button.imageEdgeInsets = UIEdgeInsetsMake(-titleFrame.size.height, 0.0, 0.0, -titleFrame.size.width);
 }
 
-void makeButtonImageRightSide(UIButton* button) {
-    CGRect titleFrame = [button titleRectForContentRect:button.frame];
-    CGRect imageFrame = [button imageRectForContentRect:button.frame];
-    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width * 2.0, 0.0, 0.0);
-    button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, -titleFrame.size.width * 2.0);
+void makeDropButton(UIButton* button) {
+    CGRect titleFrame = button.titleLabel.frame;
+    CGRect imageFrame = button.imageView.frame;
+    button.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageFrame.size.width, 0.0, imageFrame.size.width);
+    button.imageEdgeInsets = UIEdgeInsetsMake(0.0, titleFrame.size.width, 0.0, -titleFrame.size.width);
 }
 
 void setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state) {

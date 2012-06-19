@@ -47,7 +47,7 @@ extern NSString* formatAmount(double amount, BOOL withPrecision);
 extern int       getDay(NSDate* day);
 
 extern void      makeToolButton(UIButton* button);
-extern void      makeButtonImageRightSide(UIButton* button);
+extern void      makeDropButton(UIButton* button);
 extern void      setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state);
 extern void      setButtonTitleColorForStates(UIButton* button, UIColor* color, UIControlState state);
 extern void      setButtonTitleShadowColorForStates(UIButton* button, UIColor* color, UIControlState state);

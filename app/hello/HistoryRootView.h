@@ -17,6 +17,7 @@
 @property(nonatomic,retain) IBOutlet UIView* tableViewPlaceHolder;
 @property(nonatomic,retain) IBOutlet UIButton* viewByMonthButton;
 @property(nonatomic,retain) IBOutlet UIButton* viewByCategoryButton;
+@property(nonatomic,retain) IBOutlet UIButton* navigationButton;
 
 - (IBAction)onViewByMonth;
 - (IBAction)onViewByCategory;

@@ -17,6 +17,7 @@
 @synthesize tableViewPlaceHolder;
 @synthesize viewByMonthButton;
 @synthesize viewByCategoryButton;
+@synthesize navigationButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,9 +43,12 @@
     [super viewDidLoad];
     [self.view setNeedsLayout];
     
-    // Do any additional setup after loading the view from its nib.
+    // setup the navigation item
+    makeDropButton(self.navigationButton);
+    self.navigationButton.titleLabel.text = formatYearString([NSDate date]);
+    self.navigationItem.titleView = self.navigationButton;
     self.navigationItem.title = formatYearString([NSDate date]);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
     // create and initialize the overview
     self.overviewByMonth = [OverviewByYearViewController createInstance];
     [self.view addSubview: overviewByMonth.view];
@@ -58,6 +62,7 @@
     overviewByCategory.view.frame = tableViewPlaceHolder.frame;
     [overviewByCategory.view layoutSubviews];
     overviewByCategory.view.hidden = YES;
+    
 }
 
 - (void)viewDidUnload

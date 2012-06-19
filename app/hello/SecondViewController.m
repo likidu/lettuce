@@ -304,7 +304,7 @@
 
 - (void)updateMonthButtonTitle:(NSString*)title {
     [monthButton setTitle:title forState:UIControlStateNormal];
-    makeButtonImageRightSide(monthButton);
+    makeDropButton(monthButton);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
