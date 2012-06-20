@@ -511,6 +511,8 @@
 		1AD88A6913ED90C300804635 /* ExpenseHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */; };
 		1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6C13ED96D600804635 /* AboutViewController.m */; };
 		1AE1A4A914F9E1E30026BF7A /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1A4A814F9E1E30026BF7A /* WelcomeView.m */; };
+		1AE3D38A15922DCF00FC45F9 /* drop.indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3D38815922DCF00FC45F9 /* drop.indicator.png */; };
+		1AE3D38B15922DCF00FC45F9 /* drop.indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3D38915922DCF00FC45F9 /* drop.indicator@2x.png */; };
 		1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AE4339F1375AC82005AAB8F /* QuartzCore.framework */; };
 		1AE433A313762B7A005AAB8F /* iconlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AE433A213762B7A005AAB8F /* iconlist.plist */; };
 		1AE433A613763514005AAB8F /* BudgetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE433A513763513005AAB8F /* BudgetManager.m */; };
@@ -1147,6 +1149,8 @@
 		1AD88A6C13ED96D600804635 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1AE1A4A714F9E1E30026BF7A /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
 		1AE1A4A814F9E1E30026BF7A /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
+		1AE3D38815922DCF00FC45F9 /* drop.indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drop.indicator.png; path = arts/drop.indicator.png; sourceTree = "<group>"; };
+		1AE3D38915922DCF00FC45F9 /* drop.indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "drop.indicator@2x.png"; path = "arts/drop.indicator@2x.png"; sourceTree = "<group>"; };
 		1AE4339F1375AC82005AAB8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1AE433A213762B7A005AAB8F /* iconlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iconlist.plist; sourceTree = "<group>"; };
 		1AE433A413763513005AAB8F /* BudgetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetManager.h; sourceTree = "<group>"; };
@@ -1378,6 +1382,8 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AE3D38815922DCF00FC45F9 /* drop.indicator.png */,
+				1AE3D38915922DCF00FC45F9 /* drop.indicator@2x.png */,
 				1ABD96E3158C45300029302B /* Add Transaction */,
 				1A8970A01563DE3200502A2E /* 1st.ux.png */,
 				1A8970A11563DE3200502A2E /* about_email.png */,
@@ -2480,6 +2486,8 @@
 				1A25D9B6158C4F9E00510799 /* numpad.multiply.down.png in Resources */,
 				1A25D9BB158D8B6F00510799 /* OverviewByCategoryViewController.xib in Resources */,
 				1A25D9BD158D8ED200510799 /* OverviewByCategoryCell.xib in Resources */,
+				1AE3D38A15922DCF00FC45F9 /* drop.indicator.png in Resources */,
+				1AE3D38B15922DCF00FC45F9 /* drop.indicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

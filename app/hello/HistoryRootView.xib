@@ -123,6 +123,7 @@
 						<string key="NSFrame">{{0, 43}, {320, 329}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="957573345">
 							<int key="NSColorSpace">3</int>
@@ -150,6 +151,7 @@
 				<string key="NSFrameSize">{153, 29}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="957573345"/>
 				<bool key="IBUIOpaque">NO</bool>
@@ -171,7 +173,7 @@
 				<reference key="IBUINormalTitleShadowColor" ref="1021791209"/>
 				<object class="NSCustomResource" key="IBUINormalImage">
 					<string key="NSClassName">NSImage</string>
-					<string key="NSResourceName">snack_s.png</string>
+					<string key="NSResourceName">drop.indicator.png</string>
 				</object>
 				<object class="IBUIFontDescription" key="IBUIFontDescription">
 					<int key="type">2</int>
@@ -382,7 +384,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="snack_s.png">{16, 16}</string>
+			<string key="drop.indicator.png">{15, 10}</string>
 			<string key="sticker.png">{115, 24}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1181</string>
