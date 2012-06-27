@@ -10,6 +10,12 @@
 #import "Statistics.h"
 #import "ExpenseByCategoryViewController.h"
 
+@interface HistoryRootView()
+
+@property(nonatomic,retain) FullScreenViewController* fullScreenController;
+
+@end
+
 @implementation HistoryRootView
 
 @synthesize overviewByMonth;
@@ -18,6 +24,8 @@
 @synthesize viewByMonthButton;
 @synthesize viewByCategoryButton;
 @synthesize navigationButton;
+@synthesize yearPicker;
+@synthesize fullScreenController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -109,6 +117,45 @@
         overviewByCategory.view.hidden = NO;
         overviewByMonth.view.hidden = YES;
     }
+}
+
+- (void)onPickYear {
+    if (!self.fullScreenController) {
+        self.fullScreenController = [[[FullScreenViewController alloc]initWithNibName:@"FullScreenViewController" bundle:[NSBundle mainBundle]]autorelease];  
+        self.fullScreenController.delegate = self;
+    }
+
+    [self.fullScreenController presentView:self.yearPicker];
+}
+
+#pragma mark - full screen view delegate
+
+- (BOOL)shouldDismissOnBackgroundViewTapped {
+    return YES;
+}
+
+- (void)dismissed {
+    self.fullScreenController = nil;
+}
+
+#pragma mark - year picker view data source
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return 1;
+}
+
+#pragma mark - year pickder view delegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return @"2012";
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    [self.fullScreenController dismiss];
 }
 
 @end

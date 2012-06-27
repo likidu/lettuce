@@ -504,6 +504,8 @@
 		1AC8AF05143210B700B2638B /* ExpenseHistoryByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */; };
 		1AC8AF06143210B700B2638B /* ExpenseHistoryByLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */; };
 		1AC8AF081432129100B2638B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC8AF071432129100B2638B /* MapKit.framework */; };
+		1AC97582159AD68700115C17 /* FullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97580159AD68700115C17 /* FullScreenViewController.m */; };
+		1AC97583159AD68700115C17 /* FullScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC97581159AD68700115C17 /* FullScreenViewController.xib */; };
 		1AD5897B155F7275008FB105 /* OverviewByYearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */; };
 		1AD5897F155F7699008FB105 /* OverviewByYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5897D155F7699008FB105 /* OverviewByYearViewController.m */; };
 		1AD58980155F7699008FB105 /* OverviewByYearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5897E155F7699008FB105 /* OverviewByYearViewController.xib */; };
@@ -1137,6 +1139,9 @@
 		1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByLocationViewController.m; sourceTree = "<group>"; };
 		1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryByLocationViewController.xib; sourceTree = "<group>"; };
 		1AC8AF071432129100B2638B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1AC9757F159AD68700115C17 /* FullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenViewController.h; sourceTree = "<group>"; };
+		1AC97580159AD68700115C17 /* FullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenViewController.m; sourceTree = "<group>"; };
+		1AC97581159AD68700115C17 /* FullScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullScreenViewController.xib; sourceTree = "<group>"; };
 		1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByYearCell.xib; sourceTree = "<group>"; };
 		1AD5897C155F7699008FB105 /* OverviewByYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewByYearViewController.h; sourceTree = "<group>"; };
 		1AD5897D155F7699008FB105 /* OverviewByYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewByYearViewController.m; sourceTree = "<group>"; };
@@ -1659,6 +1664,9 @@
 				1A459D79138799A100036EC2 /* Arts */,
 				1A459D731387999A00036EC2 /* RootViewController.h */,
 				1A459D741387999A00036EC2 /* RootViewController.m */,
+				1AC9757F159AD68700115C17 /* FullScreenViewController.h */,
+				1AC97580159AD68700115C17 /* FullScreenViewController.m */,
+				1AC97581159AD68700115C17 /* FullScreenViewController.xib */,
 				1AE5C66E139A2C51008EC75A /* PlanManager.h */,
 				1AE5C66F139A2C51008EC75A /* PlanManager.m */,
 				1AE433A413763513005AAB8F /* BudgetManager.h */,
@@ -2488,6 +2496,7 @@
 				1A25D9BD158D8ED200510799 /* OverviewByCategoryCell.xib in Resources */,
 				1AE3D38A15922DCF00FC45F9 /* drop.indicator.png in Resources */,
 				1AE3D38B15922DCF00FC45F9 /* drop.indicator@2x.png in Resources */,
+				1AC97583159AD68700115C17 /* FullScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2539,6 +2548,7 @@
 				B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */,
 				B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */,
 				1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */,
+				1AC97582159AD68700115C17 /* FullScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -126,6 +126,10 @@
     return getMonthsBetween(firstDay, today);
 }
 
++ (NSArray *)getAvailableYears{
+    return nil;
+}
+
 + (NSDictionary*)getTotalByCategoryfromDate:(NSDate *)startDate toDate:(NSDate *)endDate excludeFixedExpenses:(BOOL)excludeFixed {
     NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
     NSString* sql = [NSString stringWithFormat: @"select categoryid, total(amount) as TotalExpense, count(categoryid) as TotalNumber from expense where date >= %@ and date <= %@", start, end];
