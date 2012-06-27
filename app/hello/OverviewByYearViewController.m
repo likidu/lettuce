@@ -40,6 +40,7 @@
     [super viewDidLoad];
     
     self.dayOfYear = [NSDate date];
+    self.tableView.scrollsToTop = YES;
     [self reload];
 }
 
@@ -151,6 +152,7 @@
     self.expenseData = expenses;
     self.balanceData = balances;
     [self.tableView reloadData];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 - (BOOL)canEdit {

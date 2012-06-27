@@ -121,13 +121,24 @@
 
 + (NSArray*)getMonthsOfYear:(NSDate *)dayOfYear {
     NSDate* firstDay = [Statistics getFirstDayOfUserAction];
+    firstDay = [firstDay laterDate: firstMonthOfYear(dayOfYear)];
     NSDate* today = [NSDate date];
-    firstDay = [firstDay laterDate: firstMonthOfYear(today)];
-    return getMonthsBetween(firstDay, today);
+    NSDate* lastDay = [today earlierDate:lastMonthOfYear(dayOfYear)];
+    return getMonthsBetween(firstDay, lastDay);
 }
 
 + (NSArray *)getAvailableYears{
-    return nil;
+    NSDate* firstDay = [Statistics getFirstDayOfUserAction];
+    NSDate* today = [NSDate date];
+    NSMutableArray* years = [NSMutableArray array];
+    NSDateComponents* curComponents = getDateComponentsWithoutTime(firstDay);
+    NSDateComponents* endComponents = getDateComponentsWithoutTime(today);
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    do {
+        [years addObject:[calendar dateFromComponents:curComponents]];
+        curComponents.year++;
+    } while (curComponents.year <= endComponents.year);
+    return years;
 }
 
 + (NSDictionary*)getTotalByCategoryfromDate:(NSDate *)startDate toDate:(NSDate *)endDate excludeFixedExpenses:(BOOL)excludeFixed {

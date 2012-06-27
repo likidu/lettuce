@@ -36,14 +36,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSCalendar* cal = [NSCalendar currentCalendar];
-    NSDateComponents* comp = [cal components:kCFCalendarUnitYear|kCFCalendarUnitMonth|kCFCalendarUnitDay fromDate:[NSDate date]];
-    comp.month = 1;
-    comp.day = 1;
-    self.startDate = [cal dateFromComponents:comp];
-    comp.month = 12;
-    comp.day = 31;
-    self.endDate = [cal dateFromComponents:comp];
+    self.table.scrollsToTop = YES;
+
+    self.startDate = firstDayOfMonth(firstMonthOfYear([NSDate date]));
+    self.endDate = lastDayOfMonth(lastMonthOfYear([NSDate date]));
     
     [self reload];
 }
@@ -132,6 +128,7 @@
     self.numbers = [dict valueForKey:@"numbers"];
     self.amounts = [dict valueForKey:@"amounts"];
     [self.table reloadData];
+    [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 - (BOOL)canEdit {

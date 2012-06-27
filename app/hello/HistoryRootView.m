@@ -13,6 +13,8 @@
 @interface HistoryRootView()
 
 @property(nonatomic,retain) FullScreenViewController* fullScreenController;
+@property(nonatomic,retain) NSArray* availableYears;
+@property(nonatomic,retain) NSDate* currentYear;
 
 @end
 
@@ -26,6 +28,8 @@
 @synthesize navigationButton;
 @synthesize yearPicker;
 @synthesize fullScreenController;
+@synthesize availableYears;
+@synthesize currentYear;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,10 +57,8 @@
     
     // setup the navigation item
     makeDropButton(self.navigationButton);
-    self.navigationButton.titleLabel.text = formatYearString([NSDate date]);
     self.navigationItem.titleView = self.navigationButton;
     self.navigationItem.title = formatYearString([NSDate date]);
-    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
     // create and initialize the overview
     self.overviewByMonth = [OverviewByYearViewController createInstance];
     [self.view addSubview: overviewByMonth.view];
@@ -88,12 +90,26 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.availableYears = [Statistics getAvailableYears];
+    self.currentYear = [self.availableYears lastObject];
+    [self reloadAll];
+}
+
+- (void)reloadAll {
+    NSDate* firstDayOfYear = firstDayOfMonth(firstMonthOfYear(self.currentYear));
+    NSDate* lastDayOfYear = lastDayOfMonth(lastMonthOfYear(self.currentYear));
+    [overviewByMonth setStartDate:firstDayOfYear endDate:lastDayOfYear];
+    [overviewByCategory setStartDate:firstDayOfYear endDate:lastDayOfYear];
+    [self.navigationButton setTitle:formatYearString(self.currentYear) forState:UIControlStateNormal];
+    makeDropButton(self.navigationButton);
+    self.navigationItem.title = formatYearString(self.currentYear);
+    
     if (viewByMonthButton.selected) {
         [overviewByMonth reload];
     }
     else {
         [overviewByCategory reload];
-    }
+    }    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -106,6 +122,7 @@
         
         overviewByMonth.view.hidden = NO;
         overviewByCategory.view.hidden = YES;
+        [overviewByMonth reload];
     }
 }
 
@@ -116,6 +133,7 @@
         
         overviewByCategory.view.hidden = NO;
         overviewByMonth.view.hidden = YES;
+        [overviewByCategory reload];
     }
 }
 
@@ -125,6 +143,9 @@
         self.fullScreenController.delegate = self;
     }
 
+    [self.yearPicker reloadAllComponents];
+    int selectedIndex = [self.availableYears indexOfObjectIdenticalTo:self.currentYear];
+    [self.yearPicker selectRow:selectedIndex inComponent:0 animated:NO];
     [self.fullScreenController presentView:self.yearPicker];
 }
 
@@ -145,17 +166,18 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 1;
+    return self.availableYears.count;
 }
 
 #pragma mark - year pickder view delegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return @"2012";
+    return formatYearString([self.availableYears objectAtIndex:row]);
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [self.fullScreenController dismiss];
+    self.currentYear = [self.availableYears objectAtIndex:row];
+    [self reloadAll];
 }
 
 @end
