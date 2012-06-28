@@ -43,8 +43,6 @@
     [PlanManager setBudget:budget ofMonth:[NSDate date]];
 
     [self dismissModalViewControllerAnimated:YES];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:TRUE forKey:FIRST_UX_ENTRY_NAME];
 }
 
 - (void)forward {

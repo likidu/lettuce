@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">10K549</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1038.36</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<int key="IBDocument.SystemTarget">1296</int>
+		<string key="IBDocument.SystemVersion">11E53</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">933</string>
+			<string key="NS.object.0">1181</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -48,6 +48,7 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="503322308">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -92,7 +93,7 @@
 						<object class="IBUIButton" id="563326455">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{5, 415}, {90, 44}}</string>
+							<string key="NSFrame">{{4, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="791599657"/>
@@ -100,6 +101,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
+							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUIHighlightedTitle">今日</string>
@@ -126,20 +128,19 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
-							<object class="NSCustomResource" key="IBUIHighlightedImage" id="372336354">
+							<object class="NSCustomResource" key="IBUISelectedImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.today.selected.png</string>
+							</object>
+							<object class="NSCustomResource" key="IBUINormalImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.today.png</string>
 							</object>
-							<reference key="IBUISelectedImage" ref="372336354"/>
-							<reference key="IBUINormalImage" ref="372336354"/>
-							<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="525582632">
+							<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="123811070">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">tab.down.png</string>
+								<string key="NSResourceName">tab.background.selected.png</string>
 							</object>
-							<object class="NSCustomResource" key="IBUISelectedBackgroundImage" id="809709344">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">tab.button.png</string>
-							</object>
+							<reference key="IBUISelectedBackgroundImage" ref="123811070"/>
 							<object class="IBUIFontDescription" key="IBUIFontDescription" id="984002807">
 								<string key="name">STHeitiSC-Medium</string>
 								<string key="family">Heiti SC</string>
@@ -155,7 +156,7 @@
 						<object class="IBUIButton" id="791599657">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{115, 415}, {90, 44}}</string>
+							<string key="NSFrame">{{114, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="109644574"/>
@@ -163,6 +164,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
+							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUISelectedTitle">添加</string>
@@ -187,12 +189,11 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
-							<object class="NSCustomResource" key="IBUIHighlightedImage" id="952050990">
+							<object class="NSCustomResource" key="IBUINormalImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">add.transaction.png</string>
+								<string key="NSResourceName">tab.add.png</string>
 							</object>
-							<reference key="IBUINormalImage" ref="952050990"/>
-							<reference key="IBUIHighlightedBackgroundImage" ref="525582632"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="123811070"/>
 							<object class="IBUIFontDescription" key="IBUIFontDescription">
 								<int key="type">2</int>
 								<double key="pointSize">18</double>
@@ -206,17 +207,17 @@
 						<object class="IBUIButton" id="109644574">
 							<reference key="NSNextResponder" ref="1028872197"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{225, 415}, {90, 44}}</string>
+							<string key="NSFrame">{{225, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
+							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
-							<string key="IBUIHighlightedTitle">历史</string>
-							<string key="IBUISelectedTitle">历史</string>
 							<string key="IBUINormalTitle">历史</string>
 							<object class="NSColor" key="IBUIHighlightedTitleColor" id="645998669">
 								<int key="NSColorSpace">2</int>
@@ -239,14 +240,16 @@
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
-							<object class="NSCustomResource" key="IBUIHighlightedImage" id="336145608">
+							<object class="NSCustomResource" key="IBUISelectedImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">tab.history.selected.png</string>
+							</object>
+							<object class="NSCustomResource" key="IBUINormalImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.history.png</string>
 							</object>
-							<reference key="IBUISelectedImage" ref="336145608"/>
-							<reference key="IBUINormalImage" ref="336145608"/>
-							<reference key="IBUIHighlightedBackgroundImage" ref="525582632"/>
-							<reference key="IBUISelectedBackgroundImage" ref="809709344"/>
+							<reference key="IBUIHighlightedBackgroundImage" ref="123811070"/>
+							<reference key="IBUISelectedBackgroundImage" ref="123811070"/>
 							<reference key="IBUIFontDescription" ref="984002807"/>
 							<reference key="IBUIFont" ref="79121249"/>
 						</object>
@@ -536,7 +539,7 @@
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
 				</object>
-				<object class="NSMutableArray" key="dict.values">
+				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -549,9 +552,9 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="2"/>
+					<real value="1"/>
 					<string>FirstViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -600,7 +603,7 @@
 							<string>categorySelected:</string>
 							<string>pageChaged:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>id</string>
@@ -613,7 +616,7 @@
 							<string>categorySelected:</string>
 							<string>pageChaged:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">categorySelected:</string>
@@ -632,7 +635,7 @@
 							<string>pageControl</string>
 							<string>scrollView</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIPageControl</string>
 							<string>UIScrollView</string>
@@ -645,7 +648,7 @@
 							<string>pageControl</string>
 							<string>scrollView</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">pageControl</string>
@@ -672,7 +675,7 @@
 							<string>onChangeBudget:</string>
 							<string>onSettings:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>id</string>
@@ -685,7 +688,7 @@
 							<string>onChangeBudget:</string>
 							<string>onSettings:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">onChangeBudget:</string>
@@ -710,7 +713,7 @@
 							<string>stampView</string>
 							<string>transactionTable</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -735,7 +738,7 @@
 							<string>stampView</string>
 							<string>transactionTable</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">balanceLabel</string>
@@ -800,7 +803,7 @@
 							<string>onSave:</string>
 							<string>onSelectCategory:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>id</string>
@@ -825,7 +828,7 @@
 							<string>onSave:</string>
 							<string>onSelectCategory:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">onCancel:</string>
@@ -880,7 +883,7 @@
 							<string>uiNotes</string>
 							<string>uiNumber</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>CategoryViewController</string>
 							<string>UIButton</string>
@@ -917,7 +920,7 @@
 							<string>uiNotes</string>
 							<string>uiNumber</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">catViewController</string>
@@ -1001,7 +1004,7 @@
 							<string>onHistory:</string>
 							<string>onToday:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>id</string>
@@ -1016,7 +1019,7 @@
 							<string>onHistory:</string>
 							<string>onToday:</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">onAddExpense:</string>
@@ -1043,7 +1046,7 @@
 							<string>todayButton</string>
 							<string>todayController</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIViewController</string>
 							<string>UIButton</string>
@@ -1064,7 +1067,7 @@
 							<string>todayButton</string>
 							<string>todayController</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">addExpenseController</string>
@@ -1113,7 +1116,7 @@
 							<string>onSwitchButtonExpense</string>
 							<string>onSwitchButtonSaving</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>id</string>
@@ -1138,7 +1141,7 @@
 							<string>onSwitchButtonExpense</string>
 							<string>onSwitchButtonSaving</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">onEdit:</string>
@@ -1190,7 +1193,7 @@
 							<string>switchPlaceholder</string>
 							<string>tablePlaceholder</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -1221,7 +1224,7 @@
 							<string>switchPlaceholder</string>
 							<string>tablePlaceholder</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">byAmountButton</string>
@@ -1275,8 +1278,91 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">SettingView</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>onOk:</string>
+							<string>onSwitch</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>onOk:</string>
+							<string>onSwitch</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">onOk:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">onSwitch</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>settingTableView</string>
+							<string>yesNoSwitch</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UITableView</string>
+							<string>UISwitch</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>settingTableView</string>
+							<string>yesNoSwitch</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">settingTableView</string>
+								<string key="candidateClassName">UITableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">yesNoSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SettingView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">TodayViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">onSetting</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">onSetting</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">onSetting</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -1288,9 +1374,10 @@
 							<string>monthlyBudgetLabel</string>
 							<string>monthlyExpenseLabel</string>
 							<string>progressView</string>
+							<string>settingView</string>
 							<string>todayExpenseLabel</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UITableViewCell</string>
 							<string>UILabel</string>
@@ -1299,6 +1386,7 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>ProgressView</string>
+							<string>SettingView</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -1313,9 +1401,10 @@
 							<string>monthlyBudgetLabel</string>
 							<string>monthlyExpenseLabel</string>
 							<string>progressView</string>
+							<string>settingView</string>
 							<string>todayExpenseLabel</string>
 						</object>
-						<object class="NSMutableArray" key="dict.values">
+						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">cellTemplate</string>
@@ -1344,6 +1433,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">progressView</string>
 								<string key="candidateClassName">ProgressView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">settingView</string>
+								<string key="candidateClassName">SettingView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">todayExpenseLabel</string>
@@ -1381,7 +1474,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1280" key="NS.object.0"/>
+			<real value="1296" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
@@ -1393,23 +1486,25 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>add.transaction.png</string>
 				<string>footer.png</string>
-				<string>tab.button.png</string>
-				<string>tab.down.png</string>
+				<string>tab.add.png</string>
+				<string>tab.background.selected.png</string>
 				<string>tab.history.png</string>
+				<string>tab.history.selected.png</string>
 				<string>tab.today.png</string>
+				<string>tab.today.selected.png</string>
 			</object>
-			<object class="NSMutableArray" key="dict.values">
+			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{27, 26}</string>
 				<string>{324, 48}</string>
-				<string>{90, 40}</string>
-				<string>{90, 40}</string>
 				<string>{27, 26}</string>
+				<string>{92, 41}</string>
+				<string>{27, 26}</string>
+				<string>{27, 26}</string>
+				<string>{26, 26}</string>
 				<string>{26, 26}</string>
 			</object>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">933</string>
+		<string key="IBCocoaTouchPluginVersion">1181</string>
 	</data>
 </archive>

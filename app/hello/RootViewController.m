@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "MiddleViewController.h"
 #import "FirstExperienceView.h"
+#import "PlanManager.h"
 
 @implementation RootViewController
 
@@ -152,9 +153,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     if (activeController)
         [activeController performSelector:@selector(viewDidAppear:)];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    BOOL showWizard = ![defaults boolForKey:FIRST_UX_ENTRY_NAME];
-    if (showWizard) {
+    
+    if ([PlanManager firstDayOfPlan] == nil) {
         FirstExperienceView* view = [[[FirstExperienceView alloc]initWithNibName:@"FirstExperienceView" bundle:[NSBundle mainBundle]]autorelease];
         [self presentModalViewController:view animated:YES];
     }
