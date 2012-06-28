@@ -38,12 +38,14 @@
 	<key>UILaunchImageFile</key>
 	<string>launch.jpg</string>
 	<key>UILaunchImageFile~iphone</key>
-	<string>launch@2x.png</string>
+	<string>launch@2x.jpg</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 </dict>
 </plist>

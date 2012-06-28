@@ -45,7 +45,7 @@
 					<object class="IBUIImageView" id="1003579027">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 460}</string>
+						<string key="NSFrame">{{0, 15}, {320, 460}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="632636105"/>
@@ -54,7 +54,22 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">launch.jpg</string>
+							<string key="NSResourceName">paper.png</string>
+						</object>
+					</object>
+					<object class="IBUIImageView" id="471739346">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{-2, 0}, {324, 48}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<int key="IBUIContentMode">1</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">header.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="632636105">
@@ -156,7 +171,7 @@
 						<string key="NSFrame">{{0, 53}, {320, 407}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="471739346"/>
 						<reference key="IBUIBackgroundColor" ref="183766876"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -692,6 +707,7 @@
 							<reference ref="41251006"/>
 							<reference ref="1003579027"/>
 							<reference ref="778547494"/>
+							<reference ref="471739346"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -834,6 +850,11 @@
 						<reference key="object" ref="175924040"/>
 						<reference key="parent" ref="370167706"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">69</int>
+						<reference key="object" ref="471739346"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -872,6 +893,7 @@
 					<string>61.IBUIButtonInspectorSelectedEdgeInsetMetadataKey</string>
 					<string>62.IBPluginDependency</string>
 					<string>62.IBUIButtonInspectorSelectedEdgeInsetMetadataKey</string>
+					<string>69.IBPluginDependency</string>
 				</object>
 				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -907,6 +929,7 @@
 					<real value="2"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="2"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -921,7 +944,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">68</int>
+			<int key="maxID">69</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1043,7 +1066,8 @@
 				<string>about_weibo.png</string>
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
-				<string>launch.jpg</string>
+				<string>header.png</string>
+				<string>paper.png</string>
 				<string>woojuu.art.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
@@ -1054,6 +1078,7 @@
 				<string>{29, 29}</string>
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
+				<string>{324, 48}</string>
 				<string>{320, 460}</string>
 				<string>{228, 228}</string>
 			</object>
