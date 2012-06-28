@@ -122,11 +122,19 @@
 #pragma mark - view controller events
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self updateData];    
+    [self updateUi];
+    [expenseTable reloadData];
+}
+
+- (void)updateData {
     NSDate* today = [NSDate date];
     ExpenseManager* expMan = [ExpenseManager instance];
-    self.expenses = [expMan loadExpensesOfDay:today orderBy:@"ExpenseId" ascending:false];
-    [expenseTable reloadData];
-    
+    self.expenses = [expMan loadExpensesOfDay:today orderBy:@"ExpenseId" ascending:false];    
+}
+
+- (void)updateUi {
+    NSDate* today = [NSDate date];
     double expenseOfToday = [Statistics getTotalOfDay:today];
     todayExpenseLabel.text = formatAmount(expenseOfToday, NO);
     
@@ -159,11 +167,15 @@
     dateLabel.text = formatDisplayDate(today);
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)updateProgress {
     NSDate* today = [NSDate date];
     double expenseOfMonth = [Statistics getTotalOfMonth:today];
     double budgetOfMonth = [PlanManager getBudgetOfMonth:today];
-    [progressView setProgress:(expenseOfMonth/budgetOfMonth) animated:YES];
+    [progressView setProgress:(expenseOfMonth/budgetOfMonth) animated:YES];    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self updateProgress];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -227,6 +239,19 @@ static NSString* cellId = @"expenseCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    Expense* exp = [self.expenses objectAtIndex:indexPath.row];
+    [[ExpenseManager instance]deleteExpenseById:exp.expenseId];
+    [self updateData];    
+    [self updateUi];
+    [self updateProgress];
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark - show settings
