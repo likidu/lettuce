@@ -207,7 +207,7 @@ NSDateComponents* getDateComponentsWithoutTime(NSDate* date) {
 NSArray* getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
     NSDate* startDate = normalizeDate(dayOfMonth1);
     NSDate* endDate = normalizeDate(dayOfMonth2);
-    if ([startDate compare:endDate] != NSOrderedAscending)
+    if ([startDate compare:endDate] == NSOrderedDescending)
         return nil;
     NSMutableArray* array = [NSMutableArray array];
     NSCalendar* calendar = [NSCalendar currentCalendar];
