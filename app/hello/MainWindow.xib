@@ -99,6 +99,7 @@
 							<reference key="NSNextKeyView" ref="791599657"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<bool key="IBUISelected">YES</bool>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
 							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
@@ -107,31 +108,35 @@
 							<string key="IBUIHighlightedTitle">今日</string>
 							<string key="IBUISelectedTitle">今日</string>
 							<string key="IBUINormalTitle">今日</string>
-							<object class="NSColor" key="IBUIHighlightedTitleColor" id="1032885652">
-								<int key="NSColorSpace">2</int>
-								<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
+							<object class="NSColor" key="IBUIHighlightedTitleColor">
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MC45MjE1Njg2Mjc1IDAuOTY0NzA1ODgyNCAwLjg1MDk4MDM5MjIAA</bytes>
 							</object>
 							<object class="NSColor" key="IBUISelectedTitleColor">
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MC45MjE1Njg2Mjc1IDAuOTY0NzA1ODgyNCAwLjg1MDk4MDM5MjIAA</bytes>
+							</object>
+							<object class="NSColor" key="IBUINormalTitleColor">
 								<int key="NSColorSpace">2</int>
 								<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
 							</object>
-							<reference key="IBUINormalTitleColor" ref="1032885652"/>
 							<object class="NSColor" key="IBUIHighlightedTitleShadowColor">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MSAwLjY2AA</bytes>
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MCAwIDAgMC41AA</bytes>
 							</object>
 							<object class="NSColor" key="IBUISelectedTitleShadowColor">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MSAwLjY2AA</bytes>
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MCAwIDAgMC41AA</bytes>
 							</object>
 							<object class="NSColor" key="IBUINormalTitleShadowColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
-							<object class="NSCustomResource" key="IBUISelectedImage">
+							<object class="NSCustomResource" key="IBUIHighlightedImage" id="553624699">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.today.selected.png</string>
 							</object>
+							<reference key="IBUISelectedImage" ref="553624699"/>
 							<object class="NSCustomResource" key="IBUINormalImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.today.png</string>
@@ -141,15 +146,15 @@
 								<string key="NSResourceName">tab.background.selected.png</string>
 							</object>
 							<reference key="IBUISelectedBackgroundImage" ref="123811070"/>
-							<object class="IBUIFontDescription" key="IBUIFontDescription" id="984002807">
+							<object class="IBUIFontDescription" key="IBUIFontDescription" id="654277350">
 								<string key="name">STHeitiSC-Medium</string>
 								<string key="family">Heiti SC</string>
 								<int key="traits">2</int>
-								<double key="pointSize">12</double>
+								<double key="pointSize">11</double>
 							</object>
-							<object class="NSFont" key="IBUIFont" id="79121249">
+							<object class="NSFont" key="IBUIFont" id="1069987751">
 								<string key="NSName">STHeitiSC-Medium</string>
-								<double key="NSSize">12</double>
+								<double key="NSSize">11</double>
 								<int key="NSfFlags">16</int>
 							</object>
 						</object>
@@ -164,7 +169,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>
 							<int key="IBUIContentVerticalAlignment">0</int>
-							<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+							<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUISelectedTitle">添加</string>
@@ -193,7 +198,6 @@
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.add.png</string>
 							</object>
-							<reference key="IBUIHighlightedBackgroundImage" ref="123811070"/>
 							<object class="IBUIFontDescription" key="IBUIFontDescription">
 								<int key="type">2</int>
 								<double key="pointSize">18</double>
@@ -219,39 +223,43 @@
 							<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
 							<string key="IBUITitleShadowOffset">{0, 1}</string>
 							<string key="IBUINormalTitle">历史</string>
-							<object class="NSColor" key="IBUIHighlightedTitleColor" id="645998669">
-								<int key="NSColorSpace">2</int>
-								<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
+							<object class="NSColor" key="IBUIHighlightedTitleColor">
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MC45MjE1Njg2Mjc1IDAuOTY0NzA1ODgyNCAwLjg1MDk4MDM5MjIAA</bytes>
 							</object>
 							<object class="NSColor" key="IBUISelectedTitleColor">
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MC45MjE1Njg2Mjc1IDAuOTY0NzA1ODgyNCAwLjg1MDk4MDM5MjIAA</bytes>
+							</object>
+							<object class="NSColor" key="IBUINormalTitleColor">
 								<int key="NSColorSpace">2</int>
 								<bytes key="NSRGB">MC4zMjQwMzgwNyAwLjQ0MTYwNTgzOTQgMC4wOTUwOTAzMDg0OQA</bytes>
 							</object>
-							<reference key="IBUINormalTitleColor" ref="645998669"/>
 							<object class="NSColor" key="IBUIHighlightedTitleShadowColor">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MSAwLjY2AA</bytes>
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MCAwIDAgMC41AA</bytes>
 							</object>
 							<object class="NSColor" key="IBUISelectedTitleShadowColor">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MSAwLjY2AA</bytes>
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MCAwIDAgMC41AA</bytes>
 							</object>
 							<object class="NSColor" key="IBUINormalTitleShadowColor">
 								<int key="NSColorSpace">3</int>
 								<bytes key="NSWhite">MSAwLjY2AA</bytes>
 							</object>
-							<object class="NSCustomResource" key="IBUISelectedImage">
+							<object class="NSCustomResource" key="IBUIHighlightedImage" id="382593408">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.history.selected.png</string>
 							</object>
+							<reference key="IBUISelectedImage" ref="382593408"/>
 							<object class="NSCustomResource" key="IBUINormalImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">tab.history.png</string>
 							</object>
 							<reference key="IBUIHighlightedBackgroundImage" ref="123811070"/>
 							<reference key="IBUISelectedBackgroundImage" ref="123811070"/>
-							<reference key="IBUIFontDescription" ref="984002807"/>
-							<reference key="IBUIFont" ref="79121249"/>
+							<reference key="IBUIFontDescription" ref="654277350"/>
+							<reference key="IBUIFont" ref="1069987751"/>
 						</object>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
@@ -552,7 +560,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="0.0"/>
+					<real value="1"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="1"/>
 					<string>FirstViewController</string>
