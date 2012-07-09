@@ -11,7 +11,7 @@
 #import "OverviewByCategoryViewController.h"
 #import "FullScreenViewController.h"
 
-@interface HistoryRootView : UIViewController<FullScreenViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface HistoryRootView : UIViewController<FullScreenViewControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportViewDelegate>
 
 @property(nonatomic,retain) OverviewByYearViewController* overviewByMonth;
 @property(nonatomic,retain) OverviewByCategoryViewController* overviewByCategory;

@@ -58,3 +58,11 @@ enum TableIds {
 - (void)navigateToData:(NSObject*)data;
 
 @end
+
+@protocol ReportViewDelegate <NSObject>
+
+@optional
+- (void)pickedDate:(NSDate*)day;
+- (void)pickedCategory:(int)categoryId;
+
+@end

@@ -10,6 +10,7 @@
 #import "Statistics.h"
 #import "ExpenseByCategoryViewController.h"
 #import "UIViewController+UtilityExtension.h"
+#import "MonthViewRoot.h"
 
 @interface HistoryRootView()
 
@@ -62,6 +63,7 @@
     self.navigationItem.title = formatYearString([NSDate date]);
     // create and initialize the overview
     self.overviewByMonth = (OverviewByYearViewController*)[OverviewByYearViewController instanceFromNib];
+    self.overviewByMonth.delegate = self;
     [self.view addSubview: overviewByMonth.view];
     [self.view bringSubviewToFront:overviewByMonth.view];
     overviewByMonth.view.frame = tableViewPlaceHolder.frame;
@@ -179,6 +181,14 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.currentYear = [self.availableYears objectAtIndex:row];
     [self reloadAll];
+}
+
+#pragma mark - report view delegate
+
+- (void)pickedDate:(NSDate *)day {
+    MonthViewRoot* monthView = (MonthViewRoot*)[MonthViewRoot instanceFromNib];
+    [monthView setStartDate:firstDayOfMonth(day) endDate:lastDayOfMonth(day)];
+    [self.navigationController pushViewController:monthView animated:YES];
 }
 
 @end

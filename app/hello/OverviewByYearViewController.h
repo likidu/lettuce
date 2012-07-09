@@ -13,6 +13,7 @@
 
 @property(nonatomic,retain) IBOutlet UITableView* tableView;
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
+@property(nonatomic,assign) id<ReportViewDelegate> delegate;
 
 @property(nonatomic,retain) NSDate* dayOfYear;
 @property(nonatomic,retain) NSArray* yearData;

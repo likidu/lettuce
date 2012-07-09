@@ -17,6 +17,7 @@
 @synthesize dayOfYear;
 @synthesize yearData;
 @synthesize cellTemplate;
+@synthesize delegate;
 
 @synthesize budgetData;
 @synthesize expenseData;
@@ -112,10 +113,10 @@
 
 - (void)tableView:(UITableView *)view didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [view deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
+    if ([self.delegate respondsToSelector:@selector(pickedDate:)]) {
+        NSDate* dayOfMonth = [self.yearData objectAtIndex:indexPath.row];
+        [self.delegate pickedDate:dayOfMonth];
+    }
 }
 
 #pragma mark - scroll view delegate
