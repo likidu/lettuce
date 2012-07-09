@@ -201,7 +201,7 @@
     }
     else if (indexPath.section == 2){
         if (indexPath.row == 0) {
-            [self presentModalViewController:[[AboutViewController createInstance]autorelease] animated:YES];
+            [self presentModalViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

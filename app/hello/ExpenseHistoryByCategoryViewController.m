@@ -13,10 +13,6 @@
 
 @implementation ExpenseHistoryByCategoryViewController
 
-+ (ExpenseHistoryByCategoryViewController *)createInstance {
-    return [[[ExpenseHistoryByCategoryViewController alloc]initWithNibName:@"ExpenseHistoryByCategoryViewController" bundle:[NSBundle mainBundle]]autorelease];
-}
-
 @synthesize cellTemplate;
 @synthesize startDate;
 @synthesize endDate;

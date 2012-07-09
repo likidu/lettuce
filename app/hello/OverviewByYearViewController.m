@@ -22,10 +22,6 @@
 @synthesize expenseData;
 @synthesize balanceData;
 
-+ (OverviewByYearViewController *)createInstance {
-    return [[[OverviewByYearViewController alloc]initWithNibName:@"OverviewByYearViewController" bundle:[NSBundle mainBundle]]autorelease];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

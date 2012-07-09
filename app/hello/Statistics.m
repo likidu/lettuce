@@ -124,7 +124,7 @@
     firstDay = [firstDay laterDate: firstMonthOfYear(dayOfYear)];
     NSDate* today = [NSDate date];
     NSDate* lastDay = [today earlierDate:lastMonthOfYear(dayOfYear)];
-    return getMonthsBetween(firstDay, lastDay);
+    return getMonthsBetween(firstDay, lastDay, YES);
 }
 
 + (NSArray *)getAvailableYears{

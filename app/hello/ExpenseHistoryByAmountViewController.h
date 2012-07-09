@@ -13,8 +13,6 @@
     
 }
 
-+ (ExpenseHistoryByAmountViewController*)createInstance;
-
 @property(nonatomic,retain) IBOutlet UITableView* tableView;
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
 @property(nonatomic,retain) NSDate* startDate;

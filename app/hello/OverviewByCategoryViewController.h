@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TableViewProtocol.h"
 
+@protocol OverviewByCategoryViewControllerDelegate <NSObject>
+
+@required
+- (void)pickedCategory:(int)categoryId;
+
+@end
+
 @interface OverviewByCategoryViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, DateRangeResponder>
 
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
@@ -21,6 +28,6 @@
 @property(nonatomic,retain) NSDate* startDate;
 @property(nonatomic,retain) NSDate* endDate;
 
-+ (OverviewByCategoryViewController*)createInstance;
+@property(nonatomic,assign) id<OverviewByCategoryViewControllerDelegate> delegate;
 
 @end

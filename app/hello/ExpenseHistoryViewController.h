@@ -13,8 +13,6 @@
 @interface ExpenseHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, DateRangeResponder> {
 }
 
-+ (ExpenseHistoryViewController*)createInstance;
-
 @property(nonatomic, retain) NSDate* startDate;
 @property(nonatomic, retain) NSDate* endDate;
 @property(nonatomic, retain) NSArray* dates;

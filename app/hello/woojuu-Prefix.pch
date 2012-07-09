@@ -16,6 +16,7 @@
     #import <CoreLocation/CoreLocation.h>
     #import <MapKit/MapKit.h>
     #import "Utility.h"
+    #import "UIViewController+UtilityExtension.h"
 #endif
 
 #include <sqlite3.h>

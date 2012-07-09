@@ -14,11 +14,6 @@
 @synthesize contentView;
 @synthesize scrollView;
 
-+ (AboutViewController *)createInstance {
-    AboutViewController* instance = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:[NSBundle mainBundle]];
-    return instance;
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

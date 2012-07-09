@@ -13,8 +13,6 @@
     
 }
 
-+ (AboutViewController*)createInstance;
-
 - (IBAction)onOk;
 - (IBAction)onWebsite;
 - (IBAction)onWeibo;

@@ -204,9 +204,13 @@ NSDateComponents* getDateComponentsWithoutTime(NSDate* date) {
     return comp;
 }
 
-NSArray* getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2) {
+NSArray* getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2, BOOL ignoreDayComponent) {
     NSDate* startDate = normalizeDate(dayOfMonth1);
     NSDate* endDate = normalizeDate(dayOfMonth2);
+    if (ignoreDayComponent) {
+        startDate = firstDayOfMonth(startDate);
+        endDate = firstDayOfMonth(endDate);
+    }
     if ([startDate compare:endDate] == NSOrderedDescending)
         return nil;
     NSMutableArray* array = [NSMutableArray array];

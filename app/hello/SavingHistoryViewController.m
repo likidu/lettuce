@@ -22,11 +22,6 @@
 @synthesize cellTemplate;
 @synthesize tableUpdateDelegate;
 
-+ (SavingHistoryViewController *)createInstance {
-    SavingHistoryViewController* t = [[[SavingHistoryViewController alloc]initWithNibName:@"SavingHistoryViewController" bundle:[NSBundle mainBundle]]autorelease];
-    return t;
-}
-
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {
     self.startDate = start;
     self.endDate = end;

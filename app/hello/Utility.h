@@ -34,7 +34,7 @@ extern BOOL      compareDate(NSDate* date1, NSDate* date2);
 extern NSArray*  getDaysOfMonth(NSDate* dayOfMonth);
 extern NSArray*  getDatesBetween(NSDate* startDate, NSDate* endDate);
 extern int       getDayAmountOfMonth(NSDate* dayOfMonth);
-extern NSArray*  getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2);
+extern NSArray*  getMonthsBetween(NSDate* dayOfMonth1, NSDate* dayOfMonth2, BOOL ignoreDayComponent);
 extern BOOL      isSameDay(NSDate* day1, NSDate* day2);
 extern BOOL      isSameMonth(NSDate* day1, NSDate* day2);
 extern BOOL      isSameYear(NSDate* day1, NSDate* day2);

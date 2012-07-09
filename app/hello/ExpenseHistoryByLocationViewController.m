@@ -13,10 +13,6 @@
 
 @implementation ExpenseHistoryByLocationViewController
 
-+ (ExpenseHistoryByLocationViewController *)createInstance {
-    return [[[ExpenseHistoryByLocationViewController alloc]initWithNibName:@"ExpenseHistoryByLocationViewController" bundle:[NSBundle mainBundle]]autorelease];
-}
-
 @synthesize startDate;
 @synthesize endDate;
 @synthesize expenses;

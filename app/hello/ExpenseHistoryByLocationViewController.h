@@ -12,7 +12,6 @@
 @interface ExpenseHistoryByLocationViewController : UIViewController<DateRangeResponder, MKMapViewDelegate> {
     
 }
-+ (ExpenseHistoryByLocationViewController*)createInstance;
 
 @property(nonatomic,retain) NSDate* startDate;
 @property(nonatomic,retain) NSDate* endDate;

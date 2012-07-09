@@ -13,8 +13,6 @@
     
 }
 
-+ (ExpenseHistoryByCategoryViewController*)createInstance;
-
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
 @property(nonatomic,retain) NSDate* startDate;
 @property(nonatomic,retain) NSDate* endDate;

@@ -58,14 +58,14 @@
     
     // create tables
     // expense table
-    ExpenseHistoryViewController* table = [ExpenseHistoryViewController createInstance];
+    ExpenseHistoryViewController* table = (ExpenseHistoryViewController*)[ExpenseHistoryViewController instanceFromNib];
     table.tableUpdateDelegate = self;
     table.view.frame = tablePlaceholder.frame;
     [self.view addSubview:table.view];
     [self.view bringSubviewToFront:table.view];
     [tables_ addObject:table];
     // saving table
-    SavingHistoryViewController* savingTable = [SavingHistoryViewController createInstance];
+    SavingHistoryViewController* savingTable = (SavingHistoryViewController*)[SavingHistoryViewController instanceFromNib];
     savingTable.tableUpdateDelegate = self;
     savingTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:savingTable.view];
@@ -73,7 +73,7 @@
     savingTable.view.hidden = YES;
     [tables_ addObject:savingTable];
     // by amount table
-    ExpenseHistoryByAmountViewController* byAmountTable = [ExpenseHistoryByAmountViewController createInstance];
+    ExpenseHistoryByAmountViewController* byAmountTable = (ExpenseHistoryByAmountViewController*)[ExpenseHistoryByAmountViewController instanceFromNib];
     byAmountTable.tableUpdateDelegate = self;
     byAmountTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:byAmountTable.view];
@@ -81,7 +81,7 @@
     byAmountTable.view.hidden = YES;
     [tables_ addObject:byAmountTable];
     // by category table
-    ExpenseHistoryByCategoryViewController* byCategoryTable = [ExpenseHistoryByCategoryViewController createInstance];
+    ExpenseHistoryByCategoryViewController* byCategoryTable = (ExpenseHistoryByCategoryViewController*)[ExpenseHistoryByCategoryViewController instanceFromNib];
     byCategoryTable.tableUpdateDelegate = self;
     byCategoryTable.view.frame = tablePlaceholder.frame;
     [self.view addSubview:byCategoryTable.view];
@@ -89,7 +89,7 @@
     byCategoryTable.view.hidden = YES;
     [tables_ addObject:byCategoryTable];
     // by location view
-    ExpenseHistoryByLocationViewController* byLocationView = [ExpenseHistoryByLocationViewController createInstance];
+    ExpenseHistoryByLocationViewController* byLocationView = (ExpenseHistoryByLocationViewController*)[ExpenseHistoryByLocationViewController instanceFromNib];
     byLocationView.view.frame = tablePlaceholder.frame;
     [self.view addSubview:byLocationView.view];
     [self.view bringSubviewToFront:byLocationView.view];

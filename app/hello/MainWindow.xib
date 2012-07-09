@@ -48,7 +48,6 @@
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="503322308">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MAA</bytes>
@@ -214,7 +213,6 @@
 							<string key="NSFrame">{{225, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<int key="IBUIContentHorizontalAlignment">0</int>

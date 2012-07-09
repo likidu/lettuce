@@ -20,11 +20,6 @@
 @synthesize expenses;
 @synthesize tableUpdateDelegate;
 
-+ (ExpenseHistoryByAmountViewController*)createInstance {
-    ExpenseHistoryByAmountViewController* t = [[[ExpenseHistoryByAmountViewController alloc]initWithNibName:@"ExpenseHistoryByAmountViewController" bundle:[NSBundle mainBundle]]autorelease];
-    return t;
-}
-
 #pragma mark - DateRangeResponder protocol
 
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {

@@ -20,6 +20,4 @@
 @property(nonatomic,retain) NSArray* expenseData;
 @property(nonatomic,retain) NSArray* balanceData;
 
-+ (OverviewByYearViewController*)createInstance;
-
 @end

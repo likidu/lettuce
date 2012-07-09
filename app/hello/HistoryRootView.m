@@ -9,6 +9,7 @@
 #import "HistoryRootView.h"
 #import "Statistics.h"
 #import "ExpenseByCategoryViewController.h"
+#import "UIViewController+UtilityExtension.h"
 
 @interface HistoryRootView()
 
@@ -60,13 +61,13 @@
     self.navigationItem.titleView = self.navigationButton;
     self.navigationItem.title = formatYearString([NSDate date]);
     // create and initialize the overview
-    self.overviewByMonth = [OverviewByYearViewController createInstance];
+    self.overviewByMonth = (OverviewByYearViewController*)[OverviewByYearViewController instanceFromNib];
     [self.view addSubview: overviewByMonth.view];
     [self.view bringSubviewToFront:overviewByMonth.view];
     overviewByMonth.view.frame = tableViewPlaceHolder.frame;
     [overviewByMonth.view layoutSubviews];
     
-    self.overviewByCategory = [OverviewByCategoryViewController createInstance];
+    self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
     [self.view addSubview: overviewByCategory.view];
     [self.view bringSubviewToFront:overviewByCategory.view];
     overviewByCategory.view.frame = tableViewPlaceHolder.frame;

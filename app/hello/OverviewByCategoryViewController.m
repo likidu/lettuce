@@ -19,10 +19,7 @@
 @synthesize amounts;
 @synthesize startDate;
 @synthesize endDate;
-
-+ (OverviewByCategoryViewController *)createInstance {
-    return [[[OverviewByCategoryViewController alloc]initWithNibName:@"OverviewByCategoryViewController" bundle:[NSBundle mainBundle]]autorelease];
-}
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,6 +109,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    int categoryId = [[self.categories objectAtIndex:indexPath.row]intValue];
+    [delegate pickedCategory: categoryId];
 }
 
 #pragma mark - date range responder

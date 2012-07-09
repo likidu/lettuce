@@ -17,11 +17,6 @@
 
 @implementation ExpenseHistoryViewController
 
-+ (ExpenseHistoryViewController *)createInstance {
-    ExpenseHistoryViewController* table = [[ExpenseHistoryViewController alloc]initWithNibName:@"ExpenseHistoryViewController" bundle:[NSBundle mainBundle]];
-    return table;
-}
-
 @synthesize startDate;
 @synthesize endDate;
 @synthesize cellTemplate;
