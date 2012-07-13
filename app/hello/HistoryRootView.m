@@ -11,6 +11,7 @@
 #import "ExpenseByCategoryViewController.h"
 #import "UIViewController+UtilityExtension.h"
 #import "MonthViewRoot.h"
+#import "SingleCategoryByYearView.h"
 
 @interface HistoryRootView()
 
@@ -70,6 +71,7 @@
     [overviewByMonth.view layoutSubviews];
     
     self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
+    self.overviewByCategory.delegate = self;
     [self.view addSubview: overviewByCategory.view];
     [self.view bringSubviewToFront:overviewByCategory.view];
     overviewByCategory.view.frame = tableViewPlaceHolder.frame;
@@ -189,6 +191,16 @@
     MonthViewRoot* monthView = (MonthViewRoot*)[MonthViewRoot instanceFromNib];
     [monthView setStartDate:firstDayOfMonth(day) endDate:lastDayOfMonth(day)];
     [self.navigationController pushViewController:monthView animated:YES];
+}
+
+- (void)pickedCategory:(int)categoryId {
+    SingleCategoryByYearView* categoryView = (SingleCategoryByYearView*)[SingleCategoryByYearView instanceFromNib];
+    NSMutableDictionary* options = [NSMutableDictionary dictionary];
+    [options setObject:firstDayOfMonth(firstMonthOfYear(self.currentYear)) forKey:@"startDate"];
+    [options setObject:lastDayOfMonth(lastMonthOfYear(self.currentYear)) forKey:@"endDate"];
+    [options setObject:[NSNumber numberWithInt:categoryId] forKey:@"categoryId"];
+    [categoryView setViewOptions:options];
+    [self.navigationController pushViewController:categoryView animated:YES];
 }
 
 @end

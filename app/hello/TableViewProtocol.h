@@ -59,6 +59,18 @@ enum TableIds {
 
 @end
 
+#define SET_PROP_IF_EXISTS_KEY(prop, dict, key, type) \
+    if ([dict objectForKey: key]) \
+        (prop) = (type*)[dict objectForKey: (key)];
+
+@protocol ViewOptionResponder <NSObject>
+
+@required
+- (void)setViewOptions:(NSDictionary*)options;
+- (void)refresh;
+
+@end
+
 @protocol ReportViewDelegate <NSObject>
 
 @optional

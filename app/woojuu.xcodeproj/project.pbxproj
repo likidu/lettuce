@@ -454,6 +454,9 @@
 		1A96CD3613F6B89700AA4D45 /* SavingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96CD3513F6B89600AA4D45 /* SavingCell.xib */; };
 		1A96CD3E13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A96CD3C13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.m */; };
 		1A96CD3F13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96CD3D13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib */; };
+		1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */; };
+		1A9F7C9715ADA1A200CF0FFC /* SingleCategoryByYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */; };
+		1A9F7C9915ADA48600CF0FFC /* SingleCategoryByYearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9815ADA48600CF0FFC /* SingleCategoryByYearCell.xib */; };
 		1AA03954135A8D3500245B2C /* ExpenseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA03953135A8D3400245B2C /* ExpenseManager.m */; };
 		1AA4685614FE2D58003D387F /* FirstExperienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA4685414FE2D58003D387F /* FirstExperienceView.m */; };
 		1AA4685714FE2D58003D387F /* FirstExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA4685514FE2D58003D387F /* FirstExperienceView.xib */; };
@@ -1079,6 +1082,10 @@
 		1A96CD3B13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseHistoryByAmountViewController.h; sourceTree = "<group>"; };
 		1A96CD3C13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByAmountViewController.m; sourceTree = "<group>"; };
 		1A96CD3D13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryByAmountViewController.xib; sourceTree = "<group>"; };
+		1A9F7C9315ADA1A200CF0FFC /* SingleCategoryByYearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCategoryByYearView.h; sourceTree = "<group>"; };
+		1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCategoryByYearView.m; sourceTree = "<group>"; };
+		1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleCategoryByYearView.xib; sourceTree = "<group>"; };
+		1A9F7C9815ADA48600CF0FFC /* SingleCategoryByYearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleCategoryByYearCell.xib; sourceTree = "<group>"; };
 		1AA03952135A8D3400245B2C /* ExpenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseManager.h; sourceTree = "<group>"; };
 		1AA03953135A8D3400245B2C /* ExpenseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseManager.m; sourceTree = "<group>"; };
 		1AA4685314FE2D58003D387F /* FirstExperienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstExperienceView.h; sourceTree = "<group>"; };
@@ -1586,6 +1593,7 @@
 				1A96CD3513F6B89600AA4D45 /* SavingCell.xib */,
 				1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */,
 				1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */,
+				1A9F7C9815ADA48600CF0FFC /* SingleCategoryByYearCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1917,6 +1925,9 @@
 				1AF489B815AAFCAD009ADC04 /* MonthViewRoot.h */,
 				1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */,
 				1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */,
+				1A9F7C9315ADA1A200CF0FFC /* SingleCategoryByYearView.h */,
+				1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */,
+				1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -2539,6 +2550,8 @@
 				1AC9759B159C30D100115C17 /* tab.today.selected@2x.png in Resources */,
 				1AC9759C159C30D100115C17 /* tab.today@2x.png in Resources */,
 				1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */,
+				1A9F7C9715ADA1A200CF0FFC /* SingleCategoryByYearView.xib in Resources */,
+				1A9F7C9915ADA48600CF0FFC /* SingleCategoryByYearCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2593,6 +2606,7 @@
 				1AC97582159AD68700115C17 /* FullScreenViewController.m in Sources */,
 				1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */,
 				1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */,
+				1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

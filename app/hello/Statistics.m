@@ -169,4 +169,27 @@
     return dict;
 }
 
++ (NSDictionary *)getTotalOfCategory:(int)categoryId fromMonth:(NSDate *)dayOfStartMonth toMonth:(NSDate *)dayOfEndMonth {
+    dayOfStartMonth = firstDayOfMonth(dayOfStartMonth);
+    dayOfEndMonth = firstDayOfMonth(dayOfEndMonth);
+    NSString* start = formatSqlDate(dayOfStartMonth), *end = formatSqlDate(dayOfEndMonth);
+    NSString* sql = [NSString stringWithFormat: @"select sum(amount) as TotalExpense, count(amount) as TotalNumber, Date from expense where categoryId = %d and date >= %@ and date <= %@ group by strftime('%%m', Date) order by strftime('%%m', Date) desc", categoryId, start, end];
+    Database* db = [Database instance];
+    NSArray* records = [db execute:sql];
+    NSMutableArray* months = [NSMutableArray arrayWithCapacity:records.count];
+    NSMutableArray* amounts = [NSMutableArray arrayWithCapacity:records.count];
+    NSMutableArray* numbers = [NSMutableArray arrayWithCapacity:records.count];
+    for (NSDictionary* record in records) {
+        [months addObject:normalizeDate(dateFromSqlDate([record objectForKey: @"Date"]))];
+        [amounts addObject:[NSNumber numberWithDouble:[[record objectForKey:@"TotalExpense"]doubleValue]]];
+        [numbers addObject:[NSNumber numberWithInt:[[record objectForKey:@"TotalNumber"]intValue]]];
+    }
+    
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:3];
+    [dict setObject:months forKey:@"months"];
+    [dict setObject:numbers forKey:@"numbers"];
+    [dict setObject:amounts forKey:@"amounts"];
+    return dict;
+}
+
 @end
