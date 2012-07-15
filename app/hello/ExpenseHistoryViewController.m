@@ -23,7 +23,6 @@
 @synthesize dates;
 @synthesize expenseData;
 @synthesize totalData;
-@synthesize balanceData;
 @synthesize tableUpdateDelegate;
 
 @synthesize editing;
@@ -41,8 +40,6 @@
     NSArray* expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:nil assending:YES];
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:dates.count];
     NSMutableDictionary* totals = [NSMutableDictionary dictionaryWithCapacity:dates.count];
-    NSMutableDictionary* balances = [NSMutableDictionary dictionaryWithCapacity:dates.count];
-    BudgetManager* budMan = [BudgetManager instance];
     for (Expense* exp in expenses) {
         NSString* strDate = DATESTR(exp.date);
         if ([dict objectForKey:strDate] == nil)
@@ -55,16 +52,9 @@
         NSNumber* total = [totals objectForKey:strDate];
         total = [NSNumber numberWithDouble:[total doubleValue] + exp.amount];
         [totals setObject:total forKey:strDate];
-        // substract from balance
-        if ([balances objectForKey:strDate] == nil)
-            [balances setObject:[NSNumber numberWithDouble:[budMan getBudgetOfDay:exp.date]] forKey:strDate];
-        NSNumber* balance = [balances objectForKey:strDate];
-        balance = [NSNumber numberWithDouble:[balance doubleValue] - exp.amount];
-        [balances setObject:balance forKey:strDate];
     }
     self.expenseData = dict;
     self.totalData = totals;
-    self.balanceData = balances;
     [self.tableView reloadData];
 }
 
@@ -140,7 +130,6 @@ static NSString* footerCellId = @"footerCell";
     self.dates = nil;
     self.expenseData = nil;
     self.totalData = nil;
-    self.balanceData = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -255,8 +244,6 @@ static NSString* footerCellId = @"footerCell";
         label.text = formatDisplayDate(date);
     }
     else if ([self isFooterAtIndexPath:indexPath]) {
-        UIImageView* stamp = (UIImageView*)[cell viewWithTag:kFooterStamp];
-        stamp.hidden = [[balanceData objectForKey:DATESTR(date)]doubleValue] >= 0.0;
         UILabel* label = (UILabel*)[cell viewWithTag:kFooterAmount];
         double total = [[totalData objectForKey:DATESTR(date)]doubleValue];
         label.text = [NSString stringWithFormat:@"￥%.2f", total];
@@ -321,8 +308,6 @@ static NSString* footerCellId = @"footerCell";
             // we still have some records of the day. so refresh the statistics
             double total = [Statistics getTotalOfDay:date];
             [((NSMutableDictionary*)totalData)setObject:[NSNumber numberWithDouble:total] forKey:DATESTR(date)];
-            double balance = [Statistics getBalanceOfDay:date];
-            [((NSMutableDictionary*)balanceData)setObject:[NSNumber numberWithDouble:balance] forKey:DATESTR(date)];
             [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
         }
     }

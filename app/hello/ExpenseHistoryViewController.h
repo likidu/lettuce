@@ -18,10 +18,7 @@
 @property(nonatomic, retain) NSArray* dates;
 @property(nonatomic, retain) NSDictionary* expenseData;
 @property(nonatomic, retain) NSDictionary* totalData;
-@property(nonatomic, retain) NSDictionary* balanceData;
 
 @property(nonatomic, retain) IBOutlet UITableViewCell* cellTemplate;
-
-- (void)reload;
 
 @end

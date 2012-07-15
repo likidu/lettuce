@@ -14,8 +14,12 @@
 @synthesize tableViewPlaceHolder;
 @synthesize navigationItemView;
 @synthesize overviewByCategory;
+@synthesize overviewByDate;
 @synthesize startDate = _startDate;
 @synthesize endDate = _endDate;
+
+@synthesize viewByCategoryButton;
+@synthesize viewByDateButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    // setup view by category view controller
     self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
     self.overviewByCategory.delegate = self;
     
@@ -37,7 +41,15 @@
     self.overviewByCategory.view.frame = self.tableViewPlaceHolder.frame;
     [self.view bringSubviewToFront:self.overviewByCategory.view];
     
+    // setup view by date view controller
+    self.overviewByDate = (ExpenseHistoryViewController*)[ExpenseHistoryViewController instanceFromNib];
+    [self.view addSubview:self.overviewByDate.view];
+    self.overviewByDate.view.frame = self.tableViewPlaceHolder.frame;
+    [self.view bringSubviewToFront:self.overviewByDate.view];
+    
+    // layout and initially hide the by date view controller
     [self.view layoutSubviews];
+    self.overviewByDate.view.hidden = YES;
     
     if (self.startDate == nil || self.endDate == nil) {
         NSDate* today = [NSDate date];
@@ -56,6 +68,8 @@
     self.tableViewPlaceHolder = nil;
     self.overviewByCategory = nil;
     self.navigationItemView = nil;
+    self.viewByCategoryButton = nil;
+    self.viewByDateButton = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -70,7 +84,11 @@
 }
 
 - (void)reloadAll {
-    [self.overviewByCategory setStartDate:self.startDate endDate:self.endDate];
+    if (self.viewByCategoryButton.selected)
+        [self.overviewByCategory setStartDate:self.startDate endDate:self.endDate];
+    else
+        [self.overviewByDate setStartDate:self.startDate endDate:self.endDate];
+    
     self.navigationItem.title = formatMonthString(self.startDate);
     self.navigationItemView.text = formatMonthString(self.startDate);
 }
@@ -105,6 +123,28 @@
     [options setObject:[NSNumber numberWithInt:categoryId] forKey:@"categoryId"];
     [categoryView setViewOptions:options];
     [self.navigationController pushViewController:categoryView animated:YES];
+}
+
+#pragma mark - change view method
+
+- (void)onViewByCategory {
+    if (!self.viewByCategoryButton.selected) {
+        self.viewByCategoryButton.selected = YES;
+        self.viewByDateButton.selected = NO;
+        self.overviewByCategory.view.hidden = NO;
+        self.overviewByDate.view.hidden = YES;
+        [self reloadAll];
+    }    
+}
+
+- (void)onViewByDate {
+    if (!self.viewByDateButton.selected) {
+        self.viewByCategoryButton.selected = NO;
+        self.viewByDateButton.selected = YES;
+        self.overviewByCategory.view.hidden = YES;
+        self.overviewByDate.view.hidden = NO;
+        [self reloadAll];
+    }
 }
 
 @end
