@@ -492,6 +492,8 @@
 		1ABD96EF158C46E50029302B /* receipt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96ED158C46E50029302B /* receipt@2x.png */; };
 		1ABD96F2158C48260029302B /* dashline.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96F0158C48260029302B /* dashline.png */; };
 		1ABD96F3158C48260029302B /* dashline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96F1158C48260029302B /* dashline@2x.png */; };
+		1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEDFCD15B293D2001D3D86 /* SingleCategoryByMonthView.m */; };
+		1ABEDFD015B293D2001D3D86 /* SingleCategoryByMonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */; };
 		1ABF98F71497A49700CEF051 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF98F61497A49700CEF051 /* ProgressView.m */; };
 		1AC28564145CEC280085C866 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC28563145CEC280085C866 /* libFlurryAnalytics.a */; };
 		1AC8AF05143210B700B2638B /* ExpenseHistoryByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */; };
@@ -1133,6 +1135,9 @@
 		1ABD96ED158C46E50029302B /* receipt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "receipt@2x.png"; path = "arts/Add Transaction/receipt@2x.png"; sourceTree = "<group>"; };
 		1ABD96F0158C48260029302B /* dashline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashline.png; path = "arts/Add Transaction/dashline.png"; sourceTree = "<group>"; };
 		1ABD96F1158C48260029302B /* dashline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dashline@2x.png"; path = "arts/Add Transaction/dashline@2x.png"; sourceTree = "<group>"; };
+		1ABEDFCC15B293D2001D3D86 /* SingleCategoryByMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCategoryByMonthView.h; sourceTree = "<group>"; };
+		1ABEDFCD15B293D2001D3D86 /* SingleCategoryByMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCategoryByMonthView.m; sourceTree = "<group>"; };
+		1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleCategoryByMonthView.xib; sourceTree = "<group>"; };
 		1ABF98F51497A49700CEF051 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		1ABF98F61497A49700CEF051 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		1AC28562145CEC280085C866 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = hello/FlurryAnalytics/FlurryAnalytics.h; sourceTree = "<group>"; };
@@ -1928,6 +1933,9 @@
 				1A9F7C9315ADA1A200CF0FFC /* SingleCategoryByYearView.h */,
 				1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */,
 				1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */,
+				1ABEDFCC15B293D2001D3D86 /* SingleCategoryByMonthView.h */,
+				1ABEDFCD15B293D2001D3D86 /* SingleCategoryByMonthView.m */,
+				1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */,
 			);
 			name = "Table View Controllers";
 			sourceTree = "<group>";
@@ -2552,6 +2560,7 @@
 				1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */,
 				1A9F7C9715ADA1A200CF0FFC /* SingleCategoryByYearView.xib in Resources */,
 				1A9F7C9915ADA48600CF0FFC /* SingleCategoryByYearCell.xib in Resources */,
+				1ABEDFD015B293D2001D3D86 /* SingleCategoryByMonthView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2607,6 +2616,7 @@
 				1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */,
 				1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */,
 				1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */,
+				1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

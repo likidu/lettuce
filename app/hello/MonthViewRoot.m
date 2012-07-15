@@ -7,10 +7,7 @@
 //
 
 #import "MonthViewRoot.h"
-
-@interface MonthViewRoot ()
-
-@end
+#import "SingleCategoryByMonthView.h"
 
 @implementation MonthViewRoot
 
@@ -34,6 +31,7 @@
     [super viewDidLoad];
     
     self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
+    self.overviewByCategory.delegate = self;
     
     [self.view addSubview:self.overviewByCategory.view];
     self.overviewByCategory.view.frame = self.tableViewPlaceHolder.frame;
@@ -91,6 +89,22 @@
 
 - (BOOL)canEdit {
     return NO;
+}
+
+#pragma mark - report view delegate
+
+- (void)pickedDate:(NSDate *)day {
+    
+}
+
+- (void)pickedCategory:(int)categoryId {
+    SingleCategoryByMonthView* categoryView = (SingleCategoryByMonthView*)[SingleCategoryByMonthView instanceFromNib];
+    NSMutableDictionary* options = [NSMutableDictionary dictionary];
+    [options setObject:self.startDate forKey:@"startDate"];
+    [options setObject:self.endDate forKey:@"endDate"];
+    [options setObject:[NSNumber numberWithInt:categoryId] forKey:@"categoryId"];
+    [categoryView setViewOptions:options];
+    [self.navigationController pushViewController:categoryView animated:YES];
 }
 
 @end

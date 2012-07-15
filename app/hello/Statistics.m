@@ -192,4 +192,8 @@
     return dict;
 }
 
++ (NSArray *)getExpensesOfCategory:(int)categoryId fromDate:(NSDate *)startDate toDate:(NSDate *)endDate {
+    return [[ExpenseManager instance]getExpensesOfCategory:categoryId fromDate:startDate toDate:endDate];
+}
+
 @end

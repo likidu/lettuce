@@ -29,4 +29,6 @@
 + (NSDictionary*)getTotalByCategoryfromDate:(NSDate*)startDate toDate:(NSDate*)endDate excludeFixedExpenses:(BOOL)excludeFixed;
 + (NSDictionary*)getTotalOfCategory:(int)categoryId fromMonth:(NSDate*)dayOfStartMonth toMonth:(NSDate*)dayOfEndMonth;
 
++ (NSArray*)getExpensesOfCategory:(int)categoryId fromDate:(NSDate*)startDate toDate:(NSDate*)endDate;
+
 @end

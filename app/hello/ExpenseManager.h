@@ -76,6 +76,8 @@
 
 - (NSArray*)getExpensesBetween:(NSDate*)startDate endDate:(NSDate*)endDate orderBy:(NSString*)fieldName assending:(BOOL)assending;
 
+- (NSArray*)getExpensesOfCategory:(int)categoryId fromDate:(NSDate*)startDate toDate:(NSDate*)endDate;
+
 + (NSDictionary*)groupExpensesByDate:(NSArray*)expenses;
 
 + (NSDate*)firstDayOfExpense;

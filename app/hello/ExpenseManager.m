@@ -99,6 +99,14 @@ static ExpenseManager* g_instance = nil;
     return array;
 }
 
+- (NSArray *)getExpensesOfCategory:(int)categoryId fromDate:(NSDate *)startDate toDate:(NSDate *)endDate {
+    NSString* start = formatSqlDate(startDate), * end = formatSqlDate(endDate);
+    NSString* sql = [NSString stringWithFormat:@"select * from expense where categoryId = %d and date >= %@ and Date <= %@ order by Date desc", categoryId, start, end];
+    NSMutableArray* arr = [NSMutableArray array];
+    [[Database instance]execute:sql :self :@selector(translateExpense::) :arr];
+    return arr;
+}
+
 - (void)translateExpenseDate : (NSMutableDictionary*)dict : (id)param {
     NSString* dateStr = [dict objectForKey:@"Date"];
     NSDate* date = dateFromSqlDate(dateStr);

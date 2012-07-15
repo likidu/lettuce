@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OverviewByCategoryViewController.h"
 
-@interface MonthViewRoot : UIViewController<DateRangeResponder>
+@interface MonthViewRoot : UIViewController<DateRangeResponder, ReportViewDelegate>
 
 @property(nonatomic,retain) IBOutlet UIView* tableViewPlaceHolder;
 @property(nonatomic,retain) IBOutlet UILabel* navigationItemView;

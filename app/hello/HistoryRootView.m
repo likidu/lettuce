@@ -96,7 +96,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.availableYears = [Statistics getAvailableYears];
-    self.currentYear = [self.availableYears lastObject];
+    if (self.currentYear == nil || ![self.availableYears containsObject:self.currentYear])
+        self.currentYear = [self.availableYears lastObject];
     [self reloadAll];
 }
 

@@ -171,4 +171,12 @@ CategoryManager* g_catMan = nil;
     return newArray;
 }
 
++ (NSString *)categoryNameById:(int)catId {
+    Category* cat = [CategoryManager categoryById:catId];
+    NSString* name = [NSString string];
+    if (cat)
+        name = cat.categoryName;
+    return name;
+}
+
 @end
