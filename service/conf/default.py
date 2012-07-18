@@ -5,7 +5,7 @@ AWS_SECRET_KEY = "pnrqmcV5gVKKcDhgmhoUGYfthvfZ917sOzukarq1"     # Sandbox AWS Se
 WEIBO_APP_KEY = "1948323577"                                    # Weibo App Key
 WEIBO_APP_SECRET = "a9a6ba85eca70e70c227914ba2405845"           # Webio App Secret
 
-WEIBO_CALLBACK_URL_V1_0 = "http://wbjk.info:8080/"              # Weibo Authorization Callback URL
+WEIBO_CALLBACK_URL_V1_0 = "http://jun-arch/lettuce/login_success/v1.0/" # Weibo Authorization Callback URL
 
 S3_BUCKET_CLOUD_BACKUP = "woojuu-cloudbackup-sandbox"           # Sandbox S3 Bucket Name for Cloud Backup
 SDB_DOMAIN_BACKUP_VERSION = "backup-version-sandbox"            # Sandbox Simple DB Domain Name for Cloud Backup Version

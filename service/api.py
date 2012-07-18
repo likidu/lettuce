@@ -54,9 +54,9 @@ def login_success():
     # So we bother a explicit call
     weibo_id = weibo_user.uid
     response = flask.make_response("")
-    response.set_cookie("weibo_id", weibo_id)
-    response.set_cookie("weibo_access_token", r.access_token)
-    response.set_cookie("token_expires_in", r.expires_in)
+    response.set_cookie("weibo_id", weibo_id, expires=r.expires_in, httponly=True)
+    response.set_cookie("weibo_access_token", r.access_token, expires=r.expires_in, httponly=True)
+    response.set_cookie("token_expires_in", r.expires_in, expires=r.expires_in, httponly=True)
     return response
 
 @api.route("/my/backup_version/v1.0/", methods=["GET", "POST"])
@@ -82,8 +82,8 @@ def get_restore_url():
 def authenticate():
     try:
         weibo_id = request.cookies["weibo_id"]
-        access_token = request.cookie["weibo_access_token"]
-        expires_in = request.cookie["token_expires_in"]
+        access_token = request.cookies["weibo_access_token"]
+        expires_in = request.cookies["token_expires_in"]
         if time.time() > expires_in:
             flask.abort(401)    # Unauthenticated
         else:
