@@ -65,6 +65,11 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+}
+
+
 - (void)onNext:(id)sender {
     double budget = [budgetField.text doubleValue];
     //double income = [[navigationData objectForKey:@"income"]doubleValue];

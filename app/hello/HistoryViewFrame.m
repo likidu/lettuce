@@ -47,7 +47,7 @@
     if (!self.navController) {
         HistoryRootView* rootView = [[[HistoryRootView alloc]initWithNibName:@"HistoryRootView" bundle:[NSBundle mainBundle]]autorelease];
         self.navController = [[[UINavigationController alloc]initWithRootViewController:rootView]autorelease];
-        [navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"headerbar.png"] forBarMetrics:UIBarMetricsDefault];
+        //[navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"headerbar.png"] forBarMetrics:UIBarMetricsDefault];
         [self.view addSubview:navController.view];
     }
 }

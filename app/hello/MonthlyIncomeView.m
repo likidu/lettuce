@@ -62,6 +62,10 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+}
+
 - (void)onNext:(id)sender {
     double income = [textView.text doubleValue];
     if (income > 999999999999.0 || income < 1.0) {

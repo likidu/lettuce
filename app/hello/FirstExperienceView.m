@@ -55,6 +55,9 @@
     self.activeItemIndex++;
     UIViewController* newView = [navigationItems objectAtIndex:activeItemIndex];
     
+    [oldView viewWillDisappear:YES];
+    [newView viewWillAppear:YES];
+    
     [UIView transitionFromView:oldView.view toView:newView.view duration:0.5 options:UIViewAnimationOptionTransitionCurlUp completion:^(BOOL finished) {
         if (!finished)
             return;
@@ -64,6 +67,9 @@
         }
         
         [self.view bringSubviewToFront:newView.view];
+
+        [oldView viewDidDisappear:YES];
+        [newView viewDidAppear:YES];
     }];
 }
 
@@ -73,8 +79,16 @@
     UIViewController* oldView = [navigationItems objectAtIndex:activeItemIndex];
     self.activeItemIndex--;
     UIViewController* newView = [navigationItems objectAtIndex:activeItemIndex];
+    [oldView viewWillDisappear:YES];
+    [newView viewWillAppear:YES];
+    
     [UIView transitionFromView:oldView.view toView:newView.view duration:0.5 options:UIViewAnimationOptionTransitionCurlDown completion:^(BOOL finished) {
+        if (!finished)
+            return;
+        
         [self.view bringSubviewToFront:newView.view];
+        [oldView viewDidDisappear:YES];
+        [newView viewDidAppear:YES];
     }];
 }
 
