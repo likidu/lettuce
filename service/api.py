@@ -35,19 +35,24 @@ def setup():
 
 @api.route("/login/v1.0/")
 def login():
-    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET)
-    callback = flask.url_for(".login_success", _external=True)
-    url = client.get_authorize_url(redirect_uri=callback)
+    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET, redirect_uri=settings.WEIBO_CALLBACK_URL_V1_0)
+    url = client.get_authorize_url()
     return flask.redirect(url)
 
+# FIXME use session instead of cookie
 @api.route("/login_success/v1.0/")
 def login_success():
     code = request.args.get("code", "")
-    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET)
+    if len(code) == 0:
+        flask.abort(500)
+
+    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET, redirect_uri=settings.WEIBO_CALLBACK_URL_V1_0)
     r = client.request_access_token(code)
     client.set_access_token(r.access_token, r.expires_in)
-    weibo_user = client.get.account__verify_credentials()
-    weibo_id = weibo_user.id
+    weibo_user = client.get.account__get_uid()
+    # Actually uid is already in r, but it's not a documented behavior
+    # So we bother a explicit call
+    weibo_id = weibo_user.uid
     response = flask.make_response("")
     response.set_cookie("weibo_id", weibo_id)
     response.set_cookie("weibo_access_token", r.access_token)
@@ -86,13 +91,15 @@ def authenticate():
     except KeyError:
         flask.abort(401)        # Unauthenticated
 
+
+# TODO We may need to consider using UUID as item.name instread of weibo_userid
 def get_backup_version(user_id):
     # The READ here is eventually consistent. That should be fine.
     conn = boto.connect_sdb(settings.AWS_KEY_ID, settings.AWS_SECRET_KEY)
     domain = conn.get_domain(settings.SDB_DOMAIN_BACKUP_VERSION)
     item = domain.get_attributes(user_id, constants.ATTR_BACKUP_VERSION)
 
-    return item["backup_version"] if len(item) != 0 else -1
+    return item.get(constants.ATTR_BACKUP_VERSION, -1)
 
 def post_backup_version(user_id, version, app_version):
     item_attrs = { constants.ATTR_BACKUP_VERSION:   version,
@@ -123,15 +130,6 @@ def get_s3_pre_signed_url(user_id, method):
             method = method,
             bucket = settings.S3_BUCKET_CLOUD_BACKUP,
             key = user_id + ".bak")
-
-def is_weibo_user(user_id):
-    return user_id[0:6] == 'weibo_'
-
-def get_weibo_id(user_id):
-    if is_weibo_user(user_id):
-        return user_id[6:]
-    else:
-        raise ValueError('%s is not a weibo user.' % user_id)
 
 def retry(operation, retry):
     for i in range(retry):
