@@ -17,6 +17,6 @@ SANDBOX = True                                                  # Sandbox Enviro
 # Flask settings
 DEBUG = True                                                    # DEBUG in Sandbox: YES
 SECRET_KEY = "VJ`yD1vUUM>AIPvU<j;x@e=D+|aj^uqKH_w,&#dB-k}%"     # Secret String for Secured Cookie
-SESSION_COOKIE_SECURE = True                                    # Secure Cookie By Default: YES
-SESSION_COOKIE_HTTPONLY = True                                  # Only Set Cookie For HTTP: YES (Default)
-
+SESSION_COOKIE_SECURE = False                                   # Only sent via HTTPS: NO (Default)
+SESSION_COOKIE_HTTPONLY = True                                  # Script manipulation forbidden: YES (Default)
+PERMANENT_SESSION_LIFETIME = datetime.timedelta(7)              # Session lifespan: 7 days, same as that of Weibo

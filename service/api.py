@@ -3,7 +3,7 @@ import constants
 import flask
 import time
 import weibo
-from flask import request
+from flask import request, session
 from common import app, settings
 
 api = flask.Blueprint("api", __name__)
@@ -53,11 +53,13 @@ def login_success():
     # Actually uid is already in r, but it's not a documented behavior
     # So we bother a explicit call
     weibo_id = weibo_user.uid
-    response = flask.make_response("")
-    response.set_cookie("weibo_id", weibo_id, expires=r.expires_in, httponly=True)
-    response.set_cookie("weibo_access_token", r.access_token, expires=r.expires_in, httponly=True)
-    response.set_cookie("token_expires_in", r.expires_in, expires=r.expires_in, httponly=True)
-    return response
+    session['weibo_id'] = weibo_id;
+    session['weibo_access_token'] = r.access_token
+    session['token_expires_in'] = r.expires_in
+    session.permanent = True
+    session.modified = True
+
+    return ''
 
 @api.route("/my/backup_version/v1.0/", methods=["GET", "POST"])
 def backup_version():
@@ -81,13 +83,19 @@ def get_restore_url():
 
 def authenticate():
     try:
-        weibo_id = request.cookies["weibo_id"]
-        access_token = request.cookies["weibo_access_token"]
-        expires_in = request.cookies["token_expires_in"]
-        if time.time() > expires_in:
-            flask.abort(401)    # Unauthenticated
-        else:
+        weibo_id = session.get("weibo_id", None)
+        access_token = session.get("weibo_access_token", None)
+        expires_in = session.get("token_expires_in", None)
+
+        if weibo_id and expires_in and expires_in > time.time():
             return "weibo_" + weibo_id
+
+        session.clear()
+        session.permanent = False
+        session.modified = True
+
+        flask.abort(401)
+
     except KeyError:
         flask.abort(401)        # Unauthenticated
 
