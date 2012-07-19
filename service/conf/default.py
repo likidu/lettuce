@@ -19,4 +19,4 @@ DEBUG = True                                                    # DEBUG in Sandb
 SECRET_KEY = "VJ`yD1vUUM>AIPvU<j;x@e=D+|aj^uqKH_w,&#dB-k}%"     # Secret String for Secured Cookie
 SESSION_COOKIE_SECURE = False                                   # Only sent via HTTPS: NO (Default)
 SESSION_COOKIE_HTTPONLY = True                                  # Script manipulation forbidden: YES (Default)
-PERMANENT_SESSION_LIFETIME = datetime.timedelta(7)              # Session lifespan: 7 days, same as that of Weibo
+PERMANENT_SESSION_LIFETIME = 604800                             # Session lifespan: 7 days, same as that of Weibo

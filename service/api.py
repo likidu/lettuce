@@ -83,12 +83,12 @@ def get_restore_url():
 
 def authenticate():
     try:
-        weibo_id = session.get("weibo_id", None)
-        access_token = session.get("weibo_access_token", None)
-        expires_in = session.get("token_expires_in", None)
+        weibo_id = session["weibo_id"]
+        access_token = session["weibo_access_token"]
+        expires_in = session["token_expires_in"]
 
-        if weibo_id and expires_in and expires_in > time.time():
-            return "weibo_" + weibo_id
+        if expires_in > time.time():
+            return "weibo_" + str(weibo_id)
 
         session.clear()
         session.permanent = False
