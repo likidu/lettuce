@@ -74,4 +74,10 @@ extern void      flashView(UIView* view);
     
 @end
 
+@interface NSArray(ReverseExtension)
+
+- (NSArray*)reverse;
+
+@end
+
 #endif

@@ -133,17 +133,12 @@
 #pragma mark - date range responder
 
 - (void)reload {
-    
-    NSArray* months = [Statistics getMonthsOfYear:self.dayOfYear];
-
-    NSMutableArray* yearMonths = [NSMutableArray arrayWithCapacity:months.count];
-    NSMutableArray* budgets = [NSMutableArray arrayWithCapacity:months.count];
-    NSMutableArray* expenses = [NSMutableArray arrayWithCapacity:months.count];
-    NSMutableArray* balances = [NSMutableArray arrayWithCapacity:months.count];
-   // for (int i = 0; i < self.yearData.count; i++) {
-    for(int i = months.count-1; i>=0; --i){
-        [yearMonths addObject:[months objectAtIndex:i]];
-        NSDate* dayOfMonth = [months objectAtIndex:i];
+    self.yearData = [[Statistics getMonthsOfYear:self.dayOfYear]reverse];
+    NSMutableArray* budgets = [NSMutableArray arrayWithCapacity:self.yearData.count];
+    NSMutableArray* expenses = [NSMutableArray arrayWithCapacity:self.yearData.count];
+    NSMutableArray* balances = [NSMutableArray arrayWithCapacity:self.yearData.count];
+    for (int i = 0; i < self.yearData.count; i++) {
+        NSDate* dayOfMonth = [self.yearData objectAtIndex:i];
         double budget = [PlanManager getBudgetOfMonth: dayOfMonth];
         [budgets addObject: [NSNumber numberWithDouble:budget]];
         double expense = [Statistics getTotalOfMonth:dayOfMonth];
@@ -152,7 +147,6 @@
         [balances addObject:[NSNumber numberWithDouble:balance]];
     }
     
-    self.yearData = yearMonths;
     self.budgetData = budgets;
     self.expenseData = expenses;
     self.balanceData = balances;

@@ -409,3 +409,16 @@ void flashView(UIView* view) {
 }
 
 @end
+
+@implementation NSArray(ReverseExtension)
+
+- (NSArray*)reverse {
+    NSMutableArray* array = [NSMutableArray arrayWithCapacity: self.count];
+    NSEnumerator* enumerator = [self reverseObjectEnumerator];
+    for (id obj in enumerator) {
+        [array addObject: obj];
+    }
+    return array;
+}
+
+@end
