@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationProtocol.h"
+#import "UIKit/UITextView.h"
 
-@interface MonthlyBudgetView : UIViewController<NavigationItem>
+@interface MonthlyBudgetView : UIViewController<NavigationItem, UITextFieldDelegate>
 
 @property(nonatomic,retain) IBOutlet UITextField* budgetField;
 @property(nonatomic,assign) BOOL goForward;

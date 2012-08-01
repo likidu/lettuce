@@ -71,7 +71,9 @@
 
 
 - (void)onNext:(id)sender {
-    double budget = [budgetField.text doubleValue];
+    NSRange range = {0,1};
+    NSString* strValue = [budgetField.text stringByReplacingCharactersInRange:range withString:@""];
+    double budget = [strValue doubleValue];
     //double income = [[navigationData objectForKey:@"income"]doubleValue];
     if (budget > 999999999999.0 || budget < 1.0) {
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:@"请输入月预算" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
@@ -94,5 +96,46 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString* strCur = textField.text;  
+
+    //1. When inputting the first number, add prefix “¥”
+    if (![strCur compare:@""]) {
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:@"¥"]];
+        return YES;
+    }
+    
+    int length = [strCur length];
+    
+    //2. Avoid deleting “¥” by returning NO
+    if ( range.location == 0 ){
+        if([string compare:@""])
+            return NO;
+        
+        //if all text is selected, just clear all
+        if(range.length == length) 
+            return YES;
+        
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:@"¥"]];
+        return NO;
+    }
+    
+    //3. Deleting all the number will also delete "¥" 
+    if(length == range.length+1 && range.location == 1)
+    {  
+    
+        if (![string compare:@""]) {
+            [textField setText:@""];
+            return NO;
+        }
+   
+    }
+
+    return YES;
+}
+
+
 
 @end
