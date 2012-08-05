@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserAccountViewController : UIViewController
-+(UserAccountViewController*) instance;
+@interface UserAccountViewController : UIViewController<UIWebViewDelegate>
+
 @property (retain, nonatomic) IBOutlet UIWebView *sinaWebView;
+
 @end

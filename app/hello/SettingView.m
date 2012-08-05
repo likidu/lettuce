@@ -193,10 +193,10 @@
     }
     else if (indexPath.section == 1) {  
         if (indexPath.row == 0){
-            [self presentModalViewController:[BackupAndRecoverViewController instance] animated:YES];
+            [self presentModalViewController:[BackupAndRecoverViewController instanceFromNib] animated:YES];
         }
         else if (indexPath.row == 1){
-            [self presentModalViewController:[UserAccountViewController instance] animated:YES];
+            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
         }
     }
     else if (indexPath.section == 2){

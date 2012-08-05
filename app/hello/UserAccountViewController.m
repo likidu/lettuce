@@ -11,17 +11,11 @@
 @interface UserAccountViewController ()
 
 @end
-static UserAccountViewController* _instance = nil;
 
 @implementation UserAccountViewController
+
 @synthesize sinaWebView;
-+ (UserAccountViewController*) instance{
-    if (_instance == nil) {
-        _instance = [[UserAccountViewController alloc] initWithNibName:@"UserAccountViewController" bundle:[NSBundle mainBundle]];
-    }
-    
-    return _instance;
-}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +24,7 @@ static UserAccountViewController* _instance = nil;
     }
     return self;
 }
+
 - (IBAction)onReturn:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -44,8 +39,19 @@ static UserAccountViewController* _instance = nil;
 {
     [self setSinaWebView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    
+    self.sinaWebView = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSURLRequest* request = [NSURLRequest requestWithURL: [NSURL URLWithString: @"http://wbjk.info:8080/lettuce/login/v1.0/"]];
+    [self.sinaWebView loadRequest: request];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (self.sinaWebView.loading) {
+        [self.sinaWebView stopLoading];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -57,4 +63,11 @@ static UserAccountViewController* _instance = nil;
     [sinaWebView release];
     [super dealloc];
 }
+
+#pragma mark - web view delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(webView.request.URL.host);
+}
+
 @end
