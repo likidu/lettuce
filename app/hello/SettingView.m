@@ -188,7 +188,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0){
-            [[self rootViewController]presentModalViewController:[BudgetView instance] animated:YES];
+            [self presentModalViewController:[BudgetView instanceFromNib] animated:YES];
         }
     }
     else if (indexPath.section == 1) {  

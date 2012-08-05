@@ -67,7 +67,7 @@
 #pragma mark - web view delegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSLog(webView.request.URL.host);
+    NSLog(@"%@", webView.request.URL.host);
 }
 
 @end

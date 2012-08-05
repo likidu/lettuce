@@ -36,7 +36,7 @@ static NSString* cellId = @"cellTransaction";
         return;
     viewInitialized = YES;
     
-    budgetView = [BudgetView instance];
+    budgetView = (BudgetView*)[BudgetView instanceFromNib];
     settingView = [[SettingView alloc]initWithNibName:@"SettingView" bundle:[NSBundle mainBundle]];    
 }
 

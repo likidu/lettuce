@@ -28,7 +28,7 @@
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"%d, %d, %s, %s, %s", parentId, categoryId, categoryName, iconName, hilitedIconName];
+    return [NSString stringWithFormat:@"%d, %d, %@, %@, %@", parentId, categoryId, categoryName, iconName, hilitedIconName];
 }
 
 @end
