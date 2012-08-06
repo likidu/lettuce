@@ -246,7 +246,7 @@ static NSString* footerCellId = @"footerCell";
     else if ([self isFooterAtIndexPath:indexPath]) {
         UILabel* label = (UILabel*)[cell viewWithTag:kFooterAmount];
         double total = [[totalData objectForKey:DATESTR(date)]doubleValue];
-        label.text = [NSString stringWithFormat:@"￥%.2f", total];
+        label.text = [NSString stringWithFormat:@"%@%.2f", CURRENCY_CODE, total];
     }
     else {
         Expense* exp = [[expenseData objectForKey:DATESTR(date)]objectAtIndex:indexPath.row-1];
@@ -261,7 +261,7 @@ static NSString* footerCellId = @"footerCell";
         UIImageView* photoIcon = (UIImageView*)[cell viewWithTag:kCellPhotoIcon];
         photoIcon.hidden = (exp.pictureRef == nil || exp.pictureRef.length == 0);
         UILabel* amount = (UILabel*)[cell viewWithTag:kCellAmount];
-        amount.text = [NSString stringWithFormat:@"￥%.2f", exp.amount];
+        amount.text = [NSString stringWithFormat:@"%@%.2f", CURRENCY_CODE, exp.amount];
         amount.hidden = NO;
     }
     

@@ -71,10 +71,15 @@
 
 
 - (void)onNext:(id)sender {
-    NSRange range = {0,1};
-    NSString* strValue = [budgetField.text stringByReplacingCharactersInRange:range withString:@""];
-    double budget = [strValue doubleValue];
-    //double income = [[navigationData objectForKey:@"income"]doubleValue];
+    NSString* strValue = budgetField.text;
+    double budget = 0.0;
+    
+    if ([strValue hasPrefix: CURRENCY_CODE]) {
+        NSRange range = {0,1};
+        strValue = [strValue stringByReplacingCharactersInRange:range withString:@""];
+        budget = [strValue doubleValue];
+    }
+
     if (budget > 999999999999.0 || budget < 1.0) {
         UIAlertView* alert = [[UIAlertView alloc]initWithTitle:nil message:@"请输入月预算" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
@@ -103,7 +108,7 @@
 
     //1. When inputting the first number, add prefix “¥”
     if (![strCur compare:@""]) {
-        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:@"¥"]];
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:CURRENCY_CODE]];
         return YES;
     }
     
@@ -118,7 +123,7 @@
         if(range.length == length) 
             return YES;
         
-        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:@"¥"]];
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:CURRENCY_CODE]];
         return NO;
     }
     

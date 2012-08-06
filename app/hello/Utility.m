@@ -345,9 +345,9 @@ void setButtonImageForStates(UIButton* button, UIImage* image, UIControlState st
 
 NSString* formatAmount(double amount, BOOL withPrecision) {
     if (withPrecision)
-        return [NSString stringWithFormat:@"￥%.2f", amount];
+        return [NSString stringWithFormat:@"%@%.2f", CURRENCY_CODE, amount];
 
-    return [NSString stringWithFormat:@"￥%.f", amount];;
+    return [NSString stringWithFormat:@"%@%.f", CURRENCY_CODE, amount];;
 }
 
 NSDate*   minDay(NSDate* day1, NSDate* day2) {

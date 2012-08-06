@@ -11,6 +11,7 @@
 
 #define TIME_INTERVAL_HOUR      3600
 #define TIME_INTERVAL_DAY       86400
+#define CURRENCY_CODE           @"￥"
 
 extern NSString* formatSqlString(NSString* sourceStr);
 extern NSString* formatSqlDate(NSDate* date);

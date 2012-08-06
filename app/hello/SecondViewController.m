@@ -144,8 +144,8 @@
 - (void)updateSwitchButtonData {
     double total = [Statistics getTotalOfMonth:currentMonth];
     double saving = [Statistics getSavingOfMonth:currentMonth];
-    [switchButtonExpense setTitle:[NSString stringWithFormat:@"消费￥%.f", total] forState:UIControlStateNormal];
-    [switchButtonSaving setTitle:[NSString stringWithFormat:@"已省￥%.f", saving] forState:UIControlStateNormal];
+    [switchButtonExpense setTitle:[NSString stringWithFormat:@"消费%@%.f", CURRENCY_CODE, total] forState:UIControlStateNormal];
+    [switchButtonSaving setTitle:[NSString stringWithFormat:@"已省%@%.f", CURRENCY_CODE, saving] forState:UIControlStateNormal];
 }
 
 - (void)presentTable:(int)tableIndex {
