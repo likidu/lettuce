@@ -20,12 +20,13 @@ CGSize categoryButtonSize = {60, 72};
 @synthesize pageControl;
 @synthesize delegate;
 @synthesize topCategoryIndicator;
+@synthesize silent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.silent = YES;
     }
     return self;
 }
@@ -161,6 +162,7 @@ CGSize categoryButtonSize = {60, 72};
     label.textColor = [UIColor whiteColor];
     label.hidden = YES;
     self.topCategoryIndicator = label;
+    self.silent = YES;
 
     [self.view.superview insertSubview:label belowSubview:self.view];
     [self.view addObserver:self forKeyPath:@"frame" options:NSKeyValueChangeSetting context:nil];
@@ -168,7 +170,9 @@ CGSize categoryButtonSize = {60, 72};
 }
 
 - (void)showTopCategoryIndicator {
-    static int currentShowingPage = -1;
+    static int currentShowingPage = 0;
+    if (self.silent)
+        return;
     if (pageControl.currentPage == currentShowingPage)
         return;
     if (currentShowingPage > 0 && pageControl.currentPage > 0)

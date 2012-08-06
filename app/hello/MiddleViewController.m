@@ -121,8 +121,12 @@
     }
     else
         [self presentView:view];
-    
+
+    if ([activeFloatingView isEqual:catViewController.view])
+        catViewController.silent = YES;
     activeFloatingView = view;
+    if ([view isEqual:catViewController.view])
+        catViewController.silent = NO;
 }
 
 - (void)onCancel:(id)sender {
