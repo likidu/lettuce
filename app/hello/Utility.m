@@ -84,6 +84,14 @@ NSString* formatMonthDayString(NSDate* day) {
     return [formatter stringFromDate:day];    
 }
 
+NSString* formatDateToString(NSDate* date, NSString* formatString, NSTimeZone* currentTimeZone){
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat:formatString];   
+    [formatter setLocale:[[[NSLocale alloc]initWithLocaleIdentifier: @"zh_CN"]autorelease]];
+    [formatter setTimeZone:currentTimeZone];
+    return [formatter stringFromDate:date];
+}
+
 NSDate* dateFromSqlDate(NSString* dateStr){    
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -107,6 +115,13 @@ NSDate* dateFromMonthString(NSString* monthStr, BOOL isFirstDay) {
     [comp setMonth:month];
     [comp setDay:day];
     return [[NSCalendar currentCalendar]dateFromComponents:comp];
+}
+
+NSDate* dateFromFormatString(NSString* dateString, NSString* formatString, NSTimeZone* currentTimeZone){
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    [formatter setDateFormat:formatString];    
+    [formatter setTimeZone:currentTimeZone];
+    return [formatter dateFromString:dateString];
 }
 
 NSDate* firstDayOfMonth(NSDate* dayOfMonth) {
@@ -197,7 +212,6 @@ NSArray* getDaysOfMonth(NSDate* dayOfMonth) {
     }
     return [NSArray arrayWithArray:array];
 }
-
 NSDateComponents* getDateComponentsWithoutTime(NSDate* date) {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* comp = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit fromDate:date];
@@ -250,6 +264,36 @@ NSArray*  getDatesBetween(NSDate* startDate, NSDate* endDate) {
         interval = [endDate timeIntervalSinceDate:startDate];
     }while (FUZZYEQUAL(interval, 0.0) || interval > TIME_INTERVAL_HOUR);
     return array;
+}
+
+NSArray* getTimeArrayWithMinutesInteval(int minutesinterval){
+    double secondsInterval = 60 * minutesinterval;
+    NSMutableArray* array =[NSMutableArray arrayWithCapacity:48];
+    
+    NSDate * startDate = dateFromSqlDate(@"1987-12-22");
+    NSDate * endDate = dateFromSqlDate(@"1987-12-23");
+    NSDate * currentDate = startDate;
+    while ([currentDate compare:endDate] == NSOrderedAscending) {
+        [array addObject: formatDateToString(currentDate, @"HH:mm", [NSTimeZone  timeZoneWithAbbreviation:@"UTC"])];
+        currentDate = [currentDate dateByAddingTimeInterval:secondsInterval];
+    }
+    
+    return array;
+}
+
+NSArray* getWeekdayStringArray(){
+    NSMutableArray* weekdayStringArray = [NSMutableArray arrayWithCapacity:7];
+    NSDate* now = [NSDate date];   
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [calendar components:NSYearCalendarUnit fromDate:now];
+    [comp setWeek:1];
+    for (int i = 1; i < 8; i++) { 
+        [comp setWeekday:i];
+        NSDate* result = [calendar dateFromComponents:comp];
+        [weekdayStringArray addObject:formatDateToString(result, @"EEEE", [NSTimeZone localTimeZone])];  
+    }
+    
+    return weekdayStringArray;
 }
 
 BOOL isSameDay(NSDate* day1, NSDate* day2){
@@ -380,6 +424,67 @@ void flashView(UIView* view) {
             view.backgroundColor = originalColor;
         }
     }];
+}
+
+void cancelNotifications(){
+    UIApplication* app = [UIApplication sharedApplication];
+    NSArray* oldNotifications = [app scheduledLocalNotifications];
+    
+    // Clear out the old notification before scheduling a new one.
+    if ([oldNotifications count] > 0)
+        [app cancelAllLocalNotifications];
+}
+
+void scheduleNotificationWithItem(int weekday, int hour, int minute) {
+    // Cancel existing notifications
+    cancelNotifications();
+    // Create a new notification.
+    
+    UILocalNotification *localNotif = [[[UILocalNotification alloc] init]autorelease];
+    if (localNotif == nil)
+        return;
+    
+    NSDate* itemDate = [NSDate date];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:itemDate];
+    [comps setHour:hour];
+    [comps setMinute:minute];
+    itemDate = [calendar dateFromComponents:comps];
+    NSDate* notificationDate ;
+    // weekday = -1 indicates a daily notification
+    if (weekday < 0) {
+        localNotif.repeatInterval = NSDayCalendarUnit;
+        notificationDate = itemDate;
+    }
+    else {
+        localNotif.repeatInterval = NSWeekdayCalendarUnit;
+        NSDateComponents *weeklyComps = [calendar components:NSWeekdayCalendarUnit fromDate:itemDate];
+        int timeInterval;
+        //if the reminder weekday is later than current day
+        NSLog(@"%i", weeklyComps.weekday);
+        if (weekday >= weeklyComps.weekday) {
+            timeInterval = (weekday - weeklyComps.weekday) * 3600 * 24;
+        }
+        //if the reminder weekday is earlier than current day this week, 
+        //calculate the interval from today to next weekday
+        else{
+            timeInterval = (7 + weekday - comps.weekday) * 3600 * 24;
+        }
+        
+        notificationDate = [itemDate dateByAddingTimeInterval:timeInterval];
+    }
+    
+    localNotif.fireDate = notificationDate;
+    NSLog(@"%@", formatDateToString(localNotif.fireDate, @"yyyy-MM-dd HH:mm", [NSTimeZone localTimeZone]));
+    
+    localNotif.timeZone = [NSTimeZone localTimeZone];
+    
+    localNotif.alertBody = @"记得记帐哦～～"; 
+    localNotif.applicationIconBadgeNumber = 1;
+
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+    
 }
 
 

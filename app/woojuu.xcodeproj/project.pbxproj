@@ -535,6 +535,10 @@
 		1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */; };
 		1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */; };
 		1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF489C015AB056E009ADC04 /* libobjc.A.dylib */; };
+		B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */; };
+		B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */; };
+		B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */; };
+		B06047F715D097AC008ACC45 /* ReorderCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F315D097AC008ACC45 /* ReorderCategoryViewController.xib */; };
 		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
 		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
 		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
@@ -1195,6 +1199,12 @@
 		1AF489BD15AB02F3009ADC04 /* UIViewController+UtilityExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UtilityExtension.h"; sourceTree = "<group>"; };
 		1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UtilityExtension.m"; sourceTree = "<group>"; };
 		1AF489C015AB056E009ADC04 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
+		B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountingReminderViewController.h; sourceTree = "<group>"; };
+		B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountingReminderViewController.m; sourceTree = "<group>"; };
+		B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountingReminderViewController.xib; sourceTree = "<group>"; };
+		B06047F115D097AC008ACC45 /* ReorderCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReorderCategoryViewController.h; sourceTree = "<group>"; };
+		B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReorderCategoryViewController.m; sourceTree = "<group>"; };
+		B06047F315D097AC008ACC45 /* ReorderCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReorderCategoryViewController.xib; sourceTree = "<group>"; };
 		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
 		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
 		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
@@ -1943,6 +1953,12 @@
 		B0EC9FF8157A69F400903063 /* Backup */ = {
 			isa = PBXGroup;
 			children = (
+				B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */,
+				B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */,
+				B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */,
+				B06047F115D097AC008ACC45 /* ReorderCategoryViewController.h */,
+				B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */,
+				B06047F315D097AC008ACC45 /* ReorderCategoryViewController.xib */,
 				B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */,
 				B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */,
 				B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */,
@@ -2561,6 +2577,8 @@
 				1A9F7C9715ADA1A200CF0FFC /* SingleCategoryByYearView.xib in Resources */,
 				1A9F7C9915ADA48600CF0FFC /* SingleCategoryByYearCell.xib in Resources */,
 				1ABEDFD015B293D2001D3D86 /* SingleCategoryByMonthView.xib in Resources */,
+				B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */,
+				B06047F715D097AC008ACC45 /* ReorderCategoryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2617,6 +2635,8 @@
 				1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */,
 				1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */,
 				1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */,
+				B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */,
+				B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

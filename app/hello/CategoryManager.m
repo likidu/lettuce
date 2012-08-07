@@ -40,6 +40,7 @@ CategoryManager* g_catMan = nil;
 @synthesize categoryCollection;
 @synthesize categoryDictionary;
 @synthesize topCategoryCollection;
+@synthesize needReloadCategory;
 
 - (id)init {
     [super init];
@@ -52,6 +53,7 @@ CategoryManager* g_catMan = nil;
         if (isHiRes)
             fileName = [iconName stringByReplacingOccurrencesOfString:@".png" withString:@"@2x.png"];
         UIImage* image = [UIImage imageNamed:fileName];
+        
         if (isHiRes)
             image = [UIImage imageWithCGImage:image.CGImage scale:2.0 orientation:UIImageOrientationUp];
         [dict setObject:image forKey:iconName];
@@ -67,6 +69,7 @@ CategoryManager* g_catMan = nil;
     {
         g_catMan = [[CategoryManager alloc]init];
         initialized = YES;
+        
     }
     return g_catMan;
 }
@@ -151,23 +154,24 @@ CategoryManager* g_catMan = nil;
 - (NSArray*)moveCategory:(int)categoryIndex ofCollection:(NSArray *)collection toPosition:(int)newIndex {
     NSMutableArray* newArray = [NSMutableArray arrayWithArray:collection];
     Category* cat = [newArray objectAtIndex:categoryIndex];
-    [newArray insertObject:cat atIndex:newIndex];
-    if (newIndex <= categoryIndex) {
+    if (newIndex <= categoryIndex) {        
+        [newArray insertObject:cat atIndex:newIndex];
         [newArray removeObjectAtIndex:(categoryIndex + 1)];
     }
-    else
+    else{
+        [newArray insertObject:cat atIndex:newIndex + 1];
         [newArray removeObjectAtIndex:categoryIndex];
-    
+    }
     // now update the database
     Database* db = [Database instance];
     int displayId = 5;
-    for (Category* cat in newArray) {
-        NSString* sql = [NSString stringWithFormat:@"update category set displayid = %d where categoryid = %d", displayId, cat.categoryId];
+    for (Category* category in newArray) {
+        NSString* sql = [NSString stringWithFormat:@"update category set displayid = %d where categoryid = %d", displayId, category.categoryId];
         [db execute:sql];
-        cat.displayId = displayId;
+        category.displayId = displayId;
         displayId += 5;
     }
-    
+    self.needReloadCategory = YES;
     return newArray;
 }
 

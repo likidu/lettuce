@@ -65,7 +65,7 @@ CGSize categoryButtonSize = {60, 72};
     UIColor * colorHighlight = [UIColor colorWithRed:76.0/255.0 green:108.0/255.0 blue:0.0 alpha:1.0];
     
     CategoryManager* catMan = [CategoryManager instance];
-    [catMan loadCategoryDataFromDatabase:NO];
+    [catMan loadCategoryDataFromDatabase:[CategoryManager instance].needReloadCategory];
     
     int activePageCount = 0;
 
@@ -120,7 +120,8 @@ CGSize categoryButtonSize = {60, 72};
     CGRect visibleRect = scrollView.frame;
     visibleRect.origin.x = frame.size.width * pageControl.currentPage;
     visibleRect.origin.y = 0;
-    [scrollView scrollRectToVisible:visibleRect animated:NO];
+    [scrollView scrollRectToVisible:visibleRect animated:NO];    
+    [CategoryManager instance].needReloadCategory = NO;
 }
 
 - (void)awakeFromNib {
@@ -147,7 +148,9 @@ CGSize categoryButtonSize = {60, 72};
 */
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    if ([CategoryManager instance].needReloadCategory) {
+        [self loadButtons];
+    }
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

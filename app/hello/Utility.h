@@ -22,12 +22,14 @@ extern NSString* formatMonthDayString(NSDate* day);
 extern NSString* formatYearString(NSDate* day);
 extern NSString* formatMonthOnlyString(NSDate* day);
 extern NSString* shortDateString(NSDate* date);
+extern NSString* formatDateToString(NSDate* date, NSString* formatString, NSTimeZone* currentTimeZone);
 extern NSDate*   dateFromSqlDate(NSString* dateStr);
 extern NSDate*   dateFromMonthString(NSString* monthStr, BOOL isFirstDay);
 extern NSDate*   firstDayOfMonth(NSDate* dayOfMonth);
 extern NSDate*   lastDayOfMonth(NSDate* dayOfMonth);
 extern NSDate*   firstMonthOfYear(NSDate* dayOfYear);
 extern NSDate*   lastMonthOfYear(NSDate* dayOfYear);
+extern NSDate* dateFromFormatString(NSString* dateString, NSString* formatString, NSTimeZone* currentTimeZone);
 extern BOOL      isWeekend(NSDate* date);
 extern NSDateComponents* getDateComponentsWithoutTime(NSDate* date);
 extern NSDate*   normalizeDate(NSDate* date);
@@ -44,9 +46,8 @@ extern NSDate*   minDay(NSDate* day1, NSDate* day2);
 extern NSDate*   maxDay(NSDate* day1, NSDate* day2);
 extern int       getNumberOfDaysInMonth(int month, int year);
 extern NSString* formatAmount(double amount, BOOL withPrecision);
-
 extern int       getDay(NSDate* day);
-
+extern void      cancelNotifications();
 extern void      makeToolButton(UIButton* button);
 extern void      makeDropButton(UIButton* button);
 extern void      setButtonTitleForStates(UIButton* button, NSString* title, UIControlState state);
@@ -54,10 +55,11 @@ extern void      setButtonTitleColorForStates(UIButton* button, UIColor* color, 
 extern void      setButtonTitleShadowColorForStates(UIButton* button, UIColor* color, UIControlState state);
 extern void      setButtonImageForStates(UIButton* button, UIImage* image, UIControlState state);
 extern NSString* generateUUID();
-
+                                      
+extern NSArray* getWeekdayStringArray();
 extern void      flashView(UIView* view);
-
-
+extern void     scheduleNotificationWithItem();
+extern NSArray* getTimeArrayWithMinutesInteval(int minutesinterval);
 #define PRECISION 0.000001
 #define FUZZYEQUAL(x,y) (ABS(((x)-(y)))<=PRECISION)
 

@@ -11,6 +11,8 @@
 #import "AboutViewController.h"
 #import "BackupAndRecoverViewController.h"
 #import "UserAccountViewController.h"
+#import "AccountingReminderViewController.h"
+#import "ReorderCategoryViewController.h"
 @implementation SettingView
 
 @synthesize settingTableView;
@@ -105,6 +107,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     yesNoSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"];
+    [settingTableView reloadData];
 }
 
 #pragma mark - Table view
@@ -114,9 +117,8 @@
         case 0:
             return 5;
             break;
-            
         case 1:
-            return 2;
+            return 1;
             break;
             
         case 2:
@@ -128,10 +130,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* kBudgetCellId = @"SettingCell";
-
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kBudgetCellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kBudgetCellId]autorelease];
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1  reuseIdentifier:kBudgetCellId]autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if (indexPath.section == 0) {
@@ -142,17 +143,19 @@
                 cell.imageView.image = imgBudget;               
                 break;
             case 1:
-                cell.textLabel.text = @"本地密码保护";
-                cell.imageView.image = imgPassword;               
+                cell.textLabel.text = @"类别次序";
+                cell.imageView.image = imgCategory;             
                 break;
             case 2:
                 cell.textLabel.text = @"记账提醒";
-                cell.imageView.image = imgReminder;               
+                cell.imageView.image = imgReminder;  
+                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:@"ActiveAccountingReminderOn"] ? @"开启": @"关闭";
                 break;
             case 3:
-                cell.textLabel.text = @"调整类别次序";
-                cell.imageView.image = imgCategory;               
-                break;
+                cell.textLabel.text = @"密码保护";
+                cell.imageView.image = imgPassword;  
+                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:@"ActivePassword"] ? @"开启": @"关闭";
+                break;       
             case 4:
                 cell.textLabel.text = @"快速记账";
                 cell.imageView.image = imgStartup;
@@ -164,10 +167,6 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = @"备份与恢复";
             cell.imageView.image = imgBackup;
-        }
-        else {
-            cell.textLabel.text = @"我的账号";
-            cell.imageView.image = imgAccount;
         }
     }
     else {
@@ -190,6 +189,12 @@
         if (indexPath.row == 0){
             [self presentModalViewController:[BudgetView instanceFromNib] animated:YES];
         }
+        else if (indexPath.row == 1){
+            [self presentViewController:[ReorderCategoryViewController createInstance] animated:YES completion:nil];
+        }
+        else if (indexPath.row == 2){
+            [self presentViewController:[AccountingReminderViewController createInstance] animated:YES completion:nil];
+        }
     }
     else if (indexPath.section == 1) {  
         if (indexPath.row == 0){
@@ -201,7 +206,7 @@
     }
     else if (indexPath.section == 2){
         if (indexPath.row == 0) {
-            [self presentModalViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES];
+            [self presentViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES completion:nil];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

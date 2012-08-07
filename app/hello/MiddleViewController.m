@@ -481,7 +481,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:catViewController.view];
     catViewController.view.frame = inputPlaceHolder.frame;
-    [catViewController loadButtons];
+    [CategoryManager instance].needReloadCategory = YES;
     catViewController.view.hidden = YES;
     catViewController.delegate = self;
     
