@@ -18,6 +18,6 @@
 @property(nonatomic,retain) NSDate* startDate;
 @property(nonatomic,retain) NSDate* endDate;
 @property(nonatomic,assign) int categoryId;
-@property(nonatomic,retain) NSArray* expenses;
+@property(nonatomic,retain) NSMutableArray* expenses;
 
 @end
