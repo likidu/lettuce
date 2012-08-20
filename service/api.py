@@ -3,10 +3,13 @@ import constants
 import flask
 import time
 import weibo
-from flask import request, session
+import hmac, hashlib
+from flask import request
 from common import app, settings
 
 api = flask.Blueprint("api", __name__)
+
+_hashmod = hashlib.md5
 
 def setup():
     try:
@@ -39,26 +42,42 @@ def login():
     url = client.get_authorize_url()
     return flask.redirect(url)
 
-# FIXME use session instead of cookie
+def concat(iterable):
+    return '|'.join(iterable)
+
+def generate_token(secret, *args):
+    msg = concat(list(itertools.chain.from_iterable([args])))
+    signature = hmac.new(secret, msg, _hashmod).hexdigest()
+    return concat([msg, signature])
+
+def decode_token(secret, token):
+    if len(token) > 0:
+        raw = token.split('|')
+        signature = raw[-1]
+        remaining = raw[:-1]
+        expected = hmac.new(secret, concat(remaining), _hashmod).hexdigest()
+        if expected == signature:
+            return remaining
+
+    flask.abort(401)            # Unauthenticated
+
 @api.route("/login_success/v1.0/")
 def login_success():
     code = request.args.get("code", "")
-    if len(code) == 0:
-        flask.abort(500)
+    if len(code) > 0:
+        try:
+            client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET, redirect_uri=settings.WEIBO_CALLBACK_URL_V1_0)
+            r = client.request_access_token(code)
+            client.set_access_token(r.access_token, r.expires_in)
+            weibo_user = client.get.account__get_uid()
+            # Actually uid is already in r, but it's not a documented behavior
+            # So we bother a explicit call
+            weibo_id = weibo_user.uid
 
-    client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET, redirect_uri=settings.WEIBO_CALLBACK_URL_V1_0)
-    r = client.request_access_token(code)
-    client.set_access_token(r.access_token, r.expires_in)
-    weibo_user = client.get.account__get_uid()
-    # Actually uid is already in r, but it's not a documented behavior
-    # So we bother a explicit call
-    weibo_id = weibo_user.uid
-    session['weibo_id'] = weibo_id;
-    session['weibo_access_token'] = r.access_token
-    session['token_expires_in'] = r.expires_in
-    session.permanent = True
-    session.modified = True
-
+            return generate_token(settings.SECRET_KEY, weibo_id, r.expires_in)
+        except:
+            pass
+    # We should never raise an exception in this function
     return ''
 
 @api.route("/my/backup_version/v1.0/", methods=["GET", "POST"])
@@ -83,20 +102,13 @@ def get_restore_url():
 
 def authenticate():
     try:
-        weibo_id = session["weibo_id"]
-        access_token = session["weibo_access_token"]
-        expires_in = session["token_expires_in"]
+        token = request.args.get("token", "")
+        weibo_id, expires_in = decode_token(settings.SECRET_KEY, token)
 
         if expires_in > time.time():
             return "weibo_" + str(weibo_id)
 
-        session.clear()
-        session.permanent = False
-        session.modified = True
-
-        flask.abort(401)
-
-    except KeyError:
+    except ValueError:
         flask.abort(401)        # Unauthenticated
 
 
