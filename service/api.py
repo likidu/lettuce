@@ -75,8 +75,8 @@ def login_success():
             weibo_id = weibo_user.uid
 
             return generate_token(settings.SECRET_KEY, weibo_id, r.expires_in)
-        except:
-            pass
+        except Exception as e:
+			print e
     # We should never raise an exception in this function
     return ''
 
