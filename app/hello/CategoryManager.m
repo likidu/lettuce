@@ -19,6 +19,7 @@
 @synthesize hilitedIconName;
 @synthesize smallIconName;
 @synthesize isActive;
+@synthesize categoryIconName;
 
 - (void)dealloc{
     [super dealloc];
@@ -87,6 +88,7 @@ CategoryManager* g_catMan = nil;
     cat.iconName = [dict objectForKey: @"IconResName"];
     cat.hilitedIconName = [dict objectForKey:@"HIconResName"];
     cat.smallIconName = [dict objectForKey:@"SIconResName"];
+    cat.categoryIconName = [dict objectForKey:@"CIconResName"];
     cat.isActive = [[dict objectForKey:@"IsActive"]boolValue];
     [col addObject:cat];
     [cat release];
