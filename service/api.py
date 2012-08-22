@@ -40,7 +40,7 @@ def setup():
 def login():
     client = weibo.APIClient(app_key=settings.WEIBO_APP_KEY, app_secret=settings.WEIBO_APP_SECRET, redirect_uri=settings.WEIBO_CALLBACK_URL_V1_0)
     url = client.get_authorize_url()
-    return flask.redirect(url)
+    return flask.redirect(url, display='mobile')
 
 def concat(iterable):
     return '|'.join(str(e) for e in iterable)
