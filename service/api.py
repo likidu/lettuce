@@ -4,6 +4,7 @@ import flask
 import time
 import weibo
 import hmac, hashlib
+import itertools
 from flask import request
 from common import app, settings
 
@@ -77,6 +78,8 @@ def login_success():
             return generate_token(settings.SECRET_KEY, weibo_id, r.expires_in)
         except Exception as e:
 			print e
+        except Error as e:
+            print e
     # We should never raise an exception in this function
     return ''
 
