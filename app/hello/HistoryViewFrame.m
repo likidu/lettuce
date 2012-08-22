@@ -8,11 +8,11 @@
 
 #import "HistoryViewFrame.h"
 
-@implementation UINavigationBar(CustomBackground)
+@implementation UINavigationBar(CustomBackgroundExtension)
 
 - (void)drawRect:(CGRect)rect {
     UIImage* image = [UIImage imageNamed:@"headerbar.png"];
-    [image drawInRect:self.frame];
+    [image drawInRect:rect];
 }
 
 @end
@@ -47,7 +47,16 @@
     if (!self.navController) {
         HistoryRootView* rootView = [[[HistoryRootView alloc]initWithNibName:@"HistoryRootView" bundle:[NSBundle mainBundle]]autorelease];
         self.navController = [[[UINavigationController alloc]initWithRootViewController:rootView]autorelease];
-        //[navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"headerbar.png"] forBarMetrics:UIBarMetricsDefault];
+        UIImage* image = [UIImage imageNamed:@"headerbar.png"];
+        if ([navController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+            [navController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+        }
+//        else {
+//            UIImageView* view = [[[UIImageView alloc]initWithImage:image]autorelease];
+//            [view setTag:kSCNavBarImageTag];
+//            [navController.navigationBar insertSubview:view atIndex:0];
+//            [navController.navigationBar bringSubviewToFront:view];
+//        }
         [self.view addSubview:navController.view];
     }
 }
