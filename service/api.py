@@ -4,7 +4,6 @@ import flask
 import time
 import weibo
 import hmac, hashlib
-import itertools
 from flask import request
 from common import app, settings
 
@@ -44,10 +43,10 @@ def login():
     return flask.redirect(url)
 
 def concat(iterable):
-    return '|'.join(iterable)
+    return '|'.join(str(e) for e in iterable)
 
 def generate_token(secret, *args):
-    msg = concat(list(itertools.chain.from_iterable([args])))
+    msg = concat(args)
     signature = hmac.new(secret, msg, _hashmod).hexdigest()
     return concat([msg, signature])
 
