@@ -1858,7 +1858,7 @@
 			isa = PBXGroup;
 			children = (
 				1AC9759D159C341500115C17 /* Obsolete Code - For Reference Only */,
-				B0EC9FF8157A69F400903063 /* Backup */,
+				B0EC9FF8157A69F400903063 /* Settings */,
 				1A0580AA137546D700933267 /* Category Icons */,
 				1A459D79138799A100036EC2 /* Arts */,
 				1A459D731387999A00036EC2 /* RootViewController.h */,
@@ -1906,15 +1906,9 @@
 				1A0AE6D9155A973600B5C4DC /* HistoryViewFrame.xib */,
 				1A05809913752FBD00933267 /* CategoryViewController.h */,
 				1A05809A13752FBD00933267 /* CategoryViewController.m */,
-				1AD88A6413ED88E300804635 /* BudgetView.h */,
-				1AAD13D9133345A90035BA92 /* BudgetView.m */,
-				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
 				1AAD13E513335A160035BA92 /* SettingView.h */,
 				1AAD13E613335A170035BA92 /* SettingView.m */,
 				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
-				1AD88A6B13ED96D500804635 /* AboutViewController.h */,
-				1AD88A6C13ED96D600804635 /* AboutViewController.m */,
-				1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */,
 				1AEF65D014728E1B004FD202 /* PasscodeView.h */,
 				1AEF65D114728E1B004FD202 /* PasscodeView.m */,
 				1AEF65D214728E1B004FD202 /* PasscodeView.xib */,
@@ -2118,9 +2112,15 @@
 			name = "Table View Controllers";
 			sourceTree = "<group>";
 		};
-		B0EC9FF8157A69F400903063 /* Backup */ = {
+		B0EC9FF8157A69F400903063 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1AD88A6413ED88E300804635 /* BudgetView.h */,
+				1AAD13D9133345A90035BA92 /* BudgetView.m */,
+				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
+				1AD88A6B13ED96D500804635 /* AboutViewController.h */,
+				1AD88A6C13ED96D600804635 /* AboutViewController.m */,
+				1A6B5E5213F2C4C2007BC798 /* AboutViewController.xib */,
 				B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */,
 				B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */,
 				B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */,
@@ -2134,7 +2134,7 @@
 				B0ECA009157A855A00903063 /* UserAccountViewController.m */,
 				B0ECA00A157A855B00903063 /* UserAccountViewController.xib */,
 			);
-			name = Backup;
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
