@@ -50,8 +50,8 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.uiBudgetEditBox = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,10 +71,9 @@
 }
 
 - (void)viewDidUnload
-{
-    [super viewDidUnload];
-
+{    
     self.uiBudgetEditBox = nil;
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

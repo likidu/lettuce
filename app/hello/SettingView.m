@@ -50,7 +50,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.imgAbout = nil;
     self.imgBudget = nil;
     self.imgStartup = nil;
@@ -61,6 +60,7 @@
     self.imgReminder = nil;
     self.settingTableView = nil;
     self.yesNoSwitch = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,11 +92,11 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.settingTableView = nil;
     self.yesNoSwitch = nil;
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
