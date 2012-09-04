@@ -349,7 +349,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     CLEAN_RELEASE(tables_);
     self.months = nil;
     self.currentMonth = nil;
@@ -365,6 +364,7 @@
     self.byAmountButton = nil;
     self.byCategoryButton = nil;
     self.monthPicker = nil;
+    [super dealloc];
 }
 
 @end

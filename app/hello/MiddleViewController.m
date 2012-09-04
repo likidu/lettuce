@@ -217,7 +217,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.inputText = nil;
     self.currentDate = nil;
     self.imageUnknown = nil;
@@ -237,7 +236,9 @@
     self.imageView = nil;
     self.frameView = nil;
     self.datePicker = nil;
-    self.formulaLabel = nil;}
+    self.formulaLabel = nil;
+    [super dealloc];
+}
 
 - (void)didReceiveMemoryWarning
 {

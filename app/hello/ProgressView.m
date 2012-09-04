@@ -65,8 +65,8 @@
 }
 
 - (void)dealloc {
-    [super dealloc];
     [themeDict release];
+    [super dealloc];
 }
 
 + (Class)layerClass {

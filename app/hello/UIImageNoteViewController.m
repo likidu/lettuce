@@ -27,8 +27,8 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.imageNote = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

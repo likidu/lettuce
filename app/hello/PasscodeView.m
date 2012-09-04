@@ -41,12 +41,12 @@
 }
 
 - (void)dealloc {
-    [super dealloc];
     self.defaultImage = nil;
     self.defaultLabel = nil;
     self.errorImage = nil;
     self.errorLabel = nil;
     self.userInputText = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

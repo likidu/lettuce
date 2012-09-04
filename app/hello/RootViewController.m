@@ -15,7 +15,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.firstUxImage = nil;
     self.firstUxButton = nil;
     self.firstUxImageView = nil;
@@ -26,6 +25,7 @@
     self.tabPanel = nil;
     self.todayButton = nil;
     self.historyButton = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

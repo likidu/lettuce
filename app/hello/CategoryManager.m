@@ -22,10 +22,10 @@
 @synthesize categoryIconName;
 
 - (void)dealloc{
-    [super dealloc];
     [categoryName release];
     [iconName release];
     [hilitedIconName release];
+    [super dealloc];
 }
 
 -(NSString *)description {
@@ -145,11 +145,11 @@ CategoryManager* g_catMan = nil;
 }
 
 - (void)dealloc {
-    [super dealloc];
     [categoryCollection release];
     [categoryDictionary release];
     [topCategoryCollection release];
     [iconDict release];
+    [super dealloc];
 }
 
 // make sure to call loadCategoryDataFromDatabase: with YES to force update the category data

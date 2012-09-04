@@ -33,10 +33,10 @@ CGSize categoryButtonSize = {60, 72};
 
 - (void)dealloc
 {
-    [super dealloc];
     self.topCategoryIndicator = nil;
     self.scrollView = nil;
     self.pageControl = nil;
+    [super dealloc];
 }
 
 - (void)removeAllCategoryButtons {

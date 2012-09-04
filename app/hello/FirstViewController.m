@@ -182,7 +182,6 @@ static NSString* cellId = @"cellTransaction";
 
 - (void)dealloc
 {
-    [super dealloc];
     [budgetView release];
     [settingView release];
     self.todayExpenses = nil;
@@ -195,6 +194,7 @@ static NSString* cellId = @"cellTransaction";
     self.transactionTable = nil;
     self.stampView = nil;
     self.progressView = nil;
+    [super dealloc];
 }
 
 @end
