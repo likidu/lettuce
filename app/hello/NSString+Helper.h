@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (NSStringAdditions)
+@interface NSString (Helper)
 - (BOOL) contains:(NSString *)string;
 - (BOOL) contains:(NSString *)string 
           options:(NSStringCompareOptions) options;

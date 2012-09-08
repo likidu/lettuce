@@ -20,6 +20,5 @@
 @property(nonatomic, retain) UIImage *imgRestore;
 
 + (UserAccountViewController *) instance;
-+ (BOOL)isUserLoggedIn;
 
 @end

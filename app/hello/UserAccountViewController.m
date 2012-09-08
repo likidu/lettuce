@@ -7,7 +7,7 @@
 //
 
 #import "UserAccountViewController.h"
-#import "NSString+NSStringAdditions.h"
+#import "NSString+Helper.h"
 @interface UserAccountViewController ()
 
 @end
