@@ -533,7 +533,6 @@
 		1AF2476314934E660010B65E /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF2476114934E660010B65E /* TodayViewController.xib */; };
 		1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */; };
 		1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */; };
-		1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */; };
 		1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF489C015AB056E009ADC04 /* libobjc.A.dylib */; };
 		B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */; };
 		B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */; };
@@ -595,15 +594,16 @@
 		B060486515E50A02008ACC45 /* transportation.card_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482D15E50A02008ACC45 /* transportation.card_category@2x.png */; };
 		B060486615E50A02008ACC45 /* workout_category.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482E15E50A02008ACC45 /* workout_category.png */; };
 		B060486715E50A02008ACC45 /* workout_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482F15E50A02008ACC45 /* workout_category@2x.png */; };
-		B0629B7115FB840900749C98 /* CookieUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B6615FB840900749C98 /* CookieUtility.m */; };
-		B0629B7215FB840900749C98 /* RKClient+Callback.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B6815FB840900749C98 /* RKClient+Callback.m */; };
-		B0629B7315FB840900749C98 /* RKClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B6A15FB840900749C98 /* RKClientHelper.m */; };
-		B0629B7415FB840900749C98 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B6C15FB840900749C98 /* UIAlertView+Helper.m */; };
-		B0629B7515FB840900749C98 /* WeiboAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B6E15FB840900749C98 /* WeiboAuthManager.m */; };
-		B0629B7615FB840900749C98 /* WoojuuServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B7015FB840900749C98 /* WoojuuServiceClient.m */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
 		B0629B7B15FB849A00749C98 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921B01466264C007C333D /* libRestKitObjectMapping.a */; };
+		B0629B7F15FB96A400749C98 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B7E15FB96A400749C98 /* NSString+Helper.m */; };
+		B0629B8A15FB9CDA00749C98 /* RKClient+Callback.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */; };
+		B0629B8B15FB9CDA00749C98 /* RKClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8315FB9CDA00749C98 /* RKClientHelper.m */; };
+		B0629B8C15FB9CDA00749C98 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */; };
+		B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */; };
+		B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */; };
+		B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */; };
 		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
 		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
 		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
@@ -1261,8 +1261,6 @@
 		1AF489B815AAFCAD009ADC04 /* MonthViewRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthViewRoot.h; sourceTree = "<group>"; };
 		1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthViewRoot.m; sourceTree = "<group>"; };
 		1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthViewRoot.xib; sourceTree = "<group>"; };
-		1AF489BD15AB02F3009ADC04 /* UIViewController+UtilityExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UtilityExtension.h"; sourceTree = "<group>"; };
-		1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UtilityExtension.m"; sourceTree = "<group>"; };
 		1AF489C015AB056E009ADC04 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountingReminderViewController.h; sourceTree = "<group>"; };
 		B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountingReminderViewController.m; sourceTree = "<group>"; };
@@ -1327,20 +1325,22 @@
 		B060482E15E50A02008ACC45 /* workout_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workout_category.png; path = cats/workout_category.png; sourceTree = "<group>"; };
 		B060482F15E50A02008ACC45 /* workout_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "workout_category@2x.png"; path = "cats/workout_category@2x.png"; sourceTree = "<group>"; };
 		B0629B6415FB840900749C98 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constants.h; path = ../../../../Desktop/4/constants.h; sourceTree = "<group>"; };
-		B0629B6515FB840900749C98 /* CookieUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CookieUtility.h; path = ../../../../Desktop/4/CookieUtility.h; sourceTree = "<group>"; };
-		B0629B6615FB840900749C98 /* CookieUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CookieUtility.m; path = ../../../../Desktop/4/CookieUtility.m; sourceTree = "<group>"; };
-		B0629B6715FB840900749C98 /* RKClient+Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RKClient+Callback.h"; path = "../../../../Desktop/4/RKClient+Callback.h"; sourceTree = "<group>"; };
-		B0629B6815FB840900749C98 /* RKClient+Callback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RKClient+Callback.m"; path = "../../../../Desktop/4/RKClient+Callback.m"; sourceTree = "<group>"; };
-		B0629B6915FB840900749C98 /* RKClientHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RKClientHelper.h; path = ../../../../Desktop/4/RKClientHelper.h; sourceTree = "<group>"; };
-		B0629B6A15FB840900749C98 /* RKClientHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RKClientHelper.m; path = ../../../../Desktop/4/RKClientHelper.m; sourceTree = "<group>"; };
-		B0629B6B15FB840900749C98 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Helper.h"; path = "../../../../Desktop/4/UIAlertView+Helper.h"; sourceTree = "<group>"; };
-		B0629B6C15FB840900749C98 /* UIAlertView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Helper.m"; path = "../../../../Desktop/4/UIAlertView+Helper.m"; sourceTree = "<group>"; };
-		B0629B6D15FB840900749C98 /* WeiboAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboAuthManager.h; path = ../../../../Desktop/4/WeiboAuthManager.h; sourceTree = "<group>"; };
-		B0629B6E15FB840900749C98 /* WeiboAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeiboAuthManager.m; path = ../../../../Desktop/4/WeiboAuthManager.m; sourceTree = "<group>"; };
-		B0629B6F15FB840900749C98 /* WoojuuServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoojuuServiceClient.h; path = ../../../../Desktop/4/WoojuuServiceClient.h; sourceTree = "<group>"; };
-		B0629B7015FB840900749C98 /* WoojuuServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoojuuServiceClient.m; path = ../../../../Desktop/4/WoojuuServiceClient.m; sourceTree = "<group>"; };
 		B0629B7715FB846900749C98 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B0629B7915FB847E00749C98 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B0629B7D15FB96A400749C98 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
+		B0629B7E15FB96A400749C98 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		B0629B8015FB9CDA00749C98 /* RKClient+Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKClient+Callback.h"; sourceTree = "<group>"; };
+		B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKClient+Callback.m"; sourceTree = "<group>"; };
+		B0629B8215FB9CDA00749C98 /* RKClientHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKClientHelper.h; sourceTree = "<group>"; };
+		B0629B8315FB9CDA00749C98 /* RKClientHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKClientHelper.m; sourceTree = "<group>"; };
+		B0629B8415FB9CDA00749C98 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
+		B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Helper.m"; sourceTree = "<group>"; };
+		B0629B8615FB9CDA00749C98 /* UIViewController+UtilityExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UtilityExtension.h"; sourceTree = "<group>"; };
+		B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UtilityExtension.m"; sourceTree = "<group>"; };
+		B0629B8F15FB9FE100749C98 /* WeiboAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAuthManager.h; sourceTree = "<group>"; };
+		B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAuthManager.m; sourceTree = "<group>"; };
+		B0629B9215FBA02200749C98 /* WoojuuServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuServiceClient.h; sourceTree = "<group>"; };
+		B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuServiceClient.m; sourceTree = "<group>"; };
 		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
 		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
 		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
@@ -1886,12 +1886,12 @@
 		1AAD1397132BB1B00035BA92 /* woojuu */ = {
 			isa = PBXGroup;
 			children = (
+				1A459D79138799A100036EC2 /* Arts */,
+				1A0580AA137546D700933267 /* Category Icons */,
 				B0629B6415FB840900749C98 /* constants.h */,
 				B0629B6315FB83DF00749C98 /* Helper */,
-				1AC9759D159C341500115C17 /* Obsolete Code - For Reference Only */,
 				B0EC9FF8157A69F400903063 /* Settings */,
-				1A0580AA137546D700933267 /* Category Icons */,
-				1A459D79138799A100036EC2 /* Arts */,
+				B0629B7C15FB862B00749C98 /* ServiceClient */,
 				1A459D731387999A00036EC2 /* RootViewController.h */,
 				1A459D741387999A00036EC2 /* RootViewController.m */,
 				1AC9757F159AD68700115C17 /* FullScreenViewController.h */,
@@ -1946,6 +1946,7 @@
 				1AA4685D14FE32D6003D387F /* NavigationProtocol.h */,
 				1AA4686314FE37C5003D387F /* First User Experience */,
 				1AAD1398132BB1B00035BA92 /* Supporting Files */,
+				1AC9759D159C341500115C17 /* Obsolete Code - For Reference Only */,
 			);
 			name = woojuu;
 			path = hello;
@@ -2144,22 +2145,29 @@
 		B0629B6315FB83DF00749C98 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B0629B6515FB840900749C98 /* CookieUtility.h */,
-				B0629B6615FB840900749C98 /* CookieUtility.m */,
-				B0629B6715FB840900749C98 /* RKClient+Callback.h */,
-				B0629B6815FB840900749C98 /* RKClient+Callback.m */,
-				B0629B6915FB840900749C98 /* RKClientHelper.h */,
-				B0629B6A15FB840900749C98 /* RKClientHelper.m */,
-				B0629B6B15FB840900749C98 /* UIAlertView+Helper.h */,
-				B0629B6C15FB840900749C98 /* UIAlertView+Helper.m */,
-				B0629B6D15FB840900749C98 /* WeiboAuthManager.h */,
-				B0629B6E15FB840900749C98 /* WeiboAuthManager.m */,
-				B0629B6F15FB840900749C98 /* WoojuuServiceClient.h */,
-				B0629B7015FB840900749C98 /* WoojuuServiceClient.m */,
-				1AF489BD15AB02F3009ADC04 /* UIViewController+UtilityExtension.h */,
-				1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */,
+				B0629B8015FB9CDA00749C98 /* RKClient+Callback.h */,
+				B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */,
+				B0629B8215FB9CDA00749C98 /* RKClientHelper.h */,
+				B0629B8315FB9CDA00749C98 /* RKClientHelper.m */,
+				B0629B8415FB9CDA00749C98 /* UIAlertView+Helper.h */,
+				B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */,
+				B0629B8615FB9CDA00749C98 /* UIViewController+UtilityExtension.h */,
+				B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */,
+				B0629B7D15FB96A400749C98 /* NSString+Helper.h */,
+				B0629B7E15FB96A400749C98 /* NSString+Helper.m */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		B0629B7C15FB862B00749C98 /* ServiceClient */ = {
+			isa = PBXGroup;
+			children = (
+				B0629B9215FBA02200749C98 /* WoojuuServiceClient.h */,
+				B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */,
+				B0629B8F15FB9FE100749C98 /* WeiboAuthManager.h */,
+				B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */,
+			);
+			name = ServiceClient;
 			sourceTree = "<group>";
 		};
 		B0EC9FF8157A69F400903063 /* Settings */ = {
@@ -2906,17 +2914,17 @@
 				1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */,
 				1AC97582159AD68700115C17 /* FullScreenViewController.m in Sources */,
 				1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */,
-				1AF489BF15AB02F4009ADC04 /* UIViewController+UtilityExtension.m in Sources */,
 				1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */,
 				1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */,
 				B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */,
 				B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */,
-				B0629B7115FB840900749C98 /* CookieUtility.m in Sources */,
-				B0629B7215FB840900749C98 /* RKClient+Callback.m in Sources */,
-				B0629B7315FB840900749C98 /* RKClientHelper.m in Sources */,
-				B0629B7415FB840900749C98 /* UIAlertView+Helper.m in Sources */,
-				B0629B7515FB840900749C98 /* WeiboAuthManager.m in Sources */,
-				B0629B7615FB840900749C98 /* WoojuuServiceClient.m in Sources */,
+				B0629B7F15FB96A400749C98 /* NSString+Helper.m in Sources */,
+				B0629B8A15FB9CDA00749C98 /* RKClient+Callback.m in Sources */,
+				B0629B8B15FB9CDA00749C98 /* RKClientHelper.m in Sources */,
+				B0629B8C15FB9CDA00749C98 /* UIAlertView+Helper.m in Sources */,
+				B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */,
+				B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */,
+				B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

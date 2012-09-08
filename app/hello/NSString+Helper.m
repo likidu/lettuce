@@ -1,5 +1,5 @@
 //
-//  NSString+NSStringAdditions.m
+//  NSString+Helper.m
 //  woojuu
 //
 //  Created by Liangying Wei on 9/7/12.
