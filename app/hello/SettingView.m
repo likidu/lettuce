@@ -198,7 +198,7 @@
     }
     else if (indexPath.section == 1) {  
         if (indexPath.row == 0){
-            [self presentModalViewController:[BackupAndRecoverViewController instanceFromNib] animated:YES];
+            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
         }
         else if (indexPath.row == 1){
             [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];

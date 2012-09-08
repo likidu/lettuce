@@ -595,6 +595,7 @@
 		B060486515E50A02008ACC45 /* transportation.card_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482D15E50A02008ACC45 /* transportation.card_category@2x.png */; };
 		B060486615E50A02008ACC45 /* workout_category.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482E15E50A02008ACC45 /* workout_category.png */; };
 		B060486715E50A02008ACC45 /* workout_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482F15E50A02008ACC45 /* workout_category@2x.png */; };
+		B0629AA215FA3F0800749C98 /* NSString+NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629AA115FA3F0800749C98 /* NSString+NSStringAdditions.m */; };
 		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
 		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
 		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
@@ -1317,6 +1318,8 @@
 		B060482D15E50A02008ACC45 /* transportation.card_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "transportation.card_category@2x.png"; path = "cats/transportation.card_category@2x.png"; sourceTree = "<group>"; };
 		B060482E15E50A02008ACC45 /* workout_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workout_category.png; path = cats/workout_category.png; sourceTree = "<group>"; };
 		B060482F15E50A02008ACC45 /* workout_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "workout_category@2x.png"; path = "cats/workout_category@2x.png"; sourceTree = "<group>"; };
+		B0629AA015FA3F0800749C98 /* NSString+NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringAdditions.h"; sourceTree = "<group>"; };
+		B0629AA115FA3F0800749C98 /* NSString+NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringAdditions.m"; sourceTree = "<group>"; };
 		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
 		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
 		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
@@ -1917,6 +1920,8 @@
 				1AAD1398132BB1B00035BA92 /* Supporting Files */,
 				1AF489BD15AB02F3009ADC04 /* UIViewController+UtilityExtension.h */,
 				1AF489BE15AB02F4009ADC04 /* UIViewController+UtilityExtension.m */,
+				B0629AA015FA3F0800749C98 /* NSString+NSStringAdditions.h */,
+				B0629AA115FA3F0800749C98 /* NSString+NSStringAdditions.m */,
 			);
 			name = woojuu;
 			path = hello;
@@ -2861,6 +2866,7 @@
 				1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */,
 				B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */,
 				B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */,
+				B0629AA215FA3F0800749C98 /* NSString+NSStringAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
