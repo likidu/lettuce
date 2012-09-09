@@ -20,7 +20,7 @@
 + (void)showLoginPageFromController:(UIViewController *)parentController
 {    
     // TODO: Get domain name from config file.
-    NSString* url = [NSString stringWithFormat:@"%@login/v1.0/", apiBaseURL];
+    //NSString* url = [NSString stringWithFormat:@"%@login/v1.0/", apiBaseURL];
     
     //WebViewController* webViewController = [[WebViewController alloc] initWithURL:url];
     

@@ -713,6 +713,7 @@
 		1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		1A1DEADC1357662200505A56 /* CategoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryManager.h; sourceTree = "<group>"; };
 		1A1DEADD1357662200505A56 /* CategoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryManager.m; sourceTree = "<group>"; };
+		1A1EA70315FC64600083D8F3 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		1A25D931158C4C3200510799 /* numpad.bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numpad.bg.png; path = "arts/Add Transaction/numpad.bg.png"; sourceTree = "<group>"; };
 		1A25D932158C4C3200510799 /* numpad.bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "numpad.bg@2x.png"; path = "arts/Add Transaction/numpad.bg@2x.png"; sourceTree = "<group>"; };
 		1A25D933158C4C3200510799 /* numpad.clear.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numpad.clear.down.png; path = "arts/Add Transaction/numpad.clear.down.png"; sourceTree = "<group>"; };
@@ -1324,7 +1325,6 @@
 		B060482D15E50A02008ACC45 /* transportation.card_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "transportation.card_category@2x.png"; path = "cats/transportation.card_category@2x.png"; sourceTree = "<group>"; };
 		B060482E15E50A02008ACC45 /* workout_category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workout_category.png; path = cats/workout_category.png; sourceTree = "<group>"; };
 		B060482F15E50A02008ACC45 /* workout_category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "workout_category@2x.png"; path = "cats/workout_category@2x.png"; sourceTree = "<group>"; };
-		B0629B6415FB840900749C98 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constants.h; path = ../../../../Desktop/4/constants.h; sourceTree = "<group>"; };
 		B0629B7715FB846900749C98 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B0629B7915FB847E00749C98 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B0629B7D15FB96A400749C98 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
@@ -1888,7 +1888,7 @@
 			children = (
 				1A459D79138799A100036EC2 /* Arts */,
 				1A0580AA137546D700933267 /* Category Icons */,
-				B0629B6415FB840900749C98 /* constants.h */,
+				1A1EA70315FC64600083D8F3 /* constants.h */,
 				B0629B6315FB83DF00749C98 /* Helper */,
 				B0EC9FF8157A69F400903063 /* Settings */,
 				B0629B7C15FB862B00749C98 /* ServiceClient */,

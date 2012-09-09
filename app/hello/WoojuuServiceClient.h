@@ -12,7 +12,7 @@
 
 +(void) getBackupVersionAsync:(void (^)(NSString*))onSuccess;
 
-+(void) setBackupVersionAsync:(void (^)(void))onSuccess;
++(void) setBackupVersion:(int)version Async:(void (^)(void))onSuccess;
 
 +(void) getBackupUrlAsync:(void (^)(NSString*))onSuccess;
 
