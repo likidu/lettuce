@@ -150,6 +150,10 @@
         else if (activeOp == opDivide && !fuzzyEqual(curNumber, 0.0))
             amount = prevNumber / curNumber;
     }
+    else if(amount == 0){
+        //DID 34343209: if is OpNone, check the preNumber whether the value is already submitted
+        amount = prevNumber;
+    }
     
     if (amount < 0 || fuzzyEqual(amount, 0.0)) {
         UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
@@ -373,6 +377,8 @@
 #pragma mark - View lifecycle
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
+    [self pushOp:opNone];           //DID:34343209 show result when click SelectCategory
+    [self syncUi];
     if (textView.tag == -1) {
         textView.text = @"";
         textView.textColor = [UIColor darkTextColor];
@@ -496,11 +502,15 @@
 }
 
 - (void)onSelectCategory:(id)sender {
+    [self pushOp:opNone];           //DID:34343209 show result when click SelectCategory
+    [self syncUi];
     [self switchFloatingView: catViewController.view];
     [catViewController viewDidAppear:YES];
 }
 
 - (void)onPickDate:(id)sender {
+    [self pushOp:opNone];           //DID:34343209 show result when click Date
+    [self syncUi];
     UIDatePicker* picker = (UIDatePicker*)[datePickerView viewWithTag:2];
     picker.date = self.currentDate;
     [self switchFloatingView: datePickerView];
@@ -561,6 +571,8 @@
 }
 
 - (void)onPickPhoto:(id)sender {
+    [self pushOp:opNone];           //DID:34343209 show result when click Photo
+    [self syncUi];
     UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"用户相册", nil]autorelease];
     actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
     [actionSheet showInView: self.view];
