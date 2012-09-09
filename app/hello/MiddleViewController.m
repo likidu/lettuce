@@ -121,8 +121,12 @@
     }
     else
         [self presentView:view];
-    
+
+    if ([activeFloatingView isEqual:catViewController.view])
+        catViewController.silent = YES;
     activeFloatingView = view;
+    if ([view isEqual:catViewController.view])
+        catViewController.silent = NO;
 }
 
 - (void)onCancel:(id)sender {
@@ -217,7 +221,6 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.inputText = nil;
     self.currentDate = nil;
     self.imageUnknown = nil;
@@ -237,7 +240,9 @@
     self.imageView = nil;
     self.frameView = nil;
     self.datePicker = nil;
-    self.formulaLabel = nil;}
+    self.formulaLabel = nil;
+    [super dealloc];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -483,7 +488,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:catViewController.view];
     catViewController.view.frame = inputPlaceHolder.frame;
-    [catViewController loadButtons];
+    [CategoryManager instance].needReloadCategory = YES;
     catViewController.view.hidden = YES;
     catViewController.delegate = self;
     

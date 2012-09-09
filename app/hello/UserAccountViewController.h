@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserAccountViewController : UIViewController
-+(UserAccountViewController*) instance;
+@interface UserAccountViewController : UIViewController<UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource>
+
 @property (retain, nonatomic) IBOutlet UIWebView *sinaWebView;
+@property (retain, nonatomic) IBOutlet UIView *loginView;
+@property (retain, nonatomic) IBOutlet UIView *backupView;
+
+@property (retain, nonatomic) IBOutlet UITableView *backupAndRestore;
+@property (retain, nonatomic) IBOutlet UILabel *labelStatus;
+@property(nonatomic, retain) UIImage *imgBackup;
+@property(nonatomic, retain) UIImage *imgRestore;
+
++ (UserAccountViewController *) instance;
+
 @end

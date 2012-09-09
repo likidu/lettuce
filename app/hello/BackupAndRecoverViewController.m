@@ -14,11 +14,12 @@
 @end
 
 static BackupAndRecoverViewController* _instance = nil;
-
+static NSString * BackupTimeKey = @"BackupAndRecoverTime";
 @implementation BackupAndRecoverViewController
 @synthesize backupAndRestore;
 @synthesize imgBackup;
 @synthesize imgRestore;
+@synthesize labelStatus;
 
 + (BackupAndRecoverViewController *) instance {
     if (_instance == nil){
@@ -56,9 +57,21 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)viewDidUnload
 {
     [self setBackupAndRestore:nil];
+    [self setLabelStatus:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    NSString* status = [[NSUserDefaults standardUserDefaults]stringForKey:BackupTimeKey];
+    if (status) {
+        [self.labelStatus setHidden:NO]; 
+    }else {
+        [self.labelStatus setHidden:YES];
+    }
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -68,9 +81,10 @@ static BackupAndRecoverViewController* _instance = nil;
 
 - (void)dealloc {
     [backupAndRestore release];
+    [imgBackup release];
+    [imgRestore release];
+    [labelStatus release];
     [super dealloc];
-    self.imgBackup = nil;
-    self.imgRestore = nil;
 }
 
 #pragma mark - Table view
@@ -127,13 +141,13 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            [self presentModalViewController:[UserAccountViewController instance] animated:YES];            
+            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];            
         }
             
     }
     else if (indexPath.section == 1) {  
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            [self presentModalViewController:[UserAccountViewController instance] animated:YES];
+            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
         }
     } 
     

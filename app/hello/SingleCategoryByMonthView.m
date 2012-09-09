@@ -10,6 +10,7 @@
 #import "Statistics.h"
 #import "CategoryManager.h"
 #import "ExpenseManager.h"
+#import "RootViewController.h"
 
 @implementation SingleCategoryByMonthView
 
@@ -61,6 +62,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self refresh];
     [self refreshUi];
 }
 
@@ -106,6 +108,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // goto the transaction dialog to edit the selected item
+    Expense* expense = (Expense*)[self.expenses objectAtIndex:indexPath.row];
+    UIApplication* app = [UIApplication sharedApplication];
+    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
+    [rootView presentAddTransactionDialog:expense];
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel* label = (UILabel*)[cell viewWithTag:kCellAmount];
+    label.hidden = YES;
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel* label = (UILabel*)[cell viewWithTag:kCellAmount];
+    label.hidden = NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // delete expense record from database
+        Expense* exp = [self.expenses objectAtIndex:indexPath.row];
+        [[ExpenseManager instance]deleteExpenseById:exp.expenseId];
+        [self.expenses removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 #pragma mark - view option responder
@@ -118,8 +147,12 @@
     [self refresh];    
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
 - (void)refresh {
-    self.expenses = [Statistics getExpensesOfCategory:self.categoryId fromDate:self.startDate toDate:self.endDate];
+    self.expenses = [NSMutableArray arrayWithArray:[Statistics getExpensesOfCategory:self.categoryId fromDate:self.startDate toDate:self.endDate]];
 }
 
 @end

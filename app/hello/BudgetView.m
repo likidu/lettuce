@@ -7,20 +7,11 @@
 //
 
 #import "BudgetView.h"
-#import "BudgetManager.h"
+#import "PlanManager.h"
 
 @implementation BudgetView
 
 @synthesize uiBudgetEditBox;
-@synthesize uiVacationBudgetEditBox;
-
-static BudgetView* g_budgetView = nil;
-
-+ (BudgetView *)instance {
-    if (!g_budgetView)
-        g_budgetView = [[BudgetView alloc]initWithNibName:@"BudgetView" bundle:[NSBundle mainBundle]];
-    return g_budgetView;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,13 +23,9 @@ static BudgetView* g_budgetView = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    BudgetManager* budMan = [BudgetManager instance];
-    double budget = [budMan getCurrentBudget];
-    double vacationBudget = [budMan getCurrentVacationBudget];
+    double budget = [PlanManager getBudgetOfMonth:[NSDate date]];
     uiBudgetEditBox.placeholder = [NSString stringWithFormat: @"¥ %.2f", budget];
     uiBudgetEditBox.text = nil;
-    uiVacationBudgetEditBox.placeholder = [NSString stringWithFormat: @"¥ %.2f", vacationBudget];
-    uiVacationBudgetEditBox.text = nil;
     [uiBudgetEditBox becomeFirstResponder];
 }
 
@@ -47,27 +34,25 @@ static BudgetView* g_budgetView = nil;
 }
 
 - (void)onSave:(id)sender {
-    BudgetManager* budMan = [BudgetManager instance];
-    double budget = [uiBudgetEditBox.text doubleValue];
-    double vacationBudget = [uiVacationBudgetEditBox.text doubleValue];
-    if (budget <= 0.0 && vacationBudget <= 0.0)
-        return;
-    
-    if (budget <= 0.0)
-        budget = [budMan getCurrentBudget];
-    if (vacationBudget <= 0.0)
-        vacationBudget = [budMan getCurrentVacationBudget];
+    if (![uiBudgetEditBox.text isEqualToString:@""]) {
+        double budget = [uiBudgetEditBox.text doubleValue];
+        if (budget <= 0.0) {
+            UIAlertView* alert = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"月预算不能为零或负数" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil]autorelease];
+            [alert show];
+            return;
+        }
 
-    [budMan setBudgetOfDay:[NSDate date] withAmount:budget withVacationAmount:vacationBudget];
+        [PlanManager setBudget:budget ofMonth:[NSDate date]];
+    }
 
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)dealloc
 {
-    [super dealloc];
     self.uiBudgetEditBox = nil;
-    self.uiVacationBudgetEditBox = nil;}
+    [super dealloc];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -86,12 +71,9 @@ static BudgetView* g_budgetView = nil;
 }
 
 - (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+{    
     self.uiBudgetEditBox = nil;
-    self.uiVacationBudgetEditBox = nil;
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

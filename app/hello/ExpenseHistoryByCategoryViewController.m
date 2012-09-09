@@ -79,13 +79,13 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.startDate = nil;
     self.endDate = nil;
     self.expenseData = nil;
     self.totalData = nil;
     self.expenses = nil;
     self.categories = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

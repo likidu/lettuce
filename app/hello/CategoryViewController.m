@@ -20,22 +20,23 @@ CGSize categoryButtonSize = {60, 72};
 @synthesize pageControl;
 @synthesize delegate;
 @synthesize topCategoryIndicator;
+@synthesize silent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.silent = YES;
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [super dealloc];
     self.topCategoryIndicator = nil;
     self.scrollView = nil;
     self.pageControl = nil;
+    [super dealloc];
 }
 
 - (void)removeAllCategoryButtons {
@@ -64,7 +65,7 @@ CGSize categoryButtonSize = {60, 72};
     UIColor * colorHighlight = [UIColor colorWithRed:76.0/255.0 green:108.0/255.0 blue:0.0 alpha:1.0];
     
     CategoryManager* catMan = [CategoryManager instance];
-    [catMan loadCategoryDataFromDatabase:NO];
+    [catMan loadCategoryDataFromDatabase:[CategoryManager instance].needReloadCategory];
     
     int activePageCount = 0;
 
@@ -119,7 +120,8 @@ CGSize categoryButtonSize = {60, 72};
     CGRect visibleRect = scrollView.frame;
     visibleRect.origin.x = frame.size.width * pageControl.currentPage;
     visibleRect.origin.y = 0;
-    [scrollView scrollRectToVisible:visibleRect animated:NO];
+    [scrollView scrollRectToVisible:visibleRect animated:NO];    
+    [CategoryManager instance].needReloadCategory = NO;
 }
 
 - (void)awakeFromNib {
@@ -146,7 +148,9 @@ CGSize categoryButtonSize = {60, 72};
 */
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    if ([CategoryManager instance].needReloadCategory) {
+        [self loadButtons];
+    }
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -161,6 +165,7 @@ CGSize categoryButtonSize = {60, 72};
     label.textColor = [UIColor whiteColor];
     label.hidden = YES;
     self.topCategoryIndicator = label;
+    self.silent = YES;
 
     [self.view.superview insertSubview:label belowSubview:self.view];
     [self.view addObserver:self forKeyPath:@"frame" options:NSKeyValueChangeSetting context:nil];
@@ -168,7 +173,9 @@ CGSize categoryButtonSize = {60, 72};
 }
 
 - (void)showTopCategoryIndicator {
-    static int currentShowingPage = -1;
+    static int currentShowingPage = 0;
+    if (self.silent)
+        return;
     if (pageControl.currentPage == currentShowingPage)
         return;
     if (currentShowingPage > 0 && pageControl.currentPage > 0)

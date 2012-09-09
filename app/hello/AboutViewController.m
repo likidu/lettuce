@@ -25,9 +25,9 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.contentView = nil;
     self.scrollView = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,11 +50,11 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.contentView = nil;
     self.scrollView = nil;
+    [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

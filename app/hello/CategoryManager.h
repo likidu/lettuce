@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString *iconName;
 @property (nonatomic, retain) NSString *hilitedIconName;
 @property (nonatomic, retain) NSString *smallIconName;
-
+@property (nonatomic, retain) NSString *categoryIconName;
 @end
 
 
@@ -34,6 +34,7 @@
 @property (nonatomic, retain) NSArray *categoryCollection;
 @property (nonatomic, retain) NSDictionary* categoryDictionary;
 @property (nonatomic, retain) NSArray *topCategoryCollection;
+@property (nonatomic) BOOL needReloadCategory;
 
 - (BOOL)loadCategoryDataFromDatabase : (BOOL)forceReload;
 - (UIImage*)iconNamed:(NSString*)iconName;

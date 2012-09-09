@@ -13,7 +13,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *backupAndRestore;
-
+@property (retain, nonatomic) IBOutlet UILabel *labelStatus;
 @property(nonatomic, retain) UIImage* imgBackup;
 @property(nonatomic, retain) UIImage* imgRestore;
 

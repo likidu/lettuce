@@ -39,10 +39,10 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.startDate = nil;
     self.endDate = nil;
     self.expenses = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

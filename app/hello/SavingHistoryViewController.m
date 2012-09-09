@@ -64,12 +64,12 @@
 
 - (void)dealloc
 {
-    [super dealloc];
     self.startDate = nil;
     self.endDate = nil;
     self.dates = nil;
     self.budgets = nil;
     self.totals = nil;
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning

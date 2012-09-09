@@ -26,6 +26,8 @@
 @property (nonatomic, retain) IBOutlet UIPageControl* pageControl;
 @property (nonatomic, retain) UIView* topCategoryIndicator;
 
+@property (nonatomic, assign) BOOL silent;
+
 - (IBAction)categorySelected:(id)sender;
 - (void)loadButtons;
 - (void)resetState:(int)selectedCatId;

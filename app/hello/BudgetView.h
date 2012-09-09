@@ -14,11 +14,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITextField* uiBudgetEditBox;
-@property (nonatomic, retain) IBOutlet UITextField* uiVacationBudgetEditBox;
 
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onSave:(id)sender;
-
-+ (BudgetView*)instance;
 
 @end
