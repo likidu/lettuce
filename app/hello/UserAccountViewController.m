@@ -10,10 +10,11 @@
 #import "NSString+Helper.h"
 #import "UIAlertView+Helper.h"
 #import "Utility.h"
+#import "ConfigurationManager.h"
+#import "WoojuuData.h"
+#import "WoojuuDataManager.h"
 
 #define STATUS_FORMATTEXT @"%@你好\n上次备份时间为%@"
-#define BACKUP_TIME_KEY @"LastBackupAndRecoverTime"
-#define WEIBO_USERNAME_KEY @"LastLoginWeiboUserName"
 @interface UserAccountViewController ()
 
 @end
@@ -236,9 +237,13 @@ static UserAccountViewController* _instance = nil;
         }else {
             //Popup please wait dialog, showing backup is in progress
             [UIAlertView showWaitNotification:@"正在备份，请稍候"];
+            //Post data to the cloud
+            WoojuuData *data = [WoojuuDataManager getWoojuuData];
+            NSLog(@"%@", data);
             //When finished, set status
             NSString *currrentTime = formatDateToString([NSDate date], @"yyyy-MM-dd hh:mm", [NSTimeZone localTimeZone]);
             [[NSUserDefaults standardUserDefaults]setObject:currrentTime forKey:BACKUP_TIME_KEY];
+            [UIAlertView showMessage:@"备份已成功"];
             [self refreshStatusLabel];
         }
         
@@ -248,7 +253,11 @@ static UserAccountViewController* _instance = nil;
             //Show loginView
             [self showAuthenticationPage];
         }else {
+            //Restore data from cloud
+            
             //Popup dialog, showing restore is in progress
+            [UIAlertView showWaitNotification:@"正在恢复，请稍候"];
+            [UIAlertView showMessage:@"恢复已成功\n重启莴苣以使恢复生效"];
         }
     } 
     

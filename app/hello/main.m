@@ -20,6 +20,9 @@ int main(int argc, char *argv[])
     NSString *docDir = [paths objectAtIndex:0];
     NSString *dbPath = [docDir stringByAppendingPathComponent: @"db.sqlite"];
     NSFileManager* fileManager = [NSFileManager defaultManager];
+    
+    //TO BE ADDED: replace with the cloud one @liangying
+    
     if (![fileManager fileExistsAtPath: dbPath])
     {
         NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"dbtemplate" ofType:@"sqlite"];

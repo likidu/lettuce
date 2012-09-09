@@ -7,6 +7,7 @@
 //
 #import "Utility.h"
 #import "AccountingReminderViewController.h"
+#import "ConfigurationManager.h"
 
 @interface AccountingReminderViewController ()
 @end
@@ -27,9 +28,6 @@
 @synthesize currentTimeIndex;
 @synthesize reminderTimeMask;
 
-static NSString * ReminderSwitchKey = @"ActiveAccountingReminderOn";
-static NSString * ReminderTypeKey = @"ActiveAccountingReminderType";
-static NSString * ReminderTimeKey = @"ActiveAccountingReminderTime";
 const int ReminderIntervalMinutes = 30;
 const int BITNUMBER = 16;
 
@@ -54,7 +52,7 @@ const int BITNUMBER = 16;
 }
 
 - (IBAction)onSwitch:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults]setBool:yesNoSwitch.on forKey:ReminderSwitchKey];
+    [[NSUserDefaults standardUserDefaults]setBool:yesNoSwitch.on forKey:REMINDER_SWITCH_KEY];
     [accountingReminderTableView reloadData];
 
     if (!yesNoSwitch.on) {
@@ -77,12 +75,12 @@ const int BITNUMBER = 16;
     self.reminderTypeData = [NSArray arrayWithObjects:@"每日提醒",@"每周提醒", nil];
     self.dailyTimeData = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
     self.weeklyData = getWeekdayStringArray();
-    self.currentReminderType = [[NSUserDefaults standardUserDefaults]integerForKey:ReminderTypeKey];
+    self.currentReminderType = [[NSUserDefaults standardUserDefaults]integerForKey:REMINDER_TYPE_KEY];
     self.currentTimeIndex = 0;
     self.currentWeekIndex = 0;
     // The formula for Mask: Mask = WeekIndex << 16 + TimeIndex
     // Assume TimeIndex is less than 1000 (currently is 48)
-    self.reminderTimeMask = [[NSUserDefaults standardUserDefaults]doubleForKey:ReminderTimeKey];
+    self.reminderTimeMask = [[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
     self.reminderTimeMask = self.reminderTimeMask ? self.reminderTimeMask : 0;
     [self setCurrentIndexFromReminderMask:self.reminderTimeMask];
     [self hidePickers];
@@ -107,7 +105,7 @@ const int BITNUMBER = 16;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    yesNoSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:ReminderSwitchKey];    
+    yesNoSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:REMINDER_SWITCH_KEY];    
     detailedReminderTableView.hidden = !yesNoSwitch.on;  
     [self.itemPicker selectRow:self.currentReminderType inComponent:0 animated:NO];
     [self.weeklyPicker selectRow:self.currentWeekIndex inComponent:0 animated:NO];
@@ -345,7 +343,7 @@ const int BITNUMBER = 16;
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if (pickerView == itemPicker) {
         self.currentReminderType = row;
-        [[NSUserDefaults standardUserDefaults]setInteger:self.currentReminderType forKey:ReminderTypeKey];
+        [[NSUserDefaults standardUserDefaults]setInteger:self.currentReminderType forKey:REMINDER_TYPE_KEY];
     }else if(pickerView == dailyPicker){
         self.currentTimeIndex = row;
     }else if(pickerView == weeklyPicker){
@@ -357,7 +355,7 @@ const int BITNUMBER = 16;
     }
     
     self.reminderTimeMask = [self getReminderMaskFromReminderIndex:self.currentWeekIndex :self.currentTimeIndex];
-    [[NSUserDefaults standardUserDefaults]setDouble:self.reminderTimeMask forKey:ReminderTimeKey];
+    [[NSUserDefaults standardUserDefaults]setDouble:self.reminderTimeMask forKey:REMINDER_TIME_KEY];
     [self setNotification];
     [self.detailedReminderTableView reloadData];    
 }

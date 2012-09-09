@@ -10,6 +10,8 @@
 
 @interface UIAlertView (Helper)
 
-+ (void)showError:(NSString* )message, ...;
++ (void) showError:(NSString* )message, ...;
++ (void) showMessage: (NSString *) message, ...;
 + (void) showWaitNotification: (NSString *) message, ...;
+
 @end

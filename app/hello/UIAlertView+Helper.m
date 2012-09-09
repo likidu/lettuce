@@ -31,7 +31,27 @@
     [formattedMessage release];
 }
 
-//To be modified to support Callback
++ (void) showMessage:(NSString *)message, ...
+{
+    va_list args;
+    va_start(args, message);
+    
+    NSString* formattedMessage;
+    message = formattedMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    
+    va_end(args);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
+                                                    message:nil
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"知道了" 
+                                          otherButtonTitles:nil];
+    
+    [alert show];
+    [alert release];    
+    [formattedMessage release];
+}
+
 + (void) showWaitNotification: (NSString *) message, ...
 {   
     va_list args;
@@ -56,7 +76,7 @@
     [indicator release];
     
     //To be modified for Callback
-    [NSThread sleepForTimeInterval:1];
+    //[NSThread sleepForTimeInterval:1];
     [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 

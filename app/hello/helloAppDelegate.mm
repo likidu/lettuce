@@ -14,6 +14,7 @@
 #import "LocationManager.h"
 #import "FlurryAnalytics.h"
 #import "PasscodeView.h"
+#import "ConfigurationManager.h"
 
 void uncaughtExceptionHandler(NSException* exception) {
     [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
@@ -69,7 +70,7 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"]) {
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY]) {
         UIApplication* app = [UIApplication sharedApplication];
         RootViewController* vc = (RootViewController*)app.keyWindow.rootViewController;
         [vc presentAddTransactionDialog:nil];

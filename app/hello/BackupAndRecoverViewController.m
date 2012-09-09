@@ -8,13 +8,13 @@
 
 #import "BackupAndRecoverViewController.h"
 #import "UserAccountViewController.h"
+#import "ConfigurationManager.h"
 
 @interface BackupAndRecoverViewController ()
 - (void)initImages;
 @end
 
 static BackupAndRecoverViewController* _instance = nil;
-static NSString * BackupTimeKey = @"BackupAndRecoverTime";
 @implementation BackupAndRecoverViewController
 @synthesize backupAndRestore;
 @synthesize imgBackup;
@@ -65,7 +65,7 @@ static NSString * BackupTimeKey = @"BackupAndRecoverTime";
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    NSString* status = [[NSUserDefaults standardUserDefaults]stringForKey:BackupTimeKey];
+    NSString* status = [[NSUserDefaults standardUserDefaults]stringForKey:BACKUP_TIME_KEY];
     if (status) {
         [self.labelStatus setHidden:NO]; 
     }else {

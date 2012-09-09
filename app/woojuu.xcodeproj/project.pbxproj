@@ -604,6 +604,10 @@
 		B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */; };
 		B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */; };
 		B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */; };
+		B0629BAE15FC968F00749C98 /* CloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BAD15FC968E00749C98 /* CloudManager.m */; };
+		B0629BB115FC99B800749C98 /* WoojuuDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB015FC99B700749C98 /* WoojuuDataManager.m */; };
+		B0629BB415FC9A1500749C98 /* WoojuuData.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB315FC9A1400749C98 /* WoojuuData.m */; };
+		B0629BB715FCC7DC00749C98 /* ConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */; };
 		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
 		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
 		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
@@ -1341,6 +1345,14 @@
 		B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAuthManager.m; sourceTree = "<group>"; };
 		B0629B9215FBA02200749C98 /* WoojuuServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuServiceClient.h; sourceTree = "<group>"; };
 		B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuServiceClient.m; sourceTree = "<group>"; };
+		B0629BAC15FC968E00749C98 /* CloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudManager.h; sourceTree = "<group>"; };
+		B0629BAD15FC968E00749C98 /* CloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudManager.m; sourceTree = "<group>"; };
+		B0629BAF15FC99B700749C98 /* WoojuuDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuDataManager.h; sourceTree = "<group>"; };
+		B0629BB015FC99B700749C98 /* WoojuuDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuDataManager.m; sourceTree = "<group>"; };
+		B0629BB215FC9A1400749C98 /* WoojuuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuData.h; sourceTree = "<group>"; };
+		B0629BB315FC9A1400749C98 /* WoojuuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuData.m; sourceTree = "<group>"; };
+		B0629BB515FCC7D900749C98 /* ConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationManager.h; sourceTree = "<group>"; };
+		B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationManager.m; sourceTree = "<group>"; };
 		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
 		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
 		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
@@ -1889,6 +1901,8 @@
 				1A459D79138799A100036EC2 /* Arts */,
 				1A0580AA137546D700933267 /* Category Icons */,
 				1A1EA70315FC64600083D8F3 /* constants.h */,
+				B0629BB515FCC7D900749C98 /* ConfigurationManager.h */,
+				B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */,
 				B0629B6315FB83DF00749C98 /* Helper */,
 				B0EC9FF8157A69F400903063 /* Settings */,
 				B0629B7C15FB862B00749C98 /* ServiceClient */,
@@ -2166,6 +2180,12 @@
 				B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */,
 				B0629B8F15FB9FE100749C98 /* WeiboAuthManager.h */,
 				B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */,
+				B0629BAC15FC968E00749C98 /* CloudManager.h */,
+				B0629BAD15FC968E00749C98 /* CloudManager.m */,
+				B0629BAF15FC99B700749C98 /* WoojuuDataManager.h */,
+				B0629BB015FC99B700749C98 /* WoojuuDataManager.m */,
+				B0629BB215FC9A1400749C98 /* WoojuuData.h */,
+				B0629BB315FC9A1400749C98 /* WoojuuData.m */,
 			);
 			name = ServiceClient;
 			sourceTree = "<group>";
@@ -2925,6 +2945,10 @@
 				B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */,
 				B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */,
 				B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */,
+				B0629BAE15FC968F00749C98 /* CloudManager.m in Sources */,
+				B0629BB115FC99B800749C98 /* WoojuuDataManager.m in Sources */,
+				B0629BB415FC9A1500749C98 /* WoojuuData.m in Sources */,
+				B0629BB715FCC7DC00749C98 /* ConfigurationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

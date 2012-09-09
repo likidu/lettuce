@@ -7,6 +7,7 @@
 //
 
 #import "PasscodeView.h"
+#import "ConfigurationManager.h"
 
 @implementation PasscodeView
 
@@ -18,7 +19,7 @@
 @synthesize textField;
 
 + (void)checkPasscode {
-    NSString* passcode = [[NSUserDefaults standardUserDefaults]stringForKey:@"Passcode"];
+    NSString* passcode = [[NSUserDefaults standardUserDefaults]stringForKey:PASSWORD_KEY];
     if (!passcode || passcode.length != 4)
         return;
     
@@ -28,7 +29,7 @@
 }
 
 + (void)setPasscode {
-    [[NSUserDefaults standardUserDefaults]setValue:@"8223" forKey:@"Passcode"];
+    [[NSUserDefaults standardUserDefaults]setValue:@"8223" forKey:PASSWORD_KEY];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -114,7 +115,7 @@ bool isInternalSetText = false;
 }
 
 - (void)verifyPasscode {
-    NSString* code = [[NSUserDefaults standardUserDefaults]stringForKey:@"Passcode"];
+    NSString* code = [[NSUserDefaults standardUserDefaults]stringForKey:PASSWORD_KEY];
     if ([userInputText compare: code] == NSOrderedSame)
         [self dismissModalViewControllerAnimated:YES];
     else {

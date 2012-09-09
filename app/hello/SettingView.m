@@ -13,6 +13,8 @@
 #import "UserAccountViewController.h"
 #import "AccountingReminderViewController.h"
 #import "ReorderCategoryViewController.h"
+#import "ConfigurationManager.h"
+
 @implementation SettingView
 
 @synthesize settingTableView;
@@ -76,7 +78,7 @@
 }
 
 - (void)onSwitch {
-    [[NSUserDefaults standardUserDefaults]setBool:yesNoSwitch.on forKey:@"TransactionViewAtStartup"];
+    [[NSUserDefaults standardUserDefaults]setBool:yesNoSwitch.on forKey:TRANSACTIONVIEW_STARTUP_KEY];
     [self.settingTableView reloadData];
 }
 
@@ -106,7 +108,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    yesNoSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"];
+    yesNoSwitch.on = [[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY];
     [settingTableView reloadData];
 }
 
@@ -149,12 +151,12 @@
             case 2:
                 cell.textLabel.text = @"记账提醒";
                 cell.imageView.image = imgReminder;  
-                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:@"ActiveAccountingReminderOn"] ? @"开启": @"关闭";
+                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:REMINDER_SWITCH_KEY] ? @"开启": @"关闭";
                 break;
             case 3:
                 cell.textLabel.text = @"密码保护";
                 cell.imageView.image = imgPassword;  
-                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:@"ActivePassword"] ? @"开启": @"关闭";
+                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:ACTIVE_PASSWORD_KEY] ? @"开启": @"关闭";
                 break;       
             case 4:
                 cell.textLabel.text = @"快速记账";
@@ -226,7 +228,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == 0){
-        if([[NSUserDefaults standardUserDefaults]boolForKey:@"TransactionViewAtStartup"] == true){
+        if([[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY] == true){
             return @"每次打开程序直接开始记账";      
         }
     }
