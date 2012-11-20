@@ -102,11 +102,7 @@
     id<NavigationItem> item = nil;
     item = [[[WelcomeView alloc]initWithNibName:@"WelcomeView" bundle:[NSBundle mainBundle]]autorelease];
     [items addObject:item];
-    //item = [[[MonthlyIncomeView alloc]initWithNibName:@"MonthlyIncomeView" bundle:[NSBundle mainBundle]]autorelease];
-    //[items addObject:item];
     item = [[[MonthlyBudgetView alloc]initWithNibName:@"MonthlyBudgetView" bundle:[NSBundle mainBundle]]autorelease];
-    [items addObject:item];
-    item = [[[NewFeaturesView alloc]initWithNibName:@"NewFeaturesView" bundle:[NSBundle mainBundle]]autorelease];
     [items addObject:item];
     self.navigationItems = items;
     self.activeItemIndex = 0;

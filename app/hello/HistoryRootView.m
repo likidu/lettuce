@@ -150,7 +150,7 @@
     }
 
     [self.yearPicker reloadAllComponents];
-    int selectedIndex = [self.availableYears indexOfObjectIdenticalTo:self.currentYear];
+    int selectedIndex = [self.availableYears indexOfObject:self.currentYear];
     [self.yearPicker selectRow:selectedIndex inComponent:0 animated:NO];
     [self.fullScreenController presentView:self.yearPicker];
 }

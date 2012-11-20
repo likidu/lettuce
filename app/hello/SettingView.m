@@ -165,12 +165,6 @@
                 break;
         }
     }
-    else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"备份与恢复";
-            cell.imageView.image = imgBackup;
-        }
-    }
     else {
         // about view
         cell.textLabel.text = @"关于";
@@ -181,7 +175,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 #pragma mark - Table view delegate
@@ -198,15 +192,7 @@
             [self presentViewController:[AccountingReminderViewController instanceFromNib] animated:YES completion:nil];
         }
     }
-    else if (indexPath.section == 1) {  
-        if (indexPath.row == 0){
-            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
-        }
-        else if (indexPath.row == 1){
-            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
-        }
-    }
-    else if (indexPath.section == 2){
+    else if (indexPath.section == 1){
         if (indexPath.row == 0) {
             [self presentViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES completion:nil];
         }
@@ -218,9 +204,6 @@
     if (section == 0) {
         return @"常规";
     }
-    else if (section == 1){
-        return @"云备份";
-    }
     else{
         return @"其他";
     }
@@ -228,9 +211,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == 0){
-        if([[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY] == true){
-            return @"每次打开程序直接开始记账";      
-        }
+        return @"每次打开程序直接开始记账";
     }
 
     return @"";    
