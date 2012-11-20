@@ -18,11 +18,6 @@
 @synthesize categoryArray;
 @synthesize topCategoryArray;
 
-+ (ReorderCategoryViewController*) createInstance{
-    ReorderCategoryViewController* instance = [[[ReorderCategoryViewController alloc]initWithNibName:@"ReorderCategoryViewController" bundle:[NSBundle mainBundle]]autorelease];
-    return instance;
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

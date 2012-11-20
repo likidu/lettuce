@@ -50,3 +50,9 @@ woojuu.xcodeproj/project.xcworkspace/xcuserdata/BigMac.xcuserdatad/UserInterface
 *.xcscheme
 
 *.plist
+
+app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcschemes/xcschememanagement.plist
+
+app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
+app/woojuu.xcodeproj/project.xcworkspace/xcuserdata/BigMac.xcuserdatad/UserInterfaceState.xcuserstate

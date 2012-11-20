@@ -12,5 +12,5 @@
 @property (retain, nonatomic) IBOutlet UITableView *categoryTableView;
 @property (retain, nonatomic) NSMutableArray* categoryArray;
 @property (retain, nonatomic) NSMutableArray* topCategoryArray;
-+ (ReorderCategoryViewController*) createInstance;
+
 @end

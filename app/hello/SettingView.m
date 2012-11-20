@@ -192,10 +192,10 @@
             [self presentModalViewController:[BudgetView instanceFromNib] animated:YES];
         }
         else if (indexPath.row == 1){
-            [self presentViewController:[ReorderCategoryViewController createInstance] animated:YES completion:nil];
+            [self presentViewController:[ReorderCategoryViewController instanceFromNib] animated:YES completion:nil];
         }
         else if (indexPath.row == 2){
-            [self presentViewController:[AccountingReminderViewController createInstance] animated:YES completion:nil];
+            [self presentViewController:[AccountingReminderViewController instanceFromNib] animated:YES completion:nil];
         }
     }
     else if (indexPath.section == 1) {  

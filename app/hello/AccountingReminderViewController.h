@@ -30,6 +30,6 @@ enum  ReminderType{
 @property enum ReminderType currentReminderType;
 @property NSUInteger currentWeekIndex;
 @property NSUInteger currentTimeIndex;
-+ (AccountingReminderViewController*) createInstance;
+
 @end
 

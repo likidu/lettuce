@@ -31,11 +31,6 @@
 const int ReminderIntervalMinutes = 30;
 const int BITNUMBER = 16;
 
-+ (AccountingReminderViewController*) createInstance{
-    AccountingReminderViewController* instance = [[AccountingReminderViewController alloc]initWithNibName:@"ActiveAccountingReminderViewController" bundle:[NSBundle mainBundle]];
-    return instance;
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
