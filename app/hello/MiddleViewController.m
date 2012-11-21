@@ -504,6 +504,10 @@
     
     self.imageNoteViewController = [[UIImageNoteViewController alloc]initWithNibName:@"UIImageNoteViewController" bundle:[NSBundle mainBundle]];
     imageNoteViewController.delegate = self;
+    
+    // rotate the image view
+    CGAffineTransform rotation = CGAffineTransformMakeRotation(3.14 * 0.25);
+    self.imageView.transform = rotation;
 }
 
 - (void)onSelectCategory:(id)sender {
