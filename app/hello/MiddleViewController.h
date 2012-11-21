@@ -73,7 +73,6 @@ typedef enum _Operator {
 @property(nonatomic, retain) IBOutlet UIButton* imageButton;
 @property(nonatomic, retain) IBOutlet UIButton* imageEditButton;
 @property(nonatomic, retain) IBOutlet UIImageView* imageView;
-@property(nonatomic, retain) IBOutlet UIImageView* frameView;
 @property(nonatomic, retain) IBOutlet UIDatePicker* datePicker;
 @property(nonatomic, retain) IBOutlet UILabel* formulaLabel;
 

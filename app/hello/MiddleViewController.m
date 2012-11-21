@@ -28,7 +28,6 @@
 @synthesize datePickerView;
 @synthesize imageButton;
 @synthesize imageView;
-@synthesize frameView;
 @synthesize datePicker;
 @synthesize editingItem;
 @synthesize imageEditButton;
@@ -238,7 +237,6 @@
     self.imageButton = nil;
     self.imageEditButton = nil;
     self.imageView = nil;
-    self.frameView = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
     [super dealloc];
@@ -441,7 +439,6 @@
     if (!editingItem || editingItem.pictureRef == nil || editingItem.pictureRef.length == 0) {
         imageView.image = nil;
         imageView.hidden = YES;
-        frameView.hidden = YES;
         imageEditButton.hidden = YES;
         imageButton.hidden = NO;
     }
@@ -449,7 +446,6 @@
         UIImage* image = [[ExpenseManager instance]loadImageNote:editingItem.pictureRef];
         imageView.image = image;
         imageView.hidden = NO;
-        frameView.hidden = NO;
         imageButton.hidden = YES;
         imageEditButton.hidden = NO;
     }
@@ -506,7 +502,7 @@
     imageNoteViewController.delegate = self;
     
     // rotate the image view
-    CGAffineTransform rotation = CGAffineTransformMakeRotation(3.14 * 0.25);
+    CGAffineTransform rotation = CGAffineTransformMakeRotation(3.14 * -0.165);
     self.imageView.transform = rotation;
 }
 
@@ -550,7 +546,6 @@
     imageButton.hidden = YES;
     imageEditButton.hidden = NO;
     imageView.hidden = NO;
-    frameView.hidden = NO;
     imageUpdated_ = YES;
 }
 
@@ -592,7 +587,6 @@
 - (void)imageDeleted {
     imageView.image = nil;
     imageView.hidden = YES;
-    frameView.hidden = YES;
     imageEditButton.hidden = YES;
     imageButton.hidden = NO;
     imageUpdated_ = YES;
@@ -601,7 +595,7 @@
 - (void)onImageEditButton {
     imageNoteViewController.delegate = self;
     imageNoteViewController.imageNote = imageView.image;
-    [[self rootViewController]presentModalViewController:imageNoteViewController animated:YES];
+    [self presentModalViewController:imageNoteViewController animated:YES];
 }
 
 - (void)viewDidUnload
@@ -621,7 +615,6 @@
     self.imageButton = nil;
     self.imageEditButton = nil;
     self.imageView = nil;
-    self.frameView = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
     needReset_ = YES;

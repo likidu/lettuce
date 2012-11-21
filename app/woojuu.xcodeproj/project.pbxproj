@@ -97,7 +97,7 @@
 		1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4413F2C47C007BC798 /* MainWindow.xib */; };
 		1A6B5E4513F2C48E007BC798 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4613F2C48E007BC798 /* FirstView.xib */; };
 		1A6B5E4713F2C495007BC798 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4813F2C495007BC798 /* SecondView.xib */; };
-		1A6B5E4913F2C49D007BC798 /* MiddleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */; };
+		1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */; };
 		1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */; };
 		1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */; };
 		1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */; };
@@ -707,7 +707,7 @@
 		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1A6B5E4613F2C48E007BC798 /* FirstView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
 		1A6B5E4813F2C495007BC798 /* SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondView.xib; sourceTree = "<group>"; };
-		1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleViewController.xib; sourceTree = "<group>"; };
+		1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleView.xib; sourceTree = "<group>"; };
 		1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
 		1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
@@ -1827,7 +1827,7 @@
 				1AF2476114934E660010B65E /* TodayViewController.xib */,
 				1AAD13B7132BB5770035BA92 /* MiddleViewController.h */,
 				1AAD13B8132BB5770035BA92 /* MiddleViewController.m */,
-				1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */,
+				1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */,
 				1A0AE6D4155A973600B5C4DC /* HistoryRootView.h */,
 				1A0AE6D5155A973600B5C4DC /* HistoryRootView.m */,
 				1A0AE6D6155A973600B5C4DC /* HistoryRootView.xib */,
@@ -2125,7 +2125,7 @@
 				1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */,
 				1A6B5E4513F2C48E007BC798 /* FirstView.xib in Resources */,
 				1A6B5E4713F2C495007BC798 /* SecondView.xib in Resources */,
-				1A6B5E4913F2C49D007BC798 /* MiddleViewController.xib in Resources */,
+				1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */,
 				1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */,
 				1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */,
 				1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */,
