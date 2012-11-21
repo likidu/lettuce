@@ -498,6 +498,15 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
     return rootVc;
 }
 
++ (UIViewController*)topViewController {
+    UIApplication* app = [UIApplication sharedApplication];
+    UIViewController* topVc = app.keyWindow.rootViewController;
+    while (topVc.presentedViewController) {
+        topVc = topVc.presentedViewController;
+    }
+    return topVc;
+}
+
 @end
 
 @implementation UIView(FirstResponder)

@@ -59,7 +59,7 @@ typedef enum _Operator {
 - (IBAction)onSelectCategory:(id)sender;
 - (IBAction)onPickDate:(id)sender;
 - (IBAction)onDateChanged:(id)sender;
-- (IBAction)onPickPhoto:(id)sender;
+- (IBAction)onPickPhoto;
 - (IBAction)onImageEditButton;
 
 @property(nonatomic, retain) IBOutlet UITextView* uiNotes;

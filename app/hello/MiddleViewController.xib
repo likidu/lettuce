@@ -297,7 +297,7 @@
 						<string key="NSFrame">{{101, 150}, {134, 76}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="841422506"/>
+						<reference key="NSNextKeyView" ref="524520388"/>
 						<reference key="IBUIBackgroundColor" ref="180403443"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -453,13 +453,13 @@
 							<string key="NSResourceName">dashline.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="841422506">
+					<object class="IBUIButton" id="524520388">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{238, 146}, {73, 81}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="709832278"/>
+						<reference key="NSNextKeyView" ref="734379751"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -486,7 +486,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="709832278">
+					<object class="IBUIImageView" id="734379751">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{289, 159}, {29, 29}}</string>
@@ -528,7 +528,7 @@
 							<reference key="NSNextKeyView" ref="187261328"/>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<object class="NSCustomResource" key="IBUIImage" id="418772822">
+							<object class="NSCustomResource" key="IBUIImage" id="730273279">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">keyboardbglite.png</string>
 							</object>
@@ -595,7 +595,7 @@
 						<reference key="NSNextKeyView" ref="193735299"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUIImage" ref="418772822"/>
+						<reference key="IBUIImage" ref="730273279"/>
 					</object>
 					<object class="IBUIButton" id="193735299">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -1478,6 +1478,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 					<int key="connectionID">300</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">onPickPhoto:</string>
+						<reference key="source" ref="524520388"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">332</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1511,8 +1520,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<reference ref="336593311"/>
 							<reference ref="597733776"/>
 							<reference ref="1049511871"/>
-							<reference ref="709832278"/>
-							<reference ref="841422506"/>
+							<reference ref="734379751"/>
+							<reference ref="524520388"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1768,12 +1777,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">329</int>
-						<reference key="object" ref="709832278"/>
+						<reference key="object" ref="734379751"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">330</int>
-						<reference key="object" ref="841422506"/>
+						<reference key="object" ref="524520388"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -1937,7 +1946,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">330</int>
+			<int key="maxID">332</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

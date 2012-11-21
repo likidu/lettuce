@@ -97,7 +97,7 @@
 		1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4413F2C47C007BC798 /* MainWindow.xib */; };
 		1A6B5E4513F2C48E007BC798 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4613F2C48E007BC798 /* FirstView.xib */; };
 		1A6B5E4713F2C495007BC798 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4813F2C495007BC798 /* SecondView.xib */; };
-		1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */; };
+		1A6B5E4913F2C49D007BC798 /* MiddleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */; };
 		1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */; };
 		1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */; };
 		1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */; };
@@ -279,7 +279,6 @@
 		1A80AB861587AA6E001125EB /* workout_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A80AAD21587AA6D001125EB /* workout_s@2x.png */; };
 		1A80AB871587AA6E001125EB /* workout.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A80AAD31587AA6D001125EB /* workout.png */; };
 		1A80AB881587AA6E001125EB /* workout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A80AAD41587AA6E001125EB /* workout@2x.png */; };
-		1A81B26C1472994D00DA2994 /* libRestKitThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921C01466264C007C333D /* libRestKitThree20.a */; };
 		1A89714E1563DE3200502A2E /* about_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970A11563DE3200502A2E /* about_email.png */; };
 		1A89714F1563DE3200502A2E /* about_email@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970A21563DE3200502A2E /* about_email@2x.png */; };
 		1A8971501563DE3200502A2E /* about_rateus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970A31563DE3200502A2E /* about_rateus.png */; };
@@ -485,10 +484,6 @@
 		1AB89A4014FA16850087ABD3 /* MonthlyIncomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB89A3E14FA16850087ABD3 /* MonthlyIncomeView.xib */; };
 		1AB89A6014FA224D0087ABD3 /* MonthlyBudgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB89A5E14FA224B0087ABD3 /* MonthlyBudgetView.m */; };
 		1AB89A6114FA224D0087ABD3 /* MonthlyBudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB89A5F14FA224C0087ABD3 /* MonthlyBudgetView.xib */; };
-		1AB921C514662E70007C333D /* libRestKitJSONParserNXJSON.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921B41466264C007C333D /* libRestKitJSONParserNXJSON.a */; };
-		1AB921C614662E70007C333D /* libRestKitNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921AE1466264C007C333D /* libRestKitNetwork.a */; };
-		1AB921C714662E70007C333D /* libRestKitSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921B21466264C007C333D /* libRestKitSupport.a */; };
-		1AB921C814662E70007C333D /* libRestKitXMLParserLibxml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921BC1466264C007C333D /* libRestKitXMLParserLibxml.a */; };
 		1ABD96E8158C458C0029302B /* texture.category.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96E4158C458C0029302B /* texture.category.png */; };
 		1ABD96E9158C458C0029302B /* texture.category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96E5158C458C0029302B /* texture.category@2x.png */; };
 		1ABD96EA158C458C0029302B /* texture.number.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD96E6158C458C0029302B /* texture.number.png */; };
@@ -601,103 +596,11 @@
 		B060486715E50A02008ACC45 /* workout_category@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B060482F15E50A02008ACC45 /* workout_category@2x.png */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
-		B0629B7B15FB849A00749C98 /* libRestKitObjectMapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB921B01466264C007C333D /* libRestKitObjectMapping.a */; };
 		B0629B7F15FB96A400749C98 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B7E15FB96A400749C98 /* NSString+Helper.m */; };
-		B0629B8A15FB9CDA00749C98 /* RKClient+Callback.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */; };
-		B0629B8B15FB9CDA00749C98 /* RKClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8315FB9CDA00749C98 /* RKClientHelper.m */; };
 		B0629B8C15FB9CDA00749C98 /* UIAlertView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */; };
 		B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */; };
-		B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */; };
-		B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */; };
-		B0629BAE15FC968F00749C98 /* CloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BAD15FC968E00749C98 /* CloudManager.m */; };
-		B0629BB115FC99B800749C98 /* WoojuuDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB015FC99B700749C98 /* WoojuuDataManager.m */; };
-		B0629BB415FC9A1500749C98 /* WoojuuData.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB315FC9A1400749C98 /* WoojuuData.m */; };
 		B0629BB715FCC7DC00749C98 /* ConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */; };
-		B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */; };
-		B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */; };
-		B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ECA009157A855A00903063 /* UserAccountViewController.m */; };
-		B0ECA00C157A855B00903063 /* UserAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0ECA00A157A855B00903063 /* UserAccountViewController.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1AB921AD1466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 253A07FC1255161B00976E89;
-			remoteInfo = RestKitNetwork;
-		};
-		1AB921AF1466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 253A08031255162C00976E89;
-			remoteInfo = RestKitObjectMapping;
-		};
-		1AB921B11466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 253A080C12551D3000976E89;
-			remoteInfo = RestKitSupport;
-		};
-		1AB921B31466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 20808DBD13DE8CDC000A156A;
-			remoteInfo = "RestKitJSONParser+NXJSON";
-		};
-		1AB921B51466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2590E64F125231F600531FA8;
-			remoteInfo = "RestKitJSONParser+YAJL";
-		};
-		1AB921B71466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2590E66B1252353700531FA8;
-			remoteInfo = "RestKitJSONParser+SBJSON";
-		};
-		1AB921B91466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 73057FD11331AD2E001908EE;
-			remoteInfo = "RestKitJSONParser+JSONKit";
-		};
-		1AB921BB1466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25BD43BD1340315800DBACDD;
-			remoteInfo = "RestKitXMLParser+Libxml";
-		};
-		1AB921BD1466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 253A081412551D5300976E89;
-			remoteInfo = RestKitCoreData;
-		};
-		1AB921BF1466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2523360511E79F090048F9B4;
-			remoteInfo = RestKitThree20;
-		};
-		1AB921C11466264C007C333D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F6C39A510FE5C95008F47C5;
-			remoteInfo = "RestKit Specs";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1A05809913752FBD00933267 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
@@ -803,7 +706,7 @@
 		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1A6B5E4613F2C48E007BC798 /* FirstView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
 		1A6B5E4813F2C495007BC798 /* SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondView.xib; sourceTree = "<group>"; };
-		1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleView.xib; sourceTree = "<group>"; };
+		1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiddleViewController.xib; sourceTree = "<group>"; };
 		1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
 		1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseCell.xib; sourceTree = "<group>"; };
@@ -1210,7 +1113,6 @@
 		1AB89A5D14FA224B0087ABD3 /* MonthlyBudgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthlyBudgetView.h; sourceTree = "<group>"; };
 		1AB89A5E14FA224B0087ABD3 /* MonthlyBudgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthlyBudgetView.m; sourceTree = "<group>"; };
 		1AB89A5F14FA224C0087ABD3 /* MonthlyBudgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyBudgetView.xib; sourceTree = "<group>"; };
-		1AB921991466264B007C333D /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		1ABD96E4158C458C0029302B /* texture.category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture.category.png; path = "arts/Add Transaction/texture.category.png"; sourceTree = "<group>"; };
 		1ABD96E5158C458C0029302B /* texture.category@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "texture.category@2x.png"; path = "arts/Add Transaction/texture.category@2x.png"; sourceTree = "<group>"; };
 		1ABD96E6158C458C0029302B /* texture.number.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture.number.png; path = "arts/Add Transaction/texture.number.png"; sourceTree = "<group>"; };
@@ -1343,32 +1245,12 @@
 		B0629B7915FB847E00749C98 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B0629B7D15FB96A400749C98 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
 		B0629B7E15FB96A400749C98 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
-		B0629B8015FB9CDA00749C98 /* RKClient+Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKClient+Callback.h"; sourceTree = "<group>"; };
-		B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKClient+Callback.m"; sourceTree = "<group>"; };
-		B0629B8215FB9CDA00749C98 /* RKClientHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKClientHelper.h; sourceTree = "<group>"; };
-		B0629B8315FB9CDA00749C98 /* RKClientHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKClientHelper.m; sourceTree = "<group>"; };
 		B0629B8415FB9CDA00749C98 /* UIAlertView+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helper.h"; sourceTree = "<group>"; };
 		B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Helper.m"; sourceTree = "<group>"; };
 		B0629B8615FB9CDA00749C98 /* UIViewController+UtilityExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UtilityExtension.h"; sourceTree = "<group>"; };
 		B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UtilityExtension.m"; sourceTree = "<group>"; };
-		B0629B8F15FB9FE100749C98 /* WeiboAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAuthManager.h; sourceTree = "<group>"; };
-		B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAuthManager.m; sourceTree = "<group>"; };
-		B0629B9215FBA02200749C98 /* WoojuuServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuServiceClient.h; sourceTree = "<group>"; };
-		B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuServiceClient.m; sourceTree = "<group>"; };
-		B0629BAC15FC968E00749C98 /* CloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudManager.h; sourceTree = "<group>"; };
-		B0629BAD15FC968E00749C98 /* CloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudManager.m; sourceTree = "<group>"; };
-		B0629BAF15FC99B700749C98 /* WoojuuDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuDataManager.h; sourceTree = "<group>"; };
-		B0629BB015FC99B700749C98 /* WoojuuDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuDataManager.m; sourceTree = "<group>"; };
-		B0629BB215FC9A1400749C98 /* WoojuuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuData.h; sourceTree = "<group>"; };
-		B0629BB315FC9A1400749C98 /* WoojuuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuData.m; sourceTree = "<group>"; };
 		B0629BB515FCC7D900749C98 /* ConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationManager.h; sourceTree = "<group>"; };
 		B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationManager.m; sourceTree = "<group>"; };
-		B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackupAndRecoverViewController.h; sourceTree = "<group>"; };
-		B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackupAndRecoverViewController.m; sourceTree = "<group>"; };
-		B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackupAndRecoverViewController.xib; sourceTree = "<group>"; };
-		B0ECA008157A855A00903063 /* UserAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAccountViewController.h; sourceTree = "<group>"; };
-		B0ECA009157A855A00903063 /* UserAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAccountViewController.m; sourceTree = "<group>"; };
-		B0ECA00A157A855B00903063 /* UserAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserAccountViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1376,12 +1258,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0629B7B15FB849A00749C98 /* libRestKitObjectMapping.a in Frameworks */,
-				1A81B26C1472994D00DA2994 /* libRestKitThree20.a in Frameworks */,
-				1AB921C514662E70007C333D /* libRestKitJSONParserNXJSON.a in Frameworks */,
-				1AB921C614662E70007C333D /* libRestKitNetwork.a in Frameworks */,
-				1AB921C714662E70007C333D /* libRestKitSupport.a in Frameworks */,
-				1AB921C814662E70007C333D /* libRestKitXMLParserLibxml.a in Frameworks */,
 				1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */,
 				B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */,
 				B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */,
@@ -1870,7 +1746,6 @@
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
-				1AB921991466264B007C333D /* RestKit.xcodeproj */,
 				1AC28562145CEC280085C866 /* FlurryAnalytics.h */,
 				1AC28563145CEC280085C866 /* libFlurryAnalytics.a */,
 				1AF489C015AB056E009ADC04 /* libobjc.A.dylib */,
@@ -1915,7 +1790,6 @@
 				B0629BB615FCC7DA00749C98 /* ConfigurationManager.m */,
 				B0629B6315FB83DF00749C98 /* Helper */,
 				B0EC9FF8157A69F400903063 /* Settings */,
-				B0629B7C15FB862B00749C98 /* ServiceClient */,
 				1A459D731387999A00036EC2 /* RootViewController.h */,
 				1A459D741387999A00036EC2 /* RootViewController.m */,
 				1AC9757F159AD68700115C17 /* FullScreenViewController.h */,
@@ -1952,7 +1826,7 @@
 				1AF2476114934E660010B65E /* TodayViewController.xib */,
 				1AAD13B7132BB5770035BA92 /* MiddleViewController.h */,
 				1AAD13B8132BB5770035BA92 /* MiddleViewController.m */,
-				1A6B5E4A13F2C49D007BC798 /* MiddleView.xib */,
+				1A6B5E4A13F2C49D007BC798 /* MiddleViewController.xib */,
 				1A0AE6D4155A973600B5C4DC /* HistoryRootView.h */,
 				1A0AE6D5155A973600B5C4DC /* HistoryRootView.m */,
 				1A0AE6D6155A973600B5C4DC /* HistoryRootView.xib */,
@@ -2001,24 +1875,6 @@
 				1AB03CD8165C865B00FECC44 /* history.header.line@2x.png */,
 			);
 			name = history;
-			sourceTree = "<group>";
-		};
-		1AB9219A1466264B007C333D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1AB921AE1466264C007C333D /* libRestKitNetwork.a */,
-				1AB921B01466264C007C333D /* libRestKitObjectMapping.a */,
-				1AB921B21466264C007C333D /* libRestKitSupport.a */,
-				1AB921B41466264C007C333D /* libRestKitJSONParserNXJSON.a */,
-				1AB921B61466264C007C333D /* libRestKitJSONParserYAJL.a */,
-				1AB921B81466264C007C333D /* libRestKitJSONParserSBJSON.a */,
-				1AB921BA1466264C007C333D /* libRestKitJSONParserJSONKit.a */,
-				1AB921BC1466264C007C333D /* libRestKitXMLParserLibxml.a */,
-				1AB921BE1466264C007C333D /* libRestKitCoreData.a */,
-				1AB921C01466264C007C333D /* libRestKitThree20.a */,
-				1AB921C21466264C007C333D /* RestKitSpecs.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1ABD96E3158C45300029302B /* Add Transaction */ = {
@@ -2182,10 +2038,6 @@
 		B0629B6315FB83DF00749C98 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				B0629B8015FB9CDA00749C98 /* RKClient+Callback.h */,
-				B0629B8115FB9CDA00749C98 /* RKClient+Callback.m */,
-				B0629B8215FB9CDA00749C98 /* RKClientHelper.h */,
-				B0629B8315FB9CDA00749C98 /* RKClientHelper.m */,
 				B0629B8415FB9CDA00749C98 /* UIAlertView+Helper.h */,
 				B0629B8515FB9CDA00749C98 /* UIAlertView+Helper.m */,
 				B0629B8615FB9CDA00749C98 /* UIViewController+UtilityExtension.h */,
@@ -2194,23 +2046,6 @@
 				B0629B7E15FB96A400749C98 /* NSString+Helper.m */,
 			);
 			name = Helper;
-			sourceTree = "<group>";
-		};
-		B0629B7C15FB862B00749C98 /* ServiceClient */ = {
-			isa = PBXGroup;
-			children = (
-				B0629B9215FBA02200749C98 /* WoojuuServiceClient.h */,
-				B0629B9315FBA02200749C98 /* WoojuuServiceClient.m */,
-				B0629B8F15FB9FE100749C98 /* WeiboAuthManager.h */,
-				B0629B9015FB9FE100749C98 /* WeiboAuthManager.m */,
-				B0629BAC15FC968E00749C98 /* CloudManager.h */,
-				B0629BAD15FC968E00749C98 /* CloudManager.m */,
-				B0629BAF15FC99B700749C98 /* WoojuuDataManager.h */,
-				B0629BB015FC99B700749C98 /* WoojuuDataManager.m */,
-				B0629BB215FC9A1400749C98 /* WoojuuData.h */,
-				B0629BB315FC9A1400749C98 /* WoojuuData.m */,
-			);
-			name = ServiceClient;
 			sourceTree = "<group>";
 		};
 		B0EC9FF8157A69F400903063 /* Settings */ = {
@@ -2228,12 +2063,6 @@
 				B06047F115D097AC008ACC45 /* ReorderCategoryViewController.h */,
 				B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */,
 				B06047F315D097AC008ACC45 /* ReorderCategoryViewController.xib */,
-				B0EC9FFB157A6B6B00903063 /* BackupAndRecoverViewController.h */,
-				B0EC9FFC157A6B6B00903063 /* BackupAndRecoverViewController.m */,
-				B0EC9FFD157A6B6B00903063 /* BackupAndRecoverViewController.xib */,
-				B0ECA008157A855A00903063 /* UserAccountViewController.h */,
-				B0ECA009157A855A00903063 /* UserAccountViewController.m */,
-				B0ECA00A157A855B00903063 /* UserAccountViewController.xib */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2277,98 +2106,12 @@
 			mainGroup = 1AAD1382132BB1AF0035BA92;
 			productRefGroup = 1AAD138E132BB1B00035BA92 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1AB9219A1466264B007C333D /* Products */;
-					ProjectRef = 1AB921991466264B007C333D /* RestKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1AAD138C132BB1B00035BA92 /* woojuu */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1AB921AE1466264C007C333D /* libRestKitNetwork.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitNetwork.a;
-			remoteRef = 1AB921AD1466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921B01466264C007C333D /* libRestKitObjectMapping.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitObjectMapping.a;
-			remoteRef = 1AB921AF1466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921B21466264C007C333D /* libRestKitSupport.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitSupport.a;
-			remoteRef = 1AB921B11466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921B41466264C007C333D /* libRestKitJSONParserNXJSON.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitJSONParserNXJSON.a;
-			remoteRef = 1AB921B31466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921B61466264C007C333D /* libRestKitJSONParserYAJL.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitJSONParserYAJL.a;
-			remoteRef = 1AB921B51466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921B81466264C007C333D /* libRestKitJSONParserSBJSON.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitJSONParserSBJSON.a;
-			remoteRef = 1AB921B71466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921BA1466264C007C333D /* libRestKitJSONParserJSONKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitJSONParserJSONKit.a;
-			remoteRef = 1AB921B91466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921BC1466264C007C333D /* libRestKitXMLParserLibxml.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitXMLParserLibxml.a;
-			remoteRef = 1AB921BB1466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921BE1466264C007C333D /* libRestKitCoreData.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitCoreData.a;
-			remoteRef = 1AB921BD1466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921C01466264C007C333D /* libRestKitThree20.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKitThree20.a;
-			remoteRef = 1AB921BF1466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AB921C21466264C007C333D /* RestKitSpecs.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = RestKitSpecs.app;
-			remoteRef = 1AB921C11466264C007C333D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1AAD138B132BB1B00035BA92 /* Resources */ = {
@@ -2379,7 +2122,7 @@
 				1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */,
 				1A6B5E4513F2C48E007BC798 /* FirstView.xib in Resources */,
 				1A6B5E4713F2C495007BC798 /* SecondView.xib in Resources */,
-				1A6B5E4913F2C49D007BC798 /* MiddleView.xib in Resources */,
+				1A6B5E4913F2C49D007BC798 /* MiddleViewController.xib in Resources */,
 				1A6B5E4B13F2C4A6007BC798 /* BudgetView.xib in Resources */,
 				1A6B5E4D13F2C4B0007BC798 /* SettingView.xib in Resources */,
 				1A6B5E4F13F2C4B6007BC798 /* ExpenseCell.xib in Resources */,
@@ -2574,8 +2317,6 @@
 				1A8971F71563DE3200502A2E /* whitepaper.png in Resources */,
 				1A8971F81563DE3200502A2E /* whitepaper2.png in Resources */,
 				1A8971F91563DE3200502A2E /* woojuu.art.png in Resources */,
-				B0EC9FFF157A6B6B00903063 /* BackupAndRecoverViewController.xib in Resources */,
-				B0ECA00C157A855B00903063 /* UserAccountViewController.xib in Resources */,
 				1A80AAD51587AA6E001125EB /* accesories_h.png in Resources */,
 				1A80AAD61587AA6E001125EB /* accesories_h@2x.png in Resources */,
 				1A80AAD71587AA6E001125EB /* accesories_s.png in Resources */,
@@ -2957,8 +2698,6 @@
 				1A0AE6DA155A973600B5C4DC /* HistoryRootView.m in Sources */,
 				1A0AE6DC155A973600B5C4DC /* HistoryViewFrame.m in Sources */,
 				1AD5897F155F7699008FB105 /* OverviewByYearViewController.m in Sources */,
-				B0EC9FFE157A6B6B00903063 /* BackupAndRecoverViewController.m in Sources */,
-				B0ECA00B157A855B00903063 /* UserAccountViewController.m in Sources */,
 				1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */,
 				1AC97582159AD68700115C17 /* FullScreenViewController.m in Sources */,
 				1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */,
@@ -2967,15 +2706,8 @@
 				B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */,
 				B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */,
 				B0629B7F15FB96A400749C98 /* NSString+Helper.m in Sources */,
-				B0629B8A15FB9CDA00749C98 /* RKClient+Callback.m in Sources */,
-				B0629B8B15FB9CDA00749C98 /* RKClientHelper.m in Sources */,
 				B0629B8C15FB9CDA00749C98 /* UIAlertView+Helper.m in Sources */,
 				B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */,
-				B0629B9115FB9FE100749C98 /* WeiboAuthManager.m in Sources */,
-				B0629B9415FBA02200749C98 /* WoojuuServiceClient.m in Sources */,
-				B0629BAE15FC968F00749C98 /* CloudManager.m in Sources */,
-				B0629BB115FC99B800749C98 /* WoojuuDataManager.m in Sources */,
-				B0629BB415FC9A1500749C98 /* WoojuuData.m in Sources */,
 				B0629BB715FCC7DC00749C98 /* ConfigurationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3050,7 +2782,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "hello/woojuu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
@@ -3078,7 +2810,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "hello/woojuu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",
@@ -3127,7 +2859,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "hello/woojuu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/gcc/arm-apple-darwin10/4.0.1\"",

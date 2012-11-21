@@ -26,11 +26,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7</string>
+	<string>0.8</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.7</string>
+	<string>0.8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>
@@ -41,11 +41,11 @@
 	<string>launch@2x.jpg</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleBlackOpaque</string>
 </dict>
 </plist>

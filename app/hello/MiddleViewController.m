@@ -572,10 +572,10 @@
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     picker.allowsEditing = YES;
-    [[self rootViewController]presentModalViewController:picker animated:YES];
+    [self presentModalViewController:picker animated:YES];
 }
 
-- (void)onPickPhoto:(id)sender {
+- (void)onPickPhoto {
     [self pushOp:opNone];           //DID:34343209 show result when click Photo
     [self syncUi];
     UIActionSheet* actionSheet = [[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"用户相册", nil]autorelease];
