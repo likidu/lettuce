@@ -100,9 +100,11 @@
     // Do any additional setup after loading the view from its nib.
     NSMutableArray* items = [NSMutableArray arrayWithCapacity: 4];
     id<NavigationItem> item = nil;
-    item = [[[WelcomeView alloc]initWithNibName:@"WelcomeView" bundle:[NSBundle mainBundle]]autorelease];
+    item = (WelcomeView*)[WelcomeView instanceFromNib];
     [items addObject:item];
-    item = [[[MonthlyBudgetView alloc]initWithNibName:@"MonthlyBudgetView" bundle:[NSBundle mainBundle]]autorelease];
+    item = (MonthlyBudgetView*)[MonthlyBudgetView instanceFromNib];
+    [items addObject:item];
+    item = (NewFeaturesView*)[NewFeaturesView instanceFromNib];
     [items addObject:item];
     self.navigationItems = items;
     self.activeItemIndex = 0;

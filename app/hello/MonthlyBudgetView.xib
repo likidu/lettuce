@@ -103,7 +103,7 @@
 						<double key="IBUIContentEdgeInsets.bottom">0.0</double>
 						<double key="IBUIContentEdgeInsets.left">-10</double>
 						<double key="IBUIContentEdgeInsets.right">0.0</double>
-						<string key="IBUINormalTitle">完成</string>
+						<string key="IBUINormalTitle">下一步</string>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
