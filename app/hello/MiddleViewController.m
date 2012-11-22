@@ -626,4 +626,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
++ (void)showAddTransactionView:(Expense*)expense {
+    UIViewController* topVc = [UIViewController topViewController];
+    MiddleViewController* addTransVc = (MiddleViewController*)[MiddleViewController instanceFromNib: @"MiddleView"];
+    addTransVc.editingItem = expense;
+    [topVc presentModalViewController:addTransVc animated:YES];
+}
+
 @end

@@ -11,6 +11,7 @@
 #import "CategoryManager.h"
 #import "Statistics.h"
 #import "PlanManager.h"
+#import "MiddleViewController.h"
 
 @implementation TodayViewController
 
@@ -239,6 +240,8 @@ static NSString* cellId = @"expenseCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Expense* exp = [self.expenses objectAtIndex:indexPath.row];
+    [MiddleViewController showAddTransactionView:exp];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {

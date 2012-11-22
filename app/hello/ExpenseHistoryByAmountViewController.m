@@ -9,7 +9,7 @@
 #import "ExpenseHistoryByAmountViewController.h"
 #import "ExpenseManager.h"
 #import "CategoryManager.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 
 @implementation ExpenseHistoryByAmountViewController
 
@@ -167,9 +167,7 @@
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [table deselectRowAtIndexPath:indexPath animated:YES];
     Expense* expense = [expenses objectAtIndex:indexPath.row];
-    UIApplication* app = [UIApplication sharedApplication];
-    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
-    [rootView presentAddTransactionDialog:expense];
+    [MiddleViewController showAddTransactionView:expense];
 }
 
 @end

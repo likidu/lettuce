@@ -10,6 +10,7 @@
 #import "MiddleViewController.h"
 #import "FirstExperienceView.h"
 #import "PlanManager.h"
+#import "MiddleViewController.h"
 
 @implementation RootViewController
 
@@ -20,7 +21,6 @@
     self.firstUxImageView = nil;
 
     self.todayController = nil;
-    self.addExpenseController = nil;
     self.historyController = nil;
     self.tabPanel = nil;
     self.todayButton = nil;
@@ -39,7 +39,6 @@
 #pragma mark - Properties
 
 @synthesize todayController;
-@synthesize addExpenseController;
 @synthesize historyController;
 @synthesize tabPanel;
 @synthesize todayButton;
@@ -78,18 +77,8 @@
     [self presentViewController:todayController];
 }
 
-- (void)presentAddTransactionDialog:(NSObject*)data {
-    if (self.modalViewController)
-        return;
-    if (data) {
-        MiddleViewController* vc = (MiddleViewController*)addExpenseController;
-        vc.editingItem = (Expense*)data;
-    }
-    [[self rootViewController]presentModalViewController: self.addExpenseController animated: YES];
-}
-
 - (void)onAddExpense:(id)sender {
-    [self presentAddTransactionDialog: nil];
+    [MiddleViewController showAddTransactionView:nil];
 }
 
 - (void)onHistory:(id)sender {
@@ -138,7 +127,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.todayController = nil;
-    self.addExpenseController = nil;
     self.historyController = nil;
     self.tabPanel = nil;
     self.todayButton = nil;

@@ -11,5 +11,6 @@
 @interface UIViewController (UtilityExtension)
 
 + (UIViewController*)instanceFromNib;
++ (UIViewController*)instanceFromNib:(NSString*)nibname;
 
 @end

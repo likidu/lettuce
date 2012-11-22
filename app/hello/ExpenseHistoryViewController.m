@@ -11,7 +11,7 @@
 #import "Utility.h"
 #import "Database.h"
 #import "CategoryManager.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 #import "BudgetManager.h"
 #import "Statistics.h"
 
@@ -324,9 +324,7 @@ static NSString* footerCellId = @"footerCell";
         return;
     NSDate* date = (NSDate*)[dates objectAtIndex:indexPath.section];
     Expense* expense = [[expenseData objectForKey:DATESTR(date)]objectAtIndex:indexPath.row-1];
-    UIApplication* app = [UIApplication sharedApplication];
-    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
-    [rootView presentAddTransactionDialog:expense];
+    [MiddleViewController showAddTransactionView:expense];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {

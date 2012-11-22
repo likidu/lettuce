@@ -10,7 +10,7 @@
 #import "Statistics.h"
 #import "CategoryManager.h"
 #import "ExpenseManager.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 
 @implementation SingleCategoryByMonthView
 
@@ -110,9 +110,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // goto the transaction dialog to edit the selected item
     Expense* expense = (Expense*)[self.expenses objectAtIndex:indexPath.row];
-    UIApplication* app = [UIApplication sharedApplication];
-    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
-    [rootView presentAddTransactionDialog:expense];
+    [MiddleViewController showAddTransactionView:expense];
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {

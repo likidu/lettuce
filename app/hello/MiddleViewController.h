@@ -85,4 +85,6 @@ typedef enum _Operator {
 - (void)syncUi;
 - (void)pushOp:(Operator)op;
 
++ (void)showAddTransactionView:(Expense*)expense;
+
 @end

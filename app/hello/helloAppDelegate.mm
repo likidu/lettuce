@@ -10,7 +10,7 @@
 #import "Database.h"
 #import "CategoryManager.h"
 #import "ExpenseManager.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 #import "LocationManager.h"
 #import "FlurryAnalytics.h"
 #import "PasscodeView.h"
@@ -71,9 +71,7 @@ void uncaughtExceptionHandler(NSException* exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     if ([[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY]) {
-        UIApplication* app = [UIApplication sharedApplication];
-        RootViewController* vc = (RootViewController*)app.keyWindow.rootViewController;
-        [vc presentAddTransactionDialog:nil];
+        [MiddleViewController showAddTransactionView:nil];
     }
     
     // test code

@@ -9,7 +9,7 @@
 #import "ExpenseHistoryByCategoryViewController.h"
 #import "ExpenseManager.h"
 #import "CategoryManager.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 
 @implementation ExpenseHistoryByCategoryViewController
 
@@ -267,9 +267,7 @@
     NSNumber* catId = (NSNumber*)[categories objectAtIndex:indexPath.section];
     NSArray* arr = [expenseData objectForKey:catId];
     Expense* expense = [arr objectAtIndex:indexPath.row-1];
-    UIApplication* app = [UIApplication sharedApplication];
-    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
-    [rootView presentAddTransactionDialog:expense];
+    [MiddleViewController showAddTransactionView:expense];
 }
 
 @end

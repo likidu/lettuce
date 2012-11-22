@@ -17,4 +17,13 @@
     return viewController;
 }
 
++ (UIViewController*)instanceFromNib:(NSString*)nibname {
+    if (nibname == nil || nibname.length == 0)
+        return [UIViewController instanceFromNib];
+    
+    UIViewController* vc = [[[self alloc]initWithNibName:nibname bundle:[NSBundle mainBundle]]autorelease];
+    return vc;
+}
+
+
 @end

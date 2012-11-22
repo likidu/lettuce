@@ -12,7 +12,7 @@
 #import "Database.h"
 #import "BudgetManager.h"
 #import "Statistics.h"
-#import "RootViewController.h"
+#import "MiddleViewController.h"
 
 @implementation FirstViewController
 
@@ -167,9 +167,7 @@ static NSString* cellId = @"cellTransaction";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Expense* expense = [todayExpenses objectAtIndex:indexPath.row];
-    UIApplication* app = [UIApplication sharedApplication];
-    RootViewController* rootView = (RootViewController*)app.keyWindow.rootViewController;
-    [rootView presentAddTransactionDialog:expense];
+    [MiddleViewController showAddTransactionView:expense];
 }
 
 - (void)onChangeBudget:(id)sender {
