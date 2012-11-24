@@ -180,8 +180,8 @@ static NSString* cellId = @"cellTransaction";
 
 - (void)dealloc
 {
-    [budgetView release];
-    [settingView release];
+    CLEAN_RELEASE(budgetView);
+    CLEAN_RELEASE(settingView);
     self.todayExpenses = nil;
 
     self.budgetLabel = nil;

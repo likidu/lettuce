@@ -40,6 +40,25 @@ const int BITNUMBER = 16;
     return self;
 }
 
++ (NSString *)getSettingSummary {
+    BOOL isEnabled = [[NSUserDefaults standardUserDefaults]boolForKey:REMINDER_SWITCH_KEY];
+    if (!isEnabled)
+        return @"关闭";
+    
+    int reminderType = [[NSUserDefaults standardUserDefaults]integerForKey:REMINDER_TYPE_KEY];
+    NSArray* timeArray = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
+    NSArray* weekdayArray = getWeekdayStringArray();
+    
+    NSUInteger timeData = (NSUInteger)[[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
+    NSUInteger weekIndex = timeData >> BITNUMBER;
+    NSUInteger timeIndex = (timeData - (weekIndex << BITNUMBER));
+    
+    if (reminderType == Daily)
+        return [NSString stringWithFormat:@"每日 %@", [timeArray objectAtIndex:timeIndex]];
+    
+    return [NSString stringWithFormat:@"%@ %@", [weekdayArray objectAtIndex:weekIndex], [timeArray objectAtIndex:timeIndex]];
+}
+
 #pragma mark - Event handler
 
 - (IBAction)onReturn:(UIButton *)sender {
@@ -67,7 +86,7 @@ const int BITNUMBER = 16;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.reminderTypeData = [NSArray arrayWithObjects:@"每日提醒",@"每周提醒", nil];
+    self.reminderTypeData = [NSArray arrayWithObjects:@"每日",@"每周", nil];
     self.dailyTimeData = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
     self.weeklyData = getWeekdayStringArray();
     self.currentReminderType = [[NSUserDefaults standardUserDefaults]integerForKey:REMINDER_TYPE_KEY];
@@ -115,17 +134,17 @@ const int BITNUMBER = 16;
 }
 
 - (void)dealloc {
-    [accountingReminderTableView release];
-    [yesNoSwitch release];
-    [detailedReminderTableView release];
-    [itemPicker release];
-    [activeFloatingView release];
-    [dailyPicker release];
-    [weeklyPicker release];
-    [reminderTypeData release];
-    [activeFloatingView release];
-    [dailyTimeData release];
-    [weeklyData release];
+    CLEAN_RELEASE(accountingReminderTableView);
+    CLEAN_RELEASE(yesNoSwitch);
+    CLEAN_RELEASE(detailedReminderTableView);
+    CLEAN_RELEASE(itemPicker);
+    CLEAN_RELEASE(activeFloatingView);
+    CLEAN_RELEASE(dailyPicker);
+    CLEAN_RELEASE(weeklyPicker);
+    CLEAN_RELEASE(reminderTypeData);
+    CLEAN_RELEASE(activeFloatingView);
+    CLEAN_RELEASE(dailyTimeData);
+    CLEAN_RELEASE(weeklyData);
     [super dealloc];
 }
 
@@ -152,11 +171,11 @@ const int BITNUMBER = 16;
         return [NSString stringWithFormat:@"%@", [dailyTimeData objectAtIndex:timeIndex]];
     }
     
-    return [NSString stringWithFormat:@"%@, %@", [weeklyData objectAtIndex:weekIndex], [dailyTimeData objectAtIndex:timeIndex]];
+    return [NSString stringWithFormat:@"%@ %@", [weeklyData objectAtIndex:weekIndex], [dailyTimeData objectAtIndex:timeIndex]];
 } 
 
 -(void)setCurrentIndexFromReminderString:(NSString *)reminderString{
-    NSArray * tempArray = [reminderString componentsSeparatedByString:@", "];
+    NSArray * tempArray = [reminderString componentsSeparatedByString:@" "];
     if (tempArray.count == 1) {
         self.currentTimeIndex = [self.dailyTimeData indexOfObject:[tempArray objectAtIndex:(NSUInteger)0]];
     }else if (tempArray.count == 2){

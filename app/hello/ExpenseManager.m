@@ -50,13 +50,13 @@ static ExpenseManager* g_instance = nil;
 
 - (void)dealloc {
     CLEAN_RELEASE(iconCache_);
-    [defaultTagImage_ release];
+    CLEAN_RELEASE(defaultTagImage_);
     [super dealloc];
 }
 
 // callback - this function helps handle records loaded from database
 - (void)translateExpense : (NSMutableDictionary*)dict : (id)param {
-    Expense* expense = [[Expense alloc]init];
+    Expense* expense = [[[Expense alloc]init]autorelease];
     expense.expenseId = [[dict objectForKey:@"ExpenseId"] intValue];
     expense.categoryId = [[dict objectForKey:@"CategoryId"] intValue];
     expense.amount = [[dict objectForKey:@"Amount"] doubleValue];
@@ -71,7 +71,6 @@ static ExpenseManager* g_instance = nil;
     if (array == nil)
         return;
     [array addObject:expense];
-    [expense release];
 }
 
 - (NSArray *)loadExpensesOfDay:(NSDate *)date orderBy:(NSString *)fieldName ascending:(BOOL)isAscending {

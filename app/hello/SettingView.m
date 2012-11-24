@@ -150,7 +150,7 @@
             case 2:
                 cell.textLabel.text = @"记账提醒";
                 cell.imageView.image = imgReminder;  
-                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:REMINDER_SWITCH_KEY] ? @"开启": @"关闭";
+                cell.detailTextLabel.text = [AccountingReminderViewController getSettingSummary];
                 break;
             case 3:
                 cell.textLabel.text = @"密码保护";

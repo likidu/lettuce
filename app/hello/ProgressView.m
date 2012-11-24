@@ -65,7 +65,7 @@
 }
 
 - (void)dealloc {
-    [themeDict release];
+    CLEAN_RELEASE(themeDict);
     [super dealloc];
 }
 
@@ -106,7 +106,7 @@
 }
 
 - (void)setActiveThemeName:(NSString *)themeName {
-    [activeThemeName release];
+    CLEAN_RELEASE(activeThemeName);
     activeThemeName = [themeName retain];
     NSDictionary* theme = [themeDict objectForKey:activeThemeName];
     if ([[self.layer class]isSubclassOfClass:[ProgressLayer class]])

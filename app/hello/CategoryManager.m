@@ -22,9 +22,9 @@
 @synthesize categoryIconName;
 
 - (void)dealloc{
-    [categoryName release];
-    [iconName release];
-    [hilitedIconName release];
+    CLEAN_RELEASE(categoryName);
+    CLEAN_RELEASE(iconName);
+    CLEAN_RELEASE(hilitedIconName);
     [super dealloc];
 }
 
@@ -80,7 +80,7 @@ CategoryManager* g_catMan = nil;
     NSMutableArray * col = (NSMutableArray*)param;
     if (!col) 
         return;
-    Category *cat = [[Category alloc]init];
+    Category *cat = [[[Category alloc]init]autorelease];
     cat.categoryId = [[dict objectForKey: @"CategoryId"]intValue];
     cat.displayId = [[dict objectForKey:@"DisplayId"]intValue];
     cat.parentId = [[dict objectForKey:@"ParentId"]intValue];
@@ -91,7 +91,6 @@ CategoryManager* g_catMan = nil;
     cat.categoryIconName = [dict objectForKey:@"CIconResName"];
     cat.isActive = [[dict objectForKey:@"IsActive"]boolValue];
     [col addObject:cat];
-    [cat release];
 }
 
 - (BOOL)loadCategoryDataFromDatabase:(BOOL)forceReload {
@@ -145,10 +144,10 @@ CategoryManager* g_catMan = nil;
 }
 
 - (void)dealloc {
-    [categoryCollection release];
-    [categoryDictionary release];
-    [topCategoryCollection release];
-    [iconDict release];
+    CLEAN_RELEASE(categoryCollection);
+    CLEAN_RELEASE(categoryDictionary);
+    CLEAN_RELEASE(topCategoryCollection);
+    CLEAN_RELEASE(iconDict);
     [super dealloc];
 }
 

@@ -81,7 +81,7 @@ void uncaughtExceptionHandler(NSException* exception) {
     // stop user here
     [PasscodeView checkPasscode];
 
-    [[UIApplication sharedApplication]cancelAllLocalNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

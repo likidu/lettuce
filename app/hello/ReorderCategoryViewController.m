@@ -87,9 +87,9 @@
 }
 
 - (void)dealloc {
-    [categoryTableView release];
-    [categoryArray release];
-    [topCategoryArray release];
+    CLEAN_RELEASE(categoryTableView);
+    CLEAN_RELEASE(categoryArray);
+    CLEAN_RELEASE(topCategoryArray);
     [super dealloc];
 }
 

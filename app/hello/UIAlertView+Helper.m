@@ -16,19 +16,17 @@
     va_start(args, message);
     
     NSString* formattedMessage;
-    message = formattedMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    message = formattedMessage = [NSString stringWithFormat:message, args];
 
     va_end(args);
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"出错啦" 
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"出错啦"
                                                     message:message
                                                    delegate:nil 
                                           cancelButtonTitle:@"好" 
-                                          otherButtonTitles:nil];
+                                          otherButtonTitles:nil]autorelease];
     
     [alert show];
-    [alert release];    
-    [formattedMessage release];
 }
 
 + (void) showMessage:(NSString *)message, ...
@@ -37,19 +35,17 @@
     va_start(args, message);
     
     NSString* formattedMessage;
-    message = formattedMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    message = formattedMessage = [NSString stringWithFormat:message, args];
     
     va_end(args);
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:message
                                                     message:nil
                                                    delegate:nil 
                                           cancelButtonTitle:@"知道了" 
-                                          otherButtonTitles:nil];
+                                          otherButtonTitles:nil]autorelease];
     
     [alert show];
-    [alert release];    
-    [formattedMessage release];
 }
 
 + (void) showWaitNotification: (NSString *) message, ...
@@ -68,12 +64,11 @@
                                            otherButtonTitles:nil] autorelease];
     [alert show];
     
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];    
+    UIActivityIndicatorView *indicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]autorelease];
     // Adjust the indicator so it is up a few pixels from the bottom of the alert
     indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
     [indicator startAnimating];
     [alert addSubview:indicator];
-    [indicator release];
     
     //To be modified for Callback
     //[NSThread sleepForTimeInterval:1];

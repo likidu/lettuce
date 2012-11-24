@@ -31,5 +31,7 @@ enum  ReminderType{
 @property NSUInteger currentWeekIndex;
 @property NSUInteger currentTimeIndex;
 
++ (NSString*)getSettingSummary;
+
 @end
 
