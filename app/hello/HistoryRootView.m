@@ -145,7 +145,7 @@
 
 - (void)onPickYear {
     if (!self.fullScreenController) {
-        self.fullScreenController = [[[FullScreenViewController alloc]initWithNibName:@"FullScreenViewController" bundle:[NSBundle mainBundle]]autorelease];  
+        self.fullScreenController = (FullScreenViewController*)[FullScreenViewController instanceFromNib];
         self.fullScreenController.delegate = self;
     }
 

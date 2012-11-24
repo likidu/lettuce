@@ -12,7 +12,7 @@
 @implementation MonthPickerController
 
 + (MonthPickerController *)pickerWithMonths:(NSArray *)months {
-    MonthPickerController* picker = [[[MonthPickerController alloc]initWithNibName:@"MonthPickerController" bundle:[NSBundle mainBundle]]autorelease];
+    MonthPickerController* picker = (MonthPickerController*)[MonthPickerController instanceFromNib];
     picker.months = months;
     [picker reload];
     return picker;

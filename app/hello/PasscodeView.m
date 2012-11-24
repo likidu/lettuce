@@ -23,7 +23,7 @@
     if (!passcode || passcode.length != 4)
         return;
     
-    PasscodeView* view = [[PasscodeView alloc]initWithNibName:@"PasscodeView" bundle:[NSBundle mainBundle]];
+    PasscodeView* view = (PasscodeView*)[PasscodeView instanceFromNib];
     UIApplication* app = [UIApplication sharedApplication];
     [app.keyWindow.rootViewController presentModalViewController:view animated:NO];
 }

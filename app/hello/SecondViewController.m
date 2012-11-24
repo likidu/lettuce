@@ -331,7 +331,7 @@
 }
 
 - (void)onFilter {
-    UIViewController* history = [[[HistoryViewFrame alloc]initWithNibName:@"HistoryViewFrame" bundle:[NSBundle mainBundle]]autorelease];
+    UIViewController* history = (HistoryViewFrame*)[HistoryViewFrame instanceFromNib];
     [self.navigationController pushViewController:history animated:YES];
     return;
     [self presentSwitchArea:kFilter];

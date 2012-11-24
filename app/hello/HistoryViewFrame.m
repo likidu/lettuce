@@ -45,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if (!self.navController) {
-        HistoryRootView* rootView = [[[HistoryRootView alloc]initWithNibName:@"HistoryRootView" bundle:[NSBundle mainBundle]]autorelease];
+        HistoryRootView* rootView = (HistoryRootView*)[HistoryRootView instanceFromNib];
         self.navController = [[[UINavigationController alloc]initWithRootViewController:rootView]autorelease];
         UIImage* image = [UIImage imageNamed:@"headerbar.png"];
         if ([navController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {

@@ -143,8 +143,8 @@
         [activeController performSelector:@selector(viewDidAppear:)];
     
     if ([PlanManager firstDayOfPlan] == nil) {
-        FirstExperienceView* view = [[[FirstExperienceView alloc]initWithNibName:@"FirstExperienceView" bundle:[NSBundle mainBundle]]autorelease];
-        [self presentModalViewController:view animated:YES];
+        UIViewController* firstExperienceView = [FirstExperienceView instanceFromNib];
+        [self presentModalViewController:firstExperienceView animated:YES];
     }
 }
 
