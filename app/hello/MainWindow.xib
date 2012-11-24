@@ -76,7 +76,7 @@
 						</object>
 						<object class="IBUIImageView" id="650845842">
 							<reference key="NSNextResponder" ref="1028872197"/>
-							<int key="NSvFlags">274</int>
+							<int key="NSvFlags">266</int>
 							<string key="NSFrame">{{-2, 412}, {324, 48}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
@@ -91,7 +91,7 @@
 						</object>
 						<object class="IBUIButton" id="563326455">
 							<reference key="NSNextResponder" ref="1028872197"/>
-							<int key="NSvFlags">292</int>
+							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{4, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
@@ -159,7 +159,7 @@
 						</object>
 						<object class="IBUIButton" id="791599657">
 							<reference key="NSNextResponder" ref="1028872197"/>
-							<int key="NSvFlags">292</int>
+							<int key="NSvFlags">269</int>
 							<string key="NSFrame">{{114, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
@@ -209,7 +209,7 @@
 						</object>
 						<object class="IBUIButton" id="109644574">
 							<reference key="NSNextResponder" ref="1028872197"/>
-							<int key="NSvFlags">292</int>
+							<int key="NSvFlags">265</int>
 							<string key="NSFrame">{{225, 418}, {92, 41}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
@@ -617,7 +617,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addExpenseController</string>
 							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
@@ -626,7 +625,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UIViewController</string>
 							<string>UIButton</string>
 							<string>UIViewController</string>
 							<string>UIView</string>
@@ -638,7 +636,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>addExpenseController</string>
 							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
@@ -647,10 +644,6 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">addExpenseController</string>
-								<string key="candidateClassName">UIViewController</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">historyButton</string>
 								<string key="candidateClassName">UIButton</string>
