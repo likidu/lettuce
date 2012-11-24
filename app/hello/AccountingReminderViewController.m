@@ -102,17 +102,16 @@ const int BITNUMBER = 16;
 
 - (void)viewDidUnload
 {
-    [self setAccountingReminderTableView:nil];
-    [self setYesNoSwitch:nil];
-    [self setDetailedReminderTableView:nil];
-    [self setItemPicker:nil];
-    [self setActiveFloatingView:nil];
-    [self setDailyPicker:nil];
-    [self setWeeklyPicker:nil];
-    [self setActiveFloatingView:nil];
-    [self setReminderTypeData:nil];
-    [self setDailyTimeData:nil];
-    [self setWeeklyData:nil];
+    self.accountingReminderTableView = nil;
+    self.yesNoSwitch = nil;
+    self.detailedReminderTableView = nil;
+    self.itemPicker = nil;
+    self.dailyPicker = nil;
+    self.weeklyPicker = nil;
+    self.reminderTypeData = nil;
+    self.dailyTimeData = nil;
+    self.weeklyData = nil;
+    self.activeFloatingView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -138,13 +137,12 @@ const int BITNUMBER = 16;
     CLEAN_RELEASE(yesNoSwitch);
     CLEAN_RELEASE(detailedReminderTableView);
     CLEAN_RELEASE(itemPicker);
-    CLEAN_RELEASE(activeFloatingView);
     CLEAN_RELEASE(dailyPicker);
     CLEAN_RELEASE(weeklyPicker);
     CLEAN_RELEASE(reminderTypeData);
-    CLEAN_RELEASE(activeFloatingView);
     CLEAN_RELEASE(dailyTimeData);
     CLEAN_RELEASE(weeklyData);
+    CLEAN_RELEASE(activeFloatingView);
     [super dealloc];
 }
 
@@ -228,7 +226,7 @@ const int BITNUMBER = 16;
     
         UITableViewCell* cell = [accountingReminderTableView dequeueReusableCellWithIdentifier:kAccountingReminderCellId];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kAccountingReminderCellId]autorelease];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kAccountingReminderCellId];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     
@@ -246,7 +244,7 @@ const int BITNUMBER = 16;
         
         UITableViewCell* cell = [accountingReminderTableView dequeueReusableCellWithIdentifier:kDetailedReminderCellId];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kDetailedReminderCellId]autorelease];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kDetailedReminderCellId];
         }
         
         if (indexPath.section == 0) {
@@ -299,7 +297,7 @@ const int BITNUMBER = 16;
     
     [self presentView:view];   
     
-    activeFloatingView = view;
+    self.activeFloatingView = view;
 }
 
 - (void)presentView:(UIView*)view {
