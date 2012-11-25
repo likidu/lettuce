@@ -536,3 +536,44 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
 }
 
 @end
+
+@interface Dimmer()
+
+@property(nonatomic,retain) UIView* view;
+
+@end
+
+@implementation Dimmer
+
+@synthesize view = _view;
+@synthesize duration;
+
++ (Dimmer *)dimmerWithView:(UIView *)view {
+    return [[[Dimmer alloc]initWithView:view]autorelease];
+}
+
+- (id)initWithView:(UIView*)view {
+    self.view = view;
+    self.duration = 0.4;
+    return self;
+}
+
+- (void)show {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:self.duration];
+    //[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    self.view.alpha = 1;
+    [UIView commitAnimations];
+}
+
+- (void)hide {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:self.duration];
+    //[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    self.view.alpha = 0.0;
+    [UIView commitAnimations];
+}
+
+@end

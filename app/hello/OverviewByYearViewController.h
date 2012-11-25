@@ -15,6 +15,11 @@
 @property(nonatomic,retain) IBOutlet UITableViewCell* cellTemplate;
 @property(nonatomic,assign) id<ReportViewDelegate> delegate;
 
+@property(nonatomic,retain) IBOutlet UILabel* totalBudgetLabel;
+@property(nonatomic,retain) IBOutlet UILabel* totalExpenseLabel;
+@property(nonatomic,retain) IBOutlet UILabel* totalBalanceLabel;
+@property(nonatomic,retain) IBOutlet UIView* summaryView;
+
 @property(nonatomic,retain) NSDate* dayOfYear;
 @property(nonatomic,retain) NSArray* yearData;
 @property(nonatomic,retain) NSArray* budgetData;

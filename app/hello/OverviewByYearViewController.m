@@ -11,6 +11,12 @@
 #import "PlanManager.h"
 #import "ExpenseManager.h"
 
+@interface OverviewByYearViewController()
+
+@property(nonatomic,retain) Dimmer* dimmer;
+
+@end
+
 @implementation OverviewByYearViewController
 
 @synthesize tableView;
@@ -22,6 +28,11 @@
 @synthesize budgetData;
 @synthesize expenseData;
 @synthesize balanceData;
+
+@synthesize totalBalanceLabel;
+@synthesize totalBudgetLabel;
+@synthesize totalExpenseLabel;
+@synthesize summaryView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +49,7 @@
     
     self.dayOfYear = [NSDate date];
     self.tableView.scrollsToTop = YES;
+    self.dimmer = [Dimmer dimmerWithView:self.summaryView];
     [self reload];
 }
 
@@ -52,6 +64,7 @@
     self.budgetData = nil;
     self.expenseData = nil;
     self.balanceData = nil;
+    self.dimmer = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -123,11 +136,11 @@
 #pragma mark - scroll view delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    
+    [self.dimmer hide];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    [self.dimmer show];
 }
 
 #pragma mark - date range responder
@@ -137,14 +150,18 @@
     NSMutableArray* budgets = [NSMutableArray arrayWithCapacity:self.yearData.count];
     NSMutableArray* expenses = [NSMutableArray arrayWithCapacity:self.yearData.count];
     NSMutableArray* balances = [NSMutableArray arrayWithCapacity:self.yearData.count];
+    double totalBudget = 0, totalExpense = 0, totalBalance = 0;
     for (int i = 0; i < self.yearData.count; i++) {
         NSDate* dayOfMonth = [self.yearData objectAtIndex:i];
         double budget = [PlanManager getBudgetOfMonth: dayOfMonth];
         [budgets addObject: [NSNumber numberWithDouble:budget]];
+        totalBudget += budget;
         double expense = [Statistics getTotalOfMonth:dayOfMonth];
         [expenses addObject:[NSNumber numberWithDouble:expense]];
+        totalExpense += expense;
         double balance = [Statistics getBalanceOfMonth:dayOfMonth];
         [balances addObject:[NSNumber numberWithDouble:balance]];
+        totalBalance += balance;
     }
     
     self.budgetData = budgets;
@@ -152,6 +169,10 @@
     self.balanceData = balances;
     [self.tableView reloadData];
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    
+    self.totalBudgetLabel.text = formatAmount(totalBudget, NO);
+    self.totalExpenseLabel.text = formatAmount(totalExpense, NO);
+    self.totalBalanceLabel.text = formatAmount(totalBalance, NO);
 }
 
 - (BOOL)canEdit {

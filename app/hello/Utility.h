@@ -84,4 +84,17 @@ extern NSArray* getTimeArrayWithMinutesInteval(int minutesinterval);
 
 @end
 
+@interface Dimmer : NSObject
+
++ (Dimmer*)dimmerWithView:(UIView*)view;
+
+- (id)initWithView:(UIView*)view;
+
+- (void)show;
+- (void)hide;
+
+@property(nonatomic,assign) float duration;
+
+@end
+
 #endif
