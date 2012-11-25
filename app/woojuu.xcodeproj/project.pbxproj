@@ -1725,6 +1725,7 @@
 		1AA4686314FE37C5003D387F /* First User Experience */ = {
 			isa = PBXGroup;
 			children = (
+				1AA4685D14FE32D6003D387F /* NavigationProtocol.h */,
 				1AA4685314FE2D58003D387F /* FirstExperienceView.h */,
 				1AA4685414FE2D58003D387F /* FirstExperienceView.m */,
 				1AA4685514FE2D58003D387F /* FirstExperienceView.xib */,
@@ -1836,13 +1837,6 @@
 				1A0AE6D9155A973600B5C4DC /* HistoryViewFrame.xib */,
 				1A05809913752FBD00933267 /* CategoryViewController.h */,
 				1A05809A13752FBD00933267 /* CategoryViewController.m */,
-				1AAD13E513335A160035BA92 /* SettingView.h */,
-				1AAD13E613335A170035BA92 /* SettingView.m */,
-				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
-				1AEF65D014728E1B004FD202 /* PasscodeView.h */,
-				1AEF65D114728E1B004FD202 /* PasscodeView.m */,
-				1AEF65D214728E1B004FD202 /* PasscodeView.xib */,
-				1AA4685D14FE32D6003D387F /* NavigationProtocol.h */,
 				1AA4686314FE37C5003D387F /* First User Experience */,
 				1AAD1398132BB1B00035BA92 /* Supporting Files */,
 				1AC9759D159C341500115C17 /* Obsolete Code - For Reference Only */,
@@ -2054,6 +2048,12 @@
 		B0EC9FF8157A69F400903063 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1AAD13E513335A160035BA92 /* SettingView.h */,
+				1AAD13E613335A170035BA92 /* SettingView.m */,
+				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
+				1AEF65D014728E1B004FD202 /* PasscodeView.h */,
+				1AEF65D114728E1B004FD202 /* PasscodeView.m */,
+				1AEF65D214728E1B004FD202 /* PasscodeView.xib */,
 				1AD88A6413ED88E300804635 /* BudgetView.h */,
 				1AAD13D9133345A90035BA92 /* BudgetView.m */,
 				1A6B5E4C13F2C4A6007BC798 /* BudgetView.xib */,
