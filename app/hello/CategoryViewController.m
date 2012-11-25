@@ -218,11 +218,13 @@ CGSize categoryButtonSize = {60, 72};
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
+    [self.view removeObserver:self forKeyPath:@"frame" context:nil];
+
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.scrollView = nil;
     self.pageControl = nil;
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
