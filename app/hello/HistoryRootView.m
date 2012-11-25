@@ -65,16 +65,16 @@
     // create and initialize the overview
     self.overviewByMonth = (OverviewByYearViewController*)[OverviewByYearViewController instanceFromNib];
     self.overviewByMonth.delegate = self;
-    [self.view addSubview: overviewByMonth.view];
-    [self.view bringSubviewToFront:overviewByMonth.view];
-    overviewByMonth.view.frame = tableViewPlaceHolder.frame;
+    [self.tableViewPlaceHolder addSubview: overviewByMonth.view];
+    [self.tableViewPlaceHolder bringSubviewToFront:overviewByMonth.view];
+    overviewByMonth.view.frame = tableViewPlaceHolder.bounds;
     [overviewByMonth.view layoutSubviews];
     
     self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
     self.overviewByCategory.delegate = self;
-    [self.view addSubview: overviewByCategory.view];
-    [self.view bringSubviewToFront:overviewByCategory.view];
-    overviewByCategory.view.frame = tableViewPlaceHolder.frame;
+    [self.tableViewPlaceHolder addSubview: overviewByCategory.view];
+    [self.tableViewPlaceHolder bringSubviewToFront:overviewByCategory.view];
+    overviewByCategory.view.frame = tableViewPlaceHolder.bounds;
     [overviewByCategory.view layoutSubviews];
     overviewByCategory.view.hidden = YES;
     

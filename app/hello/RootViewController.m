@@ -46,6 +46,7 @@
 @synthesize firstUxImage;
 @synthesize firstUxImageView;
 @synthesize firstUxButton;
+@synthesize clientPanel;
 
 #pragma mark - Event handlers
 
@@ -53,7 +54,7 @@
     if (activeController != viewController) {
         [activeController performSelector:@selector(viewWillDisappear:)];
         [viewController performSelector:@selector(viewWillAppear:)];
-        [UIView transitionWithView:self.view
+        [UIView transitionWithView:self.clientPanel
                           duration:0.5
                            options:UIViewAnimationOptionTransitionCurlUp
                         animations:^{
@@ -62,10 +63,12 @@
                         }
                         completion:^(BOOL finished){
                             if (finished) {
-                                [self.view sendSubviewToBack:activeController.view]; 
+                                [self.clientPanel sendSubviewToBack:activeController.view]; 
                                 [activeController performSelector:@selector(viewDidDisappear:)];
                                 activeController = viewController;
                                 [activeController performSelector:@selector(viewDidAppear:)];
+                                [activeController.view setNeedsLayout];
+                                [activeController.view layoutIfNeeded];
                             }
                         }];
     }
@@ -102,16 +105,17 @@
     makeToolButton(self.historyButton);
 
     // Do any additional setup after loading the view from its nib.
-    CGRect subViewBounds = self.view.bounds;
-    subViewBounds.size.height -= tabPanel.bounds.size.height;
+    CGRect subViewBounds = self.clientPanel.bounds;
     
     todayController.view.frame = subViewBounds;
-    [self.view addSubview: todayController.view];
-    [self.view sendSubviewToBack: todayController.view];
+    [self.clientPanel addSubview: todayController.view];
+    [todayController.view layoutSubviews];
+    [self.clientPanel sendSubviewToBack: todayController.view];
     
     historyController.view.frame = subViewBounds;
-    [self.view addSubview: historyController.view];
-    [self.view sendSubviewToBack: historyController.view];
+    [self.clientPanel addSubview: historyController.view];
+    [historyController.view layoutSubviews];
+    [self.clientPanel sendSubviewToBack: historyController.view];
     historyController.view.hidden = YES;
     
     activeController = todayController;

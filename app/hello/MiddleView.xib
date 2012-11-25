@@ -637,10 +637,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">keyboardbg.png</string>
-						</object>
+						<reference key="IBUIImage" ref="694091662"/>
 					</object>
 					<object class="IBUIButton" id="193735299">
 						<reference key="NSNextResponder" ref="738447606"/>
@@ -2330,7 +2327,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>dashline.png</string>
 				<string>greenpaper.jpg</string>
 				<string>header.png</string>
-				<string>keyboardbg.png</string>
 				<string>launch.jpg</string>
 				<string>numpad.bg.png</string>
 				<string>numpad.clear.down.png</string>
@@ -2381,7 +2377,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<string>{292, 1}</string>
 				<string>{640, 744}</string>
 				<string>{324, 48}</string>
-				<string>{76, 430}</string>
 				<string>{320, 460}</string>
 				<string>{5, 215}</string>
 				<string>{77, 49}</string>

@@ -21,6 +21,7 @@
 @property (nonatomic, retain) IBOutlet UIViewController* historyController;
 
 @property (nonatomic, retain) IBOutlet UIView* tabPanel;
+@property (nonatomic, retain) IBOutlet UIView* clientPanel;
 
 @property (nonatomic, retain) IBOutlet UIButton* todayButton;
 @property (nonatomic, retain) IBOutlet UIButton* historyButton;

@@ -64,10 +64,21 @@
 					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="IBUIView" id="461630815">
+							<reference key="NSNextResponder" ref="1028872197"/>
+							<int key="NSvFlags">274</int>
+							<string key="NSFrameSize">{320, 416}</string>
+							<reference key="NSSuperview" ref="1028872197"/>
+							<reference key="NSWindow"/>
+							<string key="NSReuseIdentifierKey">_NS:9</string>
+							<reference key="IBUIBackgroundColor" ref="503322308"/>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
 						<object class="IBUIView" id="779025407">
 							<reference key="NSNextResponder" ref="1028872197"/>
-							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{0, 417}, {320, 44}}</string>
+							<int key="NSvFlags">266</int>
+							<string key="NSFrame">{{0, 417}, {320, 49}}</string>
 							<reference key="NSSuperview" ref="1028872197"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="563326455"/>
@@ -358,6 +369,14 @@
 					<int key="connectionID">162</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">clientPanel</string>
+						<reference key="source" ref="911534254"/>
+						<reference key="destination" ref="461630815"/>
+					</object>
+					<int key="connectionID">164</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">onToday:</string>
 						<reference key="source" ref="563326455"/>
@@ -439,6 +458,7 @@
 							<reference ref="563326455"/>
 							<reference ref="109644574"/>
 							<reference ref="791599657"/>
+							<reference ref="461630815"/>
 						</object>
 						<reference key="parent" ref="911534254"/>
 					</object>
@@ -463,11 +483,6 @@
 						<reference key="parent" ref="1028872197"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">146</int>
-						<reference key="object" ref="779025407"/>
-						<reference key="parent" ref="1028872197"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">159</int>
 						<reference key="object" ref="199213602"/>
 						<reference key="parent" ref="0"/>
@@ -476,6 +491,16 @@
 						<int key="objectID">161</int>
 						<reference key="object" ref="1064149331"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">146</int>
+						<reference key="object" ref="779025407"/>
+						<reference key="parent" ref="1028872197"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">163</int>
+						<reference key="object" ref="461630815"/>
+						<reference key="parent" ref="1028872197"/>
 					</object>
 				</object>
 			</object>
@@ -502,6 +527,7 @@
 					<string>159.IBPluginDependency</string>
 					<string>161.CustomClassName</string>
 					<string>161.IBPluginDependency</string>
+					<string>163.IBPluginDependency</string>
 					<string>2.IBAttributePlaceholdersKey</string>
 					<string>2.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
@@ -528,6 +554,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>HistoryViewFrame</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSMutableDictionary">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<reference key="dict.sortedKeys" ref="0"/>
@@ -550,7 +577,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">162</int>
+			<int key="maxID">164</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -617,6 +644,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clientPanel</string>
 							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
@@ -625,6 +653,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIView</string>
 							<string>UIButton</string>
 							<string>UIViewController</string>
 							<string>UIView</string>
@@ -636,6 +665,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clientPanel</string>
 							<string>historyButton</string>
 							<string>historyController</string>
 							<string>tabPanel</string>
@@ -644,6 +674,10 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">clientPanel</string>
+								<string key="candidateClassName">UIView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">historyButton</string>
 								<string key="candidateClassName">UIButton</string>

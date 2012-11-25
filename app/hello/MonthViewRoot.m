@@ -37,18 +37,20 @@
     self.overviewByCategory = (OverviewByCategoryViewController*)[OverviewByCategoryViewController instanceFromNib];
     self.overviewByCategory.delegate = self;
     
-    [self.view addSubview:self.overviewByCategory.view];
-    self.overviewByCategory.view.frame = self.tableViewPlaceHolder.frame;
-    [self.view bringSubviewToFront:self.overviewByCategory.view];
+    [self.tableViewPlaceHolder addSubview:self.overviewByCategory.view];
+    [self.tableViewPlaceHolder bringSubviewToFront:self.overviewByCategory.view];
+    self.overviewByCategory.view.frame = self.tableViewPlaceHolder.bounds;
+    [self.overviewByCategory.view layoutSubviews];
     
     // setup view by date view controller
     self.overviewByDate = (ExpenseHistoryViewController*)[ExpenseHistoryViewController instanceFromNib];
-    [self.view addSubview:self.overviewByDate.view];
-    self.overviewByDate.view.frame = self.tableViewPlaceHolder.frame;
-    [self.view bringSubviewToFront:self.overviewByDate.view];
+    [self.tableViewPlaceHolder addSubview:self.overviewByDate.view];
+    [self.tableViewPlaceHolder bringSubviewToFront:self.overviewByDate.view];
+    self.overviewByDate.view.frame = self.tableViewPlaceHolder.bounds;
+    [self.overviewByDate.view layoutSubviews];
     
     // layout and initially hide the by date view controller
-    [self.view layoutSubviews];
+    [self.tableViewPlaceHolder layoutSubviews];
     self.overviewByDate.view.hidden = YES;
     
     if (self.startDate == nil || self.endDate == nil) {

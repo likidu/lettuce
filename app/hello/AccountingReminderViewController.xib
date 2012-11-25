@@ -532,20 +532,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">AccountingReminderViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="onReturn:">UIButton</string>
-						<string key="onSwitch:">UISwitch</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="onReturn:">
-							<string key="name">onReturn:</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBActionInfo" key="onSwitch:">
-							<string key="name">onSwitch:</string>
-							<string key="candidateClassName">UISwitch</string>
-						</object>
-					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="accountingReminderTableView">UITableView</string>
 						<string key="dailyPicker">UIPickerView</string>

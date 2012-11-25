@@ -51,13 +51,12 @@
         if ([navController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
             [navController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
         }
-//        else {
-//            UIImageView* view = [[[UIImageView alloc]initWithImage:image]autorelease];
-//            [view setTag:kSCNavBarImageTag];
-//            [navController.navigationBar insertSubview:view atIndex:0];
-//            [navController.navigationBar bringSubviewToFront:view];
-//        }
+        
+        //navController.view.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin |UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+        
+        navController.view.frame = self.view.bounds;
         [self.view addSubview:navController.view];
+        [self.view layoutSubviews];
     }
 }
 

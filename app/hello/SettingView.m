@@ -13,6 +13,7 @@
 #import "AccountingReminderViewController.h"
 #import "ReorderCategoryViewController.h"
 #import "ConfigurationManager.h"
+#import "PlanManager.h"
 
 @implementation SettingView
 
@@ -140,7 +141,8 @@
         switch (indexPath.row) {
             case 0:
                 cell.textLabel.text = @"预算设置";
-                //cell.detailTextLabel.text
+                double budgetOfMonth = [PlanManager getBudgetOfMonth:[NSDate date]];
+                cell.detailTextLabel.text = formatAmount(budgetOfMonth, NO);
                 cell.imageView.image = imgBudget;               
                 break;
             case 1:
