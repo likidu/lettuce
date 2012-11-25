@@ -10,6 +10,12 @@
 #import "Statistics.h"
 #import "CategoryManager.h"
 
+@interface OverviewByCategoryViewController()
+
+@property(nonatomic,retain) Dimmer* dimmer;
+
+@end
+
 @implementation OverviewByCategoryViewController
 
 @synthesize cellTemplate;
@@ -20,6 +26,8 @@
 @synthesize startDate;
 @synthesize endDate;
 @synthesize delegate;
+
+@synthesize dimmer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +45,7 @@
 
     self.startDate = firstDayOfMonth(firstMonthOfYear([NSDate date]));
     self.endDate = lastDayOfMonth(lastMonthOfYear([NSDate date]));
+    self.dimmer = [Dimmer dimmerWithView:self.summaryView];
     
     [self reload];
 }
@@ -128,10 +137,31 @@
     self.amounts = [dict valueForKey:@"amounts"];
     [self.table reloadData];
     [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    
+    double totalRegularExpense = 0.0, totalFixedExpense = 0.0;
+    for (int i = 0; i < categories.count; ++i) {
+        if ([[categories objectAtIndex:i]intValue] < FIXED_EXPENSE_CATEGORY_ID_START)
+            totalRegularExpense += [[amounts objectAtIndex:i]doubleValue];
+        else
+            totalFixedExpense += [[amounts objectAtIndex:i]doubleValue];
+    }
+    
+    self.totalRegularExpenseLabel.text = [NSString stringWithFormat:@"日常支出 %@", formatAmount(totalRegularExpense, NO)];
+    self.totalFixedExpenseLabel.text = [NSString stringWithFormat:@"固定支出 %@", formatAmount(totalFixedExpense, NO)];
 }
 
 - (BOOL)canEdit {
     return NO;
+}
+
+#pragma mark - scroll view
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.dimmer hide];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self.dimmer show];
 }
 
 @end

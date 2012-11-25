@@ -139,7 +139,7 @@
     [self.dimmer hide];
 }
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [self.dimmer show];
 }
 

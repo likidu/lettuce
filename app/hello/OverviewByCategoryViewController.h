@@ -23,4 +23,8 @@
 
 @property(nonatomic,assign) id<ReportViewDelegate> delegate;
 
+@property(nonatomic,retain) IBOutlet UIView* summaryView;
+@property(nonatomic,retain) IBOutlet UILabel* totalRegularExpenseLabel;
+@property(nonatomic,retain) IBOutlet UILabel* totalFixedExpenseLabel;
+
 @end
