@@ -495,6 +495,8 @@
 		1ABEDFD015B293D2001D3D86 /* SingleCategoryByMonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */; };
 		1ABF98F71497A49700CEF051 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF98F61497A49700CEF051 /* ProgressView.m */; };
 		1AC28564145CEC280085C866 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC28563145CEC280085C866 /* libFlurryAnalytics.a */; };
+		1AC5F1A416639907000F05F0 /* back.button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5F1A216639907000F05F0 /* back.button.png */; };
+		1AC5F1A516639907000F05F0 /* back.button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5F1A316639907000F05F0 /* back.button@2x.png */; };
 		1AC8AF05143210B700B2638B /* ExpenseHistoryByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */; };
 		1AC8AF06143210B700B2638B /* ExpenseHistoryByLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC8AF04143210B700B2638B /* ExpenseHistoryByLocationViewController.xib */; };
 		1AC8AF081432129100B2638B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC8AF071432129100B2638B /* MapKit.framework */; };
@@ -518,6 +520,8 @@
 		1AD88A6813ED90C300804635 /* ExpenseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6613ED90C200804635 /* ExpenseHistoryViewController.m */; };
 		1AD88A6913ED90C300804635 /* ExpenseHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */; };
 		1AD88A6E13ED96D800804635 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD88A6C13ED96D600804635 /* AboutViewController.m */; };
+		1AE0BA441663A8BA00156576 /* back.button.down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0BA421663A8BA00156576 /* back.button.down.png */; };
+		1AE0BA451663A8BA00156576 /* back.button.down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE0BA431663A8BA00156576 /* back.button.down@2x.png */; };
 		1AE1A4A914F9E1E30026BF7A /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1A4A814F9E1E30026BF7A /* WelcomeView.m */; };
 		1AE3D38A15922DCF00FC45F9 /* drop.indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3D38815922DCF00FC45F9 /* drop.indicator.png */; };
 		1AE3D38B15922DCF00FC45F9 /* drop.indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE3D38915922DCF00FC45F9 /* drop.indicator@2x.png */; };
@@ -1128,6 +1132,8 @@
 		1ABF98F61497A49700CEF051 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		1AC28562145CEC280085C866 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = hello/FlurryAnalytics/FlurryAnalytics.h; sourceTree = "<group>"; };
 		1AC28563145CEC280085C866 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = hello/FlurryAnalytics/libFlurryAnalytics.a; sourceTree = "<group>"; };
+		1AC5F1A216639907000F05F0 /* back.button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.button.png; path = arts/Navigation/back.button.png; sourceTree = "<group>"; };
+		1AC5F1A316639907000F05F0 /* back.button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back.button@2x.png"; path = "arts/Navigation/back.button@2x.png"; sourceTree = "<group>"; };
 		1AC7D60413F57AE600A82B2B /* TableViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewProtocol.h; sourceTree = "<group>"; };
 		1AC8AF02143210B700B2638B /* ExpenseHistoryByLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseHistoryByLocationViewController.h; sourceTree = "<group>"; };
 		1AC8AF03143210B700B2638B /* ExpenseHistoryByLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByLocationViewController.m; sourceTree = "<group>"; };
@@ -1158,6 +1164,8 @@
 		1AD88A6713ED90C200804635 /* ExpenseHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryViewController.xib; sourceTree = "<group>"; };
 		1AD88A6B13ED96D500804635 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1AD88A6C13ED96D600804635 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		1AE0BA421663A8BA00156576 /* back.button.down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.button.down.png; path = arts/Navigation/back.button.down.png; sourceTree = "<group>"; };
+		1AE0BA431663A8BA00156576 /* back.button.down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back.button.down@2x.png"; path = "arts/Navigation/back.button.down@2x.png"; sourceTree = "<group>"; };
 		1AE1A4A714F9E1E30026BF7A /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
 		1AE1A4A814F9E1E30026BF7A /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
 		1AE3D38815922DCF00FC45F9 /* drop.indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drop.indicator.png; path = arts/drop.indicator.png; sourceTree = "<group>"; };
@@ -1519,6 +1527,7 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AC5F1A0166398B1000F05F0 /* Navigation */,
 				1AF1B8E2165E6EEF00923F0B /* new.features.png */,
 				1AF1B8E3165E6EEF00923F0B /* new.features@2x.png */,
 				1AB03CD6165C864200FECC44 /* history */,
@@ -1957,6 +1966,17 @@
 				1ABD96E7158C458C0029302B /* texture.number@2x.png */,
 			);
 			name = "Add Transaction";
+			sourceTree = "<group>";
+		};
+		1AC5F1A0166398B1000F05F0 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1AE0BA421663A8BA00156576 /* back.button.down.png */,
+				1AE0BA431663A8BA00156576 /* back.button.down@2x.png */,
+				1AC5F1A216639907000F05F0 /* back.button.png */,
+				1AC5F1A316639907000F05F0 /* back.button@2x.png */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		1AC97584159C30B900115C17 /* Tab Bar */ = {
@@ -2654,6 +2674,10 @@
 				1AB03CE0165D06FD00FECC44 /* photo.paper@2x.png in Resources */,
 				1AF1B8E4165E6EEF00923F0B /* new.features.png in Resources */,
 				1AF1B8E5165E6EEF00923F0B /* new.features@2x.png in Resources */,
+				1AC5F1A416639907000F05F0 /* back.button.png in Resources */,
+				1AC5F1A516639907000F05F0 /* back.button@2x.png in Resources */,
+				1AE0BA441663A8BA00156576 /* back.button.down.png in Resources */,
+				1AE0BA451663A8BA00156576 /* back.button.down@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

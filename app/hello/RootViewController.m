@@ -121,6 +121,21 @@
     activeController = todayController;
     todayButton.selected = YES;
     [activeController performSelector:@selector(viewWillAppear:)];
+    
+    // set tint color for navigation items
+    UIImage* buttonBackground = [UIImage imageNamed:@"back.button.png"];
+    buttonBackground = [buttonBackground resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 10)];
+    [[UIBarButtonItem appearance]setBackButtonBackgroundImage:buttonBackground forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    buttonBackground = [UIImage imageNamed:@"back.button.down.png"];
+    buttonBackground = [buttonBackground resizableImageWithCapInsets:UIEdgeInsetsMake(0, 15, 0, 10)];
+    [[UIBarButtonItem appearance]setBackButtonBackgroundImage:buttonBackground forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+    
+    NSMutableDictionary* attributes = [NSMutableDictionary dictionary];
+    [attributes setValue:[UIColor colorWithRed:0.1 green:0.35 blue:0.0 alpha:1.0] forKey:UITextAttributeTextColor];
+    [attributes setValue:[UIColor colorWithWhite:1.0 alpha:0.8] forKey:UITextAttributeTextShadowColor];
+    [attributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0.0, 1.0)] forKey:UITextAttributeTextShadowOffset];
+    [[UIBarButtonItem appearance]setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance]setTitleTextAttributes:attributes forState:UIControlStateHighlighted];
 }
 
 - (void)viewDidUnload
