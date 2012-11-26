@@ -240,7 +240,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">版本 0.8.0</string>
+						<string key="IBUIText">版本 0.7.0</string>
 						<reference key="IBUITextColor" ref="767771488"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -418,7 +418,7 @@
 						<reference key="IBUIFont" ref="501648715"/>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 563}</string>
+				<string key="NSFrameSize">{320, 424}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="408273893"/>
