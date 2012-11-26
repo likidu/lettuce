@@ -161,6 +161,11 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate)
+        [self.dimmer show];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.dimmer show];
 }
 

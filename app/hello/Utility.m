@@ -554,7 +554,7 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
 
 - (id)initWithView:(UIView*)view {
     self.view = view;
-    self.duration = 0.4;
+    self.duration = 0.3;
     return self;
 }
 
@@ -562,7 +562,7 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:self.duration];
-    //[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     self.view.alpha = 1;
     [UIView commitAnimations];
 }
@@ -571,7 +571,7 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:self.duration];
-    //[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     self.view.alpha = 0.0;
     [UIView commitAnimations];
 }
