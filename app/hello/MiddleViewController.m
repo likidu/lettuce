@@ -484,16 +484,13 @@
     viewInitialized = YES;
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:catViewController.view];
-    catViewController.view.frame = inputPlaceHolder.frame;
     [CategoryManager instance].needReloadCategory = YES;
     catViewController.view.hidden = YES;
     catViewController.delegate = self;
     
-    numPadView.frame = inputPlaceHolder.frame;
     [self.view addSubview:numPadView];
     numPadView.hidden = NO;
     
-    datePickerView.frame = inputPlaceHolder.frame;
     [self.view addSubview:datePickerView];
     datePickerView.hidden = YES;
     
@@ -505,6 +502,13 @@
     // rotate the image view
     CGAffineTransform rotation = CGAffineTransformMakeRotation(3.14 * -0.165);
     self.imageView.transform = rotation;
+}
+
+- (void)viewDidLayoutSubviews {
+    catViewController.view.frame = inputPlaceHolder.frame;
+    [catViewController loadButtons];
+    numPadView.frame = inputPlaceHolder.frame;
+    datePickerView.frame = inputPlaceHolder.frame;
 }
 
 - (void)onSelectCategory:(id)sender {

@@ -42,17 +42,17 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="576995895">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 15}, {320, 460}}</string>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrame">{{0, 23}, {320, 437}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="193503531"/>
-						<int key="IBUIContentMode">1</int>
+						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">paper.png</string>
+							<string key="NSResourceName">paper.jpg</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="554985022">
@@ -244,6 +244,7 @@
 						<string key="NSFrame">{{0, 244}, {320, 216}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIShowsSelectionIndicator">YES</bool>
@@ -585,7 +586,7 @@
 			<string key="button.base.png">{61, 30}</string>
 			<string key="button.selected.png">{61, 30}</string>
 			<string key="header.png">{324, 48}</string>
-			<string key="paper.png">{320, 460}</string>
+			<string key="paper.jpg">{640, 1096}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
 	</data>

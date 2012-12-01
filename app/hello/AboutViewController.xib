@@ -44,17 +44,17 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIImageView" id="1003579027">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{0, 15}, {320, 460}}</string>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrame">{{0, 20}, {320, 440}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="41251006"/>
-						<int key="IBUIContentMode">1</int>
+						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">paper.png</string>
+							<string key="NSResourceName">paper.jpg</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="471739346">
@@ -815,7 +815,7 @@
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
 				<string>header.png</string>
-				<string>paper.png</string>
+				<string>paper.jpg</string>
 				<string>woojuu.art.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
@@ -827,7 +827,7 @@
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
 				<string>{324, 48}</string>
-				<string>{320, 460}</string>
+				<string>{640, 1096}</string>
 				<string>{228, 228}</string>
 			</object>
 		</object>

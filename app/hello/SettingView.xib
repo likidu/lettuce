@@ -45,17 +45,17 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIImageView" id="384539518">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 15}, {320, 460}}</string>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrame">{{0, 19}, {320, 441}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="499790669"/>
-						<int key="IBUIContentMode">1</int>
+						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">paper.png</string>
+							<string key="NSResourceName">paper.jpg</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="292234769">
@@ -79,6 +79,7 @@
 						<string key="NSFrame">{{0, 46}, {320, 414}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="1025825793">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -475,14 +476,14 @@
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
 				<string>header.png</string>
-				<string>paper.png</string>
+				<string>paper.jpg</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
 				<string>{324, 48}</string>
-				<string>{320, 460}</string>
+				<string>{640, 1096}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1930</string>

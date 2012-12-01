@@ -44,17 +44,17 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIImageView" id="87494596">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{0, 15}, {320, 460}}</string>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrame">{{0, 20}, {320, 440}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1038570971"/>
-						<int key="IBUIContentMode">1</int>
+						<reference key="NSNextKeyView"/>
+						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">paper.png</string>
+							<string key="NSResourceName">paper.jpg</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="955241641">
@@ -63,7 +63,7 @@
 						<string key="NSFrame">{{-2, 0}, {324, 48}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="87494596"/>
+						<reference key="NSNextKeyView" ref="1038570971"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -244,6 +244,7 @@
 						<string key="NSFrame">{{57, 106}, {207, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="87494596"/>
 						<reference key="IBUIBackgroundColor" ref="683378061"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -341,10 +342,10 @@
 							<reference ref="237545381"/>
 							<reference ref="419870792"/>
 							<reference ref="1038570971"/>
-							<reference ref="87494596"/>
 							<reference ref="955241641"/>
 							<reference ref="116278897"/>
 							<reference ref="857633258"/>
+							<reference ref="87494596"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -518,14 +519,14 @@
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
 				<string>header.png</string>
-				<string>paper.png</string>
+				<string>paper.jpg</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
 				<string>{324, 48}</string>
-				<string>{320, 460}</string>
+				<string>{640, 1096}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
