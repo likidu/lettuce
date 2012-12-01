@@ -54,7 +54,7 @@
     va_start(args, message);
     
     NSString* formattedMessage;
-    message = formattedMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    message = formattedMessage = [NSString stringWithFormat:message, args];
     
     va_end(args);
     UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:message 

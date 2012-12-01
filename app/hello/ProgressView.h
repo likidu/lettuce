@@ -24,6 +24,7 @@
 @property(nonatomic,assign) float progress;
 @property(nonatomic,assign) float flagProgress;
 @property(nonatomic,retain) NSString* activeThemeName;
+@property(nonatomic,retain) NSMutableDictionary* themeDict;
 
 - (void)registerTheme:(NSDictionary*)resDict withName:(NSString*)themeName;
 

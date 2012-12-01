@@ -45,13 +45,14 @@
 @synthesize progress;
 @synthesize flagProgress;
 @synthesize activeThemeName;
+@synthesize themeDict;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        themeDict = [[NSMutableDictionary alloc]init];
+        self.themeDict = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -59,7 +60,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        themeDict = [[NSMutableDictionary alloc]init];
+        self.themeDict = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -108,18 +109,18 @@
 - (void)setActiveThemeName:(NSString *)themeName {
     CLEAN_RELEASE(activeThemeName);
     activeThemeName = [themeName retain];
-    NSDictionary* theme = [themeDict objectForKey:activeThemeName];
+    NSDictionary* theme = [self.themeDict objectForKey:activeThemeName];
     if ([[self.layer class]isSubclassOfClass:[ProgressLayer class]])
         ((ProgressLayer*)self.layer).theme = theme;
 }
 
 - (void)registerTheme:(NSDictionary *)resDict withName:(NSString *)themeName {
     if (resDict)
-        [themeDict setObject:resDict forKey:themeName];
+        [self.themeDict setObject:resDict forKey:themeName];
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-    NSDictionary* theme = [themeDict objectForKey:activeThemeName];
+    NSDictionary* theme = [self.themeDict objectForKey:activeThemeName];
     
     UIImage* barStartImage = [theme objectForKey:@"img.bar.start"];
     UIImage* barPatternImage = [theme objectForKey:@"img.bar.pattern"];

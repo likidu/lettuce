@@ -171,11 +171,11 @@ static NSString* cellId = @"cellTransaction";
 }
 
 - (void)onChangeBudget:(id)sender {
-    [[self rootViewController]presentModalViewController:budgetView animated:YES];
+    [[UIViewController topViewController]presentModalViewController:budgetView animated:YES];
 }
 
 - (void)onSettings:(id)sender {
-    [[self rootViewController]presentModalViewController:settingView animated:YES];
+    [[UIViewController topViewController]presentModalViewController:settingView animated:YES];
 }
 
 - (void)dealloc

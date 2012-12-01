@@ -8,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UIViewControllerDelegate <NSObject>
+
+@optional
+
+- (void)didDismissViewController:(UIViewController*)viewController;
+- (void)didPresentViewController:(UIViewController*)viewController;
+
+@end
+
 @interface UIViewController (UtilityExtension)
 
 + (UIViewController*)instanceFromNib;
-+ (UIViewController*)instanceFromNib:(NSString*)nibname;
++ (UIViewController*)instanceFromNib:(NSString*)nibName;
+
+@property(nonatomic,assign) id<UIViewControllerDelegate> delegate;
 
 @end
+

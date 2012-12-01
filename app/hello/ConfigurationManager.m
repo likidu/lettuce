@@ -11,7 +11,7 @@
 @implementation ConfigurationManager
 
 + (NSDictionary *)getAllConfigurations{
-    NSMutableDictionary *configurationDictionary = [[[NSMutableDictionary alloc]init]autorelease];
+    NSMutableDictionary *configurationDictionary = [NSMutableDictionary dictionary];
     [self AddElementToDictionary:configurationDictionary :REMINDER_SWITCH_KEY];
     [self AddElementToDictionary:configurationDictionary :REMINDER_TYPE_KEY];
     [self AddElementToDictionary:configurationDictionary :REMINDER_TIME_KEY];

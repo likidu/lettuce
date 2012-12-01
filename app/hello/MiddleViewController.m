@@ -280,6 +280,7 @@
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
     [formatter setDateFormat:@"M月d日\nEE"];
     [uiDate setTitle:[formatter stringFromDate:self.currentDate] forState:UIControlStateNormal];
+    uiDate.titleLabel.textAlignment = UITextAlignmentCenter;
 }
 
 - (void)pushOp:(Operator)op { 

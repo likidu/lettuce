@@ -67,7 +67,6 @@ extern NSArray* getTimeArrayWithMinutesInteval(int minutesinterval);
 
 @interface UIViewController (ModalViewExtension)
 
-- (UIViewController*)rootViewController;
 + (UIViewController*)topViewController;
 
 @end
