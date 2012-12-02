@@ -70,7 +70,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">header.png</string>
+							<string key="NSResourceName">headerbar.png</string>
 						</object>
 					</object>
 					<object class="IBUITableView" id="734985947">
@@ -475,14 +475,14 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
-				<string>header.png</string>
+				<string>headerbar.png</string>
 				<string>paper.jpg</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
-				<string>{324, 48}</string>
+				<string>{320, 48}</string>
 				<string>{640, 1096}</string>
 			</object>
 		</object>

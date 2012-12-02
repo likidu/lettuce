@@ -65,7 +65,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">header.png</string>
+							<string key="NSResourceName">headerbar.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="562404240">
@@ -345,7 +345,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="button.selected.png">{61, 30}</string>
 			<string key="button.small.base.png">{41, 30}</string>
-			<string key="header.png">{324, 48}</string>
+			<string key="headerbar.png">{320, 48}</string>
 			<string key="paper.jpg">{640, 1096}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>

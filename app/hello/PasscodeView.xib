@@ -64,13 +64,13 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">header.png</string>
+							<string key="NSResourceName">headerbar.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="901661651">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{86, 1}, {149, 44}}</string>
+						<string key="NSFrame">{{86, 0}, {149, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="978301000"/>
@@ -111,7 +111,7 @@
 					</object>
 					<object class="IBUITextField" id="354748348">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{28, 92}, {61, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -155,7 +155,7 @@
 					</object>
 					<object class="IBUITextField" id="1055030643">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{96, 92}, {61, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -186,7 +186,7 @@
 					</object>
 					<object class="IBUITextField" id="117071347">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{164, 92}, {61, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -217,7 +217,7 @@
 					</object>
 					<object class="IBUITextField" id="723746363">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{232, 92}, {61, 52}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -248,7 +248,7 @@
 					</object>
 					<object class="IBUILabel" id="978301000">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{20, 61}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -279,7 +279,7 @@
 					</object>
 					<object class="IBUILabel" id="725120474">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{20, 61}, {280, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -303,7 +303,7 @@
 					</object>
 					<object class="IBUIImageView" id="299360586">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{0, 153}, {316, 97}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -317,7 +317,7 @@
 					</object>
 					<object class="IBUIImageView" id="633098762">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">300</int>
 						<string key="NSFrame">{{117, 156}, {87, 85}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -463,7 +463,6 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="901661651"/>
 							<reference ref="354748348"/>
 							<reference ref="117071347"/>
 							<reference ref="723746363"/>
@@ -475,6 +474,7 @@
 							<reference ref="842471353"/>
 							<reference ref="259739400"/>
 							<reference ref="281346910"/>
+							<reference ref="901661651"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -637,7 +637,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="header.png">{324, 48}</string>
+			<string key="headerbar.png">{320, 48}</string>
 			<string key="paper.jpg">{640, 1096}</string>
 			<string key="password_default.png">{316, 97}</string>
 			<string key="password_error.png">{87, 85}</string>

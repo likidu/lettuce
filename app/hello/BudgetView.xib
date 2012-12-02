@@ -48,7 +48,7 @@
 						<string key="NSFrame">{{0, 20}, {320, 440}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="1038570971"/>
 						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -63,13 +63,13 @@
 						<string key="NSFrame">{{-2, 0}, {324, 48}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="1038570971"/>
+						<reference key="NSNextKeyView" ref="87494596"/>
 						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">header.png</string>
+							<string key="NSResourceName">headerbar.png</string>
 						</object>
 					</object>
 					<object class="IBUITextField" id="116278897">
@@ -244,7 +244,7 @@
 						<string key="NSFrame">{{57, 106}, {207, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="87494596"/>
+						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="683378061"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -518,14 +518,14 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>button.base.png</string>
 				<string>button.selected.png</string>
-				<string>header.png</string>
+				<string>headerbar.png</string>
 				<string>paper.jpg</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{61, 30}</string>
 				<string>{61, 30}</string>
-				<string>{324, 48}</string>
+				<string>{320, 48}</string>
 				<string>{640, 1096}</string>
 			</object>
 		</object>
