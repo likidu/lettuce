@@ -40,6 +40,13 @@
 @synthesize currentDate;
 @synthesize imageUnknown;
 
++ (MiddleViewController *)instance {
+    static MiddleViewController* globalInstance = nil;
+    if (!globalInstance)
+        globalInstance = [(MiddleViewController*)[MiddleViewController instanceFromNib:@"MiddleView"]retain];
+    return globalInstance;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -643,7 +650,7 @@
 
 + (void)showAddTransactionView:(Expense*)expense {
     UIViewController* topVc = [UIViewController topViewController];
-    MiddleViewController* addTransVc = (MiddleViewController*)[MiddleViewController instanceFromNib: @"MiddleView"];
+    MiddleViewController* addTransVc = [MiddleViewController instance];
     addTransVc.editingItem = expense;
     [topVc presentViewController:addTransVc animated:YES completion:nil];
 }

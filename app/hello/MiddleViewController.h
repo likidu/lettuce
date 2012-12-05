@@ -55,6 +55,8 @@ typedef void(^MiddleViewControllerDismissedHandler)();
     BOOL viewInitialized;
 }
 
++ (MiddleViewController*)instance;
+
 - (IBAction)onCancel:(id)sender;
 - (IBAction)onSave:(id)sender;
 - (IBAction)onNumPadKey:(id)sender;

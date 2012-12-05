@@ -77,7 +77,7 @@ void uncaughtExceptionHandler(NSException* exception) {
     Workflow* workflow = [[Workflow alloc]init];
     
     [workflow setAction:^(id<WorkflowDelegate> delegate){
-        MiddleViewController* middleView = (MiddleViewController*)[MiddleViewController instanceFromNib:@"MiddleView"];
+        MiddleViewController* middleView = [MiddleViewController instance];
         middleView.editingItem = nil;
         middleView.dismissedHandler = ^(){
             [delegate sendMessage:@"end"];
