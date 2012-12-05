@@ -12,4 +12,5 @@
 - (BOOL) contains:(NSString *)string;
 - (BOOL) contains:(NSString *)string 
           options:(NSStringCompareOptions) options;
++ (BOOL) isNullOrEmpty:(NSString*) string;
 @end

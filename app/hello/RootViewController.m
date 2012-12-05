@@ -176,7 +176,7 @@
     
     if ([PlanManager firstDayOfPlan] == nil) {
         UIViewController* firstExperienceView = [FirstExperienceView instanceFromNib];
-        [self presentModalViewController:firstExperienceView animated:YES];
+        [self presentViewController:firstExperienceView animated:YES completion:nil];
     }
 }
 

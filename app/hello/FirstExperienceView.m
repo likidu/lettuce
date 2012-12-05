@@ -42,7 +42,7 @@
     double budget = [[navigationData objectForKey:@"budget"]doubleValue];
     [PlanManager setBudget:budget ofMonth:[NSDate date]];
 
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)forward {

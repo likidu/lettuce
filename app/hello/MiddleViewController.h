@@ -41,6 +41,8 @@ typedef enum _Operator {
 #define TOL 0.0000001;
 #define fuzzyEqual(a, b) ({ABS(a - b) < TOL})
 
+typedef void(^MiddleViewControllerDismissedHandler)();
+
 @interface MiddleViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageNoteViewContollerDelegate,UITextViewDelegate,CategoryViewControllerDelegate> {
     double prevNumber;
     double curNumber;
@@ -81,6 +83,8 @@ typedef enum _Operator {
 @property(nonatomic, retain) UIImage* imageUnknown;
 @property(nonatomic, retain) Expense* editingItem;
 @property(nonatomic, retain) UIImageNoteViewController* imageNoteViewController;
+
+@property(nonatomic, copy) MiddleViewControllerDismissedHandler dismissedHandler;
 
 - (void)syncUi;
 - (void)pushOp:(Operator)op;

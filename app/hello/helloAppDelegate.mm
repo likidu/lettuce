@@ -13,7 +13,8 @@
 #import "MiddleViewController.h"
 #import "LocationManager.h"
 #import "FlurryAnalytics.h"
-#import "PasscodeView.h"
+#import "Workflow.h"
+#import "PasscodeManager.h"
 #import "ConfigurationManager.h"
 
 void uncaughtExceptionHandler(NSException* exception) {
@@ -39,6 +40,8 @@ void uncaughtExceptionHandler(NSException* exception) {
     
     // setup location service
     //[LocationManager tryUpdateLocation];
+    
+    [self performStartupAction];
 
     return YES;
 }
@@ -65,23 +68,66 @@ void uncaughtExceptionHandler(NSException* exception) {
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
-    //[LocationManager tryResume];
-    // dismiss all notifications
+    
+    // stop user here
+    [self performStartupAction];
+}
+
+- (Workflow*)createAddTransactionWorkflow {
+    Workflow* workflow = [[Workflow alloc]init];
+    
+    [workflow setAction:^(id<WorkflowDelegate> delegate){
+        MiddleViewController* middleView = (MiddleViewController*)[MiddleViewController instanceFromNib:@"MiddleView"];
+        middleView.editingItem = nil;
+        middleView.dismissedHandler = ^(){
+            [delegate sendMessage:@"end"];
+        };
+        [[UIViewController topViewController]presentViewController:middleView animated:YES completion:nil];
+    } withMesageMap:[NSDictionary dictionary] forKey:@"start"];
+    
+    return workflow;
+}
+
+- (void)performStartupAction {
+    // clear badge first
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    BOOL passcodeEnabled = [PasscodeManager isPasscodeEnabled];
+    BOOL showAddTransaction = [[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY];
+    
+    static Workflow* workflow = nil;
+    
+    if (workflow)
+        return;
+    
+    if (passcodeEnabled) {
+        workflow = [PasscodeManager createCheckPasscodeWorkflowCancelable:NO];
+        workflow.workflowCompleteHandler = ^(){
+            CLEAN_RELEASE(workflow);
+            [[UIViewController topViewController]viewWillAppear:NO];
+            if (showAddTransaction) {
+                workflow = [self createAddTransactionWorkflow];
+                workflow.workflowCompleteHandler = ^(){
+                    CLEAN_RELEASE(workflow);
+                    [[UIViewController topViewController]viewWillAppear:NO];
+                };
+                [workflow execute];
+            }
+        };
+        [workflow execute];
+    }
+    else if (showAddTransaction) {
+        workflow = [self createAddTransactionWorkflow];
+        workflow.workflowCompleteHandler = ^(){
+            CLEAN_RELEASE(workflow);
+            [[UIViewController topViewController]viewWillAppear:NO];
+        };
+        [workflow execute];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY]) {
-        [MiddleViewController showAddTransactionView:nil];
-    }
-    
-    // test code
-    [PasscodeView setPasscode];
-    
-    // stop user here
-    [PasscodeView checkPasscode];
-
-    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

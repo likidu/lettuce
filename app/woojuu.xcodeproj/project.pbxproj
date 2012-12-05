@@ -17,6 +17,12 @@
 		1A0AE6DB155A973600B5C4DC /* HistoryRootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0AE6D6155A973600B5C4DC /* HistoryRootView.xib */; };
 		1A0AE6DC155A973600B5C4DC /* HistoryViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0AE6D8155A973600B5C4DC /* HistoryViewFrame.m */; };
 		1A0AE6DD155A973600B5C4DC /* HistoryViewFrame.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A0AE6D9155A973600B5C4DC /* HistoryViewFrame.xib */; };
+		1A19AB0E166B14460005C19A /* headerbar.red.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19AB0C166B14450005C19A /* headerbar.red.png */; };
+		1A19AB0F166B14460005C19A /* headerbar.red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19AB0D166B14450005C19A /* headerbar.red@2x.png */; };
+		1A1C003F166B28DA006C89CD /* PasscodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C003E166B28DA006C89CD /* PasscodeManager.m */; };
+		1A1C0044166B2E44006C89CD /* PasscodeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C0042166B2E44006C89CD /* PasscodeSettingViewController.m */; };
+		1A1C0047166B314E006C89CD /* PasscodeSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C0046166B314E006C89CD /* PasscodeSettingViewController.xib */; };
+		1A1C004A166B5E4B006C89CD /* Workflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C0049166B5E4B006C89CD /* Workflow.m */; };
 		1A1DEACC13560D4200505A56 /* dbtemplate.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DEACB13560D4200505A56 /* dbtemplate.sqlite */; };
 		1A1DEAD113560F3800505A56 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DEACE13560F3800505A56 /* Database.m */; };
 		1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */; };
@@ -346,8 +352,6 @@
 		1A8971901563DE3200502A2E /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E31563DE3200502A2E /* frame.png */; };
 		1A8971911563DE3200502A2E /* frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E41563DE3200502A2E /* frame@2x.png */; };
 		1A8971921563DE3200502A2E /* greenpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E51563DE3200502A2E /* greenpaper.jpg */; };
-		1A8971931563DE3200502A2E /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E61563DE3200502A2E /* header.png */; };
-		1A8971941563DE3200502A2E /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E71563DE3200502A2E /* header@2x.png */; };
 		1A8971951563DE3200502A2E /* headerbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E81563DE3200502A2E /* headerbar.png */; };
 		1A8971961563DE3200502A2E /* headerbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970E91563DE3200502A2E /* headerbar@2x.png */; };
 		1A8971971563DE3200502A2E /* hline.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8970EA1563DE3200502A2E /* hline.png */; };
@@ -623,6 +627,15 @@
 		1A0AE6D7155A973600B5C4DC /* HistoryViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewFrame.h; sourceTree = "<group>"; };
 		1A0AE6D8155A973600B5C4DC /* HistoryViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewFrame.m; sourceTree = "<group>"; };
 		1A0AE6D9155A973600B5C4DC /* HistoryViewFrame.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewFrame.xib; sourceTree = "<group>"; };
+		1A19AB0C166B14450005C19A /* headerbar.red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headerbar.red.png; path = arts/headerbar.red.png; sourceTree = "<group>"; };
+		1A19AB0D166B14450005C19A /* headerbar.red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "headerbar.red@2x.png"; path = "arts/headerbar.red@2x.png"; sourceTree = "<group>"; };
+		1A1C003D166B28DA006C89CD /* PasscodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeManager.h; sourceTree = "<group>"; };
+		1A1C003E166B28DA006C89CD /* PasscodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeManager.m; sourceTree = "<group>"; };
+		1A1C0041166B2E44006C89CD /* PasscodeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeSettingViewController.h; sourceTree = "<group>"; };
+		1A1C0042166B2E44006C89CD /* PasscodeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeSettingViewController.m; sourceTree = "<group>"; };
+		1A1C0046166B314E006C89CD /* PasscodeSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeSettingViewController.xib; sourceTree = "<group>"; };
+		1A1C0048166B5E4B006C89CD /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
+		1A1C0049166B5E4B006C89CD /* Workflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workflow.m; sourceTree = "<group>"; };
 		1A1DEACB13560D4200505A56 /* dbtemplate.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dbtemplate.sqlite; sourceTree = "<group>"; };
 		1A1DEACE13560F3800505A56 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		1A1DEACF13560F3800505A56 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
@@ -959,8 +972,6 @@
 		1A8970E31563DE3200502A2E /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame.png; path = arts/frame.png; sourceTree = "<group>"; };
 		1A8970E41563DE3200502A2E /* frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frame@2x.png"; path = "arts/frame@2x.png"; sourceTree = "<group>"; };
 		1A8970E51563DE3200502A2E /* greenpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = greenpaper.jpg; path = arts/greenpaper.jpg; sourceTree = "<group>"; };
-		1A8970E61563DE3200502A2E /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = arts/header.png; sourceTree = "<group>"; };
-		1A8970E71563DE3200502A2E /* header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header@2x.png"; path = "arts/header@2x.png"; sourceTree = "<group>"; };
 		1A8970E81563DE3200502A2E /* headerbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headerbar.png; path = arts/headerbar.png; sourceTree = "<group>"; };
 		1A8970E91563DE3200502A2E /* headerbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "headerbar@2x.png"; path = "arts/headerbar@2x.png"; sourceTree = "<group>"; };
 		1A8970EA1563DE3200502A2E /* hline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hline.png; path = arts/hline.png; sourceTree = "<group>"; };
@@ -1525,6 +1536,8 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1A19AB0C166B14450005C19A /* headerbar.red.png */,
+				1A19AB0D166B14450005C19A /* headerbar.red@2x.png */,
 				1AD81C01166A432500A221B4 /* paper.jpg */,
 				1AD81BFF1669DAFC00A221B4 /* launch@2x-568h@2x.jpg */,
 				1AC5F1A0166398B1000F05F0 /* Navigation */,
@@ -1602,8 +1615,6 @@
 				1A8970E31563DE3200502A2E /* frame.png */,
 				1A8970E41563DE3200502A2E /* frame@2x.png */,
 				1A8970E51563DE3200502A2E /* greenpaper.jpg */,
-				1A8970E61563DE3200502A2E /* header.png */,
-				1A8970E71563DE3200502A2E /* header@2x.png */,
 				1A8970E81563DE3200502A2E /* headerbar.png */,
 				1A8970E91563DE3200502A2E /* headerbar@2x.png */,
 				1A8970EA1563DE3200502A2E /* hline.png */,
@@ -2058,6 +2069,8 @@
 				B0629B8715FB9CDA00749C98 /* UIViewController+UtilityExtension.m */,
 				B0629B7D15FB96A400749C98 /* NSString+Helper.h */,
 				B0629B7E15FB96A400749C98 /* NSString+Helper.m */,
+				1A1C0048166B5E4B006C89CD /* Workflow.h */,
+				1A1C0049166B5E4B006C89CD /* Workflow.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2068,6 +2081,11 @@
 				1AAD13E513335A160035BA92 /* SettingView.h */,
 				1AAD13E613335A170035BA92 /* SettingView.m */,
 				1A6B5E4E13F2C4B0007BC798 /* SettingView.xib */,
+				1A1C003D166B28DA006C89CD /* PasscodeManager.h */,
+				1A1C003E166B28DA006C89CD /* PasscodeManager.m */,
+				1A1C0041166B2E44006C89CD /* PasscodeSettingViewController.h */,
+				1A1C0042166B2E44006C89CD /* PasscodeSettingViewController.m */,
+				1A1C0046166B314E006C89CD /* PasscodeSettingViewController.xib */,
 				1AEF65D014728E1B004FD202 /* PasscodeView.h */,
 				1AEF65D114728E1B004FD202 /* PasscodeView.m */,
 				1AEF65D214728E1B004FD202 /* PasscodeView.xib */,
@@ -2242,8 +2260,6 @@
 				1A8971901563DE3200502A2E /* frame.png in Resources */,
 				1A8971911563DE3200502A2E /* frame@2x.png in Resources */,
 				1A8971921563DE3200502A2E /* greenpaper.jpg in Resources */,
-				1A8971931563DE3200502A2E /* header.png in Resources */,
-				1A8971941563DE3200502A2E /* header@2x.png in Resources */,
 				1A8971951563DE3200502A2E /* headerbar.png in Resources */,
 				1A8971961563DE3200502A2E /* headerbar@2x.png in Resources */,
 				1A8971971563DE3200502A2E /* hline.png in Resources */,
@@ -2674,6 +2690,9 @@
 				1AD81C001669DAFC00A221B4 /* launch@2x-568h@2x.jpg in Resources */,
 				1AD81C02166A432500A221B4 /* paper.jpg in Resources */,
 				1AD81C04166A46E700A221B4 /* receipt.long.png in Resources */,
+				1A19AB0E166B14460005C19A /* headerbar.red.png in Resources */,
+				1A19AB0F166B14460005C19A /* headerbar.red@2x.png in Resources */,
+				1A1C0047166B314E006C89CD /* PasscodeSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2733,6 +2752,9 @@
 				B0629B8C15FB9CDA00749C98 /* UIAlertView+Helper.m in Sources */,
 				B0629B8D15FB9CDA00749C98 /* UIViewController+UtilityExtension.m in Sources */,
 				B0629BB715FCC7DC00749C98 /* ConfigurationManager.m in Sources */,
+				1A1C003F166B28DA006C89CD /* PasscodeManager.m in Sources */,
+				1A1C0044166B2E44006C89CD /* PasscodeSettingViewController.m in Sources */,
+				1A1C004A166B5E4B006C89CD /* Workflow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,4 +17,11 @@
 - (BOOL) contains:(NSString *)string{
     return [self contains:string options:NSCaseInsensitiveSearch];
 }
+
++ (BOOL)isNullOrEmpty:(NSString *)string {
+    if (!string || string.length == 0)
+        return YES;
+    return NO;
+}
+
 @end

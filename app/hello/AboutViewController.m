@@ -68,7 +68,7 @@
 }
 
 - (void)onOk {
-    [self dismissModalViewControllerAnimated: YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onWebsite {
@@ -88,7 +88,7 @@
     controller.mailComposeDelegate = self;
     [controller setSubject:@"我有话想说"];
     [controller setToRecipients:[NSArray arrayWithObject:@"support@woojuu.cc"]];
-    [self presentModalViewController:controller animated:YES];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)onRate {
@@ -97,7 +97,7 @@
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

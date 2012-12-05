@@ -14,6 +14,8 @@
 #import "ReorderCategoryViewController.h"
 #import "ConfigurationManager.h"
 #import "PlanManager.h"
+#import "PasscodeManager.h"
+#import "PasscodeSettingViewController.h"
 
 @implementation SettingView
 
@@ -74,7 +76,7 @@
 }
 
 - (void)onOk:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onSwitch {
@@ -157,7 +159,7 @@
             case 3:
                 cell.textLabel.text = @"密码保护";
                 cell.imageView.image = imgPassword;  
-                cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults]boolForKey:ACTIVE_PASSWORD_KEY] ? @"开启": @"关闭";
+                cell.detailTextLabel.text = [PasscodeManager isPasscodeEnabled] ? @"开启": @"关闭";
                 break;       
             case 4:
                 cell.textLabel.text = @"快速记账";
@@ -184,13 +186,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0){
-            [self presentModalViewController:[BudgetView instanceFromNib] animated:YES];
+            [self presentViewController:[BudgetView instanceFromNib] animated:YES completion:nil];
         }
         else if (indexPath.row == 1){
             [self presentViewController:[ReorderCategoryViewController instanceFromNib] animated:YES completion:nil];
         }
         else if (indexPath.row == 2){
             [self presentViewController:[AccountingReminderViewController instanceFromNib] animated:YES completion:nil];
+        }
+        else if (indexPath.row == 3){
+            [self presentViewController:[PasscodeSettingViewController instanceFromNib] animated:YES completion:nil];
         }
     }
     else if (indexPath.section == 1){

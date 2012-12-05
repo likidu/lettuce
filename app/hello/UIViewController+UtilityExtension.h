@@ -17,12 +17,16 @@
 
 @end
 
+typedef void(^ViewControllerDismissedBlock)(UIViewController* viewController);
+
 @interface UIViewController (UtilityExtension)
 
 + (UIViewController*)instanceFromNib;
 + (UIViewController*)instanceFromNib:(NSString*)nibName;
 
 @property(nonatomic,assign) id<UIViewControllerDelegate> delegate;
+
+@property(nonatomic,copy) ViewControllerDismissedBlock dismissHandler;
 
 @end
 

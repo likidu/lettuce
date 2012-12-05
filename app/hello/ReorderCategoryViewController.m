@@ -28,7 +28,7 @@
 }
 
 - (IBAction)onReturn:(UIButton *)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)loadCategoryData{

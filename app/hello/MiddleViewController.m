@@ -34,6 +34,8 @@
 @synthesize formulaLabel;
 @synthesize imageNoteViewController;
 
+@synthesize dismissedHandler;
+
 @synthesize inputText;
 @synthesize currentDate;
 @synthesize imageUnknown;
@@ -131,7 +133,10 @@
 - (void)onCancel:(id)sender {
     self.editingItem = nil;
     needReset_ = YES;
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
+        if (self.dismissedHandler)
+            self.dismissedHandler();
+    }];
     
     // flurry
     [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
@@ -208,7 +213,10 @@
     self.editingItem = nil;
     needReset_ = YES;
 
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
+        if (self.dismissedHandler)
+            self.dismissedHandler();
+    }];
     
     // flurry
     [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
@@ -239,6 +247,8 @@
     self.imageView = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
+    
+    self.dismissedHandler = nil;
     [super dealloc];
 }
 
@@ -535,11 +545,11 @@
 #pragma mark - image picker delegate
 // Image Picker Delegate
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissModalViewControllerAnimated: YES];
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissModalViewControllerAnimated: YES];
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     UIImage* image = [info objectForKey: @"UIImagePickerControllerEditedImage"];
     if (!image)
         image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
@@ -576,7 +586,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     picker.allowsEditing = YES;
-    [self presentModalViewController:picker animated:YES];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (void)onPickPhoto {
@@ -600,7 +610,7 @@
 - (void)onImageEditButton {
     imageNoteViewController.delegate = self;
     imageNoteViewController.imageNote = imageView.image;
-    [self presentModalViewController:imageNoteViewController animated:YES];
+    [self presentViewController:imageNoteViewController animated:YES completion:nil];
 }
 
 - (void)viewDidUnload
@@ -635,7 +645,7 @@
     UIViewController* topVc = [UIViewController topViewController];
     MiddleViewController* addTransVc = (MiddleViewController*)[MiddleViewController instanceFromNib: @"MiddleView"];
     addTransVc.editingItem = expense;
-    [topVc presentModalViewController:addTransVc animated:YES];
+    [topVc presentViewController:addTransVc animated:YES completion:nil];
 }
 
 @end

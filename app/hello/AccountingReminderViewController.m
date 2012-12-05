@@ -62,7 +62,7 @@ const int BITNUMBER = 16;
 #pragma mark - Event handler
 
 - (IBAction)onReturn:(UIButton *)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onSwitch:(UISwitch *)sender {

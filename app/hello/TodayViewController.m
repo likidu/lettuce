@@ -260,7 +260,7 @@ static NSString* cellId = @"expenseCell";
 #pragma mark - show settings
 
 -(void)onSetting {
-    [[UIViewController topViewController]presentModalViewController:self.settingView animated:YES];
+    [[UIViewController topViewController]presentViewController:self.settingView animated:YES completion:nil];
 }
 
 @end

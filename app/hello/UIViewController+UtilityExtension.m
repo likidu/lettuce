@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 #define PROPNAME_PARENTMODALVIEWCONTROLLER @"parentModalViewController"
+#define PROPNAME_PRESENTINGVIEWCONTROLLER @"presentingViewController"
 
 @interface ViewControllerObserver : NSObject
 
@@ -31,32 +32,41 @@ static ViewControllerObserver* observerInstance = nil;
 
 + (void)addObserverOnViewController:(UIViewController *)viewController {
     [viewController addObserver:[ViewControllerObserver instance] forKeyPath:PROPNAME_PARENTMODALVIEWCONTROLLER options:0 context:nil];
+    [viewController addObserver:[ViewControllerObserver instance] forKeyPath:PROPNAME_PRESENTINGVIEWCONTROLLER options:0 context:nil];
 }
 
 + (void)removeObserverOnViewController:(UIViewController*)viewController {
     [viewController removeObserver:[ViewControllerObserver instance] forKeyPath:PROPNAME_PARENTMODALVIEWCONTROLLER];
+    [viewController removeObserver:[ViewControllerObserver instance] forKeyPath:PROPNAME_PRESENTINGVIEWCONTROLLER];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (![keyPath isEqualToString:PROPNAME_PARENTMODALVIEWCONTROLLER])
+    if (![keyPath isEqualToString:PROPNAME_PARENTMODALVIEWCONTROLLER] && ![keyPath isEqualToString:PROPNAME_PRESENTINGVIEWCONTROLLER])
         return;
     
     if ([[object class]isSubclassOfClass:[UIViewController class]]) {
         UIViewController* viewController = (UIViewController*)object;
         id<UIViewControllerDelegate> delegate = viewController.delegate;
-        if (!delegate)
+        if (!delegate) {
+            ViewControllerDismissedBlock block = viewController.dismissHandler;
+            if (!viewController.presentingViewController && block) {
+                block(viewController);
+            }
             return;
+        }
         
         if (viewController.parentViewController && [delegate respondsToSelector:@selector(didPresentViewController::)])
             [delegate didPresentViewController:viewController];
         if (!viewController.parentViewController && [delegate respondsToSelector:@selector(didDismissViewController:)])
             [delegate didDismissViewController:viewController];
+        
     }
 }
 
 @end
 
 static NSString * UIViewControllerDelegateKey = @"UIViewControllerDelegate";
+static NSString * UIViewControllerDismissHanlderKey = @"UIViewControllerDismissHandler";
 
 @implementation UIViewController (UtilityExtension)
 
@@ -86,6 +96,18 @@ static NSString * UIViewControllerDelegateKey = @"UIViewControllerDelegate";
 
 - (void)setDelegate:(id)delegate {
     objc_setAssociatedObject(self, UIViewControllerDelegateKey, delegate, OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (ViewControllerDismissedBlock)dismissHandler {
+    return objc_getAssociatedObject(self, UIViewControllerDismissHanlderKey);
+}
+
+- (void)setDismissHandler:(ViewControllerDismissedBlock)dismissHandler {
+    ViewControllerDismissedBlock original = objc_getAssociatedObject(self, UIViewControllerDismissHanlderKey);
+    if (original)
+        Block_release(original);
+
+    objc_setAssociatedObject(self, UIViewControllerDismissHanlderKey, dismissHandler, OBJC_ASSOCIATION_COPY);
 }
 
 @end

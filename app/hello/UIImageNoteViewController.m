@@ -73,7 +73,7 @@
 
 #pragma mark - event handlers
 - (void)onDone {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onDeleteImage {
@@ -86,7 +86,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        [self dismissModalViewControllerAnimated:YES];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         [delegate imageDeleted];
     }
 }

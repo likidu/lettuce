@@ -30,7 +30,7 @@
 }
 
 - (void)onCancel:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onSave:(id)sender {
@@ -45,7 +45,7 @@
         [PlanManager setBudget:budget ofMonth:[NSDate date]];
     }
 
-    [self dismissModalViewControllerAnimated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dealloc
