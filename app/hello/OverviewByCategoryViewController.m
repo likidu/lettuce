@@ -13,6 +13,7 @@
 @interface OverviewByCategoryViewController()
 
 @property(nonatomic,retain) Dimmer* dimmer;
+@property(nonatomic,assign) int firstFixedCategoryId;
 
 @end
 
@@ -28,6 +29,7 @@
 @synthesize delegate;
 
 @synthesize dimmer;
+@synthesize firstFixedCategoryId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,13 +65,17 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (UITableViewCell*)loadCell {
+- (UITableViewCell*)loadCell:(BOOL)isFixed {
     static NSString *CellIdentifier = @"OverviewByCategoryCell";
+    static NSString* FixedCellIdentifier = @"OverviewByCategoryFixedCell";
     
-    UITableViewCell *cell = [self.table dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSString* cellId = isFixed ? FixedCellIdentifier : CellIdentifier;
+    NSString* cellNibName = isFixed ? @"OverviewByCategoryFixedCell" : @"OverviewByCategoryCell";
+    
+    UITableViewCell *cell = [self.table dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         if (!cellTemplate) {
-            [[NSBundle mainBundle]loadNibNamed:@"OverviewByCategoryCell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:cellNibName owner:self options:nil];
         }
         cell = cellTemplate;
         self.cellTemplate = nil;
@@ -88,18 +94,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [self loadCell];
+    int catId = [[categories objectAtIndex:indexPath.row]intValue];
+    Category* cat = [CategoryManager categoryById:catId];
+    CategoryManager* catMan = [CategoryManager instance];
+    
+    UITableViewCell* cell = [self loadCell: catId >= FIXED_EXPENSE_CATEGORY_ID_START];
     
     UIImageView* catIconView = (UIImageView*)[cell viewWithTag:kCellCategoryIcon];
     UILabel* catTextLabel = (UILabel*)[cell viewWithTag:kCellCategoryText];
     UILabel* numberLabel = (UILabel*)[cell viewWithTag:kCellNumber];
     UILabel* amountLabel = (UILabel*)[cell viewWithTag:kCellAmount];
+    UIImageView* catDashline = (UIImageView*)[cell viewWithTag:kCellDashLine];
     
     if (catIconView && catTextLabel && numberLabel && amountLabel) {
         // category
-        int catId = [[categories objectAtIndex:indexPath.row]intValue];
-        Category* cat = [CategoryManager categoryById:catId];
-        CategoryManager* catMan = [CategoryManager instance];
         UIImage* catIcon = [catMan iconNamed: cat.smallIconName];
         catIconView.image = catIcon;
         catTextLabel.text = cat.categoryName;
@@ -109,6 +117,8 @@
         // amount
         double amount = [[amounts objectAtIndex:indexPath.row]doubleValue];
         amountLabel.text = formatAmount(amount, NO);
+        
+        catDashline.hidden = catId != self.firstFixedCategoryId;
     }
     
     return cell;
@@ -131,7 +141,7 @@
 }
 
 - (void)reload {
-    NSDictionary* dict = [Statistics getTotalByCategoryfromDate:startDate toDate:endDate excludeFixedExpenses:YES];
+    NSDictionary* dict = [Statistics getTotalByCategoryfromDate:startDate toDate:endDate excludeFixedExpenses:NO];
     self.categories = [dict valueForKey:@"categories"];
     self.numbers = [dict valueForKey:@"numbers"];
     self.amounts = [dict valueForKey:@"amounts"];
@@ -139,11 +149,17 @@
     [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     
     double totalRegularExpense = 0.0, totalFixedExpense = 0.0;
+    BOOL fixedCategoryStarted = NO;
     for (int i = 0; i < categories.count; ++i) {
         if ([[categories objectAtIndex:i]intValue] < FIXED_EXPENSE_CATEGORY_ID_START)
             totalRegularExpense += [[amounts objectAtIndex:i]doubleValue];
-        else
+        else {
             totalFixedExpense += [[amounts objectAtIndex:i]doubleValue];
+            if (!fixedCategoryStarted) {
+                self.firstFixedCategoryId = [[categories objectAtIndex:i]intValue];
+                fixedCategoryStarted = YES;
+            }
+        }
     }
     
     self.totalRegularExpenseLabel.text = [NSString stringWithFormat:@"日常支出 %@", formatAmount(totalRegularExpense, NO)];

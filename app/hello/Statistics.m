@@ -147,7 +147,7 @@
     if (excludeFixed) {
         sql = [NSString stringWithFormat:@"%@ and categoryid < %d", sql, FIXED_EXPENSE_CATEGORY_ID_START];
     }
-    sql = [NSString stringWithFormat:@"%@ group by categoryid order by TotalExpense DESC", sql];
+    sql = [NSString stringWithFormat:@"%@ group by categoryid order by case when categoryid < %d then 0 else 1 end, TotalExpense DESC", sql, FIXED_EXPENSE_CATEGORY_ID_START];
     Database* db = [Database instance];
     NSArray* records = [db execute:sql];
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
@@ -171,7 +171,7 @@
 
 + (NSDictionary *)getTotalOfCategory:(int)categoryId fromMonth:(NSDate *)dayOfStartMonth toMonth:(NSDate *)dayOfEndMonth {
     dayOfStartMonth = firstDayOfMonth(dayOfStartMonth);
-    dayOfEndMonth = firstDayOfMonth(dayOfEndMonth);
+    dayOfEndMonth = lastDayOfMonth(dayOfEndMonth);
     NSString* start = formatSqlDate(dayOfStartMonth), *end = formatSqlDate(dayOfEndMonth);
     NSString* sql = [NSString stringWithFormat: @"select sum(amount) as TotalExpense, count(amount) as TotalNumber, Date from expense where categoryId = %d and date >= %@ and date <= %@ group by strftime('%%m', Date) order by strftime('%%m', Date) desc", categoryId, start, end];
     Database* db = [Database instance];
