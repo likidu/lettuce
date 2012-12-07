@@ -78,7 +78,7 @@
 
 - (UITableViewCell*)loadCell {
     
-    static NSString *CellIdentifier = @"OverviewByYearCell";
+    static NSString *CellIdentifier = @"overviewByYearCell";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {

@@ -51,7 +51,7 @@
 }
 
 - (UITableViewCell*)loadCell {
-    static NSString* cellId = @"CategoryExpenseCell";
+    static NSString* cellId = @"expenseCellWithDateNoIcon";
     UITableViewCell* cell = [self.table dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil){
         [[NSBundle mainBundle]loadNibNamed:@"ExpenseCellWithDateNoIcon" owner:self options:nil];

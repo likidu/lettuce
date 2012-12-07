@@ -23,6 +23,8 @@
             self.flagProgress = otherLayer.flagProgress;
             self.theme = otherLayer.theme;
             self.contentsScale = 2.0;
+            _progress = 0.0;
+            _flagProgress = 0.0;
         }
     }
     return self;
@@ -53,6 +55,8 @@
     if (self) {
         // Initialization code
         self.themeDict = [NSMutableDictionary dictionary];
+        progress = 0.0;
+        flagProgress = 0.0;
     }
     return self;
 }

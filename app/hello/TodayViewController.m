@@ -95,10 +95,6 @@
     [theme setObject:flagImage forKey:@"img.flag"];
     [theme setObject:slotImage forKey:@"img.slot"];
     [progressView registerTheme:theme withName:@"orange"];
-
-    progressView.activeThemeName = @"green";
-    progressView.progress = 0.0;
-    progressView.flagProgress = 0.0;
 }
 
 - (void)viewDidUnload

@@ -66,8 +66,8 @@
 }
 
 - (UITableViewCell*)loadCell:(BOOL)isFixed {
-    static NSString *CellIdentifier = @"OverviewByCategoryCell";
-    static NSString* FixedCellIdentifier = @"OverviewByCategoryFixedCell";
+    static NSString *CellIdentifier = @"overviewByCategoryCell";
+    static NSString* FixedCellIdentifier = @"overviewByCategoryFixedCell";
     
     NSString* cellId = isFixed ? FixedCellIdentifier : CellIdentifier;
     NSString* cellNibName = isFixed ? @"OverviewByCategoryFixedCell" : @"OverviewByCategoryCell";
@@ -118,7 +118,7 @@
         double amount = [[amounts objectAtIndex:indexPath.row]doubleValue];
         amountLabel.text = formatAmount(amount, NO);
         
-        catDashline.hidden = catId != self.firstFixedCategoryId;
+        catDashline.hidden = (catId != self.firstFixedCategoryId) || (indexPath.row == 0);
     }
     
     return cell;

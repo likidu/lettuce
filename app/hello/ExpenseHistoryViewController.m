@@ -37,7 +37,8 @@
 
 - (void)reload {
     self.dates = [[ExpenseManager instance]getAvailableDatesBetween:startDate endDate:endDate];
-    NSArray* expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:nil assending:YES];
+    NSString* orderBy = [NSString stringWithFormat:@"case when categoryId < %d then 0 else 1 end desc, expenseId", FIXED_EXPENSE_CATEGORY_ID_START];
+    NSArray* expenses = [[ExpenseManager instance]getExpensesBetween:startDate endDate:endDate orderBy:orderBy assending:YES];
     NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithCapacity:dates.count];
     NSMutableDictionary* totals = [NSMutableDictionary dictionaryWithCapacity:dates.count];
     for (Expense* exp in expenses) {
@@ -46,6 +47,9 @@
             [dict setObject:[NSMutableArray array] forKey:strDate];
         NSMutableArray* array = [dict objectForKey:strDate];
         [array addObject:exp];
+        // skip fixed expense
+        if (exp.categoryId >= FIXED_EXPENSE_CATEGORY_ID_START)
+            continue;
         // add expense to total
         if ([totals objectForKey:strDate] == nil)
             [totals setObject:[NSNumber numberWithDouble:0.0] forKey:strDate];
@@ -93,11 +97,18 @@
 static NSString* cellId = @"expenseCell";
 static NSString* headerCellId = @"headerCell";
 static NSString* footerCellId = @"footerCell";
+static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 
 - (void)loadExpenseCell{
     if (cellTemplate)
         return;
     [[NSBundle mainBundle]loadNibNamed:@"ExpenseCell" owner:self options:nil];
+}
+
+- (void)loadFixedExpenseCell {
+    if (cellTemplate)
+        return;
+    [[NSBundle mainBundle]loadNibNamed:@"FixedExpenseCell" owner:self options:nil];
 }
 
 - (void)loadHeaderCell{
@@ -209,6 +220,29 @@ static NSString* footerCellId = @"footerCell";
     return indexPath.row == expenses.count + 1;
 }
 
+- (BOOL)isFixedExpenseCell:(NSIndexPath*)indexPath {
+    NSDate* date = [dates objectAtIndex:indexPath.section];
+    NSArray* expenses = [expenseData objectForKey:DATESTR(date)];
+    Expense* exp = [expenses objectAtIndex:indexPath.row - 1];
+    return exp.categoryId >= FIXED_EXPENSE_CATEGORY_ID_START;
+}
+
+- (BOOL)isLastFixedExpenseCell:(NSIndexPath*)indexPath {
+    NSDate* date = [dates objectAtIndex:indexPath.section];
+    NSArray* expenses = [expenseData objectForKey:DATESTR(date)];
+    Expense* exp = [expenses objectAtIndex:indexPath.row - 1];
+    if (exp.categoryId < FIXED_EXPENSE_CATEGORY_ID_START)
+        return NO;
+    if (indexPath.row == expenses.count)
+        return YES;
+    if (indexPath.row < expenses.count) {
+        Expense* next = [expenses objectAtIndex:indexPath.row];
+        if (next.categoryId < FIXED_EXPENSE_CATEGORY_ID_START)
+            return YES;
+    }
+    return NO;
+}
+
 - (UITableViewCell*)getProperCell:(UITableView*)tableView forIndexPath:(NSIndexPath*)indexPath{
     UITableViewCell* cell = nil;
     if ([self isHeaderAtIndexPath:indexPath]) {
@@ -220,6 +254,11 @@ static NSString* footerCellId = @"footerCell";
         cell = [tableView dequeueReusableCellWithIdentifier:footerCellId];
         if (!cell)
             [self loadFooterCell];
+    }
+    else if ([self isFixedExpenseCell:indexPath]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:fixedExpenseCellId];
+        if (!cell)
+            [self loadFixedExpenseCell];
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -263,6 +302,9 @@ static NSString* footerCellId = @"footerCell";
         UILabel* amount = (UILabel*)[cell viewWithTag:kCellAmount];
         amount.text = [NSString stringWithFormat:@"%@%.2f", CURRENCY_CODE, exp.amount];
         amount.hidden = NO;
+        
+        UIView* dashlineView = [cell viewWithTag:kCellDashLine];
+        dashlineView.hidden = ![self isLastFixedExpenseCell:indexPath];
     }
     
     return cell;

@@ -59,7 +59,7 @@
 }
 
 - (UITableViewCell*)loadCell {
-    static NSString* cellId = @"CategoryExpenseCell";
+    static NSString* cellId = @"singleCategoryByYearCell";
     UITableViewCell* cell = [self.table dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil){
         [[NSBundle mainBundle]loadNibNamed:@"SingleCategoryByYearCell" owner:self options:nil];

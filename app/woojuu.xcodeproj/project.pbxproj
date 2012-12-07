@@ -96,6 +96,7 @@
 		1A25D9BA158D8B6F00510799 /* OverviewByCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A25D9B8158D8B6F00510799 /* OverviewByCategoryViewController.m */; };
 		1A25D9BB158D8B6F00510799 /* OverviewByCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D9B9158D8B6F00510799 /* OverviewByCategoryViewController.xib */; };
 		1A25D9BD158D8ED200510799 /* OverviewByCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */; };
+		1A3826F21672370E0053D592 /* FixedExpenseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A3826F11672370E0053D592 /* FixedExpenseCell.xib */; };
 		1A40E91313C2B97400A60279 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A40E91113C2B97400A60279 /* Utility.m */; };
 		1A459D761387999A00036EC2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A459D741387999A00036EC2 /* RootViewController.m */; };
 		1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A54C0181430B380003444B1 /* CoreLocation.framework */; };
@@ -714,6 +715,7 @@
 		1A25D9B8158D8B6F00510799 /* OverviewByCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewByCategoryViewController.m; sourceTree = "<group>"; };
 		1A25D9B9158D8B6F00510799 /* OverviewByCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByCategoryViewController.xib; sourceTree = "<group>"; };
 		1A25D9BC158D8ED200510799 /* OverviewByCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByCategoryCell.xib; sourceTree = "<group>"; };
+		1A3826F11672370E0053D592 /* FixedExpenseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixedExpenseCell.xib; sourceTree = "<group>"; };
 		1A40E91113C2B97400A60279 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		1A40E91213C2B97400A60279 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		1A459D731387999A00036EC2 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -1712,6 +1714,7 @@
 		1A6B5E5313F2EA11007BC798 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1A3826F11672370E0053D592 /* FixedExpenseCell.xib */,
 				1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */,
 				1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */,
 				1AADB46F13FA886F003E2434 /* ExpenseCellWithDateNoIcon.xib */,
@@ -2697,6 +2700,7 @@
 				1A19AB0F166B14460005C19A /* headerbar.red@2x.png in Resources */,
 				1A1C0047166B314E006C89CD /* PasscodeSettingViewController.xib in Resources */,
 				1AD7762C1670E7D200A1B1BD /* OverviewByCategoryFixedCell.xib in Resources */,
+				1A3826F21672370E0053D592 /* FixedExpenseCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
