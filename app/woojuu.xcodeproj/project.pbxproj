@@ -495,6 +495,9 @@
 		1ABEDFCF15B293D2001D3D86 /* SingleCategoryByMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABEDFCD15B293D2001D3D86 /* SingleCategoryByMonthView.m */; };
 		1ABEDFD015B293D2001D3D86 /* SingleCategoryByMonthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */; };
 		1ABF98F71497A49700CEF051 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF98F61497A49700CEF051 /* ProgressView.m */; };
+		1AC21174167358970015A079 /* stamp.100.day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC21171167358970015A079 /* stamp.100.day.png */; };
+		1AC21175167358970015A079 /* stamp.mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC21172167358970015A079 /* stamp.mask.png */; };
+		1AC21176167358970015A079 /* stamp.ordinary.day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC21173167358970015A079 /* stamp.ordinary.day.png */; };
 		1AC28564145CEC280085C866 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC28563145CEC280085C866 /* libFlurryAnalytics.a */; };
 		1AC5F1A416639907000F05F0 /* back.button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5F1A216639907000F05F0 /* back.button.png */; };
 		1AC5F1A516639907000F05F0 /* back.button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC5F1A316639907000F05F0 /* back.button@2x.png */; };
@@ -1139,6 +1142,9 @@
 		1ABEDFCE15B293D2001D3D86 /* SingleCategoryByMonthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleCategoryByMonthView.xib; sourceTree = "<group>"; };
 		1ABF98F51497A49700CEF051 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		1ABF98F61497A49700CEF051 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		1AC21171167358970015A079 /* stamp.100.day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stamp.100.day.png; path = arts/stamp.100.day.png; sourceTree = "<group>"; };
+		1AC21172167358970015A079 /* stamp.mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stamp.mask.png; path = arts/stamp.mask.png; sourceTree = "<group>"; };
+		1AC21173167358970015A079 /* stamp.ordinary.day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stamp.ordinary.day.png; path = arts/stamp.ordinary.day.png; sourceTree = "<group>"; };
 		1AC28562145CEC280085C866 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = hello/FlurryAnalytics/FlurryAnalytics.h; sourceTree = "<group>"; };
 		1AC28563145CEC280085C866 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = hello/FlurryAnalytics/libFlurryAnalytics.a; sourceTree = "<group>"; };
 		1AC5F1A216639907000F05F0 /* back.button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.button.png; path = arts/Navigation/back.button.png; sourceTree = "<group>"; };
@@ -1540,6 +1546,9 @@
 		1A459D79138799A100036EC2 /* Arts */ = {
 			isa = PBXGroup;
 			children = (
+				1AC21171167358970015A079 /* stamp.100.day.png */,
+				1AC21172167358970015A079 /* stamp.mask.png */,
+				1AC21173167358970015A079 /* stamp.ordinary.day.png */,
 				1A19AB0C166B14450005C19A /* headerbar.red.png */,
 				1A19AB0D166B14450005C19A /* headerbar.red@2x.png */,
 				1AD81C01166A432500A221B4 /* paper.jpg */,
@@ -2701,6 +2710,9 @@
 				1A1C0047166B314E006C89CD /* PasscodeSettingViewController.xib in Resources */,
 				1AD7762C1670E7D200A1B1BD /* OverviewByCategoryFixedCell.xib in Resources */,
 				1A3826F21672370E0053D592 /* FixedExpenseCell.xib in Resources */,
+				1AC21174167358970015A079 /* stamp.100.day.png in Resources */,
+				1AC21175167358970015A079 /* stamp.mask.png in Resources */,
+				1AC21176167358970015A079 /* stamp.ordinary.day.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

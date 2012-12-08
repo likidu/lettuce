@@ -22,7 +22,16 @@
 @property(nonatomic,retain) IBOutlet UILabel* dateLabel;
 @property(nonatomic,retain) IBOutlet SettingView* settingView;
 
+@property(nonatomic,retain) IBOutlet UIView* todayExpensePanel;
+@property(nonatomic,retain) IBOutlet UIView* recentStatsPanel;
+@property(nonatomic,retain) IBOutlet UITableView* recentStatsTable;
+@property(nonatomic,retain) IBOutlet UIImageView* ordinaryStamp;
+@property(nonatomic,retain) IBOutlet UIImageView* rewardStamp;
+@property(nonatomic,retain) IBOutlet UIImageView* stampMask;
+@property(nonatomic,retain) UILabel* daysSinceFirstUse;
+
 @property(nonatomic,retain) NSArray* expenses;
+@property(nonatomic,retain) NSArray* recentExpenseStats;
 
 -(IBAction) onSetting;
 

@@ -196,4 +196,21 @@
     return [[ExpenseManager instance]getExpensesOfCategory:categoryId fromDate:startDate toDate:endDate];
 }
 
++ (NSArray *)getExpenseStatsOfRecent30Days {
+    NSDate* today = [NSDate date];
+    NSDate* startDay = [today dateByAddingTimeInterval:-3600*24*30];
+    NSString* start = formatSqlDate(startDay), * end = formatSqlDate(today);
+    NSString* sql = [NSString stringWithFormat:@"select sum(amount) as TotalExpense, categoryid as CategoryId from expense where categoryid < %d and date >= %@ and date <= %@ group by categoryid order by TotalExpense desc limit 3", FIXED_EXPENSE_CATEGORY_ID_START, start, end];
+    Database* db = [Database instance];
+    NSArray* records = [db execute:sql];
+    NSMutableArray* result = [NSMutableArray array];
+    for (NSDictionary* record in records) {
+        NSMutableDictionary* item = [NSMutableDictionary dictionary];
+        [item setObject:[NSNumber numberWithInt:[[record objectForKey:@"CategoryId"]intValue]] forKey:@"CategoryId"];
+        [item setObject:[NSNumber numberWithDouble:[[record objectForKey:@"TotalExpense"]doubleValue]] forKey:@"TotalExpense"];
+        [result addObject:item];
+    }
+    return result;
+}
+
 @end

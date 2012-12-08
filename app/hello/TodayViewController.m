@@ -25,7 +25,16 @@
 @synthesize dateLabel;
 @synthesize settingView;
 
+@synthesize todayExpensePanel;
+@synthesize recentStatsPanel;
+@synthesize recentStatsTable;
+@synthesize daysSinceFirstUse;
+@synthesize rewardStamp;
+@synthesize ordinaryStamp;
+@synthesize stampMask;
+
 @synthesize expenses;
+@synthesize recentExpenseStats;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -118,16 +127,55 @@
 
 #pragma mark - view controller events
 
+- (void)setDaysSinceUseLabel:(NSString*)text {
+    if (self.daysSinceFirstUse)
+        [self.daysSinceFirstUse removeFromSuperview];
+
+    self.daysSinceFirstUse = [[UILabel alloc]initWithFrame:self.ordinaryStamp.frame];
+    self.daysSinceFirstUse.textAlignment = UITextAlignmentCenter;
+    self.daysSinceFirstUse.textColor = [UIColor colorWithRed:0.83 green:0.83 blue:0.83 alpha:1.0];
+    self.daysSinceFirstUse.font = [UIFont boldSystemFontOfSize:80];
+    self.daysSinceFirstUse.text = text;
+    self.daysSinceFirstUse.backgroundColor = [UIColor clearColor];
+    self.daysSinceFirstUse.transform = CGAffineTransformMakeRotation(-M_PI_4);
+    [self.recentStatsPanel addSubview:self.daysSinceFirstUse];
+    [self.recentStatsPanel sendSubviewToBack:self.daysSinceFirstUse];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self updateData];    
     [self updateUi];
     [expenseTable reloadData];
+    [recentStatsTable reloadData];
+    
+    self.todayExpensePanel.hidden = self.expenses.count <= 0;
+    self.recentStatsPanel.hidden = self.expenses.count > 0;
+    
+    NSDate* firstActionDay = normalizeDate([Statistics getFirstDayOfUserAction]);
+    NSDate* today = normalizeDate([NSDate date]);
+    BOOL is100day = isSameDay(today, [firstActionDay dateByAddingTimeInterval:TIME_INTERVAL_DAY*100]);
+    int daysSinceFirstDay = [today timeIntervalSinceDate:firstActionDay] / TIME_INTERVAL_DAY;
+    [self setDaysSinceUseLabel:[NSString stringWithFormat:@"%d", daysSinceFirstDay]];
+    
+    self.rewardStamp.hidden = !is100day;
+    self.ordinaryStamp.hidden = is100day;
+    self.daysSinceFirstUse.hidden = is100day;
+    self.stampMask.hidden = NO;
+    
+    if (daysSinceFirstDay > 10000) {
+        self.rewardStamp.hidden = YES;
+        self.ordinaryStamp.hidden = YES;
+        self.daysSinceFirstUse.hidden = YES;
+        self.stampMask.hidden = YES;
+    }
 }
 
 - (void)updateData {
     NSDate* today = [NSDate date];
     ExpenseManager* expMan = [ExpenseManager instance];
-    self.expenses = [expMan loadExpensesOfDay:today orderBy:@"ExpenseId" ascending:false];    
+    self.expenses = [expMan loadExpensesOfDay:today orderBy:@"ExpenseId" ascending:false];
+    
+    self.recentExpenseStats = [Statistics getExpenseStatsOfRecent30Days];
 }
 
 - (void)updateUi {
@@ -195,10 +243,43 @@ static NSString* cellId = @"expenseCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.recentStatsTable)
+        return self.recentExpenseStats.count > 3 ? 3 : self.recentExpenseStats.count;
     return expenses.count;
 }
 
+- (UITableViewCell*)recentStatsCellAtIndexPath:(NSIndexPath*)indexPath {
+    static NSString* statCellId = @"statCell";
+    
+    if (indexPath.row >= self.recentExpenseStats.count)
+        return nil;
+
+    NSDictionary* stats = [self.recentExpenseStats objectAtIndex:indexPath.row];
+    int categoryId = [[stats objectForKey:@"CategoryId"]intValue];
+    double totalExpense = [[stats objectForKey:@"TotalExpense"]doubleValue];
+    
+    CategoryManager* catMan = [CategoryManager instance];
+    Category* cat = [CategoryManager categoryById:categoryId];
+    
+    UITableViewCell* cell = [self.recentStatsTable dequeueReusableCellWithIdentifier:statCellId];
+    if (!cell) {
+        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:statCellId]autorelease];
+        cell.textLabel.textColor = [UIColor colorWithRed:0.121 green:0.314 blue:0.0 alpha:1.0];
+        cell.detailTextLabel.textColor = cell.textLabel.textColor;
+        
+        cell.textLabel.font = [UIFont systemFontOfSize:17];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+    }
+    cell.imageView.image = [catMan iconNamed:cat.hilitedIconName];
+    cell.textLabel.text = formatAmount(totalExpense, NO);
+    cell.detailTextLabel.text = cat.categoryName;
+    return cell;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.recentStatsTable)
+        return [self recentStatsCellAtIndexPath:indexPath];
+    
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier: cellId];
     if (!cell) {
         [self loadCellFromNib];
@@ -247,10 +328,13 @@ static NSString* cellId = @"expenseCell";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     Expense* exp = [self.expenses objectAtIndex:indexPath.row];
     [[ExpenseManager instance]deleteExpenseById:exp.expenseId];
-    [self updateData];    
+    [self updateData];
     [self updateUi];
     [self updateProgress];
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    if (self.expenses.count == 0)
+        [self viewWillAppear:NO];
 }
 
 #pragma mark - show settings

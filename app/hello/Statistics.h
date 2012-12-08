@@ -31,4 +31,6 @@
 
 + (NSArray*)getExpensesOfCategory:(int)categoryId fromDate:(NSDate*)startDate toDate:(NSDate*)endDate;
 
++ (NSArray*)getExpenseStatsOfRecent30Days;
+
 @end
