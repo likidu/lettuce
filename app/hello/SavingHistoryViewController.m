@@ -155,7 +155,7 @@
 
 - (UITableViewCell*)loadSavingCell {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"savingCell";
     
     UITableViewCell *cell = [table dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {

@@ -115,7 +115,7 @@
 
 - (UITableViewCell*)loadProperCell {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"expenseCellWithDate";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {

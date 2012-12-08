@@ -95,8 +95,8 @@
 #pragma mark - implementation
 
 static NSString* cellId = @"expenseCell";
-static NSString* headerCellId = @"headerCell";
-static NSString* footerCellId = @"footerCell";
+static NSString* headerCellId = @"cellHeader";
+static NSString* footerCellId = @"cellFooter";
 static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 
 - (void)loadExpenseCell{

@@ -52,7 +52,7 @@
 								<string key="NSFrame">{{86, 8}, {112, 20}}</string>
 								<reference key="NSSuperview" ref="858667192"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="611181091"/>
+								<reference key="NSNextKeyView" ref="740376410"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="62744315">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MCAwAA</bytes>
@@ -131,7 +131,7 @@
 								<string key="NSFrame">{{10, 8}, {41, 20}}</string>
 								<reference key="NSSuperview" ref="858667192"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="42045027"/>
+								<reference key="NSNextKeyView" ref="611181091"/>
 								<reference key="IBUIBackgroundColor" ref="62744315"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -155,7 +155,7 @@
 								<string key="NSFrame">{{72, 0}, {1, 36}}</string>
 								<reference key="NSSuperview" ref="858667192"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="740376410"/>
+								<reference key="NSNextKeyView" ref="42045027"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xMTM3MjU0OTAyIDAuMzA1ODgyMzUyOSAwAA</bytes>
@@ -198,7 +198,7 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="858667192"/>
-				<string key="IBUIReuseIdentifier">expenseCell</string>
+				<string key="IBUIReuseIdentifier">expenseCellWithDateNoIcon</string>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">

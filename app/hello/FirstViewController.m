@@ -26,7 +26,7 @@
 @synthesize progressView;
 @synthesize todayExpenses;
 
-static NSString* cellId = @"cellTransaction";
+static NSString* cellId = @"expenseCell";
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {

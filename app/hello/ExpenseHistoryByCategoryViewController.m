@@ -185,9 +185,9 @@
 }
 
 - (UITableViewCell*)getProperCell:(UITableView*)tableView forIndexPath:(NSIndexPath*)indexPath{
-    static NSString* cellId = @"expenseCell";
-    static NSString* headerCellId = @"headerCell";
-    static NSString* footerCellId = @"footerCell";
+    static NSString* cellId = @"expenseCellWithDateNoIcon";
+    static NSString* headerCellId = @"cellHeaderWithIcon";
+    static NSString* footerCellId = @"cellFooterAmountOnly";
     
     UITableViewCell* cell = nil;
     if ([self isHeaderAtIndexPath:indexPath]) {
