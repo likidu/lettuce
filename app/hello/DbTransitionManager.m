@@ -13,6 +13,7 @@
 #define COLUMN_NAME_LONGITUDE               @"Longitude"
 #define COLUMN_NAME_USELOCATION             @"UseLocation"
 #define COLUMN_NAME_CATEGORYICON            @"CIconResName"
+#define COLUMN_NAME_MIDHILITEDICON          @"MHIconResName"
 
 @implementation DbTransitionManager
 
@@ -59,8 +60,10 @@
         NSString* columnName = [record objectForKey:@"name"];
         if (!columnName)
             continue;
-        if ([columnName compare:COLUMN_NAME_CATEGORYICON options:NSCaseInsensitiveSearch] == NSOrderedSame)
+        if ([columnName compare:COLUMN_NAME_CATEGORYICON options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             foundCategoryResource = YES;
+            break;
+        }
     }
     
     NSString* sqlText = [NSString stringWithFormat:@"select * from category where CategoryId = %d", FIXED_EXPENSE_CATEGORY_ID_START];
@@ -106,10 +109,44 @@
     }
 }
 
++ (void)addTwoFixedExpenseCategory {
+    Database* db = [Database instance];
+    NSArray* records = [db execute:@"select * from category where categoryid = 100007"];
+    if (records.count == 0) {
+        [db execute:@"INSERT INTO category values(100007, '人情送礼', 'gift.png', 1, 35, 100000, 'gigt_h.png', 'gift_s.png', 'gift_category.png')"];
+    }
+    records = [db execute:@"select * from category where categoryid = 100008"];
+    if (records.count == 0) {
+        [db execute:@"INSERT INTO category values(100008, '其他', 'misc.fixed.png', 1, 40, 100000, 'misc.fixed_h.png', 'misc.fixed_s.png', 'misc.fixed_category.png')"];
+    }
+}
+
++ (void)addMidHilitedCagetoryIconColumn {
+    Database* db = [Database instance];
+    NSArray* categoryResults = [db execute:@"PRAGMA table_info(category);"];
+    BOOL foundColumn = NO;
+    for (NSDictionary* record in categoryResults) {
+        NSString* columnName = [record objectForKey:@"name"];
+        if (!columnName)
+            continue;
+        if ([columnName compare:COLUMN_NAME_MIDHILITEDICON options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+            foundColumn = YES;
+            break;
+        }
+    }
+    if (!foundColumn) {
+        [db execute:@"ALTER TABLE category ADD COLUMN MHIconResName TEXT"];
+        [db execute:@"UPDATE category set mhiconresname = replace(iconresname, '.png', '_mh.png') where iconresname is not null"];
+    }
+}
+
 + (void)migrateToCurrentVersion {
+    // *** don't reorder the function calls ***
     [DbTransitionManager migrateExpenseTable];
     [DbTransitionManager migrateToMonthlyPlan];
     [DbTransitionManager migrateToNewCategories];
+    [DbTransitionManager addTwoFixedExpenseCategory];
+    [DbTransitionManager addMidHilitedCagetoryIconColumn];
 }
 
 @end

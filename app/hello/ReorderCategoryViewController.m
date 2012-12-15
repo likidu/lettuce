@@ -116,7 +116,7 @@
     NSArray * currentArray = [self.categoryArray objectAtIndex:indexPath.section];
     Category * currentCategory = [currentArray objectAtIndex:indexPath.row];
     cell.textLabel.text = currentCategory.categoryName;
-    cell.imageView.image = [UIImage imageNamed:currentCategory.categoryIconName];
+    cell.imageView.image = [[CategoryManager instance]iconNamed:currentCategory.categoryIconName];
     return cell;
     
 }

@@ -148,8 +148,8 @@
     [expenseTable reloadData];
     [recentStatsTable reloadData];
     
-    self.todayExpensePanel.hidden = self.expenses.count <= 0;
-    self.recentStatsPanel.hidden = self.expenses.count > 0;
+    self.todayExpensePanel.hidden = self.expenses.count <= 0 && self.recentExpenseStats.count > 0;
+    self.recentStatsPanel.hidden = self.expenses.count > 0 || self.recentExpenseStats.count == 0;
     
     NSDate* firstActionDay = normalizeDate([Statistics getFirstDayOfUserAction]);
     NSDate* today = normalizeDate([NSDate date]);
@@ -162,7 +162,7 @@
     self.daysSinceFirstUse.hidden = is100day;
     self.stampMask.hidden = NO;
     
-    if (daysSinceFirstDay > 10000) {
+    if (daysSinceFirstDay > 100) {
         self.rewardStamp.hidden = YES;
         self.ordinaryStamp.hidden = YES;
         self.daysSinceFirstUse.hidden = YES;
@@ -267,12 +267,12 @@ static NSString* cellId = @"expenseCell";
         cell.textLabel.textColor = [UIColor colorWithRed:0.121 green:0.314 blue:0.0 alpha:1.0];
         cell.detailTextLabel.textColor = cell.textLabel.textColor;
         
-        cell.textLabel.font = [UIFont systemFontOfSize:17];
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
         cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
     }
-    cell.imageView.image = [catMan iconNamed:cat.hilitedIconName];
-    cell.textLabel.text = formatAmount(totalExpense, NO);
-    cell.detailTextLabel.text = cat.categoryName;
+    cell.imageView.image = [catMan iconNamed:cat.midHilitedIconName];
+    cell.textLabel.text = cat.categoryName;
+    cell.detailTextLabel.text = formatAmount(totalExpense, NO);
     return cell;
 }
 
