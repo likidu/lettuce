@@ -441,8 +441,6 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
     // Create a new notification.
     
     UILocalNotification *localNotif = [[[UILocalNotification alloc] init]autorelease];
-    if (localNotif == nil)
-        return;
     
     NSDate* itemDate = [NSDate date];
     
@@ -451,14 +449,14 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
     [comps setHour:hour];
     [comps setMinute:minute];
     itemDate = [calendar dateFromComponents:comps];
-    NSDate* notificationDate ;
+    NSDate* notificationDate;
     // weekday = -1 indicates a daily notification
     if (weekday < 0) {
         localNotif.repeatInterval = NSDayCalendarUnit;
         notificationDate = itemDate;
     }
     else {
-        localNotif.repeatInterval = NSWeekdayCalendarUnit;
+        localNotif.repeatInterval = NSWeekCalendarUnit;
         NSDateComponents *weeklyComps = [calendar components:NSWeekdayCalendarUnit fromDate:itemDate];
         int timeInterval;
         //if the reminder weekday is later than current day
@@ -475,9 +473,7 @@ void scheduleNotificationWithItem(int weekday, int hour, int minute) {
         notificationDate = [itemDate dateByAddingTimeInterval:timeInterval];
     }
     
-    localNotif.fireDate = notificationDate;
-    NSLog(@"%@", formatDateToString(localNotif.fireDate, @"yyyy-MM-dd HH:mm", [NSTimeZone localTimeZone]));
-    
+    localNotif.fireDate = notificationDate;    
     localNotif.timeZone = [NSTimeZone localTimeZone];
     
     localNotif.alertBody = @"记得记帐哦～～"; 
