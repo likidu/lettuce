@@ -29,6 +29,9 @@
 @property(nonatomic,retain) IBOutlet UIImageView* rewardStamp;
 @property(nonatomic,retain) IBOutlet UIImageView* stampMask;
 @property(nonatomic,retain) UILabel* daysSinceFirstUse;
+@property(nonatomic,retain) IBOutlet UILabel* topLine;
+@property(nonatomic,retain) IBOutlet UILabel* midLine;
+@property(nonatomic,retain) IBOutlet UIImageView* arrowImage;
 
 @property(nonatomic,retain) NSArray* expenses;
 @property(nonatomic,retain) NSArray* recentExpenseStats;

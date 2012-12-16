@@ -32,6 +32,9 @@
 @synthesize rewardStamp;
 @synthesize ordinaryStamp;
 @synthesize stampMask;
+@synthesize topLine;
+@synthesize midLine;
+@synthesize arrowImage;
 
 @synthesize expenses;
 @synthesize recentExpenseStats;
@@ -147,27 +150,6 @@
     [self updateUi];
     [expenseTable reloadData];
     [recentStatsTable reloadData];
-    
-    self.todayExpensePanel.hidden = self.expenses.count <= 0 && self.recentExpenseStats.count > 0;
-    self.recentStatsPanel.hidden = self.expenses.count > 0 || self.recentExpenseStats.count == 0;
-    
-    NSDate* firstActionDay = normalizeDate([Statistics getFirstDayOfUserAction]);
-    NSDate* today = normalizeDate([NSDate date]);
-    BOOL is100day = isSameDay(today, [firstActionDay dateByAddingTimeInterval:TIME_INTERVAL_DAY*100]);
-    int daysSinceFirstDay = [today timeIntervalSinceDate:firstActionDay] / TIME_INTERVAL_DAY;
-    [self setDaysSinceUseLabel:[NSString stringWithFormat:@"%d", daysSinceFirstDay]];
-    
-    self.rewardStamp.hidden = !is100day;
-    self.ordinaryStamp.hidden = is100day;
-    self.daysSinceFirstUse.hidden = is100day;
-    self.stampMask.hidden = NO;
-    
-    if (daysSinceFirstDay > 100) {
-        self.rewardStamp.hidden = YES;
-        self.ordinaryStamp.hidden = YES;
-        self.daysSinceFirstUse.hidden = YES;
-        self.stampMask.hidden = YES;
-    }
 }
 
 - (void)updateData {
@@ -179,7 +161,7 @@
 }
 
 - (void)updateUi {
-    NSDate* today = [NSDate date];
+    NSDate* today = normalizeDate([NSDate date]);
     double expenseOfToday = [Statistics getTotalOfDay:today];
     todayExpenseLabel.text = formatAmount(expenseOfToday, NO);
     
@@ -210,6 +192,68 @@
     progressView.activeThemeName = themeName;
     
     dateLabel.text = formatDisplayDate(today);
+
+    self.todayExpensePanel.hidden = self.expenses.count <= 0 && self.recentExpenseStats.count > 0;
+    self.recentStatsPanel.hidden = self.expenses.count > 0 || self.recentExpenseStats.count == 0;
+    
+    NSDate* firstActionDay = normalizeDate([Statistics getFirstDayOfUserAction]);
+    int daysSinceFirstDay = [today timeIntervalSinceDate:firstActionDay] / TIME_INTERVAL_DAY;
+    NSLog(@"%d days", daysSinceFirstDay);
+    [self setDaysSinceUseLabel:[NSString stringWithFormat:@"%d", daysSinceFirstDay]];
+    
+    if (daysSinceFirstDay < 21) {
+        self.topLine.hidden = NO;
+        self.recentStatsTable.hidden = NO;
+        self.rewardStamp.hidden = YES;
+        self.ordinaryStamp.hidden = NO;
+        self.daysSinceFirstUse.hidden = NO;
+        self.stampMask.hidden = NO;
+        self.midLine.hidden = YES;
+        self.arrowImage.hidden = YES;
+    }
+    else if (daysSinceFirstDay == 21) {
+        self.midLine.text = @"你知道吗？养成一个习惯一般需要21天。恭喜你有了个新习惯！";
+        self.topLine.hidden = YES;
+        self.recentStatsTable.hidden = YES;
+        self.rewardStamp.hidden = YES;
+        self.ordinaryStamp.hidden = NO;
+        self.daysSinceFirstUse.hidden = NO;
+        self.stampMask.hidden = NO;
+        self.midLine.hidden = NO;
+        self.arrowImage.hidden = YES;
+    }
+    else if (daysSinceFirstDay == 50) {
+        self.midLine.text = @"你知道吗？85%的人都无法坚持连续记账50天 :)";
+        self.topLine.hidden = YES;
+        self.recentStatsTable.hidden = YES;
+        self.rewardStamp.hidden = YES;
+        self.ordinaryStamp.hidden = NO;
+        self.daysSinceFirstUse.hidden = NO;
+        self.stampMask.hidden = NO;
+        self.midLine.hidden = NO;
+        self.arrowImage.hidden = YES;
+    }
+    else if (daysSinceFirstDay == 100) {
+        self.midLine.text = @"你知道吗？";
+        self.topLine.hidden = YES;
+        self.recentStatsTable.hidden = YES;
+        self.rewardStamp.hidden = NO;
+        self.ordinaryStamp.hidden = YES;
+        self.daysSinceFirstUse.hidden = YES;
+        self.stampMask.hidden = NO;
+        self.midLine.hidden = NO;
+        self.arrowImage.hidden = NO;
+    }
+    else {
+        self.topLine.hidden = NO;
+        self.recentStatsTable.hidden = NO;
+        self.rewardStamp.hidden = YES;
+        self.ordinaryStamp.hidden = YES;
+        self.daysSinceFirstUse.hidden = YES;
+        self.stampMask.hidden = YES;
+        self.midLine.hidden = YES;
+        self.arrowImage.hidden = YES;
+    }
 }
 
 - (void)updateProgress {
