@@ -77,6 +77,7 @@ typedef void(^MiddleViewControllerDismissedHandler)();
 @property(nonatomic, retain) IBOutlet UIButton* imageButton;
 @property(nonatomic, retain) IBOutlet UIButton* imageEditButton;
 @property(nonatomic, retain) IBOutlet UIImageView* imageView;
+@property(nonatomic, retain) IBOutlet UIImageView* imageViewPlaceHodler;
 @property(nonatomic, retain) IBOutlet UIDatePicker* datePicker;
 @property(nonatomic, retain) IBOutlet UILabel* formulaLabel;
 

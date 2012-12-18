@@ -28,6 +28,7 @@
 @synthesize datePickerView;
 @synthesize imageButton;
 @synthesize imageView;
+@synthesize imageViewPlaceHodler;
 @synthesize datePicker;
 @synthesize editingItem;
 @synthesize imageEditButton;
@@ -252,6 +253,7 @@
     self.imageButton = nil;
     self.imageEditButton = nil;
     self.imageView = nil;
+    self.imageViewPlaceHodler = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
     
@@ -455,14 +457,14 @@
     
     // Initialize the "Pick Photo" area
     if (!editingItem || editingItem.pictureRef == nil || editingItem.pictureRef.length == 0) {
-        imageView.image = nil;
+        [self setNewImage:nil];
         imageView.hidden = YES;
         imageEditButton.hidden = YES;
         imageButton.hidden = NO;
     }
     else {
         UIImage* image = [[ExpenseManager instance]loadImageNote:editingItem.pictureRef];
-        imageView.image = image;
+        [self setNewImage:image];
         imageView.hidden = NO;
         imageButton.hidden = YES;
         imageEditButton.hidden = NO;
@@ -483,6 +485,22 @@
     
     // flurry to start log user time on using add transaction view
     [FlurryAnalytics logEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME timed:YES];
+}
+
+- (void)setNewImage:(UIImage*)image {
+    if (image == nil) {
+        self.imageView.image = nil;
+        return;
+    }
+    UIImageView* newView = [[UIImageView alloc]initWithFrame:self.imageViewPlaceHodler.frame];
+    newView.image = image;
+    // rotate the image view
+    CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI * -0.165);
+    newView.transform = rotation;
+    
+    [self.view insertSubview:newView aboveSubview:self.imageView];
+    [self.imageView removeFromSuperview];
+    self.imageView = newView;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -515,10 +533,6 @@
     
     self.imageNoteViewController = [[UIImageNoteViewController alloc]initWithNibName:@"UIImageNoteViewController" bundle:[NSBundle mainBundle]];
     imageNoteViewController.delegate = self;
-    
-    // rotate the image view
-    CGAffineTransform rotation = CGAffineTransformMakeRotation(3.14 * -0.165);
-    self.imageView.transform = rotation;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -564,7 +578,7 @@
     if (!image)
         return;
     
-    [imageView setImage:image];
+    [self setNewImage:image];
     imageButton.hidden = YES;
     imageEditButton.hidden = NO;
     imageView.hidden = NO;
@@ -607,7 +621,7 @@
 #pragma mark - image note view controller delegate
 
 - (void)imageDeleted {
-    imageView.image = nil;
+    [self setNewImage:nil];
     imageView.hidden = YES;
     imageEditButton.hidden = YES;
     imageButton.hidden = NO;
@@ -637,6 +651,7 @@
     self.imageButton = nil;
     self.imageEditButton = nil;
     self.imageView = nil;
+    self.imageViewPlaceHodler = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
     needReset_ = YES;
