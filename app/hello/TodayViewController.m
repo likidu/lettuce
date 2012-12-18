@@ -292,6 +292,12 @@ static NSString* cellId = @"expenseCell";
     return expenses.count;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.recentStatsTable)
+        return NO;
+    return YES;
+}
+
 - (UITableViewCell*)recentStatsCellAtIndexPath:(NSIndexPath*)indexPath {
     static NSString* statCellId = @"statCell";
     
