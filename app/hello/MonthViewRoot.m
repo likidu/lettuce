@@ -20,6 +20,8 @@
 
 @synthesize viewByCategoryButton;
 @synthesize viewByDateButton;
+@synthesize viewByCategoryLabel;
+@synthesize viewByDateLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,7 +53,7 @@
     
     // layout and initially hide the by date view controller
     [self.tableViewPlaceHolder layoutSubviews];
-    self.overviewByDate.view.hidden = YES;
+    self.overviewByCategory.view.hidden = YES;
     
     if (self.startDate == nil || self.endDate == nil) {
         NSDate* today = [NSDate date];
@@ -135,6 +137,8 @@
         self.viewByDateButton.selected = NO;
         self.overviewByCategory.view.hidden = NO;
         self.overviewByDate.view.hidden = YES;
+        self.viewByCategoryLabel.textColor = [self.viewByCategoryButton titleColorForState:UIControlStateSelected];
+        self.viewByDateLabel.textColor = [self.viewByDateButton titleColorForState:UIControlStateNormal];
         [self reloadAll];
     }    
 }
@@ -145,6 +149,8 @@
         self.viewByDateButton.selected = YES;
         self.overviewByCategory.view.hidden = YES;
         self.overviewByDate.view.hidden = NO;
+        self.viewByCategoryLabel.textColor = [self.viewByCategoryButton titleColorForState:UIControlStateNormal];
+        self.viewByDateLabel.textColor = [self.viewByDateButton titleColorForState:UIControlStateSelected];
         [self reloadAll];
     }
 }

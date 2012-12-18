@@ -33,6 +33,8 @@
 @synthesize fullScreenController;
 @synthesize availableYears;
 @synthesize currentYear;
+@synthesize viewByCategoryLabel;
+@synthesize viewByMonthLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -126,6 +128,9 @@
         viewByMonthButton.selected = YES;
         viewByCategoryButton.selected = NO;
         
+        viewByMonthLabel.textColor = [viewByMonthButton titleColorForState:UIControlStateSelected];
+        viewByCategoryLabel.textColor = [viewByCategoryButton titleColorForState:UIControlStateNormal];
+        
         overviewByMonth.view.hidden = NO;
         overviewByCategory.view.hidden = YES;
         [overviewByMonth reload];
@@ -136,6 +141,9 @@
     if (!viewByCategoryButton.selected) {
         viewByCategoryButton.selected = YES;
         viewByMonthButton.selected = NO;
+        
+        viewByMonthLabel.textColor = [viewByMonthButton titleColorForState:UIControlStateNormal];
+        viewByCategoryLabel.textColor = [viewByCategoryButton titleColorForState:UIControlStateSelected];
         
         overviewByCategory.view.hidden = NO;
         overviewByMonth.view.hidden = YES;

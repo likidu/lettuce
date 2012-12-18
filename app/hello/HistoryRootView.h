@@ -20,6 +20,8 @@
 @property(nonatomic,retain) IBOutlet UIButton* viewByCategoryButton;
 @property(nonatomic,retain) IBOutlet UIButton* navigationButton;
 @property(nonatomic,retain) IBOutlet UIPickerView* yearPicker;
+@property(nonatomic,retain) IBOutlet UILabel* viewByMonthLabel;
+@property(nonatomic,retain) IBOutlet UILabel* viewByCategoryLabel;
 
 - (IBAction)onViewByMonth;
 - (IBAction)onViewByCategory;

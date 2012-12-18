@@ -21,6 +21,8 @@
 
 @property(nonatomic,retain) IBOutlet UIButton* viewByCategoryButton;
 @property(nonatomic,retain) IBOutlet UIButton* viewByDateButton;
+@property(nonatomic,retain) IBOutlet UILabel* viewByDateLabel;
+@property(nonatomic,retain) IBOutlet UILabel* viewByCategoryLabel;
 
 - (IBAction)onViewByCategory;
 - (IBAction)onViewByDate;
