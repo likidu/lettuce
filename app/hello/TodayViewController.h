@@ -36,6 +36,8 @@
 @property(nonatomic,retain) NSArray* expenses;
 @property(nonatomic,retain) NSArray* recentExpenseStats;
 
+@property(nonatomic,retain) UIColor* darkRedColor;
+
 -(IBAction) onSetting;
 
 @end

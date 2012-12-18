@@ -35,6 +35,7 @@
 @synthesize topLine;
 @synthesize midLine;
 @synthesize arrowImage;
+@synthesize darkRedColor;
 
 @synthesize expenses;
 @synthesize recentExpenseStats;
@@ -107,6 +108,8 @@
     [theme setObject:flagImage forKey:@"img.flag"];
     [theme setObject:slotImage forKey:@"img.slot"];
     [progressView registerTheme:theme withName:@"orange"];
+    
+    self.darkRedColor = [UIColor colorWithRed:0.435 green:0.043 blue:0.0 alpha:1.0]; 
 }
 
 - (void)viewDidUnload
@@ -120,6 +123,7 @@
     self.expenseTable = nil;
     self.dateLabel = nil;
     self.settingView = nil;
+    self.darkRedColor = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -173,6 +177,10 @@
     
     double balanceOfMonth = [Statistics getBalanceOfMonth:today];
     monthlyBalanceLabel.text = formatAmount(balanceOfMonth, NO);
+    if (balanceOfMonth < 0)
+        monthlyBalanceLabel.textColor = self.darkRedColor;
+    else
+        monthlyBalanceLabel.textColor = [UIColor blackColor];
     
     double dayOfMonth = getDay(today);
     double daysOfMonth = getDayAmountOfMonth(today);
