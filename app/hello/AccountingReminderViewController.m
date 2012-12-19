@@ -90,7 +90,7 @@ const int BITNUMBER = 16;
     self.dailyTimeData = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
     self.weeklyData = getWeekdayStringArray();
     self.currentReminderType = [[NSUserDefaults standardUserDefaults]integerForKey:REMINDER_TYPE_KEY];
-    self.currentTimeIndex = 0;
+    self.currentTimeIndex = 19;
     self.currentWeekIndex = 0;
     // The formula for Mask: Mask = WeekIndex << 16 + TimeIndex
     // Assume TimeIndex is less than 1000 (currently is 48)
