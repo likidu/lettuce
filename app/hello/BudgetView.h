@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BudgetView : UIViewController {
+@interface BudgetView : UIViewController <UITextFieldDelegate> {
     
 }
 

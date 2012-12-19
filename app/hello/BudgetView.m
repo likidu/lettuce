@@ -35,7 +35,13 @@
 
 - (void)onSave:(id)sender {
     if (![uiBudgetEditBox.text isEqualToString:@""]) {
-        double budget = [uiBudgetEditBox.text doubleValue];
+        NSString* strValue = uiBudgetEditBox.text;
+        double budget = 0.0;
+        if ([strValue hasPrefix: CURRENCY_CODE]) {
+            NSRange range = {0,1};
+            strValue = [strValue stringByReplacingCharactersInRange:range withString:@""];
+            budget = [strValue doubleValue];
+        }
         if (budget <= 0.0) {
             UIAlertView* alert = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"月预算不能为零或负数" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil]autorelease];
             [alert show];
@@ -80,6 +86,59 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+}
+
+#pragma mark - text view
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString* strCur = textField.text;
+    
+    //1. When inputting the first number, add prefix “¥”
+    if (![strCur compare:@""]) {
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:CURRENCY_CODE]];
+        return YES;
+    }
+    
+    int length = [strCur length];
+    
+    //2. Avoid deleting “¥” by returning NO
+    if ( range.location == 0 ){
+        if([string compare:@""])
+            return NO;
+        
+        //if all text is selected, just clear all
+        if(range.length == length)
+            return YES;
+        
+        [textField setText:[textField.text stringByReplacingCharactersInRange:range withString:CURRENCY_CODE]];
+        return NO;
+    }
+    
+    //3. Deleting all the number will also delete "¥"
+    if(length == range.length+1 && range.location == 1)
+    {
+        
+        if (![string compare:@""]) {
+            [textField setText:@""];
+            return NO;
+        }
+        
+    }
+    
+    return YES;
+}
+
+- (void)keyboardDidHide:(NSNotification*)notification {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end
