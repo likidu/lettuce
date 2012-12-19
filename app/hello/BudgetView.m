@@ -24,7 +24,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     double budget = [PlanManager getBudgetOfMonth:[NSDate date]];
-    uiBudgetEditBox.placeholder = [NSString stringWithFormat: @"¥ %.2f", budget];
+    uiBudgetEditBox.placeholder = formatAmount(budget, NO);
     uiBudgetEditBox.text = nil;
     [uiBudgetEditBox becomeFirstResponder];
 }
