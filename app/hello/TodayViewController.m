@@ -395,6 +395,22 @@ static NSString* cellId = @"expenseCell";
         [self viewWillAppear:NO];
 }
 
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.expenseTable) {
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        UIView* amountView = [cell viewWithTag:3];
+        amountView.hidden = YES;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.expenseTable) {
+        UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        UIView* amountView = [cell viewWithTag:3];
+        amountView.hidden = NO;
+    }
+}
+
 #pragma mark - show settings
 
 -(void)onSetting {
