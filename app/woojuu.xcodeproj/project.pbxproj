@@ -577,8 +577,8 @@
 		1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEA7F221416481600B74B8A /* MessageUI.framework */; };
 		1AEF65D314728E1B004FD202 /* PasscodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF65D114728E1B004FD202 /* PasscodeView.m */; };
 		1AEF65D414728E1B004FD202 /* PasscodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEF65D214728E1B004FD202 /* PasscodeView.xib */; };
-		1AF1B8E4165E6EEF00923F0B /* new.features.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF1B8E2165E6EEF00923F0B /* new.features.png */; };
-		1AF1B8E5165E6EEF00923F0B /* new.features@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF1B8E3165E6EEF00923F0B /* new.features@2x.png */; };
+		1AF1B8E4165E6EEF00923F0B /* new.feature.intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF1B8E2165E6EEF00923F0B /* new.feature.intro.png */; };
+		1AF1B8E5165E6EEF00923F0B /* new.feature.intro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF1B8E3165E6EEF00923F0B /* new.feature.intro@2x.png */; };
 		1AF2476214934E660010B65E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF2476014934E660010B65E /* TodayViewController.m */; };
 		1AF2476314934E660010B65E /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF2476114934E660010B65E /* TodayViewController.xib */; };
 		1AF401CE167D7126003CA47B /* arrow.100.day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AF401CD167D7126003CA47B /* arrow.100.day.png */; };
@@ -1274,8 +1274,8 @@
 		1AEF65D014728E1B004FD202 /* PasscodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeView.h; sourceTree = "<group>"; };
 		1AEF65D114728E1B004FD202 /* PasscodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeView.m; sourceTree = "<group>"; };
 		1AEF65D214728E1B004FD202 /* PasscodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeView.xib; sourceTree = "<group>"; };
-		1AF1B8E2165E6EEF00923F0B /* new.features.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = new.features.png; path = arts/new.features.png; sourceTree = "<group>"; };
-		1AF1B8E3165E6EEF00923F0B /* new.features@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new.features@2x.png"; path = "arts/new.features@2x.png"; sourceTree = "<group>"; };
+		1AF1B8E2165E6EEF00923F0B /* new.feature.intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = new.feature.intro.png; path = arts/new.feature.intro.png; sourceTree = "<group>"; };
+		1AF1B8E3165E6EEF00923F0B /* new.feature.intro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new.feature.intro@2x.png"; path = "arts/new.feature.intro@2x.png"; sourceTree = "<group>"; };
 		1AF2475F14934E660010B65E /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		1AF2476014934E660010B65E /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		1AF2476114934E660010B65E /* TodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
@@ -1782,8 +1782,8 @@
 				1A8971161563DE3200502A2E /* monthly.income.jpg */,
 				1A8971171563DE3200502A2E /* monthly.income@2x.jpg */,
 				1AC5F1A0166398B1000F05F0 /* Navigation */,
-				1AF1B8E2165E6EEF00923F0B /* new.features.png */,
-				1AF1B8E3165E6EEF00923F0B /* new.features@2x.png */,
+				1AF1B8E2165E6EEF00923F0B /* new.feature.intro.png */,
+				1AF1B8E3165E6EEF00923F0B /* new.feature.intro@2x.png */,
 				1AD81C01166A432500A221B4 /* paper.jpg */,
 				1A89711C1563DE3200502A2E /* password_default.png */,
 				1A89711D1563DE3200502A2E /* password_default@2x.png */,
@@ -2810,8 +2810,8 @@
 				1AB03CDA165C865B00FECC44 /* history.header.line@2x.png in Resources */,
 				1AB03CDF165D06FD00FECC44 /* photo.paper.png in Resources */,
 				1AB03CE0165D06FD00FECC44 /* photo.paper@2x.png in Resources */,
-				1AF1B8E4165E6EEF00923F0B /* new.features.png in Resources */,
-				1AF1B8E5165E6EEF00923F0B /* new.features@2x.png in Resources */,
+				1AF1B8E4165E6EEF00923F0B /* new.feature.intro.png in Resources */,
+				1AF1B8E5165E6EEF00923F0B /* new.feature.intro@2x.png in Resources */,
 				1AC5F1A416639907000F05F0 /* back.button.png in Resources */,
 				1AC5F1A516639907000F05F0 /* back.button@2x.png in Resources */,
 				1AE0BA441663A8BA00156576 /* back.button.down.png in Resources */,
