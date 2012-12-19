@@ -27,10 +27,10 @@
 }
 
 + (Workflow*)createCheckPasscodeWorkflowCancelable:(BOOL)cancelable {
-    return [PasscodeManager createCheckPasscodeWorkflowCancelable:cancelable withTipText:nil];
+    return [PasscodeManager createCheckPasscodeWorkflowCancelable:cancelable withTipText:nil animated:YES];
 }
 
-+ (Workflow*)createCheckPasscodeWorkflowCancelable:(BOOL)cancelable withTipText:(NSString*)tipText {
++ (Workflow*)createCheckPasscodeWorkflowCancelable:(BOOL)cancelable withTipText:(NSString*)tipText animated:(BOOL)animated {
     Workflow* workflow = [[Workflow alloc]init];
 
     [workflow setAction:^(id<WorkflowDelegate> delegate) {
@@ -48,7 +48,7 @@
             
             [delegate sendMessage:@"end"];
         };
-        [[UIViewController topViewController]presentViewController:passcodeView animated:YES completion:nil];
+        [[UIViewController topViewController]presentViewController:passcodeView animated:animated completion:nil];
     }
           withMesageMap:[NSDictionary dictionary]
                  forKey:START_STATE_KEY];
@@ -84,7 +84,7 @@
     if (workflow)
         return;
     
-    workflow = [PasscodeManager createCheckPasscodeWorkflowCancelable:YES withTipText:@"输入当前密码"];
+    workflow = [PasscodeManager createCheckPasscodeWorkflowCancelable:YES withTipText:@"输入当前密码" animated:YES];
     
     workflow.workflowCompleteHandler = ^(){
         NSDictionary* context = [workflow retrieveContext];

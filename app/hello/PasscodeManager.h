@@ -19,5 +19,6 @@
 + (BOOL)isPasscodeEnabled;
 
 + (Workflow*)createCheckPasscodeWorkflowCancelable:(BOOL)cancelable;
++ (Workflow*)createCheckPasscodeWorkflowCancelable:(BOOL)cancelable withTipText:(NSString*)tipText animated:(BOOL)animated;
 
 @end

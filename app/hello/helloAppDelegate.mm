@@ -101,7 +101,7 @@ void uncaughtExceptionHandler(NSException* exception) {
         return;
     
     if (passcodeEnabled) {
-        workflow = [PasscodeManager createCheckPasscodeWorkflowCancelable:NO];
+        workflow = [PasscodeManager createCheckPasscodeWorkflowCancelable:NO withTipText:nil animated:NO];
         workflow.workflowCompleteHandler = ^(){
             CLEAN_RELEASE(workflow);
             [[UIViewController topViewController]viewWillAppear:NO];
