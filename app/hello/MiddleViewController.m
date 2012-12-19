@@ -297,6 +297,8 @@
 
 - (void)syncDate {
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
+    NSDictionary* components = [NSDictionary dictionaryWithObjectsAndKeys:@"zh", NSLocaleLanguageCode, @"CN", NSLocaleCountryCode, nil];
+    formatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:[NSLocale localeIdentifierFromComponents:components]];
     [formatter setDateFormat:@"M月d日\nEE"];
     [uiDate setTitle:[formatter stringFromDate:self.currentDate] forState:UIControlStateNormal];
     uiDate.titleLabel.textAlignment = UITextAlignmentCenter;
