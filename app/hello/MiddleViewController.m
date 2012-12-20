@@ -13,8 +13,15 @@
 #import "CategoryManager.h"
 #import "LocationManager.h"
 #import "FlurryAnalytics.h"
+#import "AudioToolbox/AudioToolbox.h"
 
 #define FLURRY_TS_ADD_TRANSACTION_EVENT_NAME        @"Time Add Transaction"
+
+@interface MiddleViewController()
+
+@property(nonatomic,assign) SystemSoundID tapSoundId;
+
+@end
 
 @implementation MiddleViewController
 
@@ -41,6 +48,8 @@
 @synthesize currentDate;
 @synthesize imageUnknown;
 
+@synthesize tapSoundId;
+
 + (MiddleViewController *)instance {
     static MiddleViewController* globalInstance = nil;
     if (!globalInstance)
@@ -57,6 +66,11 @@
         needReset_ = YES;
         self.imageUnknown = [UIImage imageNamed:@"unknown"];
         defaultCatId_ = 26; // General Category
+        
+        NSURL* tapSoundUrl = [[NSBundle mainBundle]URLForResource:@"tap" withExtension:@"wav"];
+        SystemSoundID soundId = 0;
+        AudioServicesCreateSystemSoundID((CFURLRef)tapSoundUrl, &soundId);
+        self.tapSoundId = soundId;
     }
     return self;
 }
@@ -258,6 +272,10 @@
     self.formulaLabel = nil;
     
     self.dismissedHandler = nil;
+    
+    AudioServicesDisposeSystemSoundID(self.tapSoundId);
+    self.tapSoundId = 0;
+    
     [super dealloc];
 }
 
@@ -332,6 +350,10 @@
     inputText = @"";
     isCurNumberDirty = NO;
     activeOp = op;
+}
+
+- (void)onTapNumpadKey {
+    AudioServicesPlaySystemSound(self.tapSoundId);
 }
 
 - (void)onNumPadKey:(id)sender {

@@ -551,6 +551,8 @@
 		1AC9759A159C30D100115C17 /* tab.today.selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC9758E159C30D100115C17 /* tab.today.selected.png */; };
 		1AC9759B159C30D100115C17 /* tab.today.selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC9758F159C30D100115C17 /* tab.today.selected@2x.png */; };
 		1AC9759C159C30D100115C17 /* tab.today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AC97590159C30D100115C17 /* tab.today@2x.png */; };
+		1AD2D27F16835A5F006EECC0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */; };
+		1AD2D28316835ECB006EECC0 /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1AD2D28216835ECB006EECC0 /* tap.wav */; };
 		1AD5897B155F7275008FB105 /* OverviewByYearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */; };
 		1AD5897F155F7699008FB105 /* OverviewByYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5897D155F7699008FB105 /* OverviewByYearViewController.m */; };
 		1AD58980155F7699008FB105 /* OverviewByYearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5897E155F7699008FB105 /* OverviewByYearViewController.xib */; };
@@ -1236,6 +1238,8 @@
 		1AC9758E159C30D100115C17 /* tab.today.selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab.today.selected.png; path = arts/tabbar/tab.today.selected.png; sourceTree = "<group>"; };
 		1AC9758F159C30D100115C17 /* tab.today.selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab.today.selected@2x.png"; path = "arts/tabbar/tab.today.selected@2x.png"; sourceTree = "<group>"; };
 		1AC97590159C30D100115C17 /* tab.today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab.today@2x.png"; path = "arts/tabbar/tab.today@2x.png"; sourceTree = "<group>"; };
+		1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1AD2D28216835ECB006EECC0 /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tap.wav; path = sound/tap.wav; sourceTree = "<group>"; };
 		1AD5897A155F7275008FB105 /* OverviewByYearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverviewByYearCell.xib; sourceTree = "<group>"; };
 		1AD5897C155F7699008FB105 /* OverviewByYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewByYearViewController.h; sourceTree = "<group>"; };
 		1AD5897D155F7699008FB105 /* OverviewByYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewByYearViewController.m; sourceTree = "<group>"; };
@@ -1355,6 +1359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD2D27F16835A5F006EECC0 /* AudioToolbox.framework in Frameworks */,
 				1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */,
 				B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */,
 				B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */,
@@ -1883,6 +1888,7 @@
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
+				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AC28562145CEC280085C866 /* FlurryAnalytics.h */,
 				1AC28563145CEC280085C866 /* libFlurryAnalytics.a */,
 				1AF489C015AB056E009ADC04 /* libobjc.A.dylib */,
@@ -1920,6 +1926,7 @@
 		1AAD1397132BB1B00035BA92 /* woojuu */ = {
 			isa = PBXGroup;
 			children = (
+				1AD2D28116835EBF006EECC0 /* sound */,
 				1A459D79138799A100036EC2 /* Arts */,
 				1A0580AA137546D700933267 /* Category Icons */,
 				1A1EA70315FC64600083D8F3 /* constants.h */,
@@ -2134,6 +2141,14 @@
 				1A6B5E4813F2C495007BC798 /* SecondView.xib */,
 			);
 			name = "Obsolete Code - For Reference Only";
+			sourceTree = "<group>";
+		};
+		1AD2D28116835EBF006EECC0 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				1AD2D28216835ECB006EECC0 /* tap.wav */,
+			);
+			name = sound;
 			sourceTree = "<group>";
 		};
 		1AD88A6A13ED90DB00804635 /* Table View Controllers */ = {
@@ -2849,6 +2864,7 @@
 				1AF401CE167D7126003CA47B /* arrow.100.day.png in Resources */,
 				1A0EBE9E1681F30A0012F32F /* budget.setting.art.png in Resources */,
 				1A0EBEA01682066F0012F32F /* 1st.welcome.png in Resources */,
+				1AD2D28316835ECB006EECC0 /* tap.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

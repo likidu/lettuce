@@ -65,6 +65,7 @@ typedef void(^MiddleViewControllerDismissedHandler)();
 - (IBAction)onDateChanged:(id)sender;
 - (IBAction)onPickPhoto;
 - (IBAction)onImageEditButton;
+- (IBAction)onTapNumpadKey;
 
 @property(nonatomic, retain) IBOutlet UITextView* uiNotes;
 @property(nonatomic, retain) IBOutlet UILabel* uiNumber;
