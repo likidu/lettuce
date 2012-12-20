@@ -61,6 +61,9 @@ void uncaughtExceptionHandler(NSException* exception) {
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    
+    if ([PasscodeManager isPasscodeEnabled])
+        [PasscodeManager presentBlackScreen];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -105,6 +108,7 @@ void uncaughtExceptionHandler(NSException* exception) {
         workflow.workflowCompleteHandler = ^(){
             CLEAN_RELEASE(workflow);
             [[UIViewController topViewController]viewWillAppear:NO];
+            [PasscodeManager dismissBlackScreen];
             if (showAddTransaction) {
                 workflow = [self createAddTransactionWorkflow];
                 workflow.workflowCompleteHandler = ^(){

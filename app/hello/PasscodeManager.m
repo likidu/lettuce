@@ -11,9 +11,11 @@
 #import "PasscodeView.h"
 #import "Workflow.h"
 
-@interface PasscodeManager()
+@interface PasscodeManager() 
 
 @end
+
+static UIView* blackScreenInstance = nil;
 
 @implementation PasscodeManager
 
@@ -218,6 +220,35 @@
     };
     
     [workflow execute];
+}
+
++ (void)presentBlackScreen {
+    if (blackScreenInstance)
+        return;
+    
+    UIView* blackView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
+    blackView.backgroundColor = [UIColor blackColor];
+    blackView.opaque = NO;
+    UIViewController* topView = [UIViewController topViewController];
+    [topView.view addSubview:blackView];
+    [topView.view bringSubviewToFront:blackView];
+    blackScreenInstance = blackView;
+}
+
++ (void)dismissBlackScreen {
+    if (!blackScreenInstance)
+        return;
+    
+    [UIView animateWithDuration:0.2
+                     animations:^(){
+                         blackScreenInstance.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished) {
+                             [blackScreenInstance removeFromSuperview];
+                             CLEAN_RELEASE(blackScreenInstance);
+                         }
+    }];
 }
 
 @end
