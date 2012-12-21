@@ -96,7 +96,6 @@ void uncaughtExceptionHandler(NSException* exception) {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     BOOL passcodeEnabled = [PasscodeManager isPasscodeEnabled];
-    BOOL showAddTransaction = [[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY];
     
     static Workflow* workflow = nil;
     
@@ -109,26 +108,28 @@ void uncaughtExceptionHandler(NSException* exception) {
             CLEAN_RELEASE(workflow);
             [[UIViewController topViewController]viewWillAppear:NO];
             [PasscodeManager dismissBlackScreen];
-            if (showAddTransaction) {
-                workflow = [self createAddTransactionWorkflow];
-                workflow.workflowCompleteHandler = ^(){
-                    CLEAN_RELEASE(workflow);
-                    [[UIViewController topViewController]viewWillAppear:NO];
-                };
-                [workflow execute];
-            }
+            [self runQuickTransactionWorkflow];
         };
         [workflow execute];
     }
-    else if (showAddTransaction) {
+    else
+        [self runQuickTransactionWorkflow];
+}
+
+- (void)runQuickTransactionWorkflow {
+    static Workflow* workflow = nil;
+    if (workflow)
+        return;
+
+    BOOL showAddTransaction = [[NSUserDefaults standardUserDefaults]boolForKey:TRANSACTIONVIEW_STARTUP_KEY];
+    if (showAddTransaction) {
         workflow = [self createAddTransactionWorkflow];
         workflow.workflowCompleteHandler = ^(){
             CLEAN_RELEASE(workflow);
             [[UIViewController topViewController]viewWillAppear:NO];
         };
         [workflow execute];
-    }
-}
+    }}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
