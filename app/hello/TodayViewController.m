@@ -363,6 +363,7 @@ static NSString* cellId = @"expenseCell";
         else
             catName.text = cat.categoryName;
         catAmount.text = formatAmount(expense.amount, YES);
+        catAmount.hidden = NO;
         catImage.image = [catMan iconNamed:cat.smallIconName];
         BOOL hasImageNote = expense.pictureRef && expense.pictureRef.length > 0;
         tagImage.hidden = !hasImageNote;
