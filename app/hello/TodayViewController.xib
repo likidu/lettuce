@@ -465,6 +465,7 @@
 								<string key="NSFrame">{{232, 44}, {1, 171}}</string>
 								<reference key="NSSuperview" ref="1039554448"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xMTM3MjU0OTAyIDAuMzA1ODgyMzUyOSAwAA</bytes>
@@ -804,13 +805,13 @@
 								<string key="NSFrame">{{46, 12}, {229, 16}}</string>
 								<reference key="NSSuperview" ref="809846398"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="158347997"/>
+								<reference key="NSNextKeyView" ref="577437911"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">过去30天中你花费最多的日常支出是：</string>
+								<string key="IBUIText">30天日常支出排行</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xMTM3MjU0OTAyIDAuMzA1ODgyMzUyOSAwAA</bytes>
@@ -820,6 +821,30 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<reference key="IBUIFontDescription" ref="35649856"/>
 								<reference key="IBUIFont" ref="122446971"/>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+							</object>
+							<object class="IBUILabel" id="577437911">
+								<reference key="NSNextResponder" ref="809846398"/>
+								<int key="NSvFlags">300</int>
+								<string key="NSFrame">{{46, 24}, {229, 11}}</string>
+								<reference key="NSSuperview" ref="809846398"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="158347997"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">7</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<string key="IBUIText">30 DAY TOP EXPENSES</string>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xMTM3MjU0OTAyIDAuMzA1ODgyMzUyOSAwAA</bytes>
+								</object>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<float key="IBUIMinimumFontSize">10</float>
+								<reference key="IBUIFontDescription" ref="888782003"/>
+								<reference key="IBUIFont" ref="303912774"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 							<object class="IBUILabel" id="400738858">
@@ -1322,6 +1347,7 @@
 							<reference ref="169575604"/>
 							<reference ref="400738858"/>
 							<reference ref="676439779"/>
+							<reference ref="577437911"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -1358,6 +1384,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">80</int>
 						<reference key="object" ref="676439779"/>
+						<reference key="parent" ref="809846398"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">85</int>
+						<reference key="object" ref="577437911"/>
 						<reference key="parent" ref="809846398"/>
 					</object>
 				</array>
@@ -1412,13 +1443,14 @@
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="79.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="85.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">84</int>
+			<int key="maxID">85</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
