@@ -583,6 +583,7 @@
 		1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */; };
 		1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */; };
 		1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF489C015AB056E009ADC04 /* libobjc.A.dylib */; };
+		26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */; };
 		B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */; };
 		B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */; };
 		B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */; };
@@ -1280,6 +1281,7 @@
 		1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthViewRoot.m; sourceTree = "<group>"; };
 		1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthViewRoot.xib; sourceTree = "<group>"; };
 		1AF489C015AB056E009ADC04 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
+		26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x-568h@2x.png"; sourceTree = "<group>"; };
 		B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountingReminderViewController.h; sourceTree = "<group>"; };
 		B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountingReminderViewController.m; sourceTree = "<group>"; };
 		B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountingReminderViewController.xib; sourceTree = "<group>"; };
@@ -1888,6 +1890,7 @@
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
+				26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */,
 				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AC28562145CEC280085C866 /* FlurryAnalytics.h */,
 				1AC28563145CEC280085C866 /* libFlurryAnalytics.a */,
@@ -2865,6 +2868,7 @@
 				1A0EBE9E1681F30A0012F32F /* budget.setting.art.png in Resources */,
 				1A0EBEA01682066F0012F32F /* 1st.welcome.png in Resources */,
 				1AD2D28316835ECB006EECC0 /* tap.wav in Resources */,
+				26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
