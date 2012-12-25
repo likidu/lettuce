@@ -90,12 +90,12 @@ const int BITNUMBER = 16;
     self.dailyTimeData = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
     self.weeklyData = getWeekdayStringArray();
     self.currentReminderType = [[NSUserDefaults standardUserDefaults]integerForKey:REMINDER_TYPE_KEY];
-    self.currentTimeIndex = 19;
+    self.currentTimeIndex = 43;
     self.currentWeekIndex = 0;
     // The formula for Mask: Mask = WeekIndex << 16 + TimeIndex
     // Assume TimeIndex is less than 1000 (currently is 48)
     self.reminderTimeMask = [[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
-    self.reminderTimeMask = self.reminderTimeMask ? self.reminderTimeMask : 0;
+    self.reminderTimeMask = self.reminderTimeMask ? self.reminderTimeMask : 43;
     [self setCurrentIndexFromReminderMask:self.reminderTimeMask];
     [self hidePickers];
 }

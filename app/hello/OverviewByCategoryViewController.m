@@ -9,6 +9,7 @@
 #import "OverviewByCategoryViewController.h"
 #import "Statistics.h"
 #import "CategoryManager.h"
+#import "UIColor+Helper.h"
 
 @interface OverviewByCategoryViewController()
 
@@ -134,8 +135,8 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.5];
-
+    bgColorView.backgroundColor = [UIColor slateColor];
+    
     cell.selectedBackgroundView = bgColorView;
 }
 

@@ -583,6 +583,7 @@
 		1AF489BB15AAFCAD009ADC04 /* MonthViewRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */; };
 		1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */; };
 		1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF489C015AB056E009ADC04 /* libobjc.A.dylib */; };
+		2635D17E1689D5ED000F3F20 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635D17D1689D5ED000F3F20 /* UIColor+Helper.m */; };
 		26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */; };
 		B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */; };
 		B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */; };
@@ -1281,6 +1282,8 @@
 		1AF489B915AAFCAD009ADC04 /* MonthViewRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthViewRoot.m; sourceTree = "<group>"; };
 		1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthViewRoot.xib; sourceTree = "<group>"; };
 		1AF489C015AB056E009ADC04 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
+		2635D17C1689D5EC000F3F20 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		2635D17D1689D5ED000F3F20 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x-568h@2x.png"; sourceTree = "<group>"; };
 		B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountingReminderViewController.h; sourceTree = "<group>"; };
 		B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountingReminderViewController.m; sourceTree = "<group>"; };
@@ -2206,6 +2209,8 @@
 				B0629B7E15FB96A400749C98 /* NSString+Helper.m */,
 				1A1C0048166B5E4B006C89CD /* Workflow.h */,
 				1A1C0049166B5E4B006C89CD /* Workflow.m */,
+				2635D17C1689D5EC000F3F20 /* UIColor+Helper.h */,
+				2635D17D1689D5ED000F3F20 /* UIColor+Helper.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2932,6 +2937,7 @@
 				1A1C003F166B28DA006C89CD /* PasscodeManager.m in Sources */,
 				1A1C0044166B2E44006C89CD /* PasscodeSettingViewController.m in Sources */,
 				1A1C004A166B5E4B006C89CD /* Workflow.m in Sources */,
+				2635D17E1689D5ED000F3F20 /* UIColor+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
