@@ -132,6 +132,13 @@
     [delegate pickedCategory: categoryId];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.5];
+
+    cell.selectedBackgroundView = bgColorView;
+}
+
 #pragma mark - date range responder
 
 - (void)setStartDate:(NSDate *)start endDate:(NSDate *)end {

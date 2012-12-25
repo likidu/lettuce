@@ -2267,6 +2267,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "JingXi Mill";
 			};
 			buildConfigurationList = 1AAD1387132BB1AF0035BA92 /* Build configuration list for PBXProject "woojuu" */;
 			compatibilityVersion = "Xcode 3.2";
