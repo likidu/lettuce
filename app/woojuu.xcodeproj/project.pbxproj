@@ -2992,7 +2992,7 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3008,7 +3008,7 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3022,7 +3022,7 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
@@ -3037,7 +3037,7 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -3072,7 +3072,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
@@ -3087,7 +3088,8 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
