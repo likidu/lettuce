@@ -10,6 +10,7 @@
 #import "Statistics.h"
 #import "PlanManager.h"
 #import "ExpenseManager.h"
+#import "UIColor+Helper.h"
 
 @interface OverviewByYearViewController()
 
@@ -131,6 +132,13 @@
         NSDate* dayOfMonth = [self.yearData objectAtIndex:indexPath.row];
         [self.delegate pickedDate:dayOfMonth];
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor slateColor];
+    cell.selectedBackgroundView = bgColorView;
+    [bgColorView release];
 }
 
 #pragma mark - scroll view delegate

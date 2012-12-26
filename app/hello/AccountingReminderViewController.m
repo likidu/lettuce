@@ -49,8 +49,9 @@ const int BITNUMBER = 16;
     NSArray* timeArray = getTimeArrayWithMinutesInteval(ReminderIntervalMinutes);
     NSArray* weekdayArray = getWeekdayStringArray();
     
-    NSUInteger timeData = (NSUInteger)[[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
-    NSUInteger weekIndex = timeData >> BITNUMBER;
+    double timeData = [[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
+    timeData = timeData ? timeData : 43;
+    NSUInteger weekIndex = (NSUInteger)timeData >> BITNUMBER;
     NSUInteger timeIndex = (timeData - (weekIndex << BITNUMBER));
     
     if (reminderType == Daily)
@@ -95,7 +96,7 @@ const int BITNUMBER = 16;
     // The formula for Mask: Mask = WeekIndex << 16 + TimeIndex
     // Assume TimeIndex is less than 1000 (currently is 48)
     self.reminderTimeMask = [[NSUserDefaults standardUserDefaults]doubleForKey:REMINDER_TIME_KEY];
-    self.reminderTimeMask = self.reminderTimeMask ? self.reminderTimeMask : 43;
+//    self.reminderTimeMask = self.reminderTimeMask ? self.reminderTimeMask : 43;
     [self setCurrentIndexFromReminderMask:self.reminderTimeMask];
     [self hidePickers];
 }

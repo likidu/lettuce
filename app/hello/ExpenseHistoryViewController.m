@@ -14,6 +14,7 @@
 #import "MiddleViewController.h"
 #import "BudgetManager.h"
 #import "Statistics.h"
+#import "UIColor+Helper.h"
 
 @implementation ExpenseHistoryViewController
 
@@ -371,6 +372,13 @@ static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor slateColor];
+    cell.selectedBackgroundView = bgColorView;
+    [bgColorView release];
 }
 
 @end

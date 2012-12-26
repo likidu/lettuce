@@ -12,6 +12,7 @@
 #import "Statistics.h"
 #import "PlanManager.h"
 #import "MiddleViewController.h"
+#import "UIColor+Helper.h"
 
 @implementation TodayViewController
 
@@ -410,6 +411,13 @@ static NSString* cellId = @"expenseCell";
         UIView* amountView = [cell viewWithTag:3];
         amountView.hidden = NO;
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor slateColor];
+    cell.selectedBackgroundView = bgColorView;
+    [bgColorView release];
 }
 
 #pragma mark - show settings

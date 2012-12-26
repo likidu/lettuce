@@ -10,6 +10,7 @@
 #import "Statistics.h"
 #import "CategoryManager.h"
 #import "SingleCategoryByMonthView.h"
+#import "UIColor+Helper.h"
 
 @interface SingleCategoryByYearView ()
 
@@ -65,6 +66,11 @@
         [[NSBundle mainBundle]loadNibNamed:@"SingleCategoryByYearCell" owner:self options:nil];
         cell = self.cellTemplate;
         self.cellTemplate = nil;
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor slateColor];
+        cell.selectedBackgroundView = bgColorView;
+        [bgColorView release];
     }
     return cell;
 }

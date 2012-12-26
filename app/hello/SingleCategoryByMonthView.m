@@ -11,6 +11,7 @@
 #import "CategoryManager.h"
 #import "ExpenseManager.h"
 #import "MiddleViewController.h"
+#import "UIColor+Helper.h"
 
 @implementation SingleCategoryByMonthView
 
@@ -57,6 +58,11 @@
         [[NSBundle mainBundle]loadNibNamed:@"ExpenseCellWithDateNoIcon" owner:self options:nil];
         cell = self.cellTemplate;
         self.cellTemplate = nil;
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor slateColor];
+        cell.selectedBackgroundView = bgColorView;
+        [bgColorView release];
     }
     return cell;
 }

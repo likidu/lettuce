@@ -80,6 +80,11 @@
         }
         cell = cellTemplate;
         self.cellTemplate = nil;
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor slateColor];
+        cell.selectedBackgroundView = bgColorView;
+        [bgColorView release];
     }
     return cell;
 }
@@ -131,13 +136,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     int categoryId = [[self.categories objectAtIndex:indexPath.row]intValue];
     [delegate pickedCategory: categoryId];
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor slateColor];
-    
-    cell.selectedBackgroundView = bgColorView;
 }
 
 #pragma mark - date range responder
