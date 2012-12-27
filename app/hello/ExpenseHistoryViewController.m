@@ -270,6 +270,11 @@ static NSString* fixedExpenseCellId = @"fixedExpenseCell";
     if (!cell) {
         cell = self.cellTemplate;
         self.cellTemplate = nil;
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor slateColor];
+        cell.selectedBackgroundView = bgColorView;
+        [bgColorView release];
     }
     return cell;
 }
@@ -360,7 +365,7 @@ static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 #pragma mark - Table view delegate
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self isHeaderAtIndexPath:indexPath]) {
+    if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath]) {
         return nil;
     }
     return indexPath;
@@ -382,10 +387,9 @@ static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor slateColor];
-    cell.selectedBackgroundView = bgColorView;
-    [bgColorView release];
+    if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath]) {
+        cell.selectionStyle = UITableViewCellEditingStyleNone;
+    }
 }
 
 @end
