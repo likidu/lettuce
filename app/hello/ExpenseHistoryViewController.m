@@ -359,8 +359,15 @@ static NSString* fixedExpenseCellId = @"fixedExpenseCell";
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self isHeaderAtIndexPath:indexPath]) {
+        return nil;
+    }
+    return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Cell index: %u", (NSUInteger)indexPath);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // goto the transaction dialog to edit the selected item
     if ([self isHeaderAtIndexPath:indexPath] || [self isFooterAtIndexPath:indexPath])
