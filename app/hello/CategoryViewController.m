@@ -251,6 +251,37 @@ CGSize categoryButtonSize = {60, 72};
     }
     selectedCategoryId = selectedCatId;
     currentSelectedButton = nil;
+    
+    [self switchToPageOfCategory:selectedCategoryId];
+}
+
+- (void)switchToPageOfCategory:(int)categoryId {
+    CategoryManager* catMan = [CategoryManager instance];
+    int activePageCount = 0, targetPage = -1;
+    
+    for (Category* topCat in catMan.topCategoryCollection) {
+        if (!topCat.isActive)
+            continue;
+        ++activePageCount;
+        NSArray* subCats = [catMan getSubCategoriesWithCategoryId:topCat.categoryId];
+        int activeCatCount = 0;
+        for (Category* cat in subCats) {
+            if (!cat.isActive)
+                continue;
+            ++activeCatCount;
+            if (activeCatCount % CAT_PER_PAGE == 1 && activeCatCount / CAT_PER_PAGE > 0)
+                ++activePageCount;
+            if (cat.categoryId == categoryId) {
+                targetPage = activePageCount - 1;
+                break;
+            }
+        }
+    }
+    
+    if (targetPage != -1) {
+        pageControl.currentPage = targetPage;
+        [self pageChaged:nil];
+    }
 }
 
 - (void)pageChaged:(id)sender {
