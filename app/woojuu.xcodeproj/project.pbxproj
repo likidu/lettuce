@@ -3007,7 +3007,7 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3023,7 +3023,7 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "800D53AE-F9F5-4768-AB44-993D82071292";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3037,7 +3037,7 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
@@ -3052,7 +3052,7 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "800D53AE-F9F5-4768-AB44-993D82071292";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -3087,8 +3087,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Du Liki (Z7D7BBAMC4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
@@ -3103,8 +3103,8 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "800D53AE-F9F5-4768-AB44-993D82071292";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1E841CD-37FF-4D94-A857-6688A514B277";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

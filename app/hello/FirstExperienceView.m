@@ -58,14 +58,18 @@
     [oldView viewWillDisappear:YES];
     [newView viewWillAppear:YES];
     
+    CGRect frame = self.view.frame;
+    frame.origin = CGPointMake(0, 0);
+    if (![self.view.subviews containsObject:newView.view]) {
+        [self.view addSubview:newView.view];
+        newView.view.frame = frame;
+        [self.view layoutSubviews];
+    }
+    
     [UIView transitionFromView:oldView.view toView:newView.view duration:0.5 options:UIViewAnimationOptionTransitionCurlUp completion:^(BOOL finished) {
         if (!finished)
             return;
-        
-        if (![self.view.subviews containsObject:newView.view]) {
-            [self.view addSubview:newView.view];
-        }
-        
+
         [self.view bringSubviewToFront:newView.view];
 
         [oldView viewDidDisappear:YES];
