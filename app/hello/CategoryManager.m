@@ -55,6 +55,8 @@ CategoryManager* g_catMan = nil;
         if (isHiRes)
             fileName = [iconName stringByReplacingOccurrencesOfString:@".png" withString:@"@2x.png"];
         UIImage* image = [UIImage imageNamed:fileName];
+        if (!image)
+            continue;
         
         if (isHiRes)
             image = [UIImage imageWithCGImage:image.CGImage scale:2.0 orientation:UIImageOrientationUp];
