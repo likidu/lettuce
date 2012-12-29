@@ -585,7 +585,6 @@
 		1AF489BC15AAFCAD009ADC04 /* MonthViewRoot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF489BA15AAFCAD009ADC04 /* MonthViewRoot.xib */; };
 		1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF489C015AB056E009ADC04 /* libobjc.A.dylib */; };
 		2635D17E1689D5ED000F3F20 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2635D17D1689D5ED000F3F20 /* UIColor+Helper.m */; };
-		26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */; };
 		B06047F415D097AC008ACC45 /* AccountingReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */; };
 		B06047F515D097AC008ACC45 /* AccountingReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */; };
 		B06047F615D097AC008ACC45 /* ReorderCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06047F215D097AC008ACC45 /* ReorderCategoryViewController.m */; };
@@ -1286,7 +1285,6 @@
 		1AF489C015AB056E009ADC04 /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		2635D17C1689D5EC000F3F20 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
 		2635D17D1689D5ED000F3F20 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
-		26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x-568h@2x.png"; sourceTree = "<group>"; };
 		B06047EE15D097AC008ACC45 /* AccountingReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountingReminderViewController.h; sourceTree = "<group>"; };
 		B06047EF15D097AC008ACC45 /* AccountingReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountingReminderViewController.m; sourceTree = "<group>"; };
 		B06047F015D097AC008ACC45 /* AccountingReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountingReminderViewController.xib; sourceTree = "<group>"; };
@@ -1896,7 +1894,6 @@
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
-				26B64BA316897D0D0001C718 /* launch@2x-568h@2x.png */,
 				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AC28562145CEC280085C866 /* FlurryAnalytics.h */,
 				1AC28563145CEC280085C866 /* libFlurryAnalytics.a */,
@@ -2877,7 +2874,6 @@
 				1A0EBE9E1681F30A0012F32F /* budget.setting.art.png in Resources */,
 				1A0EBEA01682066F0012F32F /* 1st.welcome.png in Resources */,
 				1AD2D28316835ECB006EECC0 /* tap.wav in Resources */,
-				26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */,
 				1A98AAC3168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2975,7 +2971,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/RestKit/Build\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
+				PROVISIONING_PROFILE = "C1E841CD-37FF-4D94-A857-6688A514B277";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2985,7 +2981,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RONG LI (QRMAPBMGUW)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2994,7 +2990,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
+				PROVISIONING_PROFILE = "C1E841CD-37FF-4D94-A857-6688A514B277";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1E841CD-37FF-4D94-A857-6688A514B277";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -3073,8 +3070,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "06DEA9B9-99C7-4D9E-B707-255B3FF4EF32";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E205603C-A5E9-4FEB-8963-7DF087FE03B6";
+				PROVISIONING_PROFILE = "C1E841CD-37FF-4D94-A857-6688A514B277";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C6AB7D6-EA7C-47B5-B6AE-845C26668B8B";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -3087,8 +3084,8 @@
 					armv6,
 					armv7,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: RONG LI (QRMAPBMGUW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: RONG LI (QRMAPBMGUW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: RONG LI";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RONG LI";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hello/woojuu-Prefix.pch";
@@ -3103,8 +3100,8 @@
 					"\"$(SRCROOT)/hello/FlurryAnalytics\"",
 				);
 				PRODUCT_NAME = woojuu.book;
-				PROVISIONING_PROFILE = "800D53AE-F9F5-4768-AB44-993D82071292";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1E841CD-37FF-4D94-A857-6688A514B277";
+				PROVISIONING_PROFILE = "6C6AB7D6-EA7C-47B5-B6AE-845C26668B8B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C6AB7D6-EA7C-47B5-B6AE-845C26668B8B";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

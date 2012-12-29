@@ -465,7 +465,6 @@
 								<string key="NSFrame">{{232, 44}, {1, 171}}</string>
 								<reference key="NSSuperview" ref="1039554448"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xMTM3MjU0OTAyIDAuMzA1ODgyMzUyOSAwAA</bytes>
@@ -806,7 +805,7 @@
 							<object class="IBUITableView" id="158347997">
 								<reference key="NSNextResponder" ref="809846398"/>
 								<int key="NSvFlags">282</int>
-								<string key="NSFrame">{{46, 48}, {230, 166}}</string>
+								<string key="NSFrame">{{46, 55}, {230, 159}}</string>
 								<reference key="NSSuperview" ref="809846398"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="400738858"/>
