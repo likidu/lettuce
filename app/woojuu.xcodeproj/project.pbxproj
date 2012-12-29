@@ -448,6 +448,7 @@
 		1A96CD3613F6B89700AA4D45 /* SavingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96CD3513F6B89600AA4D45 /* SavingCell.xib */; };
 		1A96CD3E13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A96CD3C13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.m */; };
 		1A96CD3F13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96CD3D13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib */; };
+		1A98AAC3168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A98AAC2168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib */; };
 		1A9F7C9615ADA1A200CF0FFC /* SingleCategoryByYearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */; };
 		1A9F7C9715ADA1A200CF0FFC /* SingleCategoryByYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */; };
 		1A9F7C9915ADA48600CF0FFC /* SingleCategoryByYearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A9F7C9815ADA48600CF0FFC /* SingleCategoryByYearCell.xib */; };
@@ -1115,6 +1116,7 @@
 		1A96CD3B13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseHistoryByAmountViewController.h; sourceTree = "<group>"; };
 		1A96CD3C13F7BFC700AA4D45 /* ExpenseHistoryByAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseHistoryByAmountViewController.m; sourceTree = "<group>"; };
 		1A96CD3D13F7BFC800AA4D45 /* ExpenseHistoryByAmountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseHistoryByAmountViewController.xib; sourceTree = "<group>"; };
+		1A98AAC2168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopExpenseCatetoryCell.xib; sourceTree = "<group>"; };
 		1A9F7C9315ADA1A200CF0FFC /* SingleCategoryByYearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCategoryByYearView.h; sourceTree = "<group>"; };
 		1A9F7C9415ADA1A200CF0FFC /* SingleCategoryByYearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCategoryByYearView.m; sourceTree = "<group>"; };
 		1A9F7C9515ADA1A200CF0FFC /* SingleCategoryByYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleCategoryByYearView.xib; sourceTree = "<group>"; };
@@ -1835,6 +1837,7 @@
 		1A6B5E5313F2EA11007BC798 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1A98AAC2168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib */,
 				1A3826F11672370E0053D592 /* FixedExpenseCell.xib */,
 				1A6B5E5013F2C4B7007BC798 /* ExpenseCell.xib */,
 				1A6B5E5413F2EA75007BC798 /* ExpenseCellWithDate.xib */,
@@ -2875,6 +2878,7 @@
 				1A0EBEA01682066F0012F32F /* 1st.welcome.png in Resources */,
 				1AD2D28316835ECB006EECC0 /* tap.wav in Resources */,
 				26B64BA416897D0D0001C718 /* launch@2x-568h@2x.png in Resources */,
+				1A98AAC3168E8CE300D3CCC2 /* TopExpenseCatetoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

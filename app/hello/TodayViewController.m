@@ -308,7 +308,7 @@ static NSString* cellId = @"expenseCell";
 }
 
 - (UITableViewCell*)recentStatsCellAtIndexPath:(NSIndexPath*)indexPath {
-    static NSString* statCellId = @"statCell";
+    static NSString* statCellId = @"todayExpenseCategoryCell";
     
     if (indexPath.row >= self.recentExpenseStats.count)
         return nil;
@@ -322,16 +322,16 @@ static NSString* cellId = @"expenseCell";
     
     UITableViewCell* cell = [self.recentStatsTable dequeueReusableCellWithIdentifier:statCellId];
     if (!cell) {
-        cell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:statCellId]autorelease];
-        cell.textLabel.textColor = [UIColor colorWithRed:0.121 green:0.314 blue:0.0 alpha:1.0];
-        cell.detailTextLabel.textColor = cell.textLabel.textColor;
-        
-        cell.textLabel.font = [UIFont systemFontOfSize:12];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+        [[NSBundle mainBundle]loadNibNamed:@"TopExpenseCatetoryCell" owner:self options:nil];
+        cell = self.cellTemplate;
+        self.cellTemplate = nil;
     }
-    cell.imageView.image = [catMan iconNamed:cat.midHilitedIconName];
-    cell.textLabel.text = cat.categoryName;
-    cell.detailTextLabel.text = formatAmount(totalExpense, NO);
+    UIImageView* imageView = (UIImageView*)[cell viewWithTag:1];
+    UITextView* categoryNameView = (UITextView*)[cell viewWithTag:2];
+    UITextView* amountView = (UITextView*)[cell viewWithTag:3];
+    imageView.image = [catMan iconNamed:cat.categoryIconName];
+    categoryNameView.text = cat.categoryName;
+    amountView.text = formatAmount(totalExpense, NO);
     return cell;
 }
 
