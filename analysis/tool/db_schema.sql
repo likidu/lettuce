@@ -1,6 +1,6 @@
 -- Initial script for mysql
 
--- /usr/bin/mysql -uroot -p
+-- mysql -uroot -p < ./db_schema.sql
 
 use wj;
 
@@ -24,7 +24,8 @@ CREATE TABLE if not exists expenses(
        date VARCHAR(50) NOT NULL,
        latitude VARCHAR(50),
        longitude VARCHAR(50),
-       notes VARCHAR(50)
+       notes VARCHAR(50),
+       createtime datetime
 );
 
 -- ###########################################################################################

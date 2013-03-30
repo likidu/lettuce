@@ -6,12 +6,10 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-03-30 14:45:47>
+## Updated: Time-stamp: <2013-03-30 16:32:15>
 ##-------------------------------------------------------------------
-# import MySQLdb
-# import MySQLdb
+import MySQLdb
 import sys
-import logging
 import commands
 
 ################################## CONSTANT #####################################
@@ -26,15 +24,6 @@ LEDGER_TO_ACCOUNT_LINE =2
 LEDGER_FROM_ACCOUNT_LINE =3
 
 SQLITE_ENTRY_SEPERATOR = "--line ends--"
-##############################################################################
-
-########################### GLOBAL VARIABLES #################################
-format = "%(asctime)s %(filename)s:%(lineno)d - %(levelname)s: %(message)s"
-formatter = logging.Formatter(format)
-
-consoleHandler = logging.StreamHandler()
-consoleHandler.setLevel(logging.INFO)
-consoleHandler.setFormatter(formatter)
 ##############################################################################
 
 class Expense:
@@ -56,19 +45,26 @@ class Expense:
         self.date = date.strip() # TODO defensive code
         self.latitude = latitude
         self.longitude = longitude
-        self.notes = notes.strip()
+        self.notes = my_strip(notes)
 
     def init_with_ledger(self, userid, amount, category, date, notes):
         self.userid = userid
         self.amount = amount
         self.category = category # TODO make conversion
         self.date = date.strip() # TODO defensive code
-        self.notes = notes.strip()
+        self.notes = my_strip(notes)
 
-    def print_obj(self):
-        print "userid:%s, source_expenseid:%s, amount:%f, category:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
-            (self.userid, self.source_expenseid, self.amount, self.category, \
-             self.date, self.latitude, self.longitude, self.notes)
+    @staticmethod
+    def print_obj(obj):
+        print "userid:%s, amount:%f, category:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
+            (obj.userid, obj.amount, obj.category, \
+             obj.date, obj.latitude, obj.longitude, obj.notes)
+
+    @staticmethod
+    def print_objs(objs):
+        for obj in objs:
+            obj.print_obj(obj)
+
 
 # dataconvert.load_ledger("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.ledger", "denny")
 def load_ledger(ledger_file, userid):
@@ -104,14 +100,17 @@ def detect_ledger_line(line):
     else:
         return LEDGER_FROM_ACCOUNT_LINE
 
-# dataconvert.load_sqlite("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.sqlite", "denny")
+# dataconvert.load_sqlite("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.sqlite", "liki")
 def load_sqlite(sqlite_file, userid):
     expenses = []
-    command = "sqlite3 %s 'select expenseid, amount, categoryid, date, notes, latitude, longitude, \"%s\" from expense'" \
-              % (sqlite_file, SQLITE_ENTRY_SEPERATOR)
+    sql = "select expenseid, amount, categoryname as categoryid, date, notes, latitude, longitude, \"%s\"" + \
+          " from expense inner join category on expense.categoryid = category.categoryid" 
+    sql = sql % SQLITE_ENTRY_SEPERATOR
+    command = "sqlite3 %s '%s'" \
+              % (sqlite_file, sql)
     status, output = commands.getstatusoutput(command)
     if status != 0:
-        log.error("Failed to run the command:%s. output:%s" % (command_str, output))
+        print "Error: Failed to run the command:%s. output:%s" % (command_str, output)
         return []
 
     l = output.split(SQLITE_ENTRY_SEPERATOR)
@@ -134,17 +133,47 @@ def load_sqlite(sqlite_file, userid):
 
     return expenses
 
-# def insert_mysql(entries):
-#     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, config.DB_NAME, charset='utf8', port=3306)
-#     c=conn.cursor()
-#     sql = "insert into expenses(userid, source_expeseid, amount, category, date, latitude, longitude, nodes) " + \
-#           "values (%s, %s, %s %s, %s, %s, %s, %s)" % \
-#           (self.userid, self.source_expenseid, self.amount, self.category, \
-#            self.date, self.latitude, self.longitude, self.notes)
-#     c.execute("select id, category, title from posts where id ='%s'" % id)
-#     out = c.fetchall()
-#     # TODO close db connection
-#     # TODO: defensive check
-#     return True
+def insert_mysql(expenses):
+    # Expense.print_objs(expenses)
+    conn = MySQLdb.connect(DB_HOST, DB_USERNAME, DB_PWD, DB_NAME, charset='utf8', port=3306)
+    c=conn.cursor()
+
+    for obj in expenses:
+        sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes) " + \
+              "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\");" % \
+              (obj.userid, obj.source_expenseid, obj.amount, obj.category, \
+               obj.date, obj.latitude, obj.longitude, obj.notes)
+        print sql
+        try:
+            c.execute(sql)
+            conn.commit()
+        except:
+            print "ERROR insert mysql fail"
+            conn.rollback()
+
+    # # TODO close db connection
+    # # TODO: defensive check
+    return True
+
+############################### HELPER FUNCTIONS #############################
+def my_strip(string):
+    stirng = string.strip()
+    return string
+##############################################################################
+
+# ./dataconvert.py import denny ./data/test.ledger
+# ./dataconvert.py import liki ./data/test.sqlite
+if __name__ == "__main__":
+    if sys.argv[1] == "import":
+        userid = sys.argv[2]
+        fname = sys.argv[3]
+        if fname.endswith(".ledger") is True:
+            expenses = load_ledger(fname, userid)
+            insert_mysql(expenses)
+        if fname.endswith(".sqlite") is True:
+            expenses = load_sqlite(fname, userid)
+            insert_mysql(expenses)
+    else:
+        print "Error unknown command:" + str(sys.argv)
 
 ## File : dataconvert.py ends
