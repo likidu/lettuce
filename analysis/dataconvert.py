@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-03-30 14:40:39>
+## Updated: Time-stamp: <2013-03-30 14:45:47>
 ##-------------------------------------------------------------------
 # import MySQLdb
 # import MySQLdb
@@ -91,7 +91,7 @@ def load_ledger(ledger_file, userid):
             expense.init_with_ledger(userid, float(amount), category, date, notes)
             expenses.append(expense)
             #expense.print_obj()
-    return True
+    return expenses
 
 def detect_ledger_line(line):
     if len(line) == 0 or line == "\n":
@@ -107,12 +107,12 @@ def detect_ledger_line(line):
 # dataconvert.load_sqlite("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.sqlite", "denny")
 def load_sqlite(sqlite_file, userid):
     expenses = []
-    command = "sqlite3 %s 'select expenseid, amount, categoryid, date, notes, latitude, longitude, \"%s\" from expense limit 10'" \
+    command = "sqlite3 %s 'select expenseid, amount, categoryid, date, notes, latitude, longitude, \"%s\" from expense'" \
               % (sqlite_file, SQLITE_ENTRY_SEPERATOR)
     status, output = commands.getstatusoutput(command)
     if status != 0:
         log.error("Failed to run the command:%s. output:%s" % (command_str, output))
-        return False
+        return []
 
     l = output.split(SQLITE_ENTRY_SEPERATOR)
     for entry in l:
@@ -130,9 +130,9 @@ def load_sqlite(sqlite_file, userid):
         expense.init_with_sqlite(userid, expenseid, float(amount), categoryid, \
                                  date, notes, float(latitude), float(longitude))
         expenses.append(expense)
-        expense.print_obj()
+        #expense.print_obj()
 
-    return True
+    return expenses
 
 # def insert_mysql(entries):
 #     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, config.DB_NAME, charset='utf8', port=3306)
