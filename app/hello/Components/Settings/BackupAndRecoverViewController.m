@@ -7,7 +7,7 @@
 //
 
 #import "BackupAndRecoverViewController.h"
-#import "UserAccountViewController.h"
+//#import "UserAccountViewController.h"
 #import "ConfigurationManager.h"
 
 @interface BackupAndRecoverViewController ()
@@ -141,13 +141,13 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];            
+//            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];            
         }
             
     }
     else if (indexPath.section == 1) {  
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
+//            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
         }
     } 
     
