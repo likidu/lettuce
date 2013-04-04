@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-04 16:39:14>
+## Updated: Time-stamp: <2013-04-04 21:54:42>
 ##-------------------------------------------------------------------
 source("./util.R")
 
@@ -16,8 +16,8 @@ sql ="select date, amount, notes from expenses where userid='denny' and memo='de
 ## drawplot(sql)
 drawplot = function(sql) {
   dd = querymysql(sql)
-  plot(amount~date, dd, xaxt="n", type="p", xlab="day", main="wj", yaxs="i")
   dd$date<-as.Date(dd$date, "%Y-%m-%d")
+  plot(amount~date, dd, xaxt="n", type="p", xlab="day", main="wj", yaxs="i")
   axis(1, dd$date, format(dd$date, "%m %d"), cex.axis = .7)
   axis(2, as.integer(summary(dd$amount)))
 

@@ -6,17 +6,17 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-04 16:38:41>
+## Updated: Time-stamp: <2013-04-04 22:13:46>
 ##-------------------------------------------------------------------
 library(DBI)
 library(RMySQL)
 
-################### configuration ###########
+################### configuration #################
 dbhost="127.0.0.1"
 dbuser="root"
 dbpwd=""
 dbname="wj"
-#############################################
+###################################################
 
 ## querymysql("select date, amount, notes from expenses where userid='liki' and memo='meal' order by date limit 100;")
 querymysql = function(sql, host=dbhost, user=dbuser, password=dbpwd, db=dbname) {
@@ -27,7 +27,13 @@ querymysql = function(sql, host=dbhost, user=dbuser, password=dbpwd, db=dbname) 
 
   dd <- fetch(res, n=-1)
   dbClearResult(res)
+  dbDisconnect(conn)
   return(dd)
+}
+
+pause = function() {
+  print ("Pause, press any key to continue:")
+  readline()
 }
 
 ## File : util.R ends
