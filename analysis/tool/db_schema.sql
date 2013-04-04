@@ -25,7 +25,8 @@ CREATE TABLE if not exists expenses(
        latitude VARCHAR(50),
        longitude VARCHAR(50),
        notes VARCHAR(50),
-       createtime datetime
+       createtime timestamp not null default now(),
+       memo VARCHAR(50)
 );
 
 -- ###########################################################################################

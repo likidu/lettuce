@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-03-30 16:32:15>
+## Updated: Time-stamp: <2013-03-31 00:16:42>
 ##-------------------------------------------------------------------
 import MySQLdb
 import sys
@@ -128,7 +128,8 @@ def load_sqlite(sqlite_file, userid):
         longitude = field_list[6]
         expense.init_with_sqlite(userid, expenseid, float(amount), categoryid, \
                                  date, notes, float(latitude), float(longitude))
-        expenses.append(expense)
+        if notes.find("[tag:private]") == -1:
+            expenses.append(expense)
         #expense.print_obj()
 
     return expenses
@@ -157,7 +158,8 @@ def insert_mysql(expenses):
 
 ############################### HELPER FUNCTIONS #############################
 def my_strip(string):
-    stirng = string.strip()
+    string = string.strip()
+    string = string.replace("\n", "")
     return string
 ##############################################################################
 
