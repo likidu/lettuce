@@ -32,10 +32,10 @@ NSString* formatSqlDate(NSDate* date) {
         return @"NULL";
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:MM"];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     NSString* dateStr = [formatter stringFromDate:date];
-    return [NSString stringWithFormat:@"date('%@')", dateStr];
+    return [NSString stringWithFormat:@"'%@'", dateStr];
 }
 
 NSString* formatSqlYearMonth(NSDate* date) {

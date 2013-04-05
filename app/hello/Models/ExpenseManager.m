@@ -152,7 +152,7 @@ static ExpenseManager* g_instance = nil;
     NSString* useLocationStr = expense.useLocation ? @"1" : @"0";
     NSString* latitudeStr = [NSString stringWithFormat:@"%f", expense.latitude];
     NSString* longitudeStr = [NSString stringWithFormat:@"%f", expense.longitude];
-    
+
     NSString* formatStr = @"insert into expense (categoryid, amount, date, notes, pictureref, uselocation, latitude, longitude) values (%@, %@, %@, %@, %@, %@, %@, %@)";
     NSString* sqlStr = [NSString stringWithFormat:formatStr, categoryIdStr, amountStr, dateStr, notesStr, pictureRefStr, useLocationStr, latitudeStr, longitudeStr];
     
