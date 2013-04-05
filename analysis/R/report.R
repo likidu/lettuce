@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-05 11:23:11>
+## Updated: Time-stamp: <2013-04-05 12:15:44>
 ##-------------------------------------------------------------------
 source("./util.R")
 
@@ -40,6 +40,13 @@ categorydrawplot = function(userid, category, summary) {
   ## Add lines for the changes
   lines(cl$centers[sort.list(cl$centers[,1]), ])
   par(col="black")
+}
+
+categorydrawboxplot = function(userid, category, summary) {
+  sql = sprintf("select left(date,7) as date, amount from expenses where userid='%s' and memo='%s' and date>'2012-09-01' order by date desc limit 1000;",
+    userid, category)
+  dd = querymysql(sql)
+  boxplot(amount~date, data=dd, col="lightblue", main=summary)
 }
 
 categorydrawhist = function(userid, category, summary) {

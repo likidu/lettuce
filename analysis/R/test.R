@@ -6,24 +6,30 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-05 11:05:57>
+## Updated: Time-stamp: <2013-04-05 12:16:06>
 ##-------------------------------------------------------------------
 source("./report.R")
 
 ## TODO more functional programming to prevent code duplication
-categorydrawplot("liki", "meal", "[Liki] Dinners in restaurant")
-pause()
-
-categorydrawhist("liki", "meal", "[Liki] Frequency for dinners in restaurant")
-pause()
-
 categorydrawplot("denny", "meal", "[Denny] Dinners in restaurant")
+pause()
+
+categorydrawboxplot("denny", "meal", "[Denny] Monthly comparision for dinners in restaurant")
 pause()
 
 categorydrawhist("denny", "meal", "[Denny] Frequency for dinners in restaurant")
 pause()
 
 categorydrawplot("denny", "fruit", "[Denny] Fruit expenses")
+pause()
+
+categorydrawplot("liki", "meal", "[Liki] Dinners in restaurant")
+pause()
+
+categorydrawboxplot("liki", "meal", "[Liki] Monthly comparision for dinners in restaurant")
+pause()
+
+categorydrawhist("liki", "meal", "[Liki] Frequency for dinners in restaurant")
 pause()
 
 ## categorydrawplot("denny", "salary", "[Denny] salary")
