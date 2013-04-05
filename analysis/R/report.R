@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-05 12:15:44>
+## Updated: Time-stamp: <2013-04-05 13:39:28>
 ##-------------------------------------------------------------------
 source("./util.R")
 
@@ -40,6 +40,13 @@ categorydrawplot = function(userid, category, summary) {
   ## Add lines for the changes
   lines(cl$centers[sort.list(cl$centers[,1]), ])
   par(col="black")
+
+  ## ## Ft line
+  ## par(col="green")
+  ## fit<-lm(amount~date, dd)
+  ## abline(fit)
+  ## par(col="black")
+
 }
 
 categorydrawboxplot = function(userid, category, summary) {

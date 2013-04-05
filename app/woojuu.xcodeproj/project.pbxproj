@@ -659,13 +659,23 @@
 		26003A35170971DB003835B3 /* stamp.ordinary.day.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381D170971DB003835B3 /* stamp.ordinary.day.png */; };
 		26003A36170971DB003835B3 /* stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381E170971DB003835B3 /* stamp.png */; };
 		26003A37170971DB003835B3 /* woojuu.art.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381F170971DB003835B3 /* woojuu.art.png */; };
-		26003A3917097697003835B3 /* woojuu-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26003A3817097697003835B3 /* woojuu-Info.plist */; };
 		262CA56B16FEDEC000A060EB /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 262CA56A16FEDEC000A060EB /* tap.wav */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		04FA4B36170EA63600ABBE00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18F78D57154528C6008467F4;
+			remoteInfo = sinaweibo_ios_sdk_demo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sinaweibo_ios_sdk_demo.xcodeproj; path = "../weibo_ios_sdk_sso-oauth/sinaweibo_ios_sdk&demo/sinaweibo_ios_sdk_demo.xcodeproj"; sourceTree = "<group>"; };
 		1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		1A54C0181430B380003444B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -1407,9 +1417,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FA4B33170EA63500ABBE00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04FA4B37170EA63600ABBE00 /* sinaweibo_ios_sdk_demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
+				04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */,
 				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AF489C015AB056E009ADC04 /* libobjc.A.dylib */,
 				1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */,
@@ -2387,7 +2406,7 @@
 		1AAD1384132BB1AF0035BA92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "JingXi Mill";
 			};
 			buildConfigurationList = 1AAD1387132BB1AF0035BA92 /* Build configuration list for PBXProject "woojuu" */;
@@ -2401,12 +2420,28 @@
 			mainGroup = 1AAD1382132BB1AF0035BA92;
 			productRefGroup = 1AAD138E132BB1B00035BA92 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 04FA4B33170EA63500ABBE00 /* Products */;
+					ProjectRef = 04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1AAD138C132BB1B00035BA92 /* woojuu */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		04FA4B37170EA63600ABBE00 /* sinaweibo_ios_sdk_demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = sinaweibo_ios_sdk_demo.app;
+			remoteRef = 04FA4B36170EA63600ABBE00 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1AAD138B132BB1B00035BA92 /* Resources */ = {
@@ -3001,7 +3036,6 @@
 				26003A35170971DB003835B3 /* stamp.ordinary.day.png in Resources */,
 				26003A36170971DB003835B3 /* stamp.png in Resources */,
 				26003A37170971DB003835B3 /* woojuu.art.png in Resources */,
-				26003A3917097697003835B3 /* woojuu-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
