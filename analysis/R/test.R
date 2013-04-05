@@ -6,10 +6,11 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-04 22:40:22>
+## Updated: Time-stamp: <2013-04-04 22:46:38>
 ##-------------------------------------------------------------------
 source("./meal.R")
 
+## TODO more functional programming to prevent code duplication
 sql ="select date, amount, notes from expenses where userid='liki' and memo='meal' order by date limit 1000;"
 drawplot(sql, "[Liki] Dinners in restaurant")
 pause()
