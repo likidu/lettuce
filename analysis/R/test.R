@@ -6,23 +6,34 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-04 22:46:38>
+## Updated: Time-stamp: <2013-04-05 11:05:57>
 ##-------------------------------------------------------------------
-source("./meal.R")
+source("./report.R")
 
 ## TODO more functional programming to prevent code duplication
-sql ="select date, amount, notes from expenses where userid='liki' and memo='meal' order by date limit 1000;"
-drawplot(sql, "[Liki] Dinners in restaurant")
+categorydrawplot("liki", "meal", "[Liki] Dinners in restaurant")
 pause()
 
-drawhist(sql, "[Liki] Frequency for dinners in restaurant")
+categorydrawhist("liki", "meal", "[Liki] Frequency for dinners in restaurant")
 pause()
 
-sql ="select date, amount, notes from expenses where userid='denny' and memo='dennymeal' order by date limit 1000;"
-drawplot(sql, "[Denny] Dinners in restaurant")
+categorydrawplot("denny", "meal", "[Denny] Dinners in restaurant")
 pause()
 
-drawhist(sql, "[Denny] Frequency for dinners in restaurant")
+categorydrawhist("denny", "meal", "[Denny] Frequency for dinners in restaurant")
+pause()
+
+categorydrawplot("denny", "fruit", "[Denny] Fruit expenses")
+pause()
+
+## categorydrawplot("denny", "salary", "[Denny] salary")
+## pause()
+
+## categorydrawhist("denny", "salary", "[Denny] salary")
+## pause()
+
+sql="select category, sum(amount) as amount from expenses where userid='denny' and date like '2013-03%' and category not like 'assets%' group by category, left(date, 7) order by sum(amount) desc limit 20;"
+drawexpensepie(sql, "[Denny] Monthly Expenses Composition for 2013-03")
 pause()
 
 ## File : test.R ends
