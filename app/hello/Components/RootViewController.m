@@ -6,6 +6,9 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import "Mixpanel.h"
+#import "UIAlertView+Helper.h"
+
 #import "RootViewController.h"
 #import "MiddleViewController.h"
 #import "FirstExperienceView.h"
@@ -82,7 +85,11 @@
 }
 
 - (void)onAddExpense:(id)sender {
-    [MiddleViewController showAddTransactionView:nil];
+  Mixpanel *mixpanel = [Mixpanel sharedInstance];
+  [mixpanel track:@"Clicked Button"];
+
+  
+  [MiddleViewController showAddTransactionView:nil];
 }
 
 - (void)onHistory:(id)sender {

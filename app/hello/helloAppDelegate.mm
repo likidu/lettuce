@@ -6,6 +6,7 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import "Mixpanel.h"
 #import "helloAppDelegate.h"
 #import "Database.h"
 #import "CategoryManager.h"
@@ -16,6 +17,10 @@
 #import "Workflow.h"
 #import "PasscodeManager.h"
 #import "ConfigurationManager.h"
+
+// ########## Mixpanel stuff ###########
+#define MIXPANEL_TOKEN @"YOUR MIXPANEL PROJECT TOKEN"
+// ######################################
 
 void uncaughtExceptionHandler(NSException* exception) {
     [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
@@ -40,11 +45,16 @@ void uncaughtExceptionHandler(NSException* exception) {
     
     // setup location service
     //[LocationManager tryUpdateLocation];
-    
+
     [self performStartupAction];
 
+    //Mixpanel stuff
+    // Override point for customization after application launch.
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -147,6 +157,7 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 }
+
 
 - (void)dealloc
 {

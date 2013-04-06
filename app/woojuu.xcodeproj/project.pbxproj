@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04220D42170FC3A3000AC7CB /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 04220D38170FC3A3000AC7CB /* JSONKit.m */; };
+		04220D43170FC3A3000AC7CB /* SinaWeibo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04220D3A170FC3A3000AC7CB /* SinaWeibo.bundle */; };
+		04220D44170FC3A3000AC7CB /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04220D3C170FC3A3000AC7CB /* SinaWeibo.m */; };
+		04220D45170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04220D3E170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m */; };
+		04220D46170FC3A3000AC7CB /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04220D41170FC3A3000AC7CB /* SinaWeiboRequest.m */; };
+		04F19F64170F3312003BCB0C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F19F63170F3312003BCB0C /* CoreTelephony.framework */; };
+		04F19F73170F33F8003BCB0C /* MPCJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F19F69170F33F8003BCB0C /* MPCJSONDataSerializer.m */; };
+		04F19F74170F33F8003BCB0C /* MPCJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F19F6B170F33F8003BCB0C /* MPCJSONSerializer.m */; };
+		04F19F75170F33F8003BCB0C /* MPCSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F19F6D170F33F8003BCB0C /* MPCSerializedJSONData.m */; };
+		04F19F76170F33F8003BCB0C /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F19F70170F33F8003BCB0C /* NSData+MPBase64.m */; };
+		04F19F77170F33F8003BCB0C /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F19F72170F33F8003BCB0C /* Mixpanel.m */; };
 		1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */; };
 		1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A54C0181430B380003444B1 /* CoreLocation.framework */; };
 		1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4413F2C47C007BC798 /* MainWindow.xib */; };
@@ -664,18 +675,28 @@
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		04FA4B36170EA63600ABBE00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 18F78D57154528C6008467F4;
-			remoteInfo = sinaweibo_ios_sdk_demo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sinaweibo_ios_sdk_demo.xcodeproj; path = "../weibo_ios_sdk_sso-oauth/sinaweibo_ios_sdk&demo/sinaweibo_ios_sdk_demo.xcodeproj"; sourceTree = "<group>"; };
+		04220D37170FC3A3000AC7CB /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		04220D38170FC3A3000AC7CB /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		04220D3A170FC3A3000AC7CB /* SinaWeibo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SinaWeibo.bundle; sourceTree = "<group>"; };
+		04220D3B170FC3A3000AC7CB /* SinaWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeibo.h; sourceTree = "<group>"; };
+		04220D3C170FC3A3000AC7CB /* SinaWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeibo.m; sourceTree = "<group>"; };
+		04220D3D170FC3A3000AC7CB /* SinaWeiboAuthorizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboAuthorizeView.h; sourceTree = "<group>"; };
+		04220D3E170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboAuthorizeView.m; sourceTree = "<group>"; };
+		04220D3F170FC3A3000AC7CB /* SinaWeiboConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboConstants.h; sourceTree = "<group>"; };
+		04220D40170FC3A3000AC7CB /* SinaWeiboRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboRequest.h; sourceTree = "<group>"; };
+		04220D41170FC3A3000AC7CB /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
+		04F19F63170F3312003BCB0C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		04F19F68170F33F8003BCB0C /* MPCJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONDataSerializer.h; sourceTree = "<group>"; };
+		04F19F69170F33F8003BCB0C /* MPCJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONDataSerializer.m; sourceTree = "<group>"; };
+		04F19F6A170F33F8003BCB0C /* MPCJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCJSONSerializer.h; sourceTree = "<group>"; };
+		04F19F6B170F33F8003BCB0C /* MPCJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCJSONSerializer.m; sourceTree = "<group>"; };
+		04F19F6C170F33F8003BCB0C /* MPCSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCSerializedJSONData.h; sourceTree = "<group>"; };
+		04F19F6D170F33F8003BCB0C /* MPCSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCSerializedJSONData.m; sourceTree = "<group>"; };
+		04F19F6F170F33F8003BCB0C /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		04F19F70170F33F8003BCB0C /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		04F19F71170F33F8003BCB0C /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
+		04F19F72170F33F8003BCB0C /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		1A54C0181430B380003444B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -1398,17 +1419,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F19F64170F3312003BCB0C /* CoreTelephony.framework in Frameworks */,
+				B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */,
+				1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */,
+				1AAD1394132BB1B00035BA92 /* Foundation.framework in Frameworks */,
 				1AD2D27F16835A5F006EECC0 /* AudioToolbox.framework in Frameworks */,
 				1AF489C115AB056E009ADC04 /* libobjc.A.dylib in Frameworks */,
-				B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */,
 				B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */,
 				1AC8AF081432129100B2638B /* MapKit.framework in Frameworks */,
 				1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */,
 				1AEA7F231416481600B74B8A /* MessageUI.framework in Frameworks */,
 				1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */,
 				1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */,
-				1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */,
-				1AAD1394132BB1B00035BA92 /* Foundation.framework in Frameworks */,
 				1AAD1396132BB1B00035BA92 /* CoreGraphics.framework in Frameworks */,
 				260035FC170971C4003835B3 /* libFlurryAnalytics.a in Frameworks */,
 			);
@@ -1417,18 +1439,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04FA4B33170EA63500ABBE00 /* Products */ = {
+		04220D35170FC3A3000AC7CB /* sinaweibo_ios_sdk */ = {
 			isa = PBXGroup;
 			children = (
-				04FA4B37170EA63600ABBE00 /* sinaweibo_ios_sdk_demo.app */,
+				04220D36170FC3A3000AC7CB /* JSONKit */,
+				04220D39170FC3A3000AC7CB /* SinaWeibo */,
 			);
-			name = Products;
+			name = sinaweibo_ios_sdk;
+			path = "../library/weibo_ios_sdk_sso-oauth/sinaweibo_ios_sdk&demo/sinaweibo_ios_sdk";
+			sourceTree = "<group>";
+		};
+		04220D36170FC3A3000AC7CB /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				04220D37170FC3A3000AC7CB /* JSONKit.h */,
+				04220D38170FC3A3000AC7CB /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		04220D39170FC3A3000AC7CB /* SinaWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				04220D3A170FC3A3000AC7CB /* SinaWeibo.bundle */,
+				04220D3B170FC3A3000AC7CB /* SinaWeibo.h */,
+				04220D3C170FC3A3000AC7CB /* SinaWeibo.m */,
+				04220D3D170FC3A3000AC7CB /* SinaWeiboAuthorizeView.h */,
+				04220D3E170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m */,
+				04220D3F170FC3A3000AC7CB /* SinaWeiboConstants.h */,
+				04220D40170FC3A3000AC7CB /* SinaWeiboRequest.h */,
+				04220D41170FC3A3000AC7CB /* SinaWeiboRequest.m */,
+			);
+			path = SinaWeibo;
+			sourceTree = "<group>";
+		};
+		04F19F65170F33F8003BCB0C /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				04F19F66170F33F8003BCB0C /* Library */,
+				04F19F71170F33F8003BCB0C /* Mixpanel.h */,
+				04F19F72170F33F8003BCB0C /* Mixpanel.m */,
+			);
+			name = Mixpanel;
+			path = "../library/mixpanel-iphone/Mixpanel";
+			sourceTree = "<group>";
+		};
+		04F19F66170F33F8003BCB0C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				04F19F67170F33F8003BCB0C /* JSON */,
+				04F19F6E170F33F8003BCB0C /* NSData_Base64 */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		04F19F67170F33F8003BCB0C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				04F19F68170F33F8003BCB0C /* MPCJSONDataSerializer.h */,
+				04F19F69170F33F8003BCB0C /* MPCJSONDataSerializer.m */,
+				04F19F6A170F33F8003BCB0C /* MPCJSONSerializer.h */,
+				04F19F6B170F33F8003BCB0C /* MPCJSONSerializer.m */,
+				04F19F6C170F33F8003BCB0C /* MPCSerializedJSONData.h */,
+				04F19F6D170F33F8003BCB0C /* MPCSerializedJSONData.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		04F19F6E170F33F8003BCB0C /* NSData_Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				04F19F6F170F33F8003BCB0C /* NSData+MPBase64.h */,
+				04F19F70170F33F8003BCB0C /* NSData+MPBase64.m */,
+			);
+			path = NSData_Base64;
 			sourceTree = "<group>";
 		};
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
-				04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */,
+				04220D35170FC3A3000AC7CB /* sinaweibo_ios_sdk */,
+				04F19F65170F33F8003BCB0C /* Mixpanel */,
+				04F19F63170F3312003BCB0C /* CoreTelephony.framework */,
 				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AF489C015AB056E009ADC04 /* libobjc.A.dylib */,
 				1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */,
@@ -2420,28 +2512,12 @@
 			mainGroup = 1AAD1382132BB1AF0035BA92;
 			productRefGroup = 1AAD138E132BB1B00035BA92 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 04FA4B33170EA63500ABBE00 /* Products */;
-					ProjectRef = 04FA4B32170EA63500ABBE00 /* sinaweibo_ios_sdk_demo.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1AAD138C132BB1B00035BA92 /* woojuu */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		04FA4B37170EA63600ABBE00 /* sinaweibo_ios_sdk_demo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = sinaweibo_ios_sdk_demo.app;
-			remoteRef = 04FA4B36170EA63600ABBE00 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1AAD138B132BB1B00035BA92 /* Resources */ = {
@@ -3036,6 +3112,7 @@
 				26003A35170971DB003835B3 /* stamp.ordinary.day.png in Resources */,
 				26003A36170971DB003835B3 /* stamp.png in Resources */,
 				26003A37170971DB003835B3 /* woojuu.art.png in Resources */,
+				04220D43170FC3A3000AC7CB /* SinaWeibo.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3100,6 +3177,15 @@
 				260035F9170971C4003835B3 /* UIViewController+UtilityExtension.m in Sources */,
 				260035FA170971C4003835B3 /* Utility.m in Sources */,
 				260035FB170971C4003835B3 /* Workflow.m in Sources */,
+				04F19F73170F33F8003BCB0C /* MPCJSONDataSerializer.m in Sources */,
+				04F19F74170F33F8003BCB0C /* MPCJSONSerializer.m in Sources */,
+				04F19F75170F33F8003BCB0C /* MPCSerializedJSONData.m in Sources */,
+				04F19F76170F33F8003BCB0C /* NSData+MPBase64.m in Sources */,
+				04F19F77170F33F8003BCB0C /* Mixpanel.m in Sources */,
+				04220D42170FC3A3000AC7CB /* JSONKit.m in Sources */,
+				04220D44170FC3A3000AC7CB /* SinaWeibo.m in Sources */,
+				04220D45170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m in Sources */,
+				04220D46170FC3A3000AC7CB /* SinaWeiboRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
