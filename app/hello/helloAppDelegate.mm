@@ -19,7 +19,7 @@
 #import "ConfigurationManager.h"
 
 // ########## Mixpanel stuff ###########
-#define MIXPANEL_TOKEN @"YOUR MIXPANEL PROJECT TOKEN"
+#define MIXPANEL_TOKEN @"03caa3c6e77bab5ef3ab8dfdd8ef3fac"
 // ######################################
 
 void uncaughtExceptionHandler(NSException* exception) {

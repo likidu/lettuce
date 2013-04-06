@@ -32,7 +32,7 @@ NSString* formatSqlDate(NSDate* date) {
         return @"NULL";
     
     NSDateFormatter* formatter = [[[NSDateFormatter alloc]init]autorelease];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:MM"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     [formatter setTimeZone:[NSTimeZone localTimeZone]];
     NSString* dateStr = [formatter stringFromDate:date];
     return [NSString stringWithFormat:@"'%@'", dateStr];
