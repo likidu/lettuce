@@ -167,8 +167,11 @@
                 cell.accessoryView = yesNoSwitch;
                 break;
         }
-    }
-    else {
+    } else if (indexPath.section == 1) {
+        // cloud backup / restore view
+        cell.textLabel.text = @"备份与恢复";
+        cell.imageView.image = imgBackup;
+    } else {
         // about view
         cell.textLabel.text = @"关于";
         cell.imageView.image = imgAbout;
@@ -178,7 +181,8 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    // section 0: general, 1: cloud backup / restore, 2: about
+    return 3;
 }
 
 #pragma mark - Table view delegate
@@ -197,8 +201,9 @@
         else if (indexPath.row == 3){
             [self presentViewController:[PasscodeSettingViewController instanceFromNib] animated:YES completion:nil];
         }
-    }
-    else if (indexPath.section == 1){
+    } else if (indexPath.section == 1) {
+        
+    } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             [self presentViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES completion:nil];
         }
@@ -209,8 +214,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return @"常规";
-    }
-    else{
+    } else if (section == 1) {
+        return @"云备份";
+    } else{
         return @"其他";
     }
 }
