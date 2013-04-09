@@ -116,7 +116,7 @@ static ExpenseManager* g_instance = nil;
 
 - (NSArray *)getAvailableDatesBetween:(NSDate *)startDate endDate:(NSDate *)endDate {
     NSString* start = formatSqlDate(startDate), *end = formatSqlDate(endDate);
-    NSString* sql = [NSString stringWithFormat:@"select distinct date from expense where Date >= %@ and date <= %@ order by date desc", start, end];
+    NSString* sql = [NSString stringWithFormat:@"select distinct substr(date, 0, 11) as date from expense where Date >= %@ and date <= %@ order by date desc", start, end];
     NSMutableArray* array = [NSMutableArray array];
     [[Database instance]execute:sql :self :@selector(translateExpenseDate::) :array];
     return array;

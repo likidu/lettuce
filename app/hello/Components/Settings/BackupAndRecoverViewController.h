@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SinaWeibo.h"
+#import "SinaWeiboRequest.h"
 
-@interface BackupAndRecoverViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface BackupAndRecoverViewController : UIViewController<UITableViewDelegate, SinaWeiboDelegate, SinaWeiboRequestDelegate, UITableViewDataSource>{
     
 }
 

@@ -7,9 +7,9 @@
 //
 
 #import "BackupAndRecoverViewController.h"
-#import "WeiboAccountViewController.h"
 #import "ConfigurationManager.h"
 #import "Utility.h"
+#import "helloAppDelegate.h"
 
 @interface BackupAndRecoverViewController ()
 - (void)initImages;
@@ -21,6 +21,12 @@ static BackupAndRecoverViewController* _instance = nil;
 @synthesize imgBackup;
 @synthesize imgRestore;
 @synthesize labelStatus;
+
+- (SinaWeibo *)sinaweibo
+{
+    helloAppDelegate *delegate = (helloAppDelegate *)[UIApplication sharedApplication].delegate;
+    return delegate.sinaweibo;
+}
 
 + (BackupAndRecoverViewController *) instance {
     if (_instance == nil){
@@ -142,13 +148,20 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            [self presentViewController:[WeiboAccountViewController instanceFromNib] animated:YES completion:nil];          
+            SinaWeibo *sinaweibo = [self sinaweibo];
+            [sinaweibo logIn];
         }
-            
+        else {
+        // TODO: backup
+        }
     }
     else if (indexPath.section == 1) {  
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-//            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];
+            SinaWeibo *sinaweibo = [self sinaweibo];
+            [sinaweibo logIn];
+        }
+        else {
+        // TODO: restore
         }
     } 
     
@@ -163,5 +176,9 @@ static BackupAndRecoverViewController* _instance = nil;
     return @"";    
 }
 
+- (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
+    //TODO: save configuration
+    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+}
 
 @end

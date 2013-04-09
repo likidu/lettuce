@@ -19,16 +19,17 @@
 #import "ConfigurationManager.h"
 
 #import "SinaWeibo.h"
-#import "SNViewController.h"
+#import "BackupAndRecoverViewController.h"
 
 void uncaughtExceptionHandler(NSException* exception) {
     [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
 }
                               
 @implementation helloAppDelegate
+
 @synthesize sinaweibo;
-@synthesize window=_window;
-@synthesize viewController = _viewController; // TODO denny
+@synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -53,7 +54,7 @@ void uncaughtExceptionHandler(NSException* exception) {
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
     // Weibo stuff
-    self.viewController = [[[SNViewController alloc] initWithNibName:nil bundle:nil] autorelease]; // TODO denny
+    self.viewController = [[[BackupAndRecoverViewController alloc] initWithNibName:nil bundle:nil] autorelease]; // TODO denny
     sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:_viewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
