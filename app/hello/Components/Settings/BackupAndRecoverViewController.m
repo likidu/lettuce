@@ -7,8 +7,9 @@
 //
 
 #import "BackupAndRecoverViewController.h"
-//#import "UserAccountViewController.h"
+#import "WeiboAccountViewController.h"
 #import "ConfigurationManager.h"
+#import "Utility.h"
 
 @interface BackupAndRecoverViewController ()
 - (void)initImages;
@@ -141,7 +142,7 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-//            [self presentModalViewController:[UserAccountViewController instanceFromNib] animated:YES];            
+            [self presentViewController:[WeiboAccountViewController instanceFromNib] animated:YES completion:nil];          
         }
             
     }

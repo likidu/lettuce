@@ -16,6 +16,8 @@
 #import "PlanManager.h"
 #import "PasscodeManager.h"
 #import "PasscodeSettingViewController.h"
+#import "BackupAndRecoverViewController.h"
+#import "Utility.h"
 
 @implementation SettingView
 
@@ -202,7 +204,7 @@
             [self presentViewController:[PasscodeSettingViewController instanceFromNib] animated:YES completion:nil];
         }
     } else if (indexPath.section == 1) {
-        
+        [self presentViewController:[BackupAndRecoverViewController instanceFromNib] animated:YES completion:nil];
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             [self presentViewController:(AboutViewController*)[AboutViewController instanceFromNib] animated:YES completion:nil];

@@ -8,6 +8,7 @@
 
 #import "PlanManager.h"
 #import "Database.h"
+#import "Utility.h"
 
 @implementation RawPlan
 

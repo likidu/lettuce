@@ -670,6 +670,8 @@
 		26003A35170971DB003835B3 /* stamp.ordinary.day.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381D170971DB003835B3 /* stamp.ordinary.day.png */; };
 		26003A36170971DB003835B3 /* stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381E170971DB003835B3 /* stamp.png */; };
 		26003A37170971DB003835B3 /* woojuu.art.png in Resources */ = {isa = PBXBuildFile; fileRef = 2600381F170971DB003835B3 /* woojuu.art.png */; };
+		2618DD6517141FC3009BDE4C /* WeiboAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2618DD6317141FC1009BDE4C /* WeiboAccountViewController.m */; };
+		2618DD6617141FC3009BDE4C /* WeiboAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2618DD6417141FC2009BDE4C /* WeiboAccountViewController.xib */; };
 		262CA56B16FEDEC000A060EB /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 262CA56A16FEDEC000A060EB /* tap.wav */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
@@ -1409,6 +1411,9 @@
 		2600381E170971DB003835B3 /* stamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamp.png; sourceTree = "<group>"; };
 		2600381F170971DB003835B3 /* woojuu.art.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woojuu.art.png; sourceTree = "<group>"; };
 		26003A3817097697003835B3 /* woojuu-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "woojuu-Info.plist"; sourceTree = "<group>"; };
+		2618DD6217141FC1009BDE4C /* WeiboAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAccountViewController.h; sourceTree = "<group>"; };
+		2618DD6317141FC1009BDE4C /* WeiboAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAccountViewController.m; sourceTree = "<group>"; };
+		2618DD6417141FC2009BDE4C /* WeiboAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeiboAccountViewController.xib; sourceTree = "<group>"; };
 		262CA56A16FEDEC000A060EB /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		B0629B7715FB846900749C98 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B0629B7915FB847E00749C98 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1729,6 +1734,9 @@
 				26003557170971C4003835B3 /* SettingView.h */,
 				26003558170971C4003835B3 /* SettingView.m */,
 				26003559170971C4003835B3 /* SettingView.xib */,
+				2618DD6217141FC1009BDE4C /* WeiboAccountViewController.h */,
+				2618DD6317141FC1009BDE4C /* WeiboAccountViewController.m */,
+				2618DD6417141FC2009BDE4C /* WeiboAccountViewController.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3113,6 +3121,7 @@
 				26003A36170971DB003835B3 /* stamp.png in Resources */,
 				26003A37170971DB003835B3 /* woojuu.art.png in Resources */,
 				04220D43170FC3A3000AC7CB /* SinaWeibo.bundle in Resources */,
+				2618DD6617141FC3009BDE4C /* WeiboAccountViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3186,6 +3195,7 @@
 				04220D44170FC3A3000AC7CB /* SinaWeibo.m in Sources */,
 				04220D45170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m in Sources */,
 				04220D46170FC3A3000AC7CB /* SinaWeiboRequest.m in Sources */,
+				2618DD6517141FC3009BDE4C /* WeiboAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

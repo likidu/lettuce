@@ -12,19 +12,19 @@
 
 + (NSDictionary *)getAllConfigurations{
     NSMutableDictionary *configurationDictionary = [NSMutableDictionary dictionary];
-    [self AddElementToDictionary:configurationDictionary :REMINDER_SWITCH_KEY];
-    [self AddElementToDictionary:configurationDictionary :REMINDER_TYPE_KEY];
-    [self AddElementToDictionary:configurationDictionary :REMINDER_TIME_KEY];
-    [self AddElementToDictionary:configurationDictionary :BACKUP_TIME_KEY];
-    [self AddElementToDictionary:configurationDictionary :WEIBO_USERNAME_KEY];
-    [self AddElementToDictionary:configurationDictionary :TRANSACTIONVIEW_STARTUP_KEY];
-    [self AddElementToDictionary:configurationDictionary :PASSWORD_KEY];
-    [self AddElementToDictionary:configurationDictionary :ACTIVE_PASSWORD_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:REMINDER_SWITCH_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:REMINDER_TYPE_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:REMINDER_TIME_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:BACKUP_TIME_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:WEIBO_USERNAME_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:TRANSACTIONVIEW_STARTUP_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:PASSWORD_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:ACTIVE_PASSWORD_KEY];
     return configurationDictionary;
 }
 
-+ (void)AddElementToDictionary: (NSMutableDictionary *)dict: (NSString *)key{
-    NSString *value = [[NSUserDefaults standardUserDefaults]stringForKey:key];
++ (void)AddElementToDictionary:(NSMutableDictionary *)dict withKey:(NSString *)key{
+    NSString *value = [[NSUserDefaults standardUserDefaults] stringForKey:key];
     [dict setValue:value forKey:key];
 }
 @end

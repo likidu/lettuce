@@ -8,6 +8,7 @@
 
 #import "CategoryViewController.h"
 #import "CategoryManager.h"
+#import "Utility.h"
 
 CGSize categoryButtonSize = {60, 72};
 #define CAT_PER_ROW 4
@@ -207,7 +208,7 @@ CGSize categoryButtonSize = {60, 72};
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (object == self.view &&  keyPath == @"frame") {
+    if (object == self.view &&  [keyPath isEqualToString:@"frame"]) {
         [self.topCategoryIndicator removeFromSuperview];
         CGRect frame = self.view.frame;
         frame.size.height = 30;

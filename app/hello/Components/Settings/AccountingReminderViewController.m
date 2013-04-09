@@ -157,11 +157,11 @@ const int BITNUMBER = 16;
     [self.detailedReminderTableView deselectRowAtIndexPath:self.detailedReminderTableView.indexPathForSelectedRow animated:false];
 }
 
--(NSUInteger)getReminderMaskFromReminderIndex:(NSUInteger) weekIndex:(NSUInteger) timeIndex{
+-(NSUInteger)getReminderMaskFromReminderIndex:(NSUInteger)weekIndex withTimeIndex:(NSUInteger)timeIndex{
     return (weekIndex << BITNUMBER) + timeIndex;
 }
 
--(NSString *)getTitleFromReminderMask:(NSUInteger) reminderMask:(enum ReminderType) reminderType{
+-(NSString *)getTitleFromReminderMask:(NSUInteger)reminderMask withReminderType:(enum ReminderType)reminderType {
     
     NSUInteger weekIndex = reminderMask >> BITNUMBER;
     NSUInteger timeIndex = (reminderMask - (weekIndex << BITNUMBER));
@@ -256,7 +256,7 @@ const int BITNUMBER = 16;
             }
             else if (indexPath.row == 1){
                 cell.textLabel.text = @"时间";
-                cell.detailTextLabel.text = [self getTitleFromReminderMask:self.reminderTimeMask:self.currentReminderType];
+                cell.detailTextLabel.text = [self getTitleFromReminderMask:self.reminderTimeMask withReminderType:self.currentReminderType];
             }
         }
         
@@ -367,7 +367,7 @@ const int BITNUMBER = 16;
         }
     }
     
-    self.reminderTimeMask = [self getReminderMaskFromReminderIndex:self.currentWeekIndex :self.currentTimeIndex];
+    self.reminderTimeMask = [self getReminderMaskFromReminderIndex:self.currentWeekIndex withTimeIndex:self.currentTimeIndex];
     [[NSUserDefaults standardUserDefaults]setDouble:self.reminderTimeMask forKey:REMINDER_TIME_KEY];
     [self setNotification];
     [self.detailedReminderTableView reloadData];    

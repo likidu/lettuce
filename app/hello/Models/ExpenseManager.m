@@ -9,6 +9,7 @@
 #import "Database.h"
 #import "ExpenseManager.h"
 #import "BudgetManager.h"
+#import "Utility.h"
 
 @implementation Expense
 

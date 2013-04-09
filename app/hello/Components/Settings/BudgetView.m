@@ -8,6 +8,7 @@
 
 #import "BudgetView.h"
 #import "PlanManager.h"
+#import "Utility.h"
 
 @implementation BudgetView
 
