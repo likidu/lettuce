@@ -86,15 +86,13 @@ int recordHandler(void* param, int columnCount, char** values, char** keys) {
         translator = NULL;
         nativeCallback = NULL;
     }
-    
-    const char* sql = [sqlText UTF8String];
 
+    const char* sql = [sqlText UTF8String];
     if (sqlite3_exec(_db, sql, nativeCallback, translator, &errMsg) != SQLITE_OK) {
         sqlite3_free(errMsg);
         [pool release];
         return NO;
     }
-    
     [pool release];
     return YES;
 }
