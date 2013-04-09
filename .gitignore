@@ -24,7 +24,6 @@
 ######################
 *.log
 *.sql
-*.sqlite
 
 # OS generated files #
 ######################
@@ -48,8 +47,6 @@ woojuu.xcodeproj/project.xcworkspace/xcuserdata/BigMac.xcuserdatad/UserInterface
 *.xcbkptlist
 
 *.xcscheme
-
-*.plist
 
 app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcschemes/xcschememanagement.plist
 

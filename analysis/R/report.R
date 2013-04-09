@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-05 13:39:28>
+## Updated: Time-stamp: <2013-04-07 10:11:30>
 ##-------------------------------------------------------------------
 source("./util.R")
 
@@ -28,7 +28,7 @@ categorydrawplot = function(userid, category, summary) {
   ## TODO position overlap
     axis(2, as.integer(summary(dd$amount)))
   }
-  abline(dd$amount, dd$date)
+  abline(dd$amount, dd$date) ## TODO
 
   ## group notes by kmeans
   data <- cbind(dd$date, dd$amount)
