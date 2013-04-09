@@ -3200,11 +3200,8 @@
 				04220D44170FC3A3000AC7CB /* SinaWeibo.m in Sources */,
 				04220D45170FC3A3000AC7CB /* SinaWeiboAuthorizeView.m in Sources */,
 				04220D46170FC3A3000AC7CB /* SinaWeiboRequest.m in Sources */,
-<<<<<<< HEAD
 				2618DD6517141FC3009BDE4C /* WeiboAccountViewController.m in Sources */,
-=======
 				0469BF6D1710488000DB7D50 /* SNViewController.m in Sources */,
->>>>>>> 8142c6aed40846d044a10e4225d3d428fb4e48fd
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
