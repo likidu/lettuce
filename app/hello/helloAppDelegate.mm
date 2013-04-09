@@ -18,17 +18,17 @@
 #import "PasscodeManager.h"
 #import "ConfigurationManager.h"
 
-// ########## Mixpanel stuff ###########
-#define MIXPANEL_TOKEN @"03caa3c6e77bab5ef3ab8dfdd8ef3fac"
-// ######################################
+#import "SinaWeibo.h"
+#import "SNViewController.h"
 
 void uncaughtExceptionHandler(NSException* exception) {
     [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
 }
                               
 @implementation helloAppDelegate
-
+@synthesize sinaweibo;
 @synthesize window=_window;
+@synthesize viewController = _viewController; // TODO denny
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -48,13 +48,24 @@ void uncaughtExceptionHandler(NSException* exception) {
 
     [self performStartupAction];
 
-    //Mixpanel stuff
+    // Mixpanel stuff
     // Override point for customization after application launch.
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
+    // Weibo stuff
+    self.viewController = [[[SNViewController alloc] initWithNibName:nil bundle:nil] autorelease]; // TODO denny
+    sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:_viewController];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+    if ([sinaweiboInfo objectForKey:@"AccessTokenKey"] && [sinaweiboInfo objectForKey:@"ExpirationDateKey"] && [sinaweiboInfo objectForKey:@"UserIDKey"])
+    {
+        sinaweibo.accessToken = [sinaweiboInfo objectForKey:@"AccessTokenKey"];
+        sinaweibo.expirationDate = [sinaweiboInfo objectForKey:@"ExpirationDateKey"];
+        sinaweibo.userID = [sinaweiboInfo objectForKey:@"UserIDKey"];
+    }   
+
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -143,6 +154,7 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [self.sinaweibo applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -161,8 +173,19 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (void)dealloc
 {
+    [sinaweibo release];
     [_window release];
     [super dealloc];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [self.sinaweibo handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [self.sinaweibo handleOpenURL:url];
 }
 
 @end
