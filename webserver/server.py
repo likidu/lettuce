@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-11 22:59:01>
+## Updated: Time-stamp: <2013-04-11 23:18:11>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -15,6 +15,7 @@ from flask import make_response
 from flask import request
 
 import config
+from util import log
 
 app = Flask(__name__)
 
@@ -23,9 +24,21 @@ def index():
     return "莴苣记账本!"
 
 ################# public backend api ###########################
-## sample: http://127.0.0.1:8081/api_get_post?id=ffa72494d91aeb2e1153b64ac7fb961f
-@app.route("/weibo_uri", methods=['GET', 'POST'])
-def weibo_ack():
+@app.route("/weibo_assign", methods=['GET', 'POST'])
+def weibo_assign():
+    if request.method == "POST":
+        log.info(request.form.keys())
+
+    if request.method == "GET":
+        log.info(request.args.keys())
+
+    content = "ok"
+    resp = make_response(content, 200)
+    resp.headers['Content-type'] = 'application/json; charset=utf-8'
+    return resp
+
+@app.route("/weibo_revoke", methods=['GET', 'POST'])
+def weibo_revoke():
     if request.method == "POST":
         print request.form.keys()
 
