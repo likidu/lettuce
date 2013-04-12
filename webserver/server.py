@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-11 23:18:11>
+## Updated: Time-stamp: <2013-04-12 23:48:36>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -16,20 +16,18 @@ from flask import request
 
 import config
 from util import log
+from data import WEIBOUSER
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "莴苣记账本!"
+    return config.HELLO_STRING
 
 ################# public backend api ###########################
-@app.route("/weibo_assign", methods=['GET', 'POST'])
+@app.route("/weibo_assign", methods=['POST'])
 def weibo_assign():
     if request.method == "POST":
-        log.info(request.form.keys())
-
-    if request.method == "GET":
         log.info(request.args.keys())
 
     content = "ok"
@@ -37,19 +35,16 @@ def weibo_assign():
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
 
-@app.route("/weibo_revoke", methods=['GET', 'POST'])
+@app.route("/weibo_revoke", methods=['POST'])
 def weibo_revoke():
     if request.method == "POST":
         print request.form.keys()
-
-    if request.method == "GET":
-        print request.args.keys()
 
     content = "ok"
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
-    
+
 @app.route("/backup", methods=['POST'])
 def backup_db():
     print request.args

@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-11 23:20:30>
+## Updated: Time-stamp: <2013-04-12 17:32:27>
 ##-------------------------------------------------------------------
 ################## global variable   #####################
 import os
@@ -16,8 +16,9 @@ DB_HOST="127.0.0.1"
 DB_USERNAME="user_2013"
 DB_PWD="ilovechina"
 DB_NAME="xzb"
-FLASK_SERVER_PORT="80"
+FLASK_SERVER_PORT="8081"
 
 DATA_SEPARATOR="--text follows this line--"
+HELLO_STRING="莴苣记账本!"
 ##########################################################
 ## File : config.py

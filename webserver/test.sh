@@ -6,14 +6,14 @@
 ## Description :
 ## --
 ## Created : <2013-04-11>
-## Updated: Time-stamp: <2013-04-11 23:20:19>
+## Updated: Time-stamp: <2013-04-12 23:36:02>
 ##-------------------------------------------------------------------
 
 SERVER="127.0.0.1"
-PORT="80"
+PORT="8081"
 
 ######################## NORMAL TEST ######################################
-curl -d "a=test&b=3" http://$SERVER:$PORT/weibo_assign
-curl "http://$SERVER:$PORT/weibo_assign?a=test&b=3"
+curl -d "userid=denny&accesstoken='3'&expirationDate='2013-04-12 17:30'&refresh_token='token1'" http://$SERVER:$PORT/weibo_assign
+
 ##########################################################################
 ## File : test.sh ends
