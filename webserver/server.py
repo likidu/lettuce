@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-12 23:53:42>
+## Updated: Time-stamp: <2013-04-13 00:20:44>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -29,8 +29,14 @@ def index():
 def weibo_assign():
     if request.method == "POST":
         log.info(request.args.keys())
+    
+    if data.save_user(request.args["userid"], request.args["accesstoken"],\
+                      request.args["expirationdate"], request.args["refresh_token"]) \
+        is True:
+        content = "ok"
+    else:
+        content = "error"
 
-    content = "ok"
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
@@ -40,7 +46,13 @@ def weibo_revoke():
     if request.method == "POST":
         print request.form.keys()
 
-    content = "ok"
+    if data.delete_user(request.args["userid"], request.args["accesstoken"],\
+                      request.args["expirationdate"], request.args["refresh_token"]) \
+        is True:
+        content = "ok"
+    else:
+        content = "error"
+
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
@@ -49,7 +61,13 @@ def weibo_revoke():
 def backup_db():
     print request.args
 
-    content = "ok"
+    if data.auth_user(request.args["userid"], request.args["accesstoken"],\
+                      request.args["expirationdate"], request.args["refresh_token"]) \
+        is True:
+        content = "ok"
+    else:
+        content = "error"
+
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
@@ -58,7 +76,13 @@ def backup_db():
 def restore_db():
     print request.args
 
-    content = "ok"
+    if data.auth_user(request.args["userid"], request.args["accesstoken"],\
+                      request.args["expirationdate"], request.args["refresh_token"]) \
+        is True:
+        content = "ok"
+    else:
+        content = "error"
+
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
