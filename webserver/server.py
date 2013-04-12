@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-12 23:48:36>
+## Updated: Time-stamp: <2013-04-12 23:53:42>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -16,7 +16,7 @@ from flask import request
 
 import config
 from util import log
-from data import WEIBOUSER
+import data
 
 app = Flask(__name__)
 
@@ -54,7 +54,7 @@ def backup_db():
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
 
-@app.route("/restore", methods=['GET'])
+@app.route("/restore", methods=['POST'])
 def restore_db():
     print request.args
 
