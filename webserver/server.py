@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-13 09:58:29>
+## Updated: Time-stamp: <2013-04-13 10:01:50>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -33,7 +33,11 @@ def weibo_assign():
         is False:
         return handle_error("500", "server error")
     else:
-        content = "ok"
+        content = '''<xml>
+  <status>%s</status>
+  <message>%s</message>
+</xml>
+''' % ("200", "ok")
         resp = make_response(content, 200)
         resp.headers['Content-type'] = 'application/json; charset=utf-8'
         return resp
@@ -60,7 +64,7 @@ def backup_db():
   <status>%s</status>
   <message>%s</message>
 </xml>
-''' % ("ok", "ok")
+''' % ("200", "ok")
         resp = make_response(content, 200)
         resp.headers['Content-type'] = 'application/json; charset=utf-8'
         return resp
@@ -77,7 +81,7 @@ def restore_db():
   <message>%s</message>
   <data>%s</data>
 </xml>
-''' % ("ok", "ok", "data")
+''' % ("200", "ok", "data")
 
         resp = make_response(content, 200)
         resp.headers['Content-type'] = 'application/xml; charset=utf-8'
