@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-13 00:20:44>
+## Updated: Time-stamp: <2013-04-13 09:48:27>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -27,11 +27,9 @@ def index():
 ################# public backend api ###########################
 @app.route("/weibo_assign", methods=['POST'])
 def weibo_assign():
-    if request.method == "POST":
-        log.info(request.args.keys())
-    
-    if data.save_user(request.args["userid"], request.args["accesstoken"],\
-                      request.args["expirationdate"], request.args["refresh_token"]) \
+    # TODO defensive check
+    if data.save_user(request.values["userid"], request.values["accesstoken"],\
+                      request.values["expirationdate"], request.values["refresh_token"]) \
         is True:
         content = "ok"
     else:
@@ -43,11 +41,8 @@ def weibo_assign():
 
 @app.route("/weibo_revoke", methods=['POST'])
 def weibo_revoke():
-    if request.method == "POST":
-        print request.form.keys()
-
-    if data.delete_user(request.args["userid"], request.args["accesstoken"],\
-                      request.args["expirationdate"], request.args["refresh_token"]) \
+    if data.delete_user(request.values["userid"], request.values["accesstoken"],\
+                      request.values["expirationdate"], request.values["refresh_token"]) \
         is True:
         content = "ok"
     else:
@@ -59,32 +54,40 @@ def weibo_revoke():
 
 @app.route("/backup", methods=['POST'])
 def backup_db():
-    print request.args
-
-    if data.auth_user(request.args["userid"], request.args["accesstoken"],\
-                      request.args["expirationdate"], request.args["refresh_token"]) \
+    if data.auth_user(request.values["userid"], request.values["accesstoken"],\
+                      request.values["expirationdate"], request.values["refresh_token"]) \
         is True:
         content = "ok"
     else:
         content = "error"
 
+    content = '''<xml>
+  <status>%s</status>
+  <message>%s</message>
+</xml>
+''' % ("ok", "ok")
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
 
 @app.route("/restore", methods=['POST'])
 def restore_db():
-    print request.args
-
-    if data.auth_user(request.args["userid"], request.args["accesstoken"],\
-                      request.args["expirationdate"], request.args["refresh_token"]) \
+    if data.auth_user(request.values["userid"], request.values["accesstoken"],\
+                      request.values["expirationdate"], request.values["refresh_token"]) \
         is True:
         content = "ok"
     else:
         content = "error"
 
+    content = '''<xml>
+  <status>%s</status>
+  <message>%s</message>
+  <data>%s</data>
+</xml>
+''' % ("ok", "ok", "data")
+
     resp = make_response(content, 200)
-    resp.headers['Content-type'] = 'application/json; charset=utf-8'
+    resp.headers['Content-type'] = 'application/xml; charset=utf-8'
     return resp
 
 ## bypass cross domain security
