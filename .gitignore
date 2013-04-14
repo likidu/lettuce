@@ -32,6 +32,9 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
+# Cocoapods #
+*.Podfile.lock
+
 # Woojuu ignored files #
 ########################
 woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist

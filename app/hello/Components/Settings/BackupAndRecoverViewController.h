@@ -10,17 +10,17 @@
 #import "SinaWeibo.h"
 #import "SinaWeiboRequest.h"
 
-@interface BackupAndRecoverViewController : UIViewController<UITableViewDelegate, SinaWeiboDelegate, SinaWeiboRequestDelegate, UITableViewDataSource>{
+@interface BackupAndRecoverViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SinaWeiboDelegate, SinaWeiboRequestDelegate>{
     
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *backupAndRestore;
 @property (retain, nonatomic) IBOutlet UILabel *labelStatus;
-@property(nonatomic, retain) UIImage* imgBackup;
-@property(nonatomic, retain) UIImage* imgRestore;
+@property (nonatomic, retain) UIImage *imgBackup;
+@property (nonatomic, retain) UIImage *imgRestore;
 
 + (BOOL)isUserLoggedIn;
 
-+ (BackupAndRecoverViewController *) instance;
++ (BackupAndRecoverViewController *)instance;
 @end
 

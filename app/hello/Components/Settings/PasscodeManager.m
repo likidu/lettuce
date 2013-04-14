@@ -21,7 +21,7 @@ static UIView* blackScreenInstance = nil;
 
 + (BOOL)isPasscodeEnabled {
     NSString* passcode = [PasscodeManager retrievePasscode];
-    return ![NSString isNullOrEmpty:passcode];
+    return (passcode) ? YES : NO;
 }
 
 + (NSString *)retrievePasscode {

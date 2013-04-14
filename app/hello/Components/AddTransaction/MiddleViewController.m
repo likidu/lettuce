@@ -12,10 +12,8 @@
 #import "Foundation/NSRange.h"
 #import "CategoryManager.h"
 #import "LocationManager.h"
-#import "FlurryAnalytics.h"
+#import "Utility.h"
 #import "AudioToolbox/AudioToolbox.h"
-
-#define FLURRY_TS_ADD_TRANSACTION_EVENT_NAME        @"Time Add Transaction"
 
 @interface MiddleViewController()
 
@@ -160,8 +158,7 @@
             self.dismissedHandler();
     }];
     
-    // flurry
-    [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
+    // Todo: Add Mixpanel track point
 }
 
 - (void)onSave:(id)sender {
@@ -240,8 +237,7 @@
             self.dismissedHandler();
     }];
     
-    // flurry
-    [FlurryAnalytics endTimedEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME withParameters:nil];
+    // Todo: Add Mixpanel track point
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -507,8 +503,7 @@
     [self syncUi];
     [self syncDate];
     
-    // flurry to start log user time on using add transaction view
-    [FlurryAnalytics logEvent:FLURRY_TS_ADD_TRANSACTION_EVENT_NAME timed:YES];
+    // Todo: Add Mixpanel track point
 }
 
 - (void)setNewImage:(UIImage*)image {

@@ -13,17 +13,12 @@
 #import "ExpenseManager.h"
 #import "MiddleViewController.h"
 #import "LocationManager.h"
-#import "FlurryAnalytics.h"
 #import "Workflow.h"
 #import "PasscodeManager.h"
 #import "ConfigurationManager.h"
 
 #import "SinaWeibo.h"
 #import "BackupAndRecoverViewController.h"
-
-void uncaughtExceptionHandler(NSException* exception) {
-    [FlurryAnalytics logError:@"Uncaught Exception" message:@"" exception:exception];
-}
                               
 @implementation helloAppDelegate
 
@@ -33,16 +28,12 @@ void uncaughtExceptionHandler(NSException* exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // log all unhandled exceptions using Flurry
-    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     [self.window makeKeyAndVisible];
     
     [application setStatusBarStyle: UIStatusBarStyleBlackOpaque animated: YES];
-    
-    [FlurryAnalytics startSession:@"U39ZXPZ2BCQEWCEH3HN1"];
     
     // setup location service
     //[LocationManager tryUpdateLocation];
@@ -54,7 +45,7 @@ void uncaughtExceptionHandler(NSException* exception) {
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     
     // Weibo stuff
-    self.viewController = [[[BackupAndRecoverViewController alloc] initWithNibName:nil bundle:nil] autorelease]; // TODO denny
+    self.viewController = [[[BackupAndRecoverViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:_viewController];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];

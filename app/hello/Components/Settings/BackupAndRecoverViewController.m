@@ -147,6 +147,7 @@ static BackupAndRecoverViewController* _instance = nil;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        // backupData
         if (![BackupAndRecoverViewController isUserLoggedIn]){
             SinaWeibo *sinaweibo = [self sinaweibo];
             [sinaweibo logIn];
@@ -176,9 +177,36 @@ static BackupAndRecoverViewController* _instance = nil;
     return @"";    
 }
 
+// backupData
+// does accessToken expired?
+// if so, login, 
+// if not,
+
+#pragma mark - SinaWeibo Delegate
+
+#define WEIBO_USER_ID @"WeiboUserId"
+#define WEIBO_ACCESS_TOKEN @"WeiboAccessToken"
+#define WEIBO_EXPIRATION_DATE @"WeiboExpirationDate"
+
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
-    //TODO: save configuration
+    NSDictionary *weiboAccount = @{
+                                   WEIBO_USER_ID : sinaweibo.userID,
+                                   WEIBO_ACCESS_TOKEN : sinaweibo.accessToken,
+                                   WEIBO_EXPIRATION_DATE: sinaweibo.expirationDate
+                                   };
+    
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+    
+    // Write to plist
+    [self synchronize:weiboAccount];
+}
+
+- (void)synchronize:(NSDictionary *)weiboAccount {
+    NSMutableDictionary *weiboAccountUserDefaults = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:WEIBO_ACCOUNT_KEY] mutableCopy];
+    if (!weiboAccountUserDefaults) weiboAccountUserDefaults = [[NSMutableDictionary alloc] init];
+    weiboAccountUserDefaults = [weiboAccount mutableCopy];
+    [[NSUserDefaults standardUserDefaults] setObject:weiboAccountUserDefaults forKey:WEIBO_ACCOUNT_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

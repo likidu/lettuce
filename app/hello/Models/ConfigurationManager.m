@@ -16,10 +16,10 @@
     [self AddElementToDictionary:configurationDictionary withKey:REMINDER_TYPE_KEY];
     [self AddElementToDictionary:configurationDictionary withKey:REMINDER_TIME_KEY];
     [self AddElementToDictionary:configurationDictionary withKey:BACKUP_TIME_KEY];
-    [self AddElementToDictionary:configurationDictionary withKey:WEIBO_USERNAME_KEY];
     [self AddElementToDictionary:configurationDictionary withKey:TRANSACTIONVIEW_STARTUP_KEY];
     [self AddElementToDictionary:configurationDictionary withKey:PASSWORD_KEY];
     [self AddElementToDictionary:configurationDictionary withKey:ACTIVE_PASSWORD_KEY];
+    [self AddElementToDictionary:configurationDictionary withKey:WEIBO_ACCOUNT_KEY];
     return configurationDictionary;
 }
 

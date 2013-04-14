@@ -12,10 +12,10 @@
 #define REMINDER_TYPE_KEY @"ActiveAccountingReminderType"
 #define REMINDER_TIME_KEY @"ActiveAccountingReminderTime"
 #define BACKUP_TIME_KEY @"LastBackupAndRecoverTime"
-#define WEIBO_USERNAME_KEY @"LastLoginWeiboUserName"
 #define TRANSACTIONVIEW_STARTUP_KEY @"TransactionViewAtStartup"
 #define PASSWORD_KEY @"Passcode"
 #define ACTIVE_PASSWORD_KEY @"ActivePassword"
+#define WEIBO_ACCOUNT_KEY @"WeiboAccount"
 
 @interface ConfigurationManager : NSObject
 + (NSDictionary *) getAllConfigurations;
