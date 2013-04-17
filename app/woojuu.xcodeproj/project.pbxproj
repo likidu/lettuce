@@ -87,7 +87,6 @@
 		260035D4170971C4003835B3 /* BackupAndRecoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26003548170971C4003835B3 /* BackupAndRecoverViewController.xib */; };
 		260035D5170971C4003835B3 /* BudgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2600354A170971C4003835B3 /* BudgetView.m */; };
 		260035D6170971C4003835B3 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2600354B170971C4003835B3 /* BudgetView.xib */; };
-		260035D7170971C4003835B3 /* PasscodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2600354D170971C4003835B3 /* PasscodeManager.m */; };
 		260035D8170971C4003835B3 /* PasscodeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2600354F170971C4003835B3 /* PasscodeSettingViewController.m */; };
 		260035D9170971C4003835B3 /* PasscodeSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26003550170971C4003835B3 /* PasscodeSettingViewController.xib */; };
 		260035DA170971C4003835B3 /* PasscodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26003552170971C4003835B3 /* PasscodeView.m */; };
@@ -670,6 +669,8 @@
 		268E65A51716852700ADB2BF /* SinaWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E65981716852700ADB2BF /* SinaWeibo.m */; };
 		268E65A61716852700ADB2BF /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E659A1716852700ADB2BF /* SinaWeiboAuthorizeView.m */; };
 		268E65A71716852700ADB2BF /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E659D1716852700ADB2BF /* SinaWeiboRequest.m */; };
+		26931C22171CD8C2003A87CE /* PasscodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26931C21171CD8C2003A87CE /* PasscodeManager.m */; };
+		26931C25171CD92D003A87CE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 26931C24171CD92D003A87CE /* User.m */; };
 		26BC96DC171ABA4800365226 /* WoojuuAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BC96DB171ABA4800365226 /* WoojuuAPIClient.m */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
@@ -788,8 +789,6 @@
 		26003549170971C4003835B3 /* BudgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetView.h; sourceTree = "<group>"; };
 		2600354A170971C4003835B3 /* BudgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetView.m; sourceTree = "<group>"; };
 		2600354B170971C4003835B3 /* BudgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
-		2600354C170971C4003835B3 /* PasscodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeManager.h; sourceTree = "<group>"; };
-		2600354D170971C4003835B3 /* PasscodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeManager.m; sourceTree = "<group>"; };
 		2600354E170971C4003835B3 /* PasscodeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeSettingViewController.h; sourceTree = "<group>"; };
 		2600354F170971C4003835B3 /* PasscodeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeSettingViewController.m; sourceTree = "<group>"; };
 		26003550170971C4003835B3 /* PasscodeSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeSettingViewController.xib; sourceTree = "<group>"; };
@@ -1409,6 +1408,10 @@
 		268E659B1716852700ADB2BF /* SinaWeiboConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboConstants.h; sourceTree = "<group>"; };
 		268E659C1716852700ADB2BF /* SinaWeiboRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinaWeiboRequest.h; sourceTree = "<group>"; };
 		268E659D1716852700ADB2BF /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
+		26931C20171CD8C1003A87CE /* PasscodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeManager.h; sourceTree = "<group>"; };
+		26931C21171CD8C2003A87CE /* PasscodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeManager.m; sourceTree = "<group>"; };
+		26931C23171CD92D003A87CE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		26931C24171CD92D003A87CE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		26BC96DA171ABA4800365226 /* WoojuuAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuAPIClient.h; sourceTree = "<group>"; };
 		26BC96DB171ABA4800365226 /* WoojuuAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuAPIClient.m; sourceTree = "<group>"; };
 		676090FDC278472C9091C06D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1642,8 +1645,6 @@
 				26003549170971C4003835B3 /* BudgetView.h */,
 				2600354A170971C4003835B3 /* BudgetView.m */,
 				2600354B170971C4003835B3 /* BudgetView.xib */,
-				2600354C170971C4003835B3 /* PasscodeManager.h */,
-				2600354D170971C4003835B3 /* PasscodeManager.m */,
 				2600354E170971C4003835B3 /* PasscodeSettingViewController.h */,
 				2600354F170971C4003835B3 /* PasscodeSettingViewController.m */,
 				26003550170971C4003835B3 /* PasscodeSettingViewController.xib */,
@@ -1695,6 +1696,8 @@
 		26003569170971C4003835B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				26931C20171CD8C1003A87CE /* PasscodeManager.h */,
+				26931C21171CD8C2003A87CE /* PasscodeManager.m */,
 				2600356A170971C4003835B3 /* CategoryManager.h */,
 				2600356B170971C4003835B3 /* CategoryManager.m */,
 				2600356C170971C4003835B3 /* ConfigurationManager.h */,
@@ -1706,6 +1709,8 @@
 				26003572170971C4003835B3 /* ExpenseManager.m */,
 				26003573170971C4003835B3 /* PlanManager.h */,
 				26003574170971C4003835B3 /* PlanManager.m */,
+				26931C23171CD92D003A87CE /* User.h */,
+				26931C24171CD92D003A87CE /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3172,7 +3177,6 @@
 				260035D1170971C4003835B3 /* AccountingReminderViewController.m in Sources */,
 				260035D3170971C4003835B3 /* BackupAndRecoverViewController.m in Sources */,
 				260035D5170971C4003835B3 /* BudgetView.m in Sources */,
-				260035D7170971C4003835B3 /* PasscodeManager.m in Sources */,
 				260035D8170971C4003835B3 /* PasscodeSettingViewController.m in Sources */,
 				260035DA170971C4003835B3 /* PasscodeView.m in Sources */,
 				260035DC170971C4003835B3 /* ReorderCategoryViewController.m in Sources */,
@@ -3207,6 +3211,8 @@
 				268E65A61716852700ADB2BF /* SinaWeiboAuthorizeView.m in Sources */,
 				268E65A71716852700ADB2BF /* SinaWeiboRequest.m in Sources */,
 				26BC96DC171ABA4800365226 /* WoojuuAPIClient.m in Sources */,
+				26931C22171CD8C2003A87CE /* PasscodeManager.m in Sources */,
+				26931C25171CD92D003A87CE /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

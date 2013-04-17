@@ -10,9 +10,15 @@
 #import "ConfigurationManager.h"
 #import "Utility.h"
 #import "helloAppDelegate.h"
+#import "User.h"
+#import "WoojuuAPIClient.h"
 
 @interface BackupAndRecoverViewController ()
+
+@property (nonatomic, retain) User *user;
+
 - (void)initImages;
+
 @end
 
 static BackupAndRecoverViewController* _instance = nil;
@@ -21,6 +27,7 @@ static BackupAndRecoverViewController* _instance = nil;
 @synthesize imgBackup;
 @synthesize imgRestore;
 @synthesize labelStatus;
+@synthesize user = _user;
 
 - (SinaWeibo *)sinaweibo
 {
@@ -45,6 +52,8 @@ static BackupAndRecoverViewController* _instance = nil;
     if (self) {
         // Custom initialization
         [self initImages];
+        // init User
+        _user = [[User alloc] init];
     }
     return self;
 }
@@ -74,9 +83,9 @@ static BackupAndRecoverViewController* _instance = nil;
     
     NSString* status = [[NSUserDefaults standardUserDefaults]stringForKey:BACKUP_TIME_KEY];
     if (status) {
-        [self.labelStatus setHidden:NO]; 
+//        [self.labelStatus setHidden:NO]; 
     }else {
-        [self.labelStatus setHidden:YES];
+//        [self.labelStatus setHidden:YES];
     }
     
 }
@@ -91,6 +100,7 @@ static BackupAndRecoverViewController* _instance = nil;
     [imgBackup release];
     [imgRestore release];
     [labelStatus release];
+    self.user = nil;
     [super dealloc];
 }
 
@@ -146,11 +156,27 @@ static BackupAndRecoverViewController* _instance = nil;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SinaWeibo *sinaWeibo = [self sinaweibo];
     if (indexPath.section == 0) {
         // backupData
+        if ([sinaWeibo isAuthValid]) {
+            // TODO: backup immediately
+        } else {
+            [sinaWeibo logIn];
+        }
+        
+//        self.user.isAuthorized = NO;
+        
+
+//            NSMutableDictionary *params = [self.user.accountInfo mutableCopy];
+//            [[WoojuuAPIClient sharedClient] commandWithParams:params onCompletion:^(NSDictionary *json) {
+//                // TODO: handle success / failure case
+//            }];
+        
+        
+        
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            SinaWeibo *sinaweibo = [self sinaweibo];
-            [sinaweibo logIn];
+            
         }
         else {
         // TODO: backup
@@ -158,8 +184,7 @@ static BackupAndRecoverViewController* _instance = nil;
     }
     else if (indexPath.section == 1) {  
         if (![BackupAndRecoverViewController isUserLoggedIn]){
-            SinaWeibo *sinaweibo = [self sinaweibo];
-            [sinaweibo logIn];
+
         }
         else {
         // TODO: restore
@@ -184,29 +209,19 @@ static BackupAndRecoverViewController* _instance = nil;
 
 #pragma mark - SinaWeibo Delegate
 
-#define WEIBO_USER_ID @"WeiboUserId"
-#define WEIBO_ACCESS_TOKEN @"WeiboAccessToken"
-#define WEIBO_EXPIRATION_DATE @"WeiboExpirationDate"
-
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
-    NSDictionary *weiboAccount = @{
+    NSDictionary *weiboAccountInfo = @{
                                    WEIBO_USER_ID : sinaweibo.userID,
                                    WEIBO_ACCESS_TOKEN : sinaweibo.accessToken,
                                    WEIBO_EXPIRATION_DATE: sinaweibo.expirationDate
                                    };
     
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
-    
+ 
     // Write to plist
-    [self synchronize:weiboAccount];
-}
-
-- (void)synchronize:(NSDictionary *)weiboAccount {
-    NSMutableDictionary *weiboAccountUserDefaults = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:WEIBO_ACCOUNT_KEY] mutableCopy];
-    if (!weiboAccountUserDefaults) weiboAccountUserDefaults = [[NSMutableDictionary alloc] init];
-    weiboAccountUserDefaults = [weiboAccount mutableCopy];
-    [[NSUserDefaults standardUserDefaults] setObject:weiboAccountUserDefaults forKey:WEIBO_ACCOUNT_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.user update:weiboAccountInfo];
+    
+    self.labelStatus.text = [[NSString alloc] initWithFormat:@"Welcome back, %@", weiboAccountInfo[WEIBO_USER_ID]];
 }
 
 @end

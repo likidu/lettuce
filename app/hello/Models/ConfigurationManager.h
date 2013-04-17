@@ -16,6 +16,9 @@
 #define PASSWORD_KEY @"Passcode"
 #define ACTIVE_PASSWORD_KEY @"ActivePassword"
 #define WEIBO_ACCOUNT_KEY @"WeiboAccount"
+#define WEIBO_USER_ID @"WeiboAccountUserId"
+#define WEIBO_ACCESS_TOKEN @"WeiboAccountAccessToken"
+#define WEIBO_EXPIRATION_DATE @"WeiboAccountExpirationDate"
 
 @interface ConfigurationManager : NSObject
 + (NSDictionary *) getAllConfigurations;

@@ -13,6 +13,8 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
 
 @implementation WoojuuAPIClient
 
+#pragma mark - singleton methods
+
 + (WoojuuAPIClient *)sharedClient {
     static WoojuuAPIClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
@@ -22,6 +24,8 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
     
     return _sharedClient;
 }
+
+#pragma mark - initWithBaseURL
 
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
@@ -33,6 +37,25 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
     }
     
     return self;
+}
+
+- (void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock {
+    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
+                                    // TODO: Add relevant path
+                                                                      path:@""
+                                                                parameters:params
+                                                 constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+                                                     //TODO: attach file if needed
+
+                                                 }];
+    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+        //success
+        NSLog(@"Response %@", response);
+    }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                         //failure
+                                     }];
 }
 
 @end
