@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-20 11:21:41>
+## Updated: Time-stamp: <2013-04-20 11:25:37>
 ##-------------------------------------------------------------------
 # import MySQLdb
 from datetime import datetime
@@ -40,7 +40,7 @@ def split_expense_word(sentence):
     token_list = word_split(sentence, True)
     date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     (branding, category) = detect_branding_category(token_list)
-    amount = detect_amount(token_list) # TODO: error handling
+    amount = detect_amount(token_list)
     comment = sentence
     return (date, category, amount, branding, comment)
 

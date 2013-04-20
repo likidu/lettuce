@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-20 11:22:36>
+## Updated: Time-stamp: <2013-04-20 11:29:59>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -24,6 +24,7 @@ def index():
     return config.HELLO_STRING
 
 ################# public backend api ###########################
+# sample: "http://0.0.0.0:8082/add_expense?userid=denny&expense=40,超大杯星巴焦糖玛奇朵"
 @app.route("/add_expense", methods=['GET'])
 def add_expense():
     userid = request.args.get('userid', '')
@@ -35,11 +36,12 @@ def add_expense():
         content = "恩,记好了:%s,消费%d元。类别:%s, 品牌:%s。原内容:%s。你知道吗, %s。" % \
                   (date[0:10], amount, category, branding, comment, tips)
     else:
-        content = "记录识别失败"
+        content = "记录识别失败。原内容:%s。" % (comment)
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
 
+# sample: "http://0.0.0.0:8082/view_history?userid=denny"
 @app.route("/view_history", methods=['GET'])
 def view_history():
     content = "今日消费:0元 本周消费:425元 本月消费:1730元"
