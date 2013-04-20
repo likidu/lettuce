@@ -6,9 +6,19 @@
 ## Description :
 ## --
 ## Created : <2013-04-20>
-## Updated: Time-stamp: <2013-04-20 10:24:48>
+## Updated: Time-stamp: <2013-04-20 11:14:58>
 ##-------------------------------------------------------------------
 
-curl "http://0.0.0.0:8082/add_expense?userid=denny&expense=37,超大杯星巴克焦糖玛奇朵"
+function request_url_get() {
+    url=${1?}
+    command="curl \"$url\""
+    echo "$command"
+    eval "$command"
+    echo ""
+}
+
+request_url_get "http://0.0.0.0:8082/add_expense?userid=denny&expense=37,超大杯星巴克焦糖玛奇朵"
+
+request_url_get "http://0.0.0.0:8082/add_expense?userid=denny&expense=37,超大杯星巴克焦糖玛奇朵"
 
 ## File : test.sh ends
