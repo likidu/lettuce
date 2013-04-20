@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-19 09:57:20>
+## Updated: Time-stamp: <2013-04-20 10:56:27>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -17,7 +17,6 @@ from flask import request
 import config
 from util import log
 import data
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -27,7 +26,16 @@ def index():
 ################# public backend api ###########################
 @app.route("/add_expense", methods=['GET'])
 def add_expense():
-    content = "恩,记好了:2013/4/18,消费37元,星巴克,超大杯焦糖玛奇朵。你知道吗, 今天一共有56人买过了咖啡。"
+    userid = request.args.get('userid', '')
+    msg = request.args.get('expense', '')
+    (date, category, amount, branding, comment) = data.split_expense_word(msg)
+    print date, category, amount, branding, comment
+    if (amount != -1) and (category != "") and (branding != ""):
+        tips = "这是一点提示" # TODO to be implemented
+        content = "恩,记好了:%s,%s,消费%d元。原内容:%s。你知道吗, %s。" % \
+                  (date[0:10], branding, amount, comment, tips)
+    else:
+        content = "记录识别失败"
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
