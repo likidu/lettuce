@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-20 10:56:27>
+## Updated: Time-stamp: <2013-04-20 11:22:36>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -32,8 +32,8 @@ def add_expense():
     print date, category, amount, branding, comment
     if (amount != -1) and (category != "") and (branding != ""):
         tips = "这是一点提示" # TODO to be implemented
-        content = "恩,记好了:%s,%s,消费%d元。原内容:%s。你知道吗, %s。" % \
-                  (date[0:10], branding, amount, comment, tips)
+        content = "恩,记好了:%s,消费%d元。类别:%s, 品牌:%s。原内容:%s。你知道吗, %s。" % \
+                  (date[0:10], amount, category, branding, comment, tips)
     else:
         content = "记录识别失败"
     resp = make_response(content, 200)
