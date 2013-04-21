@@ -1,0 +1,10 @@
+<uwsgi>
+	<chdir>/home/wwwroot/wechat.woojuu.cc/app</chdir>
+	<pythonpath>/home/wwwroot/wechat.woojuu.cc</pythonpath>
+	<module>server</module>
+	<callable>app</callable>
+	<socket>/tmp/uwsgi_woojuu_wechat.sock</socket>
+	<chmod-socket>666</chmod-socket>
+	<master />
+	<processes>1</processes>
+</uwsgi>

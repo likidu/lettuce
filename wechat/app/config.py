@@ -10,15 +10,14 @@
 ## Updated: Time-stamp: <2013-04-19 09:55:26>
 ##-------------------------------------------------------------------
 ################## global variable   #####################
-import os
 
-DB_HOST="127.0.0.1"
-DB_USERNAME="user_2013"
-DB_PWD="ilovechina"
-DB_NAME="xzb"
-FLASK_SERVER_PORT="8082"
+DB_HOST = "127.0.0.1"
+DB_USERNAME = "user_2013"
+DB_PWD = "ilovechina"
+DB_NAME = "xzb"
+FLASK_SERVER_PORT = "8082"
 
-DATA_SEPARATOR="--text follows this line--"
-HELLO_STRING="莴苣记账本!"
+DATA_SEPARATOR = "--text follows this line--"
+HELLO_STRING = "莴苣记账本!"
 ##########################################################
 ## File : config.py
