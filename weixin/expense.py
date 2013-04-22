@@ -7,20 +7,21 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 20:50:19>
+## Updated: Time-stamp: <2013-04-22 20:58:08>
 ##-------------------------------------------------------------------
 class Expense:
     def __init__(self):
         self.userid = ""
         self.source_expenseid = ""
         self.amount = -1
+        self.branding = ""
         self.category = ""
         self.date = ""
         self.latitude = 0.0
         self.longitude = 0.0
         self.notes = ""
 
-    def init_with_sqlite(self, userid, expenseid, amount, categoryid, date, notes, latitude, longitude):
+    def init_with_sqlite(self, userid, expenseid, amount, categoryid, date, notes, latitude, longitude, branding=""):
         self.userid = userid
         self.source_expenseid = expenseid.strip()
         self.amount = amount

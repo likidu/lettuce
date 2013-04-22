@@ -7,45 +7,82 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 20:46:47>
+## Updated: Time-stamp: <2013-04-22 21:02:25>
 ##-------------------------------------------------------------------
-class Expense:
-    def __init__(self):
-        self.userid = ""
-        self.source_expenseid = ""
-        self.amount = -1
-        self.category = ""
-        self.date = ""
-        self.latitude = 0.0
-        self.longitude = 0.0
-        self.notes = ""
+import MySQLdb
+from datetime import datetime
 
-    def init_with_sqlite(self, userid, expenseid, amount, categoryid, date, notes, latitude, longitude):
-        self.userid = userid
-        self.source_expenseid = expenseid.strip()
-        self.amount = amount
-        self.category = categoryid # TODO make conversion
-        self.date = date.strip() # TODO defensive code
-        self.latitude = latitude
-        self.longitude = longitude
-        self.notes = my_strip(notes)
+import util
+import config
+from expense import Expense
 
-    def init_with_ledger(self, userid, amount, category, date, notes):
-        self.userid = userid
-        self.amount = amount
-        self.category = category # TODO make conversion
-        self.date = date.strip() # TODO defensive code
-        self.notes = my_strip(notes)
+def split_expense_word(sentence):
+    # print "split_expense_word(%s)" % sentence
+    token_list = util.word_split(sentence, True)
+    date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    (branding, category) = detect_branding_category(token_list)
+    amount = detect_amount(token_list)
+    comment = sentence
+    return (date, category, amount, branding, comment)
 
-    @staticmethod
-    def print_obj(obj):
-        print "userid:%s, amount:%f, category:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
-            (obj.userid, obj.amount, obj.category, \
-             obj.date, obj.latitude, obj.longitude, obj.notes)
+# TODO: rewrite in erlang or golang later
+def detect_amount(token_list):
+    amount = -1
+    for text, start, end in token_list:
+        if text.isdigit() is True:
+            amount = int(text)
+    return amount
 
-    @staticmethod
-    def print_objs(objs):
-        for obj in objs:
-            obj.print_obj(obj)
+# TODO: rewrite in erlang or golang later
+def detect_branding_category(token_list):
+    for text, start, end in token_list:
+        if util.branding_category_dict.has_key(text):
+            return (text, util.branding_category_dict[text])
+    return ("", "")
 
-## File : expense.py
+def insert_expense(expense):
+    conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
+                           config.DB_NAME, charset='utf8', port=3306)
+    cursor = conn.cursor()
+
+    sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes, branding) " + \
+          "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\", \"%s\");"
+    sql = sql % (expense.userid, expense.source_expenseid, expense.amount, \
+                 expense.category, expense.date, expense.latitude, \
+                 expense.longitude, expense.notes, expense.branding)
+
+    print sql
+    try:
+        cursor.execute(sql)
+        conn.commit()
+    except:
+        print "ERROR insert mysql fail"
+        conn.rollback()
+
+    cursor.close()
+    # # TODO: defensive check
+    return True
+
+def user_summary(userid):
+    conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
+                           config.DB_NAME, charset='utf8', port=3306)
+    cursor = conn.cursor()
+
+    sql = "select sum(amount), left(date, 10) from expenses where userid=\"%s\" group by left(date, 10);" \
+          % (userid)
+
+    print sql
+    # try:
+    #     cursor.execute(sql)
+    #     conn.commit()
+    # except:
+    #     print "ERROR insert mysql fail"
+    #     conn.rollback()
+
+    # cursor.close()
+    day_expense = 20
+    week_expense = 100
+    month_expense = 250
+    return (day_expense, week_expense, month_expense)
+
+## File : data.py

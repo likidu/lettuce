@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-22 20:42:23>
+## Updated: Time-stamp: <2013-04-22 20:58:31>
 ##-------------------------------------------------------------------
 import sys
 default_encoding = 'utf-8'
@@ -23,6 +23,8 @@ from flask import request
 import config
 from util import log
 import data
+from expense import Expense
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -37,10 +39,14 @@ def add_expense():
     msg = request.args.get('expense', '')
     msg = msg.encode('utf-8', 'ignore')
     (date, category, amount, branding, comment) = data.split_expense_word(msg)
+    expense = Expense()
+    categoryid = "test" # TODO
+    expense.init_with_sqlite(userid, "weixin", amount, categoryid, \
+                             date, comment, -1, -1, branding)
     print date, category, amount, branding, comment
     if (amount != -1) and (category != "") and (branding != ""):
         # TODO: set source_expenseid and category correctly
-        if data.insert_expense(userid, "000", amount, category, date, comment):
+        if data.insert_expense(expense):
             tips = "这是一点提示" # TODO to be implemented
             content = "恩,记好了:%s,消费%d元。类别:%s, 品牌:%s。原内容:%s。你知道吗, %s。" % \
                       (date[0:10], amount, category, branding, comment, tips)
