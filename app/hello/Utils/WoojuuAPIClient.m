@@ -9,7 +9,8 @@
 #import "WoojuuAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
+static NSString *const kWoojuuAPIBaseURLString = @"http://localhost";
+static NSString *const kWoojuuAPIPathString = @"";
 
 @implementation WoojuuAPIClient
 
@@ -40,6 +41,8 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
 }
 
 - (void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock {
+    NSData *uploadFile = nil;
+    
     NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
                                     // TODO: Add relevant path
                                                                       path:@""
