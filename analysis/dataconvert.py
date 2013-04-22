@@ -6,12 +6,13 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-03-31 00:16:42>
+## Updated: Time-stamp: <2013-04-22 20:50:06>
 ##-------------------------------------------------------------------
 import MySQLdb
 import sys
 import commands
 
+from expense import Expense
 ################################## CONSTANT #####################################
 DB_HOST="127.0.0.1"
 DB_USERNAME="user_2013"
@@ -25,46 +26,6 @@ LEDGER_FROM_ACCOUNT_LINE =3
 
 SQLITE_ENTRY_SEPERATOR = "--line ends--"
 ##############################################################################
-
-class Expense:
-    def __init__(self):
-        self.userid = ""
-        self.source_expenseid = ""
-        self.amount = -1
-        self.category = ""
-        self.date = ""
-        self.latitude = 0.0
-        self.longitude = 0.0
-        self.notes = ""
-
-    def init_with_sqlite(self, userid, expenseid, amount, categoryid, date, notes, latitude, longitude):
-        self.userid = userid
-        self.source_expenseid = expenseid.strip()
-        self.amount = amount
-        self.category = categoryid # TODO make conversion
-        self.date = date.strip() # TODO defensive code
-        self.latitude = latitude
-        self.longitude = longitude
-        self.notes = my_strip(notes)
-
-    def init_with_ledger(self, userid, amount, category, date, notes):
-        self.userid = userid
-        self.amount = amount
-        self.category = category # TODO make conversion
-        self.date = date.strip() # TODO defensive code
-        self.notes = my_strip(notes)
-
-    @staticmethod
-    def print_obj(obj):
-        print "userid:%s, amount:%f, category:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
-            (obj.userid, obj.amount, obj.category, \
-             obj.date, obj.latitude, obj.longitude, obj.notes)
-
-    @staticmethod
-    def print_objs(objs):
-        for obj in objs:
-            obj.print_obj(obj)
-
 
 # dataconvert.load_ledger("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.ledger", "denny")
 def load_ledger(ledger_file, userid):
@@ -155,13 +116,6 @@ def insert_mysql(expenses):
     # # TODO close db connection
     # # TODO: defensive check
     return True
-
-############################### HELPER FUNCTIONS #############################
-def my_strip(string):
-    string = string.strip()
-    string = string.replace("\n", "")
-    return string
-##############################################################################
 
 # ./dataconvert.py import denny ./data/test.ledger
 # ./dataconvert.py import liki ./data/test.sqlite

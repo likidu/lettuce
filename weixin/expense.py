@@ -2,12 +2,12 @@
 #!/usr/bin/python
 ##-------------------------------------------------------------------
 ## @copyright 2013
-## File : data.py
+## File : expense.py
 ## Author : filebat <markfilebat@126.com>
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 20:46:47>
+## Updated: Time-stamp: <2013-04-22 20:50:19>
 ##-------------------------------------------------------------------
 class Expense:
     def __init__(self):
@@ -47,5 +47,11 @@ class Expense:
     def print_objs(objs):
         for obj in objs:
             obj.print_obj(obj)
+############################### HELPER FUNCTIONS #############################
+def my_strip(string):
+    string = string.strip()
+    string = string.replace("\n", "")
+    return string
+##############################################################################
 
 ## File : expense.py
