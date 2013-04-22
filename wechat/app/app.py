@@ -11,7 +11,6 @@
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import request
-from app import app
 
 
 # import data
