@@ -42,14 +42,20 @@ static NSString *const kWoojuuAPIPathString = @"";
 
 - (void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock {
     NSData *uploadFile = nil;
-    
+    if ([params objectForKey:@"file"]) {
+        uploadFile = (NSData *)[params objectForKey:@"file"];
+        [params removeObjectForKey:@"file"];
+    }
     NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
                                     // TODO: Add relevant path
                                                                       path:@""
                                                                 parameters:params
                                                  constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
                                                      //TODO: attach file if needed
-
+                                                     if (uploadFile) {
+                                                         // MIME-Type: "application/octet-stream" or "application/x-sqlite3"
+                                                         [formData appendPartWithFileData:uploadFile name:@"userdb" fileName:@"db.sqlite" mimeType:@"application/octet-stream"];
+                                                     }
                                                  }];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
