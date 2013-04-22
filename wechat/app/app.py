@@ -2,7 +2,7 @@
 #!/usr/bin/python
 ##-------------------------------------------------------------------
 ## @copyright 2013
-## File : server.py
+## File : app.py
 ## Author : filebat <markfilebat@126.com>
 ## Description :
 ## --
@@ -100,4 +100,4 @@ def _verification(request):
 if __name__ == "__main__":
 	# app.run(host="0.0.0.0", port = int(config.FLASK_SERVER_PORT))
 	app.run()
-## File : server.py
+## File : app.py

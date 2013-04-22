@@ -1,4 +1,4 @@
-import server
+import app
 import unittest
 
 class ServerTestCase(unittest.TestCase):
