@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-20>
-## Updated: Time-stamp: <2013-04-22 17:18:57>
+## Updated: Time-stamp: <2013-04-22 18:08:51>
 ##-------------------------------------------------------------------
 
 function request_url_get() {
@@ -18,7 +18,7 @@ function request_url_get() {
 }
 
 request_url_get "http://0.0.0.0:8082/add_expense?userid=denny&expense=37,超大杯星巴克焦糖玛奇朵"
-
+request_url_get "http://0.0.0.0:8082/view_history?userid=denny"
 # request_url_get "http://0.0.0.0:8082/add_expense?userid=denny&expense=37,超大杯星巴克焦糖玛奇朵"
 
 ## File : test.sh ends

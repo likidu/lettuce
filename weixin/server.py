@@ -7,8 +7,14 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-22 17:29:02>
+## Updated: Time-stamp: <2013-04-22 18:17:54>
 ##-------------------------------------------------------------------
+import sys
+default_encoding = 'utf-8'
+if sys.getdefaultencoding() != default_encoding:
+    reload(sys)
+    sys.setdefaultencoding(default_encoding)
+
 from flask import Flask
 from flask import render_template
 from flask import make_response
@@ -50,7 +56,10 @@ def add_expense():
 # sample: "http://0.0.0.0:8082/view_history?userid=denny"
 @app.route("/view_history", methods=['GET'])
 def view_history():
-    content = "今日消费:0元 本周消费:425元 本月消费:1730元"
+    userid = request.args.get('userid', '')
+    (day_expense, week_expense, month_expense) = data.user_summary(userid)
+    content = "今日消费:%0.2f元 本周消费:%0.2f元 本月消费:%0.2f元" % \
+              (day_expense, week_expense, month_expense)
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
@@ -63,7 +72,7 @@ def share_history():
     return resp
 
 @app.route("/view_share", methods=['GET'])
-def view_history():
+def view_share():
     content = "大家都买了XXX"
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/json; charset=utf-8'

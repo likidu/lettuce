@@ -7,18 +7,12 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 18:02:43>
+## Updated: Time-stamp: <2013-04-22 18:17:14>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
 import util
 import config
-
-import sys
-default_encoding = 'utf-8'
-if sys.getdefaultencoding() != default_encoding:
-    reload(sys)
-    sys.setdefaultencoding(default_encoding)
 
 def split_expense_word(sentence):
     # print "split_expense_word(%s)" % sentence
@@ -45,21 +39,12 @@ def detect_branding_category(token_list):
     return ("", "")
 
 def insert_expense(userid, source_expenseid, amount, category, date, notes, latitude=-1, longitude=-1):
-    print userid, source_expenseid, amount, category, date, notes
-
     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
                            config.DB_NAME, charset='utf8', port=3306)
     cursor = conn.cursor()
 
     sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes) " + \
           "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\");"
-    print sql
-
-    # notes = notes.encode('utf-8', 'ignore') 
-    # category = category.encode('utf-8', 'ignore')
-
-    # notes = "test"
-    # category = "test"
     sql = sql % (userid, source_expenseid, amount, category, date, latitude, longitude, notes)
 
     print sql
@@ -73,5 +58,27 @@ def insert_expense(userid, source_expenseid, amount, category, date, notes, lati
     cursor.close()
     # # TODO: defensive check
     return True
+
+def user_summary(userid):
+    conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
+                           config.DB_NAME, charset='utf8', port=3306)
+    cursor = conn.cursor()
+
+    sql = "select sum(amount), left(date, 10) from expenses where userid=\"%s\" group by left(date, 10);" \
+          % (userid)
+
+    print sql
+    # try:
+    #     cursor.execute(sql)
+    #     conn.commit()
+    # except:
+    #     print "ERROR insert mysql fail"
+    #     conn.rollback()
+
+    # cursor.close()
+    day_expense = 20
+    week_expense = 100
+    month_expense = 250
+    return (day_expense, week_expense, month_expense)
 
 ## File : data.py
