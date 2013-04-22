@@ -6,28 +6,28 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-04-22 20:50:06>
+## Updated: Time-stamp: <2013-04-22 21:12:06>
 ##-------------------------------------------------------------------
 import MySQLdb
 import sys
 import commands
 
 from expense import Expense
-################################## CONSTANT #####################################
-DB_HOST="127.0.0.1"
-DB_USERNAME="user_2013"
-DB_PWD="ilovechina"
-DB_NAME="wj"
+################################## CONSTANT ###################################
+DB_HOST = "127.0.0.1"
+DB_USERNAME = "user_2013"
+DB_PWD = "ilovechina"
+DB_NAME = "wj"
 
 LEDGER_BLANK_LINE = 0
 LEDGER_NOTE_LINE = 1
-LEDGER_TO_ACCOUNT_LINE =2
-LEDGER_FROM_ACCOUNT_LINE =3
+LEDGER_TO_ACCOUNT_LINE = 2
+LEDGER_FROM_ACCOUNT_LINE = 3
 
 SQLITE_ENTRY_SEPERATOR = "--line ends--"
 ##############################################################################
 
-# dataconvert.load_ledger("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.ledger", "denny")
+# dataconvert.load_ledger("./data/test.ledger", "denny")
 def load_ledger(ledger_file, userid):
     expenses = []
     f = open(ledger_file)
@@ -45,7 +45,8 @@ def load_ledger(ledger_file, userid):
             category = l[0]
             amount = l[-1]
         if line_type == LEDGER_FROM_ACCOUNT_LINE:
-            expense.init_with_ledger(userid, float(amount), category, date, notes)
+            expense.init_with_ledger(userid, float(amount), \
+                                     category, date, notes)
             expenses.append(expense)
             #expense.print_obj()
     return expenses
@@ -61,7 +62,7 @@ def detect_ledger_line(line):
     else:
         return LEDGER_FROM_ACCOUNT_LINE
 
-# dataconvert.load_sqlite("/Users/mac/backup/essential/Dropbox/private_data/code/lettuce/analysis/data/test.sqlite", "liki")
+# dataconvert.load_sqlite("./data/test.sqlite", "liki")
 def load_sqlite(sqlite_file, userid):
     expenses = []
     sql = "select expenseid, amount, categoryname as categoryid, date, notes, latitude, longitude, \"%s\"" + \
@@ -97,8 +98,8 @@ def load_sqlite(sqlite_file, userid):
 
 def insert_mysql(expenses):
     # Expense.print_objs(expenses)
-    conn = MySQLdb.connect(DB_HOST, DB_USERNAME, DB_PWD, DB_NAME, charset='utf8', port=3306)
-    c=conn.cursor()
+    conn = MySQLdb.connect(DB_HOST, DB_USERNAME, DB_PWD, DB_NAME, charset = 'utf8', port = 3306)
+    c = conn.cursor()
 
     for obj in expenses:
         sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes) " + \
