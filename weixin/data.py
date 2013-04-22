@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 22:14:32>
+## Updated: Time-stamp: <2013-04-22 22:18:48>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
@@ -61,13 +61,13 @@ def insert_expense(expense):
 
 def user_summary(userid):
     # TODO support date is given as parameter
-    end_date = datetime.now()
+    end_date = datetime.now() + timedelta(days=1)
     # TODO: pre-caculate below data, if performance is slow
     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
                            config.DB_NAME, charset='utf8', port=config.DB_PORT)
     cursor = conn.cursor()
 
-    day_expense = get_total_amount(cursor, userid, end_date, 0)
+    day_expense = get_total_amount(cursor, userid, end_date, -1)
     week_expense = get_total_amount(cursor, userid, end_date, -7)
     month_expense = get_total_amount(cursor, userid, end_date, -30)
 

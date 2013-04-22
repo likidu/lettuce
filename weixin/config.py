@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-22 21:43:57>
+## Updated: Time-stamp: <2013-04-22 22:15:20>
 ##-------------------------------------------------------------------
 ################## global variable   #####################
 
@@ -20,5 +20,6 @@ FLASK_SERVER_PORT = "8082"
 
 DATA_SEPARATOR = "--text follows this line--"
 HELLO_STRING = "莴苣记账本!"
+AMOUNT_NONE = -1
 ##########################################################
 ## File : config.py
