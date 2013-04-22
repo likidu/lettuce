@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 22:13:25>
+## Updated: Time-stamp: <2013-04-22 22:14:32>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
@@ -81,8 +81,8 @@ def get_total_amount(db_cursor, userid, end_date, offset_days=0):
     print sql
     db_cursor.execute(sql)
     out = db_cursor.fetchall()
-    if out is None:
-        return -1
+    if out[0][0] is None:
+        return config.AMOUNT_NONE
     else:
         return float(out[0][0])
 
