@@ -7,12 +7,13 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 21:02:25>
+## Updated: Time-stamp: <2013-04-22 21:44:41>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
 
 import util
+from util import log
 import config
 from expense import Expense
 
@@ -42,47 +43,38 @@ def detect_branding_category(token_list):
 
 def insert_expense(expense):
     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
-                           config.DB_NAME, charset='utf8', port=3306)
+                           config.DB_NAME, charset='utf8', port=config.DB_PORT)
     cursor = conn.cursor()
 
-    sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes, branding) " + \
-          "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\", \"%s\");"
-    sql = sql % (expense.userid, expense.source_expenseid, expense.amount, \
-                 expense.category, expense.date, expense.latitude, \
-                 expense.longitude, expense.notes, expense.branding)
-
-    print sql
+    sql = Expense.generate_insert_sql(expense)
     try:
         cursor.execute(sql)
         conn.commit()
     except:
-        print "ERROR insert mysql fail"
+        log.error("ERROR insert mysql fail")
         conn.rollback()
 
     cursor.close()
     # # TODO: defensive check
     return True
 
-def user_summary(userid):
+def user_summary(userid, end_date = "2013-04-22"):
     conn = MySQLdb.connect(config.DB_HOST, config.DB_USERNAME, config.DB_PWD, \
-                           config.DB_NAME, charset='utf8', port=3306)
+                           config.DB_NAME, charset='utf8', port=config.DB_PORT)
     cursor = conn.cursor()
 
-    sql = "select sum(amount), left(date, 10) from expenses where userid=\"%s\" group by left(date, 10);" \
-          % (userid)
+    day_expense = get_total_amount(cursor, userid, end_date, end_date)
+    week_expense = get_total_amount(cursor, userid, "2013-04-17", end_date)
+    month_expense = get_total_amount(cursor, userid, "2013-04-17", end_date)
 
-    print sql
-    # try:
-    #     cursor.execute(sql)
-    #     conn.commit()
-    # except:
-    #     print "ERROR insert mysql fail"
-    #     conn.rollback()
-
-    # cursor.close()
-    day_expense = 20
-    week_expense = 100
-    month_expense = 250
+    cursor.close()
     return (day_expense, week_expense, month_expense)
+
+def get_total_amount(db_cursor, userid, begin_date, end_date):
+    sql = "select sum(amount) from expenses where userid=\"%s\" and date>='%s' and date<='%s'" \
+                                     % (userid, begin_date, end_date)
+    db_cursor.execute(sql)
+    out = db_cursor.fetchall()
+    return float(out[0][0])
 
 ## File : data.py

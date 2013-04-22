@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 20:58:08>
+## Updated: Time-stamp: <2013-04-22 21:25:15>
 ##-------------------------------------------------------------------
 class Expense:
     def __init__(self):
@@ -21,7 +21,8 @@ class Expense:
         self.longitude = 0.0
         self.notes = ""
 
-    def init_with_sqlite(self, userid, expenseid, amount, categoryid, date, notes, latitude, longitude, branding=""):
+    def init_with_sqlite(self, userid, expenseid, amount, categoryid, \
+                         date, notes, latitude, longitude, branding=""):
         self.userid = userid
         self.source_expenseid = expenseid.strip()
         self.amount = amount
@@ -40,9 +41,18 @@ class Expense:
 
     @staticmethod
     def print_obj(obj):
-        print "userid:%s, amount:%f, category:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
-            (obj.userid, obj.amount, obj.category, \
+        print "userid:%s, amount:%f, category:%s, branding:%s, date:%s, latitude:%f, longitude:%f, notes:%s\n" % \
+            (obj.userid, obj.amount, obj.category, obj.branding,\
              obj.date, obj.latitude, obj.longitude, obj.notes)
+
+    @staticmethod
+    def generate_insert_sql(obj):
+        sql = "insert into expenses(userid, source_expenseid, amount, category, date, latitude, longitude, notes, branding) " + \
+              "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\", \"%s\");"
+        sql = sql % (obj.userid, obj.source_expenseid, obj.amount, \
+                     obj.category, obj.date, obj.latitude, \
+                     obj.longitude, obj.notes, obj.branding)
+        return sql
 
     @staticmethod
     def print_objs(objs):
