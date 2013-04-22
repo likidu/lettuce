@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 22:04:38>
+## Updated: Time-stamp: <2013-04-22 22:13:25>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
@@ -78,8 +78,12 @@ def get_total_amount(db_cursor, userid, end_date, offset_days=0):
     sql = "select sum(amount) from expenses where userid=\"%s\" and date>='%s' and date<='%s'" \
                                      % (userid, (end_date + timedelta(days=offset_days)).strftime('%Y-%m-%d'), \
                                         end_date.strftime('%Y-%m-%d'))
+    print sql
     db_cursor.execute(sql)
     out = db_cursor.fetchall()
-    return float(out[0][0])
+    if out is None:
+        return -1
+    else:
+        return float(out[0][0])
 
 ## File : data.py
