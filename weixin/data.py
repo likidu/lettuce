@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-01-25 00:00:00>
-## Updated: Time-stamp: <2013-04-22 17:10:49>
+## Updated: Time-stamp: <2013-04-22 17:20:32>
 ##-------------------------------------------------------------------
 import MySQLdb
 from datetime import datetime
@@ -48,6 +48,7 @@ def insert_expense(userid, source_expenseid, amount, category, date, notes, lati
           "values (\"%s\", \"%s\", %f, \"%s\", \"%s\", %f, %f, \"%s\");" % \
           (userid, source_expenseid, amount, category, date, latitude, longitude, notes)
 
+    print sql
     try:
         cursor.execute(sql)
         conn.commit()
