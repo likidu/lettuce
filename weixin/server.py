@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-22 17:16:45>
+## Updated: Time-stamp: <2013-04-22 17:29:02>
 ##-------------------------------------------------------------------
 from flask import Flask
 from flask import render_template
@@ -29,6 +29,7 @@ def index():
 def add_expense():
     userid = request.args.get('userid', '')
     msg = request.args.get('expense', '')
+    msg = msg.encode('utf-8', 'ignore')
     (date, category, amount, branding, comment) = data.split_expense_word(msg)
     print date, category, amount, branding, comment
     if (amount != -1) and (category != "") and (branding != ""):
