@@ -215,13 +215,6 @@ static BackupAndRecoverViewController* _instance = nil;
     
     // Upload file
 //    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"upload", @"command", UIImageJPEGRepresentation(photo.image, 70), @"file", fldTitle.text, @"title", nil];
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:<#(id), ...#>, nil]
-    
-    [[WoojuuAPIClient sharedClient] commandWithParams:params
-                                         onCompletion:^(NSDictionary *json) {
-                                             //
-                                             
-                                         }];
     
     // Log
     NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);

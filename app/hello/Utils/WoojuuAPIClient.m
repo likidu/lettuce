@@ -9,8 +9,8 @@
 #import "WoojuuAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kWoojuuAPIBaseURLString = @"http://api.woojuu.cc";
-static NSString * const kWoojuuAPIPathURLString = @"backup/";
+static NSString *const kWoojuuAPIBaseURLString = @"http://localhost";
+static NSString *const kWoojuuAPIPathString = @"";
 
 @implementation WoojuuAPIClient
 
@@ -46,13 +46,16 @@ static NSString * const kWoojuuAPIPathURLString = @"backup/";
         uploadFile = (NSData *)[params objectForKey:@"file"];
         [params removeObjectForKey:@"file"];
     }
-    
-    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:kWoojuuAPIPathURLString parameters:params
-                                              constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+
+    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
+                                    // TODO: Add relevant path
+                                                                      path:@""
+                                                                parameters:params
+                                                 constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
                                                      //TODO: attach file if needed
                                                      if (uploadFile) {
-                                                         // Mime type could be "x-sqlite3"
-                                                         [formData appendPartWithFileData:uploadFile name:@"db" fileName:@"db.sqlite" mimeType:@"application/octet-stream"];
+                                                         // MIME-Type: "application/octet-stream" or "application/x-sqlite3"
+                                                         [formData appendPartWithFileData:uploadFile name:@"userdb" fileName:@"db.sqlite" mimeType:@"application/octet-stream"];
                                                      }
                                                  }];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
