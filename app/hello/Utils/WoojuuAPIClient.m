@@ -9,7 +9,8 @@
 #import "WoojuuAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
+static NSString * const kWoojuuAPIBaseURLString = @"http://api.woojuu.cc";
+static NSString * const kWoojuuAPIPathURLString = @"backup/";
 
 @implementation WoojuuAPIClient
 
@@ -26,7 +27,7 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
 }
 
 #pragma mark - initWithBaseURL
-
+// Overrides initWithBaseURL
 - (id)initWithBaseURL:(NSURL *)url {
     self = [super initWithBaseURL:url];
     if (self) {
@@ -40,21 +41,29 @@ static NSString * const kWoojuuAPIBaseURLString = @"http://localhost";
 }
 
 - (void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock {
-    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
-                                    // TODO: Add relevant path
-                                                                      path:@""
-                                                                parameters:params
-                                                 constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+    NSData *uploadFile = nil;
+    if ([params objectForKey:@"file"]) {
+        uploadFile = (NSData *)[params objectForKey:@"file"];
+        [params removeObjectForKey:@"file"];
+    }
+    
+    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:kWoojuuAPIPathURLString parameters:params
+                                              constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
                                                      //TODO: attach file if needed
-
+                                                     if (uploadFile) {
+                                                         // Mime type could be "x-sqlite3"
+                                                         [formData appendPartWithFileData:uploadFile name:@"db" fileName:@"db.sqlite" mimeType:@"application/octet-stream"];
+                                                     }
                                                  }];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
         //success
         NSLog(@"Response %@", response);
+        completionBlock(response);
     }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          //failure
+//                                         completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
                                      }];
 }
 

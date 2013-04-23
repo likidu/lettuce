@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface WeiboUser : NSObject
 
 @property (nonatomic, retain) NSDictionary *accountInfo;
 @property (nonatomic) BOOL isAuthorizeExpired;
-@property (nonatomic) BOOL isAuthorized;
 
 - (id)init;
-- (void)update:(NSDictionary *)accountInfo;
+- (void)store:(NSDictionary *)accountInfo;
+- (void)wipe;
 
 @end

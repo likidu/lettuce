@@ -6,13 +6,12 @@
 //  Copyright (c) 2013 JingXi Mill. All rights reserved.
 //
 
-#import "User.h"
+#import "WeiboUser.h"
 #import "ConfigurationManager.h"
 
-@implementation User
+@implementation WeiboUser
 
 @synthesize isAuthorizeExpired;
-@synthesize isAuthorized;
 @synthesize accountInfo = _accountInfo;
 
 - (id)init {
@@ -29,9 +28,13 @@
     return self;
 }
 
-- (void)update:(NSDictionary *)accountInfo {
+- (void)store:(NSDictionary *)accountInfo {
     [[NSUserDefaults standardUserDefaults] setObject:accountInfo forKey:WEIBO_ACCOUNT_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)wipe {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:WEIBO_ACCOUNT_KEY];
 }
 
 - (BOOL)isAuthorizeExpired {

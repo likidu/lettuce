@@ -18,6 +18,7 @@
 #import "ConfigurationManager.h"
 
 #import "SinaWeibo.h"
+#import "WeiboUser.h"
 #import "BackupAndRecoverViewController.h"
                               
 @implementation helloAppDelegate
@@ -47,14 +48,15 @@
     // Weibo stuff
     self.viewController = [[[BackupAndRecoverViewController alloc] initWithNibName:nil bundle:nil] autorelease];
     sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:_viewController];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
-    if ([sinaweiboInfo objectForKey:@"AccessTokenKey"] && [sinaweiboInfo objectForKey:@"ExpirationDateKey"] && [sinaweiboInfo objectForKey:@"UserIDKey"])
-    {
-        sinaweibo.accessToken = [sinaweiboInfo objectForKey:@"AccessTokenKey"];
-        sinaweibo.expirationDate = [sinaweiboInfo objectForKey:@"ExpirationDateKey"];
-        sinaweibo.userID = [sinaweiboInfo objectForKey:@"UserIDKey"];
-    }   
+    
+    WeiboUser *weiboUser = [[WeiboUser alloc] init];
+    
+    // Assign userdefaults separately to sinaweibo
+    if (weiboUser.accountInfo) {
+        sinaweibo.userID = [weiboUser.accountInfo objectForKey:WEIBO_USER_ID];
+        sinaweibo.accessToken = [weiboUser.accountInfo objectForKey:WEIBO_ACCESS_TOKEN];
+        sinaweibo.expirationDate = [weiboUser.accountInfo objectForKey:WEIBO_EXPIRATION_DATE];
+    }
 
     return YES;
 }

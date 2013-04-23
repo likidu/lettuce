@@ -324,7 +324,6 @@
         if (!ssoLoggingIn)
         {
             // open authorize view
-            
             NSDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                     self.appKey, @"client_id",
                                     @"code", @"response_type",

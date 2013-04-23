@@ -670,7 +670,7 @@
 		268E65A61716852700ADB2BF /* SinaWeiboAuthorizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E659A1716852700ADB2BF /* SinaWeiboAuthorizeView.m */; };
 		268E65A71716852700ADB2BF /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 268E659D1716852700ADB2BF /* SinaWeiboRequest.m */; };
 		26931C22171CD8C2003A87CE /* PasscodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26931C21171CD8C2003A87CE /* PasscodeManager.m */; };
-		26931C25171CD92D003A87CE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 26931C24171CD92D003A87CE /* User.m */; };
+		26B0C742171EA3F300C16FB7 /* WeiboUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B0C741171EA3F300C16FB7 /* WeiboUser.m */; };
 		26BC96DC171ABA4800365226 /* WoojuuAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BC96DB171ABA4800365226 /* WoojuuAPIClient.m */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
@@ -1410,8 +1410,8 @@
 		268E659D1716852700ADB2BF /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
 		26931C20171CD8C1003A87CE /* PasscodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeManager.h; sourceTree = "<group>"; };
 		26931C21171CD8C2003A87CE /* PasscodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeManager.m; sourceTree = "<group>"; };
-		26931C23171CD92D003A87CE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		26931C24171CD92D003A87CE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		26B0C740171EA3F300C16FB7 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		26B0C741171EA3F300C16FB7 /* WeiboUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboUser.m; sourceTree = "<group>"; };
 		26BC96DA171ABA4800365226 /* WoojuuAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoojuuAPIClient.h; sourceTree = "<group>"; };
 		26BC96DB171ABA4800365226 /* WoojuuAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoojuuAPIClient.m; sourceTree = "<group>"; };
 		676090FDC278472C9091C06D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1696,6 +1696,8 @@
 		26003569170971C4003835B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				26B0C740171EA3F300C16FB7 /* WeiboUser.h */,
+				26B0C741171EA3F300C16FB7 /* WeiboUser.m */,
 				26931C20171CD8C1003A87CE /* PasscodeManager.h */,
 				26931C21171CD8C2003A87CE /* PasscodeManager.m */,
 				2600356A170971C4003835B3 /* CategoryManager.h */,
@@ -1709,8 +1711,6 @@
 				26003572170971C4003835B3 /* ExpenseManager.m */,
 				26003573170971C4003835B3 /* PlanManager.h */,
 				26003574170971C4003835B3 /* PlanManager.m */,
-				26931C23171CD92D003A87CE /* User.h */,
-				26931C24171CD92D003A87CE /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3212,7 +3212,7 @@
 				268E65A71716852700ADB2BF /* SinaWeiboRequest.m in Sources */,
 				26BC96DC171ABA4800365226 /* WoojuuAPIClient.m in Sources */,
 				26931C22171CD8C2003A87CE /* PasscodeManager.m in Sources */,
-				26931C25171CD92D003A87CE /* User.m in Sources */,
+				26B0C742171EA3F300C16FB7 /* WeiboUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

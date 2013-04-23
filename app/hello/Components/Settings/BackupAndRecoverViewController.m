@@ -10,14 +10,15 @@
 #import "ConfigurationManager.h"
 #import "Utility.h"
 #import "helloAppDelegate.h"
-#import "User.h"
+#import "WeiboUser.h"
 #import "WoojuuAPIClient.h"
 
 @interface BackupAndRecoverViewController ()
 
-@property (nonatomic, retain) User *user;
+@property (nonatomic, retain) WeiboUser *weiboUser;
 
 - (void)initImages;
+- (void)updateUI;
 
 @end
 
@@ -27,7 +28,7 @@ static BackupAndRecoverViewController* _instance = nil;
 @synthesize imgBackup;
 @synthesize imgRestore;
 @synthesize labelStatus;
-@synthesize user = _user;
+@synthesize weiboUser = _weiboUser;
 
 - (SinaWeibo *)sinaweibo
 {
@@ -53,7 +54,7 @@ static BackupAndRecoverViewController* _instance = nil;
         // Custom initialization
         [self initImages];
         // init User
-        _user = [[User alloc] init];
+        _weiboUser = [[WeiboUser alloc] init];
     }
     return self;
 }
@@ -100,8 +101,12 @@ static BackupAndRecoverViewController* _instance = nil;
     [imgBackup release];
     [imgRestore release];
     [labelStatus release];
-    self.user = nil;
+    self.weiboUser = nil;
     [super dealloc];
+}
+
+- (void)updateUI {
+    self.labelStatus.text = [[NSString alloc] initWithFormat:@"Welcome back, User"];
 }
 
 #pragma mark - Table view
@@ -156,14 +161,11 @@ static BackupAndRecoverViewController* _instance = nil;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SinaWeibo *sinaWeibo = [self sinaweibo];
     if (indexPath.section == 0) {
         // backupData
-        if ([sinaWeibo isAuthValid]) {
-            // TODO: backup immediately
-        } else {
-            [sinaWeibo logIn];
-        }
+        SinaWeibo *sinaweibo = [self sinaweibo];
+        [sinaweibo logIn];
+
         
 //        self.user.isAuthorized = NO;
         
@@ -172,9 +174,6 @@ static BackupAndRecoverViewController* _instance = nil;
 //            [[WoojuuAPIClient sharedClient] commandWithParams:params onCompletion:^(NSDictionary *json) {
 //                // TODO: handle success / failure case
 //            }];
-        
-        
-        
         if (![BackupAndRecoverViewController isUserLoggedIn]){
             
         }
@@ -202,11 +201,6 @@ static BackupAndRecoverViewController* _instance = nil;
     return @"";    
 }
 
-// backupData
-// does accessToken expired?
-// if so, login, 
-// if not,
-
 #pragma mark - SinaWeibo Delegate
 
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo {
@@ -215,13 +209,29 @@ static BackupAndRecoverViewController* _instance = nil;
                                    WEIBO_ACCESS_TOKEN : sinaweibo.accessToken,
                                    WEIBO_EXPIRATION_DATE: sinaweibo.expirationDate
                                    };
-    
-    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
  
-    // Write to plist
-    [self.user update:weiboAccountInfo];
+    // Wipe to userdefaults
+    [self.weiboUser store:weiboAccountInfo];
     
-    self.labelStatus.text = [[NSString alloc] initWithFormat:@"Welcome back, %@", weiboAccountInfo[WEIBO_USER_ID]];
+    // Upload file
+//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"upload", @"command", UIImageJPEGRepresentation(photo.image, 70), @"file", fldTitle.text, @"title", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:<#(id), ...#>, nil]
+    
+    [[WoojuuAPIClient sharedClient] commandWithParams:params
+                                         onCompletion:^(NSDictionary *json) {
+                                             //
+                                             
+                                         }];
+    
+    // Log
+    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+    
+    [self updateUI];
+}
+
+- (void)sinaweibo:(SinaWeibo *)sinaweibo accessTokenInvalidOrExpired:(NSError *)error {
+    // Wipe from userdefaults
+    [self.weiboUser wipe];
 }
 
 @end
