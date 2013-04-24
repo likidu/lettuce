@@ -166,14 +166,6 @@ static BackupAndRecoverViewController* _instance = nil;
         SinaWeibo *sinaweibo = [self sinaweibo];
         [sinaweibo logIn];
 
-        
-//        self.user.isAuthorized = NO;
-        
-
-//            NSMutableDictionary *params = [self.user.accountInfo mutableCopy];
-//            [[WoojuuAPIClient sharedClient] commandWithParams:params onCompletion:^(NSDictionary *json) {
-//                // TODO: handle success / failure case
-//            }];
         if (![BackupAndRecoverViewController isUserLoggedIn]){
             
         }
@@ -210,14 +202,27 @@ static BackupAndRecoverViewController* _instance = nil;
                                    WEIBO_EXPIRATION_DATE: sinaweibo.expirationDate
                                    };
  
-    // Wipe to userdefaults
+    // Store to UserDefaults
     [self.weiboUser store:weiboAccountInfo];
     
     // Upload file
 //    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"upload", @"command", UIImageJPEGRepresentation(photo.image, 70), @"file", fldTitle.text, @"title", nil];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = paths[0];
+    NSString *path = [[NSString alloc] initWithFormat:@"%@/db.sqlite", documentsPath];
+    NSData *userFile = [NSData dataWithContentsOfFile:path];
+    
+    NSLog(@"DB File Path: %@", path);
+    
+    // Transfer WeiboAccount together with the db file
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:weiboAccountInfo, WEIBO_ACCOUNT_KEY, userFile, @"file", nil];
+    [[WoojuuAPIClient sharedClient] commandWithParams:params onCompletion:^(NSDictionary *json) {
+        // Check if session has expired?
+        NSLog(@"Sending...");
+    }];
     
     // Log
-    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
+//    NSLog(@"sinaweiboDidLogIn userID = %@ accesstoken = %@ expirationDate = %@ refresh_token = %@", sinaweibo.userID, sinaweibo.accessToken, sinaweibo.expirationDate,sinaweibo.refreshToken);
     
     [self updateUI];
 }
@@ -225,6 +230,8 @@ static BackupAndRecoverViewController* _instance = nil;
 - (void)sinaweibo:(SinaWeibo *)sinaweibo accessTokenInvalidOrExpired:(NSError *)error {
     // Wipe from userdefaults
     [self.weiboUser wipe];
+    
+    
 }
 
 @end

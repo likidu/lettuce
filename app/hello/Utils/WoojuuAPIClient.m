@@ -9,8 +9,8 @@
 #import "WoojuuAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString *const kWoojuuAPIBaseURLString = @"http://localhost";
-static NSString *const kWoojuuAPIPathString = @"";
+static NSString *const kWoojuuAPIBaseURLString = @"http://127.0.0.1:5000/";
+static NSString *const kWoojuuAPIPathString = @"/";
 
 @implementation WoojuuAPIClient
 
@@ -40,6 +40,8 @@ static NSString *const kWoojuuAPIPathString = @"";
     return self;
 }
 
+#define MIME_TYPE @"application/x-sqlite3" // Alternative: application/octet-stream
+
 - (void)commandWithParams:(NSMutableDictionary *)params onCompletion:(JSONResponseBlock)completionBlock {
     NSData *uploadFile = nil;
     if ([params objectForKey:@"file"]) {
@@ -47,17 +49,12 @@ static NSString *const kWoojuuAPIPathString = @"";
         [params removeObjectForKey:@"file"];
     }
 
-    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST"
-                                    // TODO: Add relevant path
-                                                                      path:@""
-                                                                parameters:params
-                                                 constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
-                                                     //TODO: attach file if needed
-                                                     if (uploadFile) {
-                                                         // MIME-Type: "application/octet-stream" or "application/x-sqlite3"
-                                                         [formData appendPartWithFileData:uploadFile name:@"userdb" fileName:@"db.sqlite" mimeType:@"application/octet-stream"];
-                                                     }
-                                                 }];
+    NSMutableURLRequest *request = [self multipartFormRequestWithMethod:@"POST" path:kWoojuuAPIPathString parameters:params constructingBodyWithBlock:^(id <AFMultipartFormData>formData) {
+        //Attach file if needed
+        if (uploadFile) {
+            [formData appendPartWithFileData:uploadFile name:@"file" fileName:@"db.sqlite" mimeType:MIME_TYPE];
+        }
+    }];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
         //success
@@ -66,8 +63,10 @@ static NSString *const kWoojuuAPIPathString = @"";
     }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          //failure
-//                                         completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
+                                         NSLog(@"Error!");
+                                         completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]);
                                      }];
+    [operation start];
 }
 
 @end
