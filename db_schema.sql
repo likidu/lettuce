@@ -6,11 +6,12 @@ use wj;
 
 -- ############################### CREATE TABLE #############################################
 CREATE TABLE if not exists expenses(
-       userid VARCHAR(50) NOT NULL PRIMARY KEY,
+       userid VARCHAR(50) NOT NULL,
        source_expenseid VARCHAR(50),
        amount float,
        category VARCHAR(50),
-       date TIMESTAMP NOT NULL DEFAULT NOW(),
+       -- date TIMESTAMP NOT NULL DEFAULT NOW(),
+       date VARCHAR(50),
        branding VARCHAR(50),
        latitude FLOAT,
        LONGITUDE FLOAT,

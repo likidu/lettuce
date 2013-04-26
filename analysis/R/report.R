@@ -6,11 +6,12 @@
 ## Description :
 ## --
 ## Created : <2013-04-04>
-## Updated: Time-stamp: <2013-04-07 10:11:30>
+## Updated: Time-stamp: <2013-04-24 22:23:07>
 ##-------------------------------------------------------------------
 source("./util.R")
 
 categorydrawplot = function(userid, category, summary) {
+  png(file="myplot.png", bg="white")
   sql = sprintf("select date, amount, notes from expenses where userid='%s' and memo='%s' order by date limit 1000;",
     userid, category)
   ## TODO: be more generic
@@ -40,13 +41,13 @@ categorydrawplot = function(userid, category, summary) {
   ## Add lines for the changes
   lines(cl$centers[sort.list(cl$centers[,1]), ])
   par(col="black")
-
   ## ## Ft line
   ## par(col="green")
   ## fit<-lm(amount~date, dd)
   ## abline(fit)
   ## par(col="black")
 
+  dev.off()
 }
 
 categorydrawboxplot = function(userid, category, summary) {

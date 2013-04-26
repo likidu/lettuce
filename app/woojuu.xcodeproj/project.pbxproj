@@ -3243,7 +3243,10 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)/**";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/BuildHeaders/**",
+					"$(inherited)/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = woojuu.book;
 				PROVISIONING_PROFILE = "C1E841CD-37FF-4D94-A857-6688A514B277";
@@ -3262,7 +3265,10 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)/**";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/BuildHeaders/**",
+					"$(inherited)/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = woojuu.book;
@@ -3331,7 +3337,10 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)/**";
+				HEADER_SEARCH_PATHS = (
+					"${PODS_ROOT}/BuildHeaders/**",
+					"$(inherited)/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = woojuu.book;
