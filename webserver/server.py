@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 18:05:06>
+## Updated: Time-stamp: <2013-04-28 18:17:26>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -20,6 +20,7 @@ from util import log
 import data
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
 
 @app.route("/")
 def index():
@@ -37,11 +38,15 @@ def backup_db():
         is False:
         return handle_error("500", "server error")
 
+
     file = request.files['file']
-    if file and _allowed_file(file.filename):
-        filename = "weibo%s_%s" % (userid, secure_filename(file.filename))
-        file.save(os.path.join(os.getcwd(), config.UPLOAD_FOLDER, filename))
-        print "Uploaded %s" % filename
+    if file.filename != "db.sqlite":
+        return handle_error("403", "db filename is %s, instead of db.sqlite" %(file.filename))
+
+    filename = get_db_filename(userid)
+    file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
+    log.info("Uploaded %s" % filename)
+
     content = '''<xml>
   <status>%s</status>
   <message>%s</message>
@@ -123,6 +128,9 @@ def handle_error(errcode, errmsg):
 def _allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1] \
             in config.ALLOWED_EXTENSIONS
+
+def get_db_filename(userid):
+    return "weibo%s_%s" % (userid, secure_filename("db.sqlite"))
 
 ################################################################
 if __name__ == "__main__":
