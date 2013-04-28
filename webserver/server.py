@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 17:51:29>
+## Updated: Time-stamp: <2013-04-28 17:58:17>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -20,14 +20,56 @@ from util import log
 import data
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
-app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
 
 @app.route("/")
 def index():
     return config.HELLO_STRING
 
 ################# public backend api ###########################
+@app.route("/backup", methods=['POST'])
+def backup_db():
+    # TODO: better format
+    userid = request.form['WeiboAccount[WeiboAccountUserId]']
+    expirationdate = request.form['WeiboAccount[WeiboAccountExpirationDate]']
+    accesstoken = request.form['WeiboAccount[WeiboAccountAccessToken]']
+    refreshtoken = "" # TODO
+    if data.auth_user(userid, accesstoken, expirationdate, refreshtoken) \
+        is False:
+        return handle_error("500", "server error")
+
+    file = request.files['file']
+    if file and _allowed_file(file.filename):
+        filename = "%s_%s" % (userid, secure_filename(file.filename))
+        file.save(os.path.join(os.getcwd(), config.UPLOAD_FOLDER, filename))
+        print "Uploaded %s" % filename
+    content = '''<xml>
+  <status>%s</status>
+  <message>%s</message>
+</xml>
+''' % ("200", "ok")
+
+    resp = make_response(content, 200)
+    resp.headers['Content-type'] = 'application/json; charset=utf-8'
+    return resp
+
+@app.route("/restore", methods=['POST'])
+def restore_db():
+    # if data.auth_user(request.values["userid"], request.values["accesstoken"],\
+    #                   request.values["expirationdate"], request.values["refreshtoken"]) \
+    #     is False:
+    #     return handle_error("500", "server error")
+
+    content = '''<xml>
+  <status>%s</status>
+  <message>%s</message>
+  <data>%s</data>
+</xml>
+''' % ("200", "ok", "data")
+
+    resp = make_response(content, 200)
+    resp.headers['Content-type'] = 'application/xml; charset=utf-8'
+    return resp
+
 @app.route("/weibo_assign", methods=['POST'])
 def weibo_assign():
     # TODO defensive check
@@ -57,49 +99,6 @@ def weibo_revoke():
         resp.headers['Content-type'] = 'application/json; charset=utf-8'
         return resp
 
-@app.route("/backup", methods=['POST'])
-def backup_db():
-    userid = request.form['WeiboAccount[WeiboAccountUserId]']
-    expirationdate = request.form['WeiboAccount[WeiboAccountExpirationDate]']
-    accesstoken = request.form['WeiboAccount[WeiboAccountAccessToken]']
-    refreshtoken = "" # TODO
-    if data.auth_user(userid, accesstoken, expirationdate, refreshtoken) \
-        is False:
-        return handle_error("500", "server error")
-
-    file = request.files['file']
-    if file and _allowed_file(file.filename):
-        filename = "%s_%s" % (userid, secure_filename(file.filename))
-        file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
-        print "Uploaded %s" % filename
-    content = '''<xml>
-  <status>%s</status>
-  <message>%s</message>
-</xml>
-''' % ("200", "ok")
-
-    resp = make_response(content, 200)
-    resp.headers['Content-type'] = 'application/json; charset=utf-8'
-    return resp
-
-@app.route("/restore", methods=['POST'])
-def restore_db():
-    if data.auth_user(request.values["userid"], request.values["accesstoken"],\
-                      request.values["expirationdate"], request.values["refreshtoken"]) \
-        is False:
-        return handle_error("500", "server error")
-    else:
-        content = '''<xml>
-  <status>%s</status>
-  <message>%s</message>
-  <data>%s</data>
-</xml>
-''' % ("200", "ok", "data")
-
-        resp = make_response(content, 200)
-        resp.headers['Content-type'] = 'application/xml; charset=utf-8'
-        return resp
-
 ## bypass cross domain security
 @app.after_request
 def after_request(response):
@@ -126,7 +125,7 @@ def _allowed_file(filename):
             in config.ALLOWED_EXTENSIONS
 
 ################################################################
-
 if __name__ == "__main__":
+    app.debug = True
     app.run(host="0.0.0.0", port = int(config.FLASK_SERVER_PORT))
 ## File : server.py
