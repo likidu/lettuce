@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 17:58:17>
+## Updated: Time-stamp: <2013-04-28 18:05:06>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -39,7 +39,7 @@ def backup_db():
 
     file = request.files['file']
     if file and _allowed_file(file.filename):
-        filename = "%s_%s" % (userid, secure_filename(file.filename))
+        filename = "weibo%s_%s" % (userid, secure_filename(file.filename))
         file.save(os.path.join(os.getcwd(), config.UPLOAD_FOLDER, filename))
         print "Uploaded %s" % filename
     content = '''<xml>
