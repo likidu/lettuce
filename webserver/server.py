@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 17:34:40>
+## Updated: Time-stamp: <2013-04-28 17:51:29>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -32,7 +32,7 @@ def index():
 def weibo_assign():
     # TODO defensive check
     if data.save_user(request.values["userid"], request.values["accesstoken"],\
-                      request.values["expirationdate"], request.values["refresh_token"]) \
+                      request.values["expirationdate"], request.values["refreshtoken"]) \
         is False:
         return handle_error("500", "server error")
     else:
@@ -48,7 +48,7 @@ def weibo_assign():
 @app.route("/weibo_revoke", methods=['POST'])
 def weibo_revoke():
     if data.delete_user(request.values["userid"], request.values["accesstoken"],\
-                      request.values["expirationdate"], request.values["refresh_token"]) \
+                      request.values["expirationdate"], request.values["refreshtoken"]) \
         is False:
         return handle_error("500", "server error")
     else:
@@ -59,15 +59,17 @@ def weibo_revoke():
 
 @app.route("/backup", methods=['POST'])
 def backup_db():
-    # if data.auth_user(request.values["userid"], request.values["accesstoken"],\
-    #                   request.values["expirationdate"], request.values["refresh_token"]) \
-    #     is False:
-    #     return handle_error("500", "server error")
+    userid = request.form['WeiboAccount[WeiboAccountUserId]']
+    expirationdate = request.form['WeiboAccount[WeiboAccountExpirationDate]']
+    accesstoken = request.form['WeiboAccount[WeiboAccountAccessToken]']
+    refreshtoken = "" # TODO
+    if data.auth_user(userid, accesstoken, expirationdate, refreshtoken) \
+        is False:
+        return handle_error("500", "server error")
 
-    print "backup file"
     file = request.files['file']
     if file and _allowed_file(file.filename):
-        filename = secure_filename(file.filename)
+        filename = "%s_%s" % (userid, secure_filename(file.filename))
         file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
         print "Uploaded %s" % filename
     content = '''<xml>
@@ -83,7 +85,7 @@ def backup_db():
 @app.route("/restore", methods=['POST'])
 def restore_db():
     if data.auth_user(request.values["userid"], request.values["accesstoken"],\
-                      request.values["expirationdate"], request.values["refresh_token"]) \
+                      request.values["expirationdate"], request.values["refreshtoken"]) \
         is False:
         return handle_error("500", "server error")
     else:
