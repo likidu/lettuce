@@ -7,11 +7,12 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 18:20:43>
+## Updated: Time-stamp: <2013-04-28 18:28:44>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
 from flask import render_template
+from flask import send_from_directory
 from werkzeug.utils import secure_filename
 
 import os
@@ -41,8 +42,8 @@ def backup_db():
 
     file = request.files['file']
     if file.filename != config.SQLITE_FILENAME:
-        return handle_error("403", "db filename is %s, instead of ." \
-                            %(file.filename, config.SQLITE_FILENAME))
+        return handle_error("403", "db filename is %s, instead of %s." \
+                            % (file.filename, config.SQLITE_FILENAME))
 
     filename = get_db_filename(userid)
     file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
@@ -58,8 +59,12 @@ def backup_db():
     resp.headers['Content-type'] = 'application/json; charset=utf-8'
     return resp
 
-@app.route("/restore", methods=['POST'])
+@app.route("/restore", methods=['POST', 'GET'])
 def restore_db():
+    userid="1686664253"
+    filename = get_db_filename(userid)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
     # if data.auth_user(request.values["userid"], request.values["accesstoken"],\
     #                   request.values["expirationdate"], request.values["refreshtoken"]) \
     #     is False:
@@ -71,6 +76,8 @@ def restore_db():
   <data>%s</data>
 </xml>
 ''' % ("200", "ok", "data")
+
+
 
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/xml; charset=utf-8'
