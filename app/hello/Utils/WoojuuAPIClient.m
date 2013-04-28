@@ -9,8 +9,8 @@
 #import "WoojuuAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString *const kWoojuuAPIBaseURLString = @"http://127.0.0.1:5000/";
-static NSString *const kWoojuuAPIPathString = @"/";
+static NSString *const kWoojuuAPIBaseURLString = @"http://www.woojuu.cc:8082";
+static NSString *const kWoojuuAPIPathString = @"/backup";
 
 @implementation WoojuuAPIClient
 

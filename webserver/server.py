@@ -7,14 +7,14 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 17:03:45>
+## Updated: Time-stamp: <2013-04-28 17:34:40>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
 from flask import render_template
 from werkzeug.utils import secure_filename
-import os
 
+import os
 import config
 from util import log
 import data
@@ -36,12 +36,6 @@ def weibo_assign():
         is False:
         return handle_error("500", "server error")
     else:
-        file = request.files['file']
-        if file and _allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
-            print "Uploaded %s" % filename
-
         content = '''<xml>
   <status>%s</status>
   <message>%s</message>
@@ -65,19 +59,26 @@ def weibo_revoke():
 
 @app.route("/backup", methods=['POST'])
 def backup_db():
-    if data.auth_user(request.values["userid"], request.values["accesstoken"],\
-                      request.values["expirationdate"], request.values["refresh_token"]) \
-        is False:
-        return handle_error("500", "server error")
-    else:
-        content = '''<xml>
+    # if data.auth_user(request.values["userid"], request.values["accesstoken"],\
+    #                   request.values["expirationdate"], request.values["refresh_token"]) \
+    #     is False:
+    #     return handle_error("500", "server error")
+
+    print "backup file"
+    file = request.files['file']
+    if file and _allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
+        print "Uploaded %s" % filename
+    content = '''<xml>
   <status>%s</status>
   <message>%s</message>
 </xml>
 ''' % ("200", "ok")
-        resp = make_response(content, 200)
-        resp.headers['Content-type'] = 'application/json; charset=utf-8'
-        return resp
+
+    resp = make_response(content, 200)
+    resp.headers['Content-type'] = 'application/json; charset=utf-8'
+    return resp
 
 @app.route("/restore", methods=['POST'])
 def restore_db():
@@ -125,6 +126,5 @@ def _allowed_file(filename):
 ################################################################
 
 if __name__ == "__main__":
-    app.debug = True
     app.run(host="0.0.0.0", port = int(config.FLASK_SERVER_PORT))
 ## File : server.py
