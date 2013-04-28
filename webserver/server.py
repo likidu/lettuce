@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 18:17:26>
+## Updated: Time-stamp: <2013-04-28 18:20:43>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -34,14 +34,15 @@ def backup_db():
     expirationdate = request.form['WeiboAccount[WeiboAccountExpirationDate]']
     accesstoken = request.form['WeiboAccount[WeiboAccountAccessToken]']
     refreshtoken = "" # TODO
+
     if data.auth_user(userid, accesstoken, expirationdate, refreshtoken) \
         is False:
         return handle_error("500", "server error")
 
-
     file = request.files['file']
-    if file.filename != "db.sqlite":
-        return handle_error("403", "db filename is %s, instead of db.sqlite" %(file.filename))
+    if file.filename != config.SQLITE_FILENAME:
+        return handle_error("403", "db filename is %s, instead of ." \
+                            %(file.filename, config.SQLITE_FILENAME))
 
     filename = get_db_filename(userid)
     file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
@@ -130,7 +131,7 @@ def _allowed_file(filename):
             in config.ALLOWED_EXTENSIONS
 
 def get_db_filename(userid):
-    return "weibo%s_%s" % (userid, secure_filename("db.sqlite"))
+    return "weibo%s_%s" % (userid, secure_filename(config.SQLITE_FILENAME))
 
 ################################################################
 if __name__ == "__main__":
