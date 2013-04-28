@@ -7,18 +7,21 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-13 10:01:50>
+## Updated: Time-stamp: <2013-04-28 17:03:45>
 ##-------------------------------------------------------------------
-from flask import Flask
-from flask import render_template
+from flask import Flask, request
 from flask import make_response
-from flask import request
+from flask import render_template
+from werkzeug.utils import secure_filename
+import os
 
 import config
 from util import log
 import data
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
+app.config['UPLOAD_FOLDER'] = config.UPLOAD_FOLDER
 
 @app.route("/")
 def index():
@@ -33,6 +36,12 @@ def weibo_assign():
         is False:
         return handle_error("500", "server error")
     else:
+        file = request.files['file']
+        if file and _allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], filename))
+            print "Uploaded %s" % filename
+
         content = '''<xml>
   <status>%s</status>
   <message>%s</message>
@@ -49,6 +58,7 @@ def weibo_revoke():
         is False:
         return handle_error("500", "server error")
     else:
+        content = "ok"
         resp = make_response(content, 200)
         resp.headers['Content-type'] = 'application/json; charset=utf-8'
         return resp
@@ -107,6 +117,10 @@ def handle_error(errcode, errmsg):
     resp = make_response(content, 200)
     resp.headers['Content-type'] = 'application/xml; charset=utf-8'
     return resp
+
+def _allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1] \
+            in config.ALLOWED_EXTENSIONS
 
 ################################################################
 
