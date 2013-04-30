@@ -1,5 +1,66 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+# OS generated files #
+######################
+.DS_Store*
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Cocoapods #
+*.Podfile.lock
+
+# Woojuu ignored files #
+########################
 woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
-
 woojuu.xcodeproj/project.xcworkspace/xcuserdata/BigMac.xcuserdatad/UserInterfaceState.xcuserstate
 
+
+*.xcuserstate
+
+*.xcsettings
+
+*.xcexplist
+
+*.xcbkptlist
+
+*.xcscheme
+
+app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcschemes/xcschememanagement.plist
+
+app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
+app/woojuu.xcodeproj/project.xcworkspace/xcuserdata/BigMac.xcuserdatad/UserInterfaceState.xcuserstate
+
+app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcschemes/woojuu.xcscheme
+
+
+# Python Stuff #
+
+# Jetbrain IDE #
+.idea

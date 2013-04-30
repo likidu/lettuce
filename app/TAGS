@@ -1,0 +1,1440 @@
+
+hello/Components/AddTransaction/CategoryViewController.h,110
+@protocol CategoryViewControllerDelegate <NSObject>NSObject11,171
+@interface CategoryViewController 17,273
+
+hello/Components/AddTransaction/MiddleViewController.h,790
+enum KeyTag 14,270
+    key1 15,284
+    key2 16,298
+    key3 17,312
+    key4 18,326
+    key5 19,340
+    key6 20,354
+    key7 21,368
+    key8 22,382
+    key9 23,396
+    key0 24,410
+    keyPlus 25,425
+    keyMinus 26,443
+    keyMultiply 27,462
+    keyDivide 28,484
+    keyDot 29,504
+    keyDelete 30,521
+typedef enum _Operator 33,544
+    opNone 34,569
+    opPlus 35,585
+    opPlus = keyPlus,35,585
+    opMinus 36,607
+    opMinus = keyMinus,36,607
+    opMultiply 37,631
+    opMultiply = keyMultiply,37,631
+    opDivide 38,661
+    opDivide = keyDivide38,661
+}Operator;Operator39,686
+#define TOL 41,698
+#define fuzzyEqual(42,721
+typedef void(^MiddleViewControllerDismissedHandler)MiddleViewControllerDismissedHandler44,768
+@interface MiddleViewController 46,824
+
+hello/Components/AddTransaction/ProgressView.h,65
+@interface ProgressLayer 12,202
+@interface ProgressView 20,388
+
+hello/Components/FullScreenViewController.h,114
+@protocol FullScreenViewControllerDelegate <NSObject>NSObject11,179
+@interface FullScreenViewController 20,345
+
+hello/Components/FUX/FirstExperienceView.h,39
+@interface FirstExperienceView 12,205
+
+hello/Components/FUX/MonthlyBudgetView.h,37
+@interface MonthlyBudgetView 13,232
+
+hello/Components/FUX/MonthlyIncomeView.h,37
+@interface MonthlyIncomeView 12,203
+
+hello/Components/FUX/NavigationProtocol.h,110
+@protocol NavigationController <NSObject>NSObject11,173
+@protocol NavigationItem <NSObject>NSObject18,258
+
+hello/Components/FUX/NewFeaturesView.h,35
+@interface NewFeaturesView 12,201
+
+hello/Components/FUX/WelcomeView.h,31
+@interface WelcomeView 12,197
+
+hello/Components/History/ExpenseByCategoryViewController.h,51
+@interface ExpenseByCategoryViewController 11,185
+
+hello/Components/History/ExpenseHistoryByAmountViewController.h,56
+@interface ExpenseHistoryByAmountViewController 12,217
+
+hello/Components/History/ExpenseHistoryByCategoryViewController.h,58
+@interface ExpenseHistoryByCategoryViewController 12,219
+
+hello/Components/History/ExpenseHistoryByLocationViewController.h,58
+@interface ExpenseHistoryByLocationViewController 12,219
+
+hello/Components/History/ExpenseHistoryViewController.h,48
+@interface ExpenseHistoryViewController 13,208
+
+hello/Components/History/HistoryRootView.h,35
+@interface HistoryRootView 14,293
+
+hello/Components/History/HistoryViewFrame.h,198
+#define KEY_EXPENSE_BY_YEAR 12,199
+#define KEY_EXPENSE_BY_YEAR_AND_CATEGORY 13,264
+#define KEY_EXPENSE_BY_CATEGORY 14,340
+#define KEY_EXPENSE_BY_MONTH 15,409
+@interface HistoryViewFrame 17,476
+
+hello/Components/History/MonthViewRoot.h,33
+@interface MonthViewRoot 13,253
+
+hello/Components/History/OverviewByCategoryViewController.h,52
+@interface OverviewByCategoryViewController 12,217
+
+hello/Components/History/OverviewByYearViewController.h,48
+@interface OverviewByYearViewController 12,213
+
+hello/Components/History/SavingHistoryViewController.h,47
+@interface SavingHistoryViewController 13,209
+
+hello/Components/History/SingleCategoryByMonthView.h,45
+@interface SingleCategoryByMonthView 12,210
+
+hello/Components/History/SingleCategoryByYearView.h,44
+@interface SingleCategoryByYearView 12,209
+
+hello/Components/RootViewController.h,38
+@interface RootViewController 11,168
+
+hello/Components/Settings/AboutViewController.h,39
+@interface AboutViewController 12,218
+
+hello/Components/Settings/AccountingReminderViewController.h,92
+@interface AccountingReminderViewController 11,195
+enum  ReminderType{ReminderType14,355
+
+hello/Components/Settings/BackupAndRecoverViewController.h,50
+@interface BackupAndRecoverViewController 11,186
+
+hello/Components/Settings/BudgetView.h,30
+@interface BudgetView 12,162
+
+hello/Components/Settings/PasscodeManager.h,35
+@interface PasscodeManager 12,138
+
+hello/Components/Settings/PasscodeSettingViewController.h,49
+@interface PasscodeSettingViewController 11,121
+
+hello/Components/Settings/PasscodeView.h,222
+enum CheckPasscodeResult 11,168
+    CheckPasscodeSucceeded 12,195
+    CheckPasscodeCanceled 13,227
+    CheckPasscodeFilled 14,258
+typedef void(^DidCheckPasscode)DidCheckPasscode17,290
+@interface PasscodeView 19,336
+
+hello/Components/Settings/ReorderCategoryViewController.h,49
+@interface ReorderCategoryViewController 11,186
+
+hello/Components/Settings/SettingView.h,31
+@interface SettingView 12,162
+
+hello/Components/Today/TableViewProtocol.h,890
+enum CellSubViewTags 11,168
+    kHeaderText 12,191
+    kHeaderIcon 13,212
+    kFooterStamp 14,233
+    kFooterText 15,255
+    kFooterAmount 16,276
+    kCellCategoryIcon 17,299
+    kCellCategoryText 18,326
+    kCellAmount 19,353
+    kCellPhotoIcon 20,374
+    kCellDate 21,398
+    kCellAmount2 22,417
+    kCellAmount3 23,439
+    kCellNumber 24,461
+    kCellDashLine 25,482
+    kSavingDate 26,505
+    kSavingExpense 27,526
+    kSavingBalance 28,550
+    kSavingBudget 29,574
+enum TableIds 32,601
+    kExpense 33,617
+    kSaving 34,635
+    kByAmount 35,652
+    kByCategory 36,671
+    kByLocation 37,692
+@protocol TableUpdateDelegate <NSObject>NSObject41,717
+@protocol DateRangeResponder <NSObject>NSObject49,855
+#define SET_PROP_IF_EXISTS_KEY(63,1180
+@protocol ViewOptionResponder <NSObject>NSObject67,1325
+@protocol ReportViewDelegate <NSObject>NSObject75,1448
+
+hello/Components/Today/TodayViewController.h,39
+@interface TodayViewController 13,224
+
+hello/Components/Widgets/MonthPickerController.h,108
+@protocol MonthPickerControllerDelegate <NSObject>NSObject11,172
+@interface MonthPickerController 19,283
+
+hello/Components/Widgets/UIImageNoteViewController.h,113
+@protocol ImageNoteViewContollerDelegate <NSObject>NSObject11,176
+@interface UIImageNoteViewController 18,268
+
+hello/helloAppDelegate.h,36
+@interface helloAppDelegate 11,166
+
+hello/Models/CategoryManager.h,63
+@interface Category 11,175
+@interface CategoryManager 27,704
+
+hello/Models/ConfigurationManager.h,320
+#define REMINDER_SWITCH_KEY 11,186
+#define REMINDER_TYPE_KEY 12,244
+#define REMINDER_TIME_KEY 13,302
+#define BACKUP_TIME_KEY 14,360
+#define WEIBO_USERNAME_KEY 15,412
+#define TRANSACTIONVIEW_STARTUP_KEY 16,465
+#define PASSWORD_KEY 17,529
+#define ACTIVE_PASSWORD_KEY 18,562
+@interface ConfigurationManager 20,609
+
+hello/Models/Database.h,28
+@interface Database 12,149
+
+hello/Models/ExpenseManager.h,61
+@interface Expense 11,174
+@interface ExpenseManager 30,754
+
+hello/Models/PlanManager.h,89
+@interface RawPlan 11,170
+@interface MonthlyPlan 25,439
+@interface PlanManager 37,653
+
+hello/Obsolete/BudgetManager.h,59
+@interface Budget 11,172
+@interface BudgetManager 23,389
+
+hello/Obsolete/FirstViewController.h,39
+@interface FirstViewController 14,249
+
+hello/Obsolete/SecondViewController.h,135
+enum SwitchArea 13,234
+    kMonthPicker,14,252
+    kExpenseSaving,15,270
+    kFilter16,290
+@interface SecondViewController 19,306
+
+hello/Utils/constants.h,96
+#define woojuu_constants_h10,161
+    #define apiBaseURL 15,298
+    #define apiBaseURL 17,352
+
+hello/Utils/DbTransitionManager.h,39
+@interface DbTransitionManager 12,181
+
+hello/Utils/LocationManager.h,35
+@interface LocationManager 12,177
+
+hello/Utils/NSString+Helper.h,53
+@interface NSString (Helper)NSString(Helper)11,181
+
+hello/Utils/Statistics.h,30
+@interface Statistics 11,170
+
+hello/Utils/UIAlertView+Helper.h,59
+@interface UIAlertView (Helper)UIAlertView(Helper)11,179
+
+hello/Utils/UIColor+Helper.h,51
+@interface UIColor (Helper)UIColor(Helper)11,160
+
+hello/Utils/UIViewController+UtilityExtension.h,231
+@protocol UIViewControllerDelegate <NSObject>NSObject11,187
+typedef void(^ViewControllerDismissedBlock)ViewControllerDismissedBlock20,388
+@interface UIViewController (UtilityExtension)UIViewController(UtilityExtension)22,468
+
+hello/Utils/Utility.h,462
+#define UTILITY_H10,149
+#define TIME_INTERVAL_HOUR 12,168
+#define TIME_INTERVAL_DAY 13,205
+#define CURRENCY_CODE 14,243
+#define PRECISION 63,3139
+#define FUZZYEQUAL(64,3166
+#define DATESTR(66,3219
+@interface UIViewController (ModalViewExtension)UIViewController(ModalViewExtension)68,3258
+@interface UIView (FirstResponder)UIView(FirstResponder)74,3355
+@interface NSArray(ReverseExtension)NSArray(ReverseExtension)80,3433
+@interface Dimmer 86,3499
+
+hello/Utils/Workflow.h,214
+@protocol WorkflowDelegate <NSObject>NSObject11,110
+typedef void (^Action)Action19,247
+typedef void (^WorkflowDidComplete)WorkflowDidComplete20,302
+#define START_STATE_KEY 21,341
+@interface Workflow 23,375
+
+hello/Vendors/FlurryAnalytics/FlurryAnalytics.h,36
+@interface FlurryAnalytics 34,1119
+
+hello/Components/AddTransaction/CategoryViewController.m,1192
+CGSize categoryButtonSize 12,210
+#define CAT_PER_ROW 13,248
+#define ROW_PER_PAGE 14,270
+#define CAT_PER_PAGE 15,293
+@synthesize scrollView;19,357
+@synthesize pageControl;20,381
+@synthesize delegate;21,406
+@synthesize topCategoryIndicator;22,428
+@synthesize silent;23,462
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:25,483
+- (void)dealloc34,706
+- (void)removeAllCategoryButtons 42,840
+- (void)loadButtons 50,1061
+- (void)awakeFromNib 127,4858
+- (void)didReceiveMemoryWarning133,4971
+- (void)viewWillAppear:150,5318
+- (void)viewDidLoad157,5546
+- (void)showTopCategoryIndicator 175,6242
+- (void)viewDidAppear:205,7500
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:observeValueForKeyPath:ofObject:change:context:209,7579
+- (void)viewDidUnload219,8042
+- (BOOL)shouldAutorotateToInterfaceOrientation:230,8309
+- (void)categorySelected:236,8520
+- (void)resetState:248,8937
+- (void)switchToPageOfCategory:258,9227
+- (void)pageChaged:287,10165
+- (void)scrollViewDidScroll:302,10638
+- (void)scrollViewDidEndDecelerating:316,11091
+- (void)scrollViewWillBeginDragging:322,11228
+
+hello/Components/AddTransaction/MiddleViewController.m,2414
+#define FLURRY_TS_ADD_TRANSACTION_EVENT_NAME 18,394
+@property(nonatomic,assign)MiddleViewController(assign)22,506
+@synthesize uiNotes;28,605
+@synthesize uiDate;29,626
+@synthesize uiNumber;30,646
+@synthesize catViewController;31,668
+@synthesize inputPlaceHolder;32,699
+@synthesize categoryButton;33,729
+@synthesize numPadView;34,757
+@synthesize datePickerView;35,781
+@synthesize imageButton;36,809
+@synthesize imageView;37,834
+@synthesize imageViewPlaceHodler;38,857
+@synthesize datePicker;39,891
+@synthesize editingItem;40,915
+@synthesize imageEditButton;41,940
+@synthesize formulaLabel;42,969
+@synthesize imageNoteViewController;43,995
+@synthesize dismissedHandler;45,1033
+@synthesize inputText;47,1064
+@synthesize currentDate;48,1087
+@synthesize imageUnknown;49,1112
+@synthesize tapSoundId;51,1139
++ (MiddleViewController *)instance 53,1164
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:60,1421
+- (void)categorySelected:77,2076
+- (void)presentView:111,3280
+- (void)dismissInputPad 122,3624
+- (void)switchFloatingView:130,3794
+- (void)onCancel:155,4653
+- (void)onSave:167,5013
+- (void)touchesEnded:(NSSet *)touches withEvent:touchesEnded:withEvent:247,7693
+- (void)dealloc251,7805
+- (void)didReceiveMemoryWarning282,8535
+- (void)syncUi 292,8759
+- (void)syncDate 316,9468
+- (void)pushOp:325,10031
+- (void)onTapNumpadKey 355,10762
+- (void)onNumPadKey:359,10841
+- (void)textViewDidBeginEditing:426,12786
+- (void)textViewDidEndEditing:436,13099
+- (void)textViewDidChange:444,13326
+- (void)viewWillAppear:449,13478
+- (void)setNewImage:514,15732
+- (void)viewWillDisappear:530,16263
+- (void)viewDidAppear:534,16310
+- (void)viewDidLoad538,16425
+- (void)viewDidLayoutSubviews 562,17189
+- (void)onSelectCategory:569,17418
+- (void)onPickDate:576,17665
+- (void)onDateChanged:584,17955
+- (void)imagePickerControllerDidCancel:592,18162
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:imagePickerController:didFinishPickingMediaWithInfo:596,18328
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:actionSheet:clickedButtonAtIndex:616,18984
+- (void)onPickPhoto 637,19887
+- (void)imageDeleted 647,20375
+- (void)onImageEditButton 655,20545
+- (void)viewDidUnload661,20764
+- (BOOL)shouldAutorotateToInterfaceOrientation:684,21361
++ (void)showAddTransactionView:690,21572
+
+hello/Components/AddTransaction/ProgressView.m,798
+@synthesize progress 13,200
+@synthesize flagProgress 14,234
+@synthesize theme;15,276
+- (id)initWithLayer:17,296
++ (BOOL)needsDisplayForKey:33,802
+- (void)drawInContext:39,997
+@synthesize progress;47,1109
+@synthesize flagProgress;48,1131
+@synthesize activeThemeName;49,1157
+@synthesize themeDict;50,1186
+- (id)initWithFrame:52,1210
+- (id)initWithCoder:64,1470
+- (void)dealloc 72,1656
++ (Class)layerClass 77,1728
+- (void)setProgress:81,1787
+- (void)setProgress:(float)progressValue animated:setProgress:animated:86,1898
+- (void)setFlagProgress:108,2626
+- (void)setActiveThemeName:113,2749
+- (void)registerTheme:(NSDictionary *)resDict withName:registerTheme:withName:121,3075
+- (void)drawLayer:(CALayer *)layer inContext:drawLayer:inContext:126,3235
+- (void)drawRect:182,5405
+
+hello/Components/FullScreenViewController.m,313
+    UIView* targetView;FullScreenViewController(targetView)12,233
+    CGRect sourceFrame;FullScreenViewController(sourceFrame)13,257
+    CGRect targetFrame;FullScreenViewController(targetFrame)14,281
+@synthesize delegate;FullScreenViewController(delegate)21,356
+- (id)FullScreenViewController(id)23,379
+
+hello/Components/FUX/FirstExperienceView.m,456
+@synthesize navigationItems;18,355
+@synthesize activeItemIndex;19,384
+@synthesize navigationData;20,413
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:22,442
+- (void)didReceiveMemoryWarning31,671
+- (void)finish 41,909
+- (void)forward 48,1148
+- (void)backward 80,2195
+- (void)viewDidLoad101,2906
+- (void)viewWillAppear:128,3845
+- (void)viewDidUnload132,3948
+- (BOOL)shouldAutorotateToInterfaceOrientation:141,4150
+
+hello/Components/FUX/MonthlyBudgetView.m,710
+@synthesize budgetField;13,213
+@synthesize controller;14,238
+@synthesize navigationData;15,262
+@synthesize goForward;16,290
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:18,314
+- (void)didReceiveMemoryWarning27,543
+- (void)setData:35,743
+- (void)keyboardDidHide:41,855
+- (void)viewDidLoad49,1071
+- (void)viewDidUnload55,1189
+- (void)viewDidAppear:63,1357
+- (void)viewDidDisappear:68,1582
+- (void)onNext:73,1737
+- (void)onPrev:94,2466
+- (BOOL)shouldAutorotateToInterfaceOrientation:99,2562
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:textField:shouldChangeCharactersInRange:replacementString:105,2773
+
+hello/Components/FUX/MonthlyIncomeView.m,479
+@synthesize textView;14,243
+@synthesize controller;15,265
+@synthesize navigationData;16,289
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:18,318
+- (void)didReceiveMemoryWarning27,547
+- (void)setData:35,747
+- (void)keyboardDidHide:41,859
+- (void)viewDidLoad46,1007
+- (void)viewDidUnload52,1125
+- (void)viewDidAppear:60,1292
+- (void)viewDidDisappear:65,1514
+- (void)onNext:69,1668
+- (BOOL)shouldAutorotateToInterfaceOrientation:81,2131
+
+hello/Components/FUX/NewFeaturesView.m,338
+@synthesize controller;13,207
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:15,232
+- (void)didReceiveMemoryWarning24,461
+- (void)setData:32,661
+- (void)onNext:36,715
+- (void)onPrev:40,772
+- (void)viewDidLoad46,860
+- (void)viewDidUnload52,978
+- (BOOL)shouldAutorotateToInterfaceOrientation:59,1120
+
+hello/Components/FUX/WelcomeView.m,291
+@synthesize controller;14,225
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:16,250
+- (void)didReceiveMemoryWarning25,479
+- (void)onStart:50,976
+- (void)viewDidUnload54,1034
+- (BOOL)shouldAutorotateToInterfaceOrientation:61,1176
+- (void)setData:67,1387
+
+hello/Components/History/ExpenseByCategoryViewController.m,50
+- (id)ExpenseByCategoryViewController(id)17,307
+
+hello/Components/History/ExpenseHistoryByAmountViewController.m,1167
+@synthesize tableView;16,354
+@synthesize cellTemplate;17,377
+@synthesize startDate;18,403
+@synthesize endDate;19,426
+@synthesize expenses;20,447
+@synthesize tableUpdateDelegate;21,469
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:25,547
+- (void)reload 31,682
+- (BOOL)canEdit 36,859
+- (void)dealloc40,895
+- (void)didReceiveMemoryWarning48,1012
+- (void)viewDidLoad58,1243
+- (void)viewDidUnload69,1606
+- (void)viewWillAppear:78,1803
+- (void)viewDidAppear:83,1883
+- (void)viewWillDisappear:88,1961
+- (void)viewDidDisappear:93,2047
+- (BOOL)shouldAutorotateToInterfaceOrientation:98,2131
+- (NSInteger)numberOfSectionsInTableView:106,2381
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:111,2466
+- (UITableViewCell*)loadProperCell 116,2587
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:131,3036
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:tableView:canEditRowAtIndexPath:161,4245
+- (void)tableView:(UITableView *)table didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:167,4390
+
+hello/Components/History/ExpenseHistoryByCategoryViewController.m,1598
+@synthesize cellTemplate;16,360
+@synthesize startDate;17,386
+@synthesize endDate;18,409
+@synthesize expenseData;19,430
+@synthesize totalData;20,455
+@synthesize expenses;21,478
+@synthesize categories;22,500
+@synthesize tableUpdateDelegate;23,524
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:25,558
+- (void)reload 31,693
+    self.categories categories62,2291
+- (BOOL)canEdit 67,2360
+- (id)initWithStyle:71,2396
+- (void)dealloc80,2557
+- (void)didReceiveMemoryWarning91,2755
+- (void)viewDidLoad101,2986
+- (void)viewDidUnload112,3349
+- (void)viewWillAppear:120,3520
+- (void)viewDidAppear:125,3600
+- (void)viewWillDisappear:130,3678
+- (void)viewDidDisappear:135,3764
+- (BOOL)shouldAutorotateToInterfaceOrientation:140,3848
+- (NSInteger)numberOfSectionsInTableView:148,4098
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:153,4198
+- (BOOL)isHeaderAtIndexPath:159,4400
+- (BOOL)isFooterAtIndexPath:163,4488
+- (void)loadExpenseCell{loadExpenseCell169,4709
+- (void)loadHeaderCell{loadHeaderCell175,4868
+- (void)loadFooterCell{loadFooterCell181,5019
+- (UITableViewCell*)getProperCell:(UITableView*)tableView forIndexPath:getProperCell:forIndexPath:187,5172
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:216,6116
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:tableView:canEditRowAtIndexPath:255,8047
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:262,8193
+
+hello/Components/History/ExpenseHistoryByLocationViewController.m,1134
+@synthesize startDate;16,358
+@synthesize endDate;17,381
+@synthesize expenses;18,402
+@synthesize annotations;19,424
+@synthesize mapRect;20,449
+@synthesize mapView;22,471
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:26,526
+- (void)reload 32,661
+- (BOOL)canEdit 42,1010
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:46,1046
+- (void)dealloc55,1275
+- (void)didReceiveMemoryWarning60,1317
+- (void)viewDidLoad70,1548
+- (void)viewDidUnload77,1695
+- (BOOL)shouldAutorotateToInterfaceOrientation:85,1861
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:mapView:annotationView:calloutAccessoryControlTapped:93,2112
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:mapView:viewForAnnotation:97,2250
+- (void)mapView:(MKMapView *)map regionWillChangeAnimated:mapView:regionWillChangeAnimated:110,2885
+- (void)mapView:(MKMapView *)map regionDidChangeAnimated:mapView:regionDidChangeAnimated:114,3006
+- (void)generateAnnotationsThatFits 121,3235
+- (MKCoordinateRegion)getBoundsOfExpenses:173,5571
+
+hello/Components/History/ExpenseHistoryViewController.m,2818
+@synthesize startDate;21,445
+@synthesize endDate;22,468
+@synthesize cellTemplate;23,489
+@synthesize dates;24,515
+@synthesize expenseData;25,534
+@synthesize totalData;26,559
+@synthesize tableUpdateDelegate;27,582
+@synthesize editing;29,616
+- (void)setStartDate:(NSDate *)date1 endDate:setStartDate:endDate:33,675
+- (void)reload 39,814
+- (BOOL)canEdit 66,2237
+- (BOOL)editing 70,2274
+- (void)setEditing:74,2315
+- (void)navigateToData:79,2424
+static NSString* cellId static98,3058
+static NSString* headerCellId static99,3100
+static NSString* footerCellId static100,3147
+static NSString* fixedExpenseCellId static101,3194
+- (void)loadFixedExpenseCell static:owner:options:loadFixedExpenseCell109,3399
+- (void)loadHeaderCell{loadHeaderCell115,3555
+- (void)loadFooterCell{loadFooterCell121,3698
+- (id)initWithStyle:127,3841
+- (void)dealloc137,4047
+- (void)didReceiveMemoryWarning147,4215
+- (void)viewDidLoad157,4446
+- (void)viewDidUnload168,4813
+- (void)viewWillAppear:174,4896
+- (void)viewDidAppear:179,4976
+- (void)viewWillDisappear:184,5054
+- (void)viewDidDisappear:189,5140
+- (BOOL)shouldAutorotateToInterfaceOrientation:194,5224
+- (NSInteger)numberOfSectionsInTableView:202,5474
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:207,5569
+- (BOOL)isHeaderAtIndexPath:214,5810
+- (BOOL)isFooterAtIndexPath:218,5898
+- (BOOL)isFixedExpenseCell:224,6129
+- (BOOL)isLastFixedExpenseCell:231,6436
+- (UITableViewCell*)getProperCell:(UITableView*)tableView forIndexPath:getProperCell:forIndexPath:247,7037
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:282,8199
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:tableView:canEditRowAtIndexPath:320,10000
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:tableView:willBeginEditingRowAtIndexPath:327,10216
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:tableView:didEndEditingRowAtIndexPath:333,10481
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:tableView:commitEditingStyle:forRowAtIndexPath:339,10742
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:tableView:willSelectRowAtIndexPath:367,12360
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:374,12603
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:385,13203
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:tableView:willDisplayCell:forRowAtIndexPath:389,13354
+
+hello/Components/History/HistoryRootView.m,1526
+@property(nonatomic,retain)HistoryRootView(retain)18,380
+@synthesize overviewByMonth;26,598
+@synthesize overviewByCategory;27,627
+@synthesize tableViewPlaceHolder;28,659
+@synthesize viewByMonthButton;29,693
+@synthesize viewByCategoryButton;30,724
+@synthesize navigationButton;31,758
+@synthesize yearPicker;32,788
+@synthesize fullScreenController;33,812
+@synthesize availableYears;34,846
+@synthesize currentYear;35,874
+@synthesize viewByCategoryLabel;36,899
+@synthesize viewByMonthLabel;37,932
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:39,963
+- (void)didReceiveMemoryWarning48,1192
+- (void)viewDidLoad58,1423
+- (void)viewDidUnload85,2616
+- (BOOL)shouldAutorotateToInterfaceOrientation:93,2738
+- (void)viewWillAppear:99,2949
+- (void)reloadAll 106,3224
+- (void)viewDidAppear:123,3912
+- (void)onViewByMonth 126,3954
+- (void)onViewByCategory 140,4456
+- (void)onPickYear 154,4967
+- (BOOL)shouldDismissOnBackgroundViewTapped 168,5491
+- (void)dismissed 172,5556
+- (NSInteger)numberOfComponentsInPickerView:178,5661
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:pickerView:numberOfRowsInComponent:182,5751
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:pickerView:titleForRow:forComponent:188,5933
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:pickerView:didSelectRow:inComponent:192,6121
+- (void)pickedDate:199,6356
+- (void)pickedCategory:205,6628
+
+hello/Components/History/HistoryViewFrame.m,363
+@implementation UINavigationBar(CustomBackgroundExtension)11,176
+- (void)drawRect:13,236
+@synthesize navController;22,400
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:24,428
+- (void)didReceiveMemoryWarning33,657
+- (void)viewDidLoad43,888
+- (void)viewDidUnload63,1890
+- (BOOL)shouldAutorotateToInterfaceOrientation:71,2062
+
+hello/Components/History/MonthViewRoot.m,884
+@synthesize tableViewPlaceHolder;14,238
+@synthesize navigationItemView;15,272
+@synthesize overviewByCategory;16,304
+@synthesize overviewByDate;17,336
+@synthesize startDate 18,364
+@synthesize endDate 19,400
+@synthesize viewByCategoryButton;21,433
+@synthesize viewByDateButton;22,467
+@synthesize viewByCategoryLabel;23,497
+@synthesize viewByDateLabel;24,530
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:26,560
+- (void)viewDidLoad35,789
+- (void)viewDidUnload69,2205
+- (BOOL)shouldAutorotateToInterfaceOrientation:79,2436
+- (void)viewWillAppear:86,2638
+- (void)reloadAll 90,2703
+- (void)setStartDate:(NSDate *)startDate endDate:setStartDate:endDate:102,3122
+- (void)reload 108,3276
+- (BOOL)canEdit 112,3318
+- (void)pickedDate:118,3391
+- (void)pickedCategory:122,3434
+- (void)onViewByCategory 134,4020
+- (void)onViewByDate 146,4547
+
+hello/Components/History/OverviewByCategoryViewController.m,1356
+@property(nonatomic,retain)OverviewByCategoryViewController(retain)16,333
+@synthesize cellTemplate;23,488
+@synthesize table;24,514
+@synthesize categories;25,533
+@synthesize numbers;26,557
+@synthesize amounts;27,578
+@synthesize startDate;28,599
+@synthesize endDate;29,622
+@synthesize delegate;30,643
+@synthesize dimmer;32,666
+@synthesize firstFixedCategoryId;33,686
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:35,721
+- (void)viewDidLoad44,950
+- (void)viewDidUnload56,1258
+- (BOOL)shouldAutorotateToInterfaceOrientation:64,1368
+- (UITableViewCell*)loadCell:69,1534
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:94,2458
+- (NSInteger)numberOfSectionsInTableView:98,2586
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:102,2671
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:135,4150
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:143,4468
+- (void)reload 149,4603
+- (BOOL)canEdit 175,5855
+- (void)scrollViewWillBeginDragging:181,5919
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:scrollViewDidEndDragging:willDecelerate:185,6011
+- (void)scrollViewDidEndDecelerating:190,6157
+
+hello/Components/History/OverviewByYearViewController.m,1626
+@property(nonatomic,retain)OverviewByYearViewController(retain)17,344
+@synthesize tableView;23,441
+@synthesize dayOfYear;24,464
+@synthesize yearData;25,487
+@synthesize cellTemplate;26,509
+@synthesize delegate;27,535
+@synthesize budgetData;29,558
+@synthesize expenseData;30,582
+@synthesize balanceData;31,607
+@synthesize totalBalanceLabel;33,633
+@synthesize totalBudgetLabel;34,664
+@synthesize totalExpenseLabel;35,694
+@synthesize summaryView;36,725
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:38,751
+- (void)viewDidLoad47,980
+- (void)viewDidUnload57,1189
+- (void)viewWillAppear:71,1456
+- (BOOL)shouldAutorotateToInterfaceOrientation:75,1518
+- (UITableViewCell*)loadCell 80,1684
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:97,2164
+- (NSInteger)numberOfSectionsInTableView:104,2334
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:108,2419
+- (void)tableView:(UITableView *)view didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:129,3396
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:tableView:willDisplayCell:forRowAtIndexPath:137,3742
+- (void)scrollViewWillBeginDragging:146,4089
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:scrollViewDidEndDragging:willDecelerate:150,4181
+- (void)scrollViewDidEndDecelerating:155,4327
+- (void)reload 161,4457
+- (BOOL)canEdit 191,5905
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:195,5941
+
+hello/Components/History/SavingHistoryViewController.m,1313
+@synthesize table;16,315
+@synthesize dates;17,334
+@synthesize budgets;18,353
+@synthesize totals;19,374
+@synthesize startDate;20,394
+@synthesize endDate;21,417
+@synthesize cellTemplate;22,438
+@synthesize tableUpdateDelegate;23,464
+- (void)setStartDate:(NSDate *)start endDate:setStartDate:endDate:25,498
+- (void)reload 39,944
+- (BOOL)canEdit 53,1453
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:57,1489
+- (void)dealloc65,1686
+- (void)didReceiveMemoryWarning75,1847
+- (void)viewDidLoad85,2078
+- (void)viewDidUnload96,2441
+- (void)viewWillAppear:105,2634
+- (void)viewDidAppear:110,2714
+- (void)viewWillDisappear:128,3249
+- (void)viewDidDisappear:133,3335
+- (BOOL)shouldAutorotateToInterfaceOrientation:138,3419
+- (NSInteger)numberOfSectionsInTableView:146,3669
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:151,3754
+- (UITableViewCell*)loadSavingCell 156,3872
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:171,4294
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:tableView:canEditRowAtIndexPath:196,5458
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:203,5604
+
+hello/Components/History/SingleCategoryByMonthView.m,1559
+@synthesize cellTemplate;18,375
+@synthesize table;19,401
+@synthesize navigationItemView;20,420
+@synthesize startDate 22,453
+@synthesize endDate 23,489
+@synthesize categoryId;24,521
+@synthesize expenses;25,545
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:27,568
+- (void)viewDidLoad36,797
+- (void)viewDidUnload43,909
+- (BOOL)shouldAutorotateToInterfaceOrientation:49,968
+- (UITableViewCell*)loadCell 54,1134
+- (void)viewWillAppear:70,1724
+- (void)refreshUi 75,1809
+- (NSInteger)numberOfSectionsInTableView:86,2112
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:90,2197
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:94,2323
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:115,3264
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:tableView:willBeginEditingRowAtIndexPath:122,3622
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:tableView:didEndEditingRowAtIndexPath:128,3886
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:tableView:commitEditingStyle:forRowAtIndexPath:134,4146
+- (void)setViewOptions:146,4770
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:154,5173
+- (void)refresh 158,5324
+
+hello/Components/History/SingleCategoryByYearView.m,637
+@synthesize cellTemplate;SingleCategoryByYearView(cellTemplate)21,396
+@synthesize table;SingleCategoryByYearView(table)22,422
+@synthesize navigationItemView;SingleCategoryByYearView(navigationItemView)23,441
+@synthesize startDate SingleCategoryByYearView(startDate)25,474
+@synthesize endDate SingleCategoryByYearView(endDate)26,510
+@synthesize months;SingleCategoryByYearView(months)27,542
+@synthesize numbers;SingleCategoryByYearView(numbers)28,562
+@synthesize amounts;SingleCategoryByYearView(amounts)29,583
+@synthesize categoryId;SingleCategoryByYearView(categoryId)30,604
+- (id)SingleCategoryByYearView(id)32,629
+
+hello/Components/RootViewController.m,1097
+- (void)dealloc18,358
+- (void)didReceiveMemoryWarning32,642
+@synthesize todayController;@synthesize42,869
+@synthesize historyController;@synthesize43,898
+@synthesize tabPanel;@synthesize44,929
+@synthesize todayButton;@synthesize45,951
+@synthesize historyButton;@synthesize46,976
+@synthesize firstUxImage;@synthesize47,1003
+@synthesize firstUxImageView;@synthesize48,1029
+@synthesize firstUxButton;@synthesize49,1059
+@synthesize clientPanel;@synthesize50,1086
+- (void)presentViewController:@synthesize:54,1143
+- (void)onToday:@synthesize:if:78,2410
+- (void)onAddExpense:@synthesize:if:todayButton:84,2557
+- (void)onHistory:@synthesize:if:todayButton:onHistory:88,2649
+- (void)viewDidLoad96,2831
+- (void)viewDidUnload154,5972
+- (void)viewWillAppear:168,6294
+- (void)viewDidAppear:173,6434
+- (void)viewWillDisappear:183,6803
+- (void)viewDidDisappear:188,6949
+- (BOOL)shouldAutorotateToInterfaceOrientation:193,7093
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:willRotateToInterfaceOrientation:duration:199,7326
+
+hello/Components/Settings/AboutViewController.m,665
+@synthesize contentView;14,263
+@synthesize scrollView;15,288
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:17,313
+- (void)dealloc26,542
+- (void)didReceiveMemoryWarning33,639
+- (void)viewDidLoad43,870
+- (void)viewDidUnload51,1102
+- (void)viewWillAppear:60,1299
+- (BOOL)shouldAutorotateToInterfaceOrientation:64,1391
+- (void)onOk 70,1602
+- (void)onWebsite 74,1706
+- (void)onWeibo 79,1858
+- (void)onSupport 84,2015
+- (void)onRate 94,2453
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:mailComposeController:didFinishWithResult:error:99,2629
+
+hello/Components/Settings/AccountingReminderViewController.m,1447
+@synthesize accountingReminderTableView;AccountingReminderViewController(accountingReminderTableView)16,370
+@synthesize detailedReminderTableView;AccountingReminderViewController(detailedReminderTableView)17,411
+@synthesize yesNoSwitch;AccountingReminderViewController(yesNoSwitch)18,450
+@synthesize dailyPicker;AccountingReminderViewController(dailyPicker)19,475
+@synthesize weeklyPicker;AccountingReminderViewController(weeklyPicker)20,500
+@synthesize itemPicker;AccountingReminderViewController(itemPicker)21,526
+@synthesize reminderTypeData;AccountingReminderViewController(reminderTypeData)22,550
+@synthesize dailyTimeData;AccountingReminderViewController(dailyTimeData)23,580
+@synthesize weeklyData;AccountingReminderViewController(weeklyData)24,607
+@synthesize activeFloatingView;AccountingReminderViewController(activeFloatingView)25,631
+@synthesize currentReminderType;AccountingReminderViewController(currentReminderType)26,663
+@synthesize currentWeekIndex;AccountingReminderViewController(currentWeekIndex)27,696
+@synthesize currentTimeIndex;AccountingReminderViewController(currentTimeIndex)28,726
+@synthesize reminderTimeMask;AccountingReminderViewController(reminderTimeMask)29,756
+const int ReminderIntervalMinutes AccountingReminderViewController(ReminderIntervalMinutes)31,787
+const int BITNUMBER AccountingReminderViewController(BITNUMBER)32,827
+- (id)AccountingReminderViewController(id)34,854
+
+hello/Components/Settings/BackupAndRecoverViewController.m,1181
+- (void)BackupAndRecoverViewController(void)14,323
+static BackupAndRecoverViewController* _instance 17,349
+@synthesize backupAndRestore;19,452
+@synthesize imgBackup;20,482
+@synthesize imgRestore;21,505
+@synthesize labelStatus;22,529
++ (BackupAndRecoverViewController *) instance 24,555
+- (IBAction)onReturn:31,805
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:35,893
+- (void)initImages{initImages45,1149
+- (void)viewDidLoad50,1305
+- (void)viewDidUnload57,1446
+- (void)viewWillAppear:66,1655
+- (BOOL)shouldAutorotateToInterfaceOrientation:77,1919
+- (void)dealloc 82,2085
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:92,2264
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:105,2528
+- (NSInteger)numberOfSectionsInTableView:131,3522
++ (BOOL)isUserLoggedIn{isUserLoggedIn135,3607
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:141,3688
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:tableView:titleForFooterInSection:157,4324
+
+hello/Components/Settings/BudgetView.m,652
+@synthesize uiBudgetEditBox;14,212
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:16,242
+- (void)viewWillAppear:25,471
+- (void)onCancel:32,716
+- (void)onSave:36,835
+- (void)dealloc57,1682
+- (void)didReceiveMemoryWarning63,1756
+- (void)viewDidLoad73,1987
+- (void)viewDidUnload79,2105
+- (BOOL)shouldAutorotateToInterfaceOrientation:85,2195
+- (void)viewDidAppear:91,2406
+- (void)viewDidDisappear:95,2591
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:textField:shouldChangeCharactersInRange:replacementString:101,2771
+- (void)keyboardDidHide:140,3896
+
+hello/Components/Settings/PasscodeManager.m,118
+static UIView* blackScreenInstance PasscodeManager(blackScreenInstance)18,227
++ (BOOL)PasscodeManager(BOOL)22,303
+
+hello/Components/Settings/PasscodeSettingViewController.m,111
+@synthesize table;PasscodeSettingViewController(table)18,265
+- (id)PasscodeSettingViewController(id)20,285
+
+hello/Components/Settings/PasscodeView.m,1304
+@synthesize userInputText;14,232
+@synthesize defaultImage;15,259
+@synthesize defaultLabel;16,285
+@synthesize errorImage;17,311
+@synthesize errorLabel;18,335
+@synthesize defaultHeader;19,359
+@synthesize errorHeader;20,386
+@synthesize defaultTitle;21,411
+@synthesize errorTitle;22,437
+@synthesize textField;23,461
+@synthesize showCancelButton;24,484
+@synthesize showErrorScene;25,514
+@synthesize checkPasscodeHandler;26,542
+@synthesize isInputMode;27,576
+@synthesize displayText;28,601
+@synthesize displayTitle;29,626
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:31,653
+- (void)dealloc 44,1016
+- (void)didReceiveMemoryWarning61,1441
+- (void)viewDidLoad71,1668
+- (void)viewDidUnload79,1957
+bool isInternalSetText 98,2544
+- (void)setTextFieldText:100,2577
+- (void)updateScene 118,3079
+- (void)didChangeValueForKey:143,3986
+- (void)viewWillAppear:153,4266
+- (BOOL)shouldAutorotateToInterfaceOrientation:162,4485
+- (void)verifyPasscode 168,4696
+- (void)sendPasscode 185,5254
+- (void)textFieldTextChanged:192,5472
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:textField:shouldChangeCharactersInRange:replacementString:208,5932
+- (void)performCancel 217,6325
+- (void)onCancel 224,6546
+
+hello/Components/Settings/ReorderCategoryViewController.m,299
+@synthesize categoryTableView;ReorderCategoryViewController(categoryTableView)17,329
+@synthesize categoryArray;ReorderCategoryViewController(categoryArray)18,360
+@synthesize topCategoryArray;ReorderCategoryViewController(topCategoryArray)19,387
+- (id)ReorderCategoryViewController(id)21,418
+
+hello/Components/Settings/SettingView.m,1334
+@synthesize settingTableView;22,502
+@synthesize yesNoSwitch;23,532
+@synthesize imgAbout;25,558
+@synthesize imgBudget;26,580
+@synthesize imgStartup;27,603
+@synthesize imgAccount;28,627
+@synthesize imgBackup;29,651
+@synthesize imgCategory;30,674
+@synthesize imgPassword;31,699
+@synthesize imgReminder;32,724
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:34,750
+- (void)initImages{initImages44,1006
+- (void)dealloc55,1575
+- (void)didReceiveMemoryWarning70,1893
+- (void)onOk:78,2093
+- (void)onSwitch 82,2208
+- (void)viewDidLoad89,2403
+- (void)viewDidUnload97,2605
+- (BOOL)shouldAutorotateToInterfaceOrientation:106,2808
+- (void)viewWillAppear:112,3019
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:119,3224
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:135,3545
+- (NSInteger)numberOfSectionsInTableView:180,5446
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:186,5567
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:tableView:titleForHeaderInSection:209,6628
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:tableView:titleForFooterInSection:218,6823
+
+hello/Components/Today/TodayViewController.m,2669
+@synthesize progressView;19,382
+@synthesize monthlyBudgetLabel;20,408
+@synthesize monthlyExpenseLabel;21,440
+@synthesize monthlyBalanceLabel;22,473
+@synthesize todayExpenseLabel;23,506
+@synthesize expenseTable;24,537
+@synthesize cellTemplate;25,563
+@synthesize dateLabel;26,589
+@synthesize settingView;27,612
+@synthesize todayExpensePanel;29,638
+@synthesize recentStatsPanel;30,669
+@synthesize recentStatsTable;31,699
+@synthesize daysSinceFirstUse;32,729
+@synthesize rewardStamp;33,760
+@synthesize ordinaryStamp;34,785
+@synthesize stampMask;35,812
+@synthesize topLine;36,835
+@synthesize midLine;37,856
+@synthesize arrowImage;38,877
+@synthesize darkRedColor;39,901
+@synthesize expenses;41,928
+@synthesize recentExpenseStats;42,950
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:44,983
+- (void)didReceiveMemoryWarning53,1212
+- (void)viewDidLoad63,1443
+- (void)viewDidUnload116,4016
+- (BOOL)shouldAutorotateToInterfaceOrientation:130,4378
+- (void)setDaysSinceUseLabel:138,4628
+- (void)viewWillAppear:153,5403
+- (void)updateData 160,5560
+- (void)updateUi 168,5845
+- (void)updateProgress 268,9783
+- (void)viewDidAppear:275,10055
+- (void)viewDidDisappear:279,10124
+static NSString* cellId static285,10256
+- (NSInteger)numberOfSectionsInTableView:static:owner:options:numberOfSectionsInTableView:294,10450
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:298,10535
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:tableView:canEditRowAtIndexPath:304,10786
+- (UITableViewCell*)recentStatsCellAtIndexPath:310,10960
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:338,12198
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:378,13793
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:384,14072
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:tableView:commitEditingStyle:forRowAtIndexPath:388,14223
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:tableView:willBeginEditingRowAtIndexPath:400,14768
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:tableView:didEndEditingRowAtIndexPath:408,15081
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:tableView:willDisplayCell:forRowAtIndexPath:416,15390
+-(void)onSetting 425,15730
+
+hello/Components/Widgets/MonthPickerController.m,610
++ (MonthPickerController *)pickerWithMonths:14,222
+@synthesize months;21,458
+@synthesize delegate;22,478
+@synthesize sampleLabel;23,500
+@synthesize labels;24,525
+- (UILabel*)makeLabelWithFrame:26,546
+- (void)reload 41,1248
+- (void)pickMonth:65,2074
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:81,2562
+- (void)dealloc90,2791
+- (void)didReceiveMemoryWarning97,2879
+- (void)viewDidLoad107,3110
+- (void)viewDidUnload113,3228
+- (BOOL)shouldAutorotateToInterfaceOrientation:121,3398
+- (void)scrollViewDidScroll:129,3637
+- (void)scrollViewDidEndDecelerating:143,4334
+
+hello/Components/Widgets/UIImageNoteViewController.m,663
+@synthesize delegate;14,234
+@synthesize imageNote;15,256
+@synthesize scrollView;16,279
+@synthesize imageView;17,303
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:19,327
+- (void)dealloc28,556
+- (void)didReceiveMemoryWarning34,624
+- (void)viewDidLoad44,855
+- (void)viewDidUnload50,973
+- (void)viewWillAppear:59,1168
+- (void)viewWillDisappear:64,1276
+- (BOOL)shouldAutorotateToInterfaceOrientation:68,1349
+- (void)onDone 75,1590
+- (void)onDeleteImage 79,1696
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:actionSheet:clickedButtonAtIndex:87,2064
+- (UIView *)viewForZoomingInScrollView:96,2356
+
+hello/main.m,17
+int main(15,259
+
+hello/Models/CategoryManager.m,1071
+@synthesize categoryId;14,216
+@synthesize displayId;15,240
+@synthesize parentId;16,263
+@synthesize categoryName;17,285
+@synthesize iconName;18,311
+@synthesize hilitedIconName;19,333
+@synthesize smallIconName;20,362
+@synthesize isActive;21,389
+@synthesize categoryIconName;22,411
+@synthesize midHilitedIconName;23,441
+- (void)dealloc{dealloc25,474
+-(NSString *)description 32,613
+CategoryManager* g_catMan 38,774
+@synthesize categoryCollection;42,841
+@synthesize categoryDictionary;43,873
+@synthesize topCategoryCollection;44,905
+@synthesize needReloadCategory;45,940
+- (id)init 47,973
++ (CategoryManager*)instance69,1848
+- (void)translateCategory translateCategory::82,2127
+- (BOOL)loadCategoryDataFromDatabase:100,2992
+- (UIImage*)iconNamed:131,4221
+- (NSArray *)getSubCategoriesWithCategoryId:135,4314
++ (Category *)categoryById:145,4579
+- (void)dealloc 150,4758
+- (NSArray*)moveCategory:(int)categoryIndex ofCollection:(NSArray *)collection toPosition:moveCategory:ofCollection:toPosition:159,5043
++ (NSString *)categoryNameById:183,6014
+
+hello/Models/ConfigurationManager.m,133
++ (NSDictionary *)getAllConfigurations{getAllConfigurations13,224
++ (void)AddElementToDictionary:AddElementToDictionary::26,1020
+
+hello/Models/Database.m,322
+static Database *g_instance g_instance13,160
++ (Database*)instance 17,222
+- (Database*)init 24,352
+- (BOOL)load:29,407
+- (void)hibernate 45,703
+}_RecordHandlerParam;_RecordHandlerParam53,795
+int recordHandler(55,818
+- (BOOL)execute:execute::::70,1512
+int recordHandler2(102,2407
+- (NSArray *)execute:117,3017
+
+hello/Models/ExpenseManager.m,1779
+@synthesize expenseId;15,239
+@synthesize categoryId;16,262
+@synthesize amount;17,286
+@synthesize date;18,306
+@synthesize notes;19,324
+@synthesize pictureRef;20,343
+@synthesize useLocation;21,367
+@synthesize latitude;22,392
+@synthesize longitude;23,414
+- (Expense*) init 25,438
+static ExpenseManager* g_instance 34,539
+@implementation ExpenseManager36,581
++ (ExpenseManager*)instance 38,613
+- (id)init 45,755
+- (void)dealloc 51,973
+- (void)translateExpense translateExpense::58,1153
+- (NSArray *)loadExpensesOfDay:(NSDate *)date orderBy:(NSString *)fieldName ascending:loadExpensesOfDay:orderBy:ascending:76,2015
+- (NSArray*)getExpensesBetween:(NSDate *)startDate endDate:(NSDate *)endDate orderBy:(NSString *)fieldName assending getExpensesBetween:endDate:orderBy:assending:87,2568
+- (NSArray *)getExpensesOfCategory:(int)categoryId fromDate:(NSDate *)startDate toDate:getExpensesOfCategory:fromDate:toDate:101,3275
+- (void)translateExpenseDate translateExpenseDate::109,3780
+- (NSArray *)getAvailableDatesBetween:(NSDate *)startDate endDate:getAvailableDatesBetween:endDate:116,4033
+- (NSArray*)loadExpenseDates 124,4506
+- (NSArray *)loadMonths{loadMonths132,4805
+- (BOOL)addExpense:146,5338
+- (BOOL)updateExpense:163,6382
+- (Expense *)getExpenseById:179,7464
+- (BOOL)deleteExpenseById:189,7873
+- (NSString*)generateImageFileName 201,8364
+- (NSString *)saveImageNote:207,8498
+- (UIImage*)loadImageNote:218,8953
+- (void)deleteImageNote:229,9382
+- (void)translateIntId translateIntId::239,9815
+- (int)getLastInsertedExpensedId 244,9963
+- (void)releaseCache 251,10192
+- (UIImage*)getDefaultTagImage 255,10249
++ (NSDictionary *)groupExpensesByDate:259,10314
++ (NSDate *)firstDayOfExpense 270,10748
++ (NSDate*)lastDayOfExpense 282,11187
+
+hello/Models/PlanManager.m,763
+- (id)init 14,206
+@synthesize planId;24,369
+@synthesize amount;25,389
+@synthesize year;26,409
+@synthesize month;27,427
+@synthesize workday;28,446
+@synthesize vacation;29,467
+@implementation MonthlyPlan33,496
+- (id)init 35,525
+@synthesize planId;46,715
+@synthesize income;47,735
+@synthesize budget;48,755
+@synthesize dayOfMonth;49,775
+NSArray* g_planList 53,806
+@implementation PlanManager55,834
++ (void)loadFromDb 57,863
++ (double)getBudgetOfDay:107,2694
++ (MonthlyPlan*)getPlanOfMonth:113,2886
++ (double)getBudgetOfMonth:124,3246
++ (double)getIncomeOfMonth:131,3422
++ (void)setBudget:(double)budget ofMonth:setBudget:ofMonth:138,3598
++ (void)setIncome:(double)income ofMonth:setIncome:ofMonth:151,4225
++ (NSDate*)firstDayOfPlan 164,4852
+
+hello/Obsolete/BudgetManager.m,757
+@synthesize date;14,209
+@synthesize amount;15,227
+@synthesize vacationAmount;16,247
+@synthesize budgetId;17,275
+- (id)init 19,298
+- (NSString *)description 28,457
+BudgetManager* g_budgetMan 34,673
+@implementation BudgetManager36,708
+- (id)init 39,740
++ (BudgetManager *)instance 46,836
+- (void)translateBudget translateBudget::53,1036
+- (void)loadFromDb 66,1537
+- (BOOL)setBudgetOfDay:(NSDate*)day withAmount:(double)amount withVacationAmount:setBudgetOfDay:withAmount:withVacationAmount:80,1904
+- (NSDate *)getFirstDayOfCustomBudget 104,2790
+- (Budget*)getRawBudgetOfDay:114,3176
+- (double)getBudgetOfDay:126,3481
+- (double)getCurrentBudget 134,3665
+- (double)getCurrentVacationBudget 139,3784
+- (double)getTotalBudgetOfMonth:144,3919
+
+hello/Obsolete/FirstViewController.m,1174
+@synthesize budgetLabel;19,372
+@synthesize cellTemplate;20,397
+@synthesize dateLabel;21,423
+@synthesize balanceLabel;22,446
+@synthesize savingLabel;23,472
+@synthesize transactionTable;24,497
+@synthesize stampView;25,527
+@synthesize progressView;26,550
+@synthesize todayExpenses;27,576
+static NSString* cellId 29,604
+- (void)viewDidLoad31,740
+- (void)loadCellFromNib 43,991
+- (BOOL)shouldAutorotateToInterfaceOrientation:51,1151
+- (void)viewWillAppear:57,1362
+- (void)viewDidAppear:89,2650
+- (void)didReceiveMemoryWarning93,2693
+- (void)viewDidUnload102,2895
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:tableView:cellForRowAtIndexPath:118,3291
+- (NSInteger)numberOfSectionsInTableView:151,4741
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:tableView:numberOfRowsInSection:155,4826
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:tableView:heightForRowAtIndexPath:163,5001
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:tableView:didSelectRowAtIndexPath:167,5115
+- (void)onChangeBudget:173,5402
+- (void)onSettings:177,5545
+- (void)dealloc181,5685
+
+hello/Obsolete/SecondViewController.m,1420
+@synthesize months;25,612
+@synthesize currentMonth;26,632
+@synthesize monthPicker;27,658
+@synthesize monthPickerPlaceholder;28,683
+@synthesize filterButton;29,719
+@synthesize editButton;30,745
+@synthesize tablePlaceholder;31,769
+@synthesize switchButtonSaving;32,799
+@synthesize switchButtonExpense;33,831
+@synthesize switchPlaceholder;34,864
+@synthesize monthButton;35,895
+@synthesize byAmountButton;36,920
+@synthesize byCategoryButton;37,948
+@synthesize byLocationButton;38,978
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:initWithNibName:bundle:40,1009
+- (void)viewDidLoad49,1361
+- (BOOL)shouldAutorotateToInterfaceOrientation:111,4063
+- (void)didReceiveMemoryWarning117,4272
+- (void)viewDidUnload126,4474
+- (void)updateSwitchButtonData 144,4962
+- (void)presentTable:151,5386
+- (void)onSwitchButtonSaving 193,6860
+- (void)onSwitchButtonExpense 199,7005
+- (void)onSwitchButtonByAmount 205,7152
+- (void)onSwitchButtonByCategory 212,7330
+- (void)onSwitchButtonByLocation 219,7512
+- (void)presentSwitchArea:226,7694
+- (void)navigateTo:(int)tableId withData:navigateTo:withData:258,9171
+- (void)dataChanged 278,9933
+- (void)onMonthButton{onMonthButton282,9993
+- (void)viewWillAppear:286,10062
+- (void)updateMonthButtonTitle:305,10765
+- (void)viewDidAppear:310,10915
+- (void)onEdit:315,11066
+- (void)onFilter 333,11682
+- (void)monthPicked:340,11914
+- (void)dealloc350,12371
+
+hello/Utils/DbTransitionManager.m,453
+#define COLUMN_NAME_LATITUDE 12,199
+#define COLUMN_NAME_LONGITUDE 13,255
+#define COLUMN_NAME_USELOCATION 14,312
+#define COLUMN_NAME_CATEGORYICON 15,371
+#define COLUMN_NAME_MIDHILITEDICON 16,431
++ (void)migrateExpenseTable 20,530
++ (void)migrateToMonthlyPlan 45,1713
++ (void)migrateToNewCategories 54,2146
++ (void)addTwoFixedExpenseCategory 112,11839
++ (void)addMidHilitedCagetoryIconColumn 124,12484
++ (void)migrateToCurrentVersion 143,13249
+
+hello/Utils/LocationManager.m,846
+static LocationManager* g_instance 11,170
++ (void)tryUpdateLocation 15,246
++ (void)tryPause 21,358
++ (void)tryResume 27,436
++ (void)tryTerminate 33,516
++ (BOOL)isLocationAvailable 37,573
++ (CLLocationCoordinate2D)getCurrentLocation 43,689
+- (id)init 51,915
+- (void)dealloc 68,1370
+- (BOOL)locationAvailable 76,1529
+- (CLLocationCoordinate2D)currentLocation 80,1591
+- (void)pause 84,1667
+- (void)resume 89,1763
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:locationManager:didChangeAuthorizationStatus:96,1916
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:locationManager:didFailWithError:106,2233
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:locationManager:didUpdateToLocation:fromLocation:110,2354
+
+hello/Utils/NSString+Helper.m,168
+@implementation NSString (Helper)11,175
+- (BOOL) contains:(NSString *)string options:contains:options:12,209
+- (BOOL) contains:17,396
++ (BOOL)isNullOrEmpty:21,504
+
+hello/Utils/Statistics.m,1328
++ (double)getTotalOfDay:19,306
++ (double)getTotalOfDay:(NSDate *)day excludeFixedExpense:getTotalOfDay:excludeFixedExpense:23,416
++ (double)getTotalOfMonth:40,1187
++ (double)getTotalOfMonth:(NSDate *)dayOfMonth excludeFixedExpense:getTotalOfMonth:excludeFixedExpense:44,1315
++ (NSDictionary *)getTotalBetweenStartDate:(NSDate *)startDate endDate:getTotalBetweenStartDate:endDate:59,2043
++ (NSDictionary *)getTotalBetweenStartDate:(NSDate *)startDate endDate:(NSDate *)endDate excludeFixedExpense:getTotalBetweenStartDate:endDate:excludeFixedExpense:63,2237
++ (double)getBalanceOfDay:80,3244
++ (double)getBalanceOfMonth:85,3407
++ (double)getSavingOfMonth:90,3586
++ (NSDate *)getFirstDayOfUserAction 110,4335
++ (NSArray*)getMonthsOfYear:122,4738
++ (NSArray *)getAvailableYears{getAvailableYears130,5076
++ (NSDictionary*)getTotalByCategoryfromDate:(NSDate *)startDate toDate:(NSDate *)endDate excludeFixedExpenses:getTotalByCategoryfromDate:toDate:excludeFixedExpenses:144,5653
++ (NSDictionary *)getTotalOfCategory:(int)categoryId fromMonth:(NSDate *)dayOfStartMonth toMonth:getTotalOfCategory:fromMonth:toMonth:172,7365
++ (NSArray *)getExpensesOfCategory:(int)categoryId fromDate:(NSDate *)startDate toDate:getExpensesOfCategory:fromDate:toDate:195,8883
++ (NSArray *)getExpenseStatsOfRecent30Days 199,9099
+
+hello/Utils/UIAlertView+Helper.m,602
+@implementation UIAlertView (Helper)11,176
++ (void) showError:13,214
+    va_list args;15,260
+    NSString* formattedMessage;18,312
+    message 19,344
+    UIAlertView *alert alert23,444
++ (void) showMessage:32,823
+    va_list args;34,871
+    NSString* formattedMessage;37,923
+    message 38,955
+    UIAlertView *alert alert42,1059
++ (void) showWaitNotification:51,1435
+    va_list args;53,1497
+    NSString* formattedMessage;56,1549
+    message 57,1581
+    UIAlertView *alert alert60,1680
+    UIActivityIndicatorView *indicator indicator67,2050
+    indicator.center center69,2291
+
+hello/Utils/UIColor+Helper.m,72
+@implementation UIColor (Helper)11,163
++ (UIColor *)slateColor 13,197
+
+hello/Utils/UIViewController+UtilityExtension.m,899
+#define PROPNAME_PARENTMODALVIEWCONTROLLER 12,234
+#define PROPNAME_PRESENTINGVIEWCONTROLLER 13,306
+@interface ViewControllerObserver 15,377
+static ViewControllerObserver* observerInstance 23,613
++ (ViewControllerObserver *)instance 27,709
++ (void)addObserverOnViewController:33,878
++ (void)removeObserverOnViewController:38,1225
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:observeValueForKeyPath:ofObject:change:context:43,1536
+static NSString * UIViewControllerDelegateKey 68,2690
+static NSString * UIViewControllerDismissHanlderKey 69,2767
+@implementation UIViewController 71,2857
++ (UIViewController *)instanceFromNib 73,2910
++ (UIViewController*)instanceFromNib:82,3292
+- (id)delegate 93,3650
+- (void)setDelegate:97,3742
+- (ViewControllerDismissedBlock)dismissHandler 101,3880
+- (void)setDismissHandler:105,4010
+
+hello/Utils/Utility.m,2101
+NSString* formatSqlString(11,152
+NSString* shortDateString(19,418
+NSString* formatSqlDate(30,766
+NSString* formatSqlYearMonth(41,1157
+NSString* formatDisplayDate(52,1507
+NSString* formatMonthString(63,1930
+NSString* formatMonthOnlyString(69,2157
+NSString* formatYearString(75,2367
+NSString* formatMonthDayString(81,2575
+NSString* formatDateToString(87,2787
+NSDate* dateFromSqlDate(95,3193
+NSDate* dateFromMonthString(102,3488
+NSDate* dateFromFormatString(120,4092
+NSDate* firstDayOfMonth(127,4420
+NSDate* lastDayOfMonth(131,4538
+NSDate* firstMonthOfYear(135,4654
+NSDate* lastMonthOfYear(141,4862
+BOOL isWeekend(147,5070
+BOOL compareDate(155,5402
+bool isLeapYear(164,5899
+int getNumberOfDaysInMonth(174,6070
+int getDayAmountOfMonth(195,6469
+NSArray* getDaysOfMonth(202,6765
+NSDateComponents* getDateComponentsWithoutTime(215,7418
+NSArray* getMonthsBetween(221,7684
+NSDate* normalizeDate(248,8654
+NSArray*  getDatesBetween(254,8925
+NSArray* getTimeArrayWithMinutesInteval(269,9501
+NSArray* getWeekdayStringArray(284,10128
+BOOL isSameDay(299,10716
+BOOL isSameMonth(306,11169
+BOOL isSameYear(313,11599
+int compareMonth(320,12002
+void makeToolButton(335,12615
+void makeDropButton(342,12967
+void setButtonTitleForStates(349,13315
+void setButtonTitleColorForStates(359,13786
+void setButtonTitleShadowColorForStates(369,14281
+void setButtonImageForStates(379,14806
+NSString* formatAmount(390,15277
+NSDate*   minDay(397,15514
+NSDate*   maxDay(400,15629
+NSString* generateUUID(404,15745
+int getDay(413,16077
+void flashView(418,16241
+void cancelNotifications(429,16612
+void scheduleNotificationWithItem(438,16923
+@implementation UIViewController(ModalViewExtension)487,18775
+- (UIViewController *)rootViewController 489,18829
++ (UIViewController*)topViewController 497,19085
+@implementation UIView(508,19374
+- (UIView *)findFirstResponder 510,19414
+@implementation NSArray(523,19695
+- (NSArray*)reverse 525,19738
+@interface Dimmer(536,19997
++ (Dimmer *)dimmerWithView:547,20140
+- (id)initWithView:551,20246
+- (void)show 557,20348
+- (void)hide 566,20630
+
+hello/Utils/Workflow.m,504
+@property(nonatomic,retain)Workflow(retain)13,121
+@synthesize keyActionMap;21,338
+@synthesize sourceTargetMap;22,364
+@synthesize context;23,393
+@synthesize currentStateKey;24,414
+@synthesize completed;25,443
+- (id)init 27,467
+- (void)dealloc 39,804
+- (void)setAction:(Action)action withMesageMap:(NSDictionary *)map forKey:setAction:withMesageMap:forKey:51,1123
+- (void)removeActionByKey:56,1336
+- (void)execute 64,1587
+-(void)sendMessage:74,1792
+- (NSDictionary *)retrieveContext 92,2378

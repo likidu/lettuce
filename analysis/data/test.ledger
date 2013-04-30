@@ -1,5 +1,4 @@
 -*- mode:ledger; fill-column:70; coding:utf-8; -*-
-
 2013-03-24 * wagas
  expenses:吃饭:零食   42
  assets:现金
@@ -18,4 +17,12 @@
 
 2013-03-29 * 买苹果，桔子
  expenses:吃饭:水果   23
+
+2013-04-29 * 通过支付宝转账
+ assets:银行-中信银行    2000
+ assets:银行-招商银行
+
+2013-04-29 * 预订羽毛球场地
+ expenses:娱乐:羽毛球:场地    50
+
  assets:现金
