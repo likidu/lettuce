@@ -7,7 +7,7 @@
 ## Description :
 ## --
 ## Created : <2013-04-11 00:00:00>
-## Updated: Time-stamp: <2013-04-28 18:28:44>
+## Updated: Time-stamp: <2013-04-30 16:39:33>
 ##-------------------------------------------------------------------
 from flask import Flask, request
 from flask import make_response
@@ -61,7 +61,11 @@ def backup_db():
 
 @app.route("/restore", methods=['POST', 'GET'])
 def restore_db():
-    userid="1686664253"
+    userid = request.form['WeiboAccount[WeiboAccountUserId]']
+    expirationdate = request.form['WeiboAccount[WeiboAccountExpirationDate]']
+    accesstoken = request.form['WeiboAccount[WeiboAccountAccessToken]']
+    refreshtoken = "" # TODO
+
     filename = get_db_filename(userid)
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 

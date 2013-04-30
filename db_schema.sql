@@ -6,6 +6,7 @@ use wj;
 
 -- ############################### CREATE TABLE #############################################
 CREATE TABLE if not exists expenses(
+       expenseid bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'pk',
        userid VARCHAR(50) NOT NULL,
        source_expenseid VARCHAR(50),
        amount float,
@@ -17,7 +18,8 @@ CREATE TABLE if not exists expenses(
        latitude FLOAT,
        LONGITUDE FLOAT,
        NOTES VARCHAR(200),
-       memo VARCHAR(200)
+       memo VARCHAR(200),
+       primary key(expenseid)
 );
 CREATE INDEX expense_date_index ON expenses (date) USING BTREE;
 
