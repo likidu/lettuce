@@ -2,6 +2,7 @@
 
 -- /usr/bin/mysql -uroot -p
 
+-- CREATE DATABASE wj CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 use wj;
 
 -- ############################### CREATE TABLE #############################################
@@ -32,7 +33,7 @@ CREATE TABLE if not exists eventlogs(
 
 CREATE TABLE if not exists userindex(
        userid VARCHAR(50) NOT NULL,
-       index VARCHAR(50) NOT NULL,
+       userindex VARCHAR(50) NOT NULL,
        value VARCHAR(50),
        updatetime VARCHAR(200)
 );
@@ -41,7 +42,7 @@ CREATE TABLE if not exists userindex(
 CREATE TABLE if not exists userprofile(
        userid VARCHAR(50) NOT NULL,
        isiphone float, -- >0.5 is iphone user
-       gender float, -- >0.5 is male
+       gender float -- >0.5 is male
 );
 
 -- ###########################################################################################
