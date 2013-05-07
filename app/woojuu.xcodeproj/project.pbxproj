@@ -10,6 +10,7 @@
 		04F19F64170F3312003BCB0C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F19F63170F3312003BCB0C /* CoreTelephony.framework */; };
 		1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */; };
 		1A54C0191430B380003444B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A54C0181430B380003444B1 /* CoreLocation.framework */; };
+		1A5D1CBA173821CC00535817 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5D1CB71738215E00535817 /* libPods.a */; };
 		1A6B5E4313F2C47C007BC798 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B5E4413F2C47C007BC798 /* MainWindow.xib */; };
 		1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD1391132BB1B00035BA92 /* UIKit.framework */; };
 		1AAD1394132BB1B00035BA92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAD1393132BB1B00035BA92 /* Foundation.framework */; };
@@ -674,13 +675,30 @@
 		26BC96DC171ABA4800365226 /* WoojuuAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BC96DB171ABA4800365226 /* WoojuuAPIClient.m */; };
 		B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7715FB846900749C98 /* SystemConfiguration.framework */; };
 		B0629B7A15FB847E00749C98 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0629B7915FB847E00749C98 /* CFNetwork.framework */; };
-		FAFC54E5D8054A3A8C92DA9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 676090FDC278472C9091C06D /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A5D1CB61738215E00535817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A5D1CB21738215D00535817 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5007173E41F44686B4382D1C;
+			remoteInfo = Pods;
+		};
+		1A5D1CB8173821B500535817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A5D1CB21738215D00535817 /* Pods.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F1F29CA841D543B299F4ED37;
+			remoteInfo = Pods;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04F19F63170F3312003BCB0C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		1A1DEAD21356133200505A56 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		1A54C0181430B380003444B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1A5D1CB21738215D00535817 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		1A6B5E4413F2C47C007BC798 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		1AAD138D132BB1B00035BA92 /* woojuu.book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = woojuu.book.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AAD1391132BB1B00035BA92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1425,6 +1443,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5D1CBA173821CC00535817 /* libPods.a in Frameworks */,
 				04F19F64170F3312003BCB0C /* CoreTelephony.framework in Frameworks */,
 				B0629B7815FB846900749C98 /* SystemConfiguration.framework in Frameworks */,
 				1AAD1392132BB1B00035BA92 /* UIKit.framework in Frameworks */,
@@ -1438,16 +1457,24 @@
 				1AE433A01375AC82005AAB8F /* QuartzCore.framework in Frameworks */,
 				1A1DEAD31356133200505A56 /* libsqlite3.0.dylib in Frameworks */,
 				1AAD1396132BB1B00035BA92 /* CoreGraphics.framework in Frameworks */,
-				FAFC54E5D8054A3A8C92DA9B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A5D1CB31738215D00535817 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A5D1CB71738215E00535817 /* libPods.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1AAD1382132BB1AF0035BA92 = {
 			isa = PBXGroup;
 			children = (
+				1A5D1CB21738215D00535817 /* Pods.xcodeproj */,
 				04F19F63170F3312003BCB0C /* CoreTelephony.framework */,
 				1AD2D27E16835A5F006EECC0 /* AudioToolbox.framework */,
 				1AF489C015AB056E009ADC04 /* libobjc.A.dylib */,
@@ -2480,6 +2507,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1A5D1CB9173821B500535817 /* PBXTargetDependency */,
 			);
 			name = woojuu;
 			productName = hello;
@@ -2506,12 +2534,28 @@
 			mainGroup = 1AAD1382132BB1AF0035BA92;
 			productRefGroup = 1AAD138E132BB1B00035BA92 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1A5D1CB31738215D00535817 /* Products */;
+					ProjectRef = 1A5D1CB21738215D00535817 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1AAD138C132BB1B00035BA92 /* woojuu */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1A5D1CB71738215E00535817 /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = 1A5D1CB61738215E00535817 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1AAD138B132BB1B00035BA92 /* Resources */ = {
@@ -3217,6 +3261,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A5D1CB9173821B500535817 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Pods;
+			targetProxy = 1A5D1CB8173821B500535817 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1AAD139A132BB1B00035BA92 /* InfoPlist.strings */ = {
