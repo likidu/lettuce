@@ -6,7 +6,7 @@
 ## Description :
 ## --
 ## Created : <2013-03-30>
-## Updated: Time-stamp: <2013-04-30 11:45:46>
+## Updated: Time-stamp: <2013-04-30 17:26:23>
 ##-------------------------------------------------------------------
 import MySQLdb
 import sys
@@ -122,15 +122,15 @@ def insert_mysql(expenses):
 def ledger_to_url_request(fname, userid):
     expenses = load_ledger(fname, userid)
     for expense in expenses:
-        print "request_url_post 'http://0.0.0.0:5000/add_expense' 'userid=%s&notes=%s'" \
-            % (userid, expense.notes)
+        print "request_url_post 'http://0.0.0.0:5000/add_expense' 'userid=%s&notes=%0.2f %s'" \
+            % (userid, expense.amount, expense.notes)
 
 # python -c "import dataconvert; dataconvert.sqlite_to_url_request('../data/test.sqlite', 'likisqlite')"
 def sqlite_to_url_request(fname, userid):
     expenses = load_sqlite(fname, userid)
     for expense in expenses:
-        print "request_url_post 'http://0.0.0.0:5000/add_expense' 'userid=%s&notes=%s'" \
-            % (userid, expense.notes)
+        print "request_url_post 'http://0.0.0.0:5000/add_expense' 'userid=%s&notes=%0.2f %s'" \
+            % (userid, expense.amount, expense.notes)
 
 # ./dataconvert.py import denny ../data/test.ledger
 # ./dataconvert.py import liki ../data/test.sqlite

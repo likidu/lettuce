@@ -64,3 +64,6 @@ app/woojuu.xcodeproj/xcuserdata/BigMac.xcuserdatad/xcschemes/woojuu.xcscheme
 
 # Jetbrain IDE #
 .idea
+
+filebat.ledger
+*.pyc
