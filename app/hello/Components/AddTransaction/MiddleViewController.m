@@ -39,7 +39,6 @@
 @synthesize imageEditButton;
 @synthesize formulaLabel;
 @synthesize imageNoteViewController;
-
 @synthesize dismissedHandler;
 
 @synthesize inputText;
@@ -150,7 +149,23 @@
         catViewController.silent = NO;
 }
 
+- (void)switchToincome:(id)sender {
+ /*   lyyViewController *incomeViewController = [[lyyViewController alloc] initWithNibName:@"lyy" bundle:nil];
+    [self.view.superview addSubview:incomeViewController.view];
+    NSLog(@"22222");
+    [self.view removeFromSuperview];
+    [incomeViewController release];*/
+    
+    IncomeViewController *incomeViewController = [[IncomeViewController alloc] initWithNibName:@"IncomeViewController" bundle:nil];
+    [self.view.superview addSubview:incomeViewController.view];
+    NSLog(@"22222");
+    [self.view removeFromSuperview];
+ //   [incomeViewController release];
+    
+}
+
 - (void)onCancel:(id)sender {
+
     self.editingItem = nil;
     needReset_ = YES;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
@@ -544,7 +559,7 @@
     
     [self.view addSubview:numPadView];
     numPadView.hidden = NO;
-    
+
     [self.view addSubview:datePickerView];
     datePickerView.hidden = YES;
     
