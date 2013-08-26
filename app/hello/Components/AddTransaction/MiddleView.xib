@@ -93,7 +93,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{86, 0}, {149, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="392184493"/>
+						<reference key="NSNextKeyView" ref="668105650"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="180403443">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -362,6 +362,7 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{0, 245}, {320, 215}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
@@ -532,10 +533,10 @@
 							<string key="NSResourceName">dashline.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="392184493">
+					<object class="IBUIButton" id="668105650">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{118, 0}, {83, 44}}</string>
+						<string key="NSFrame">{{101, 0}, {118, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="293309298"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -545,13 +546,17 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">添加支出</string>
-						<reference key="IBUIHighlightedTitleColor" ref="180253925"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="847149283"/>
-						<reference key="IBUIFontDescription" ref="301562566"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">Helvetica-Bold</string>
+							<string key="family">Helvetica</string>
+							<int key="traits">2</int>
+							<double key="pointSize">15</double>
+						</object>
 						<reference key="IBUIFont" ref="845200653"/>
 					</object>
 				</object>
@@ -919,6 +924,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{264, 161}, {48, 49}}</string>
 						<reference key="NSSuperview" ref="738447606"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">-4</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -1302,6 +1308,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="destination" ref="810786502"/>
 					</object>
 					<int key="connectionID">343</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">whichExpense</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="668105650"/>
+					</object>
+					<int key="connectionID">491</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">clipImage</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="606572997"/>
+					</object>
+					<int key="connectionID">493</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -1698,7 +1720,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">switchToincome:</string>
-						<reference key="source" ref="392184493"/>
+						<reference key="source" ref="668105650"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -1742,7 +1764,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<reference ref="9500065"/>
 							<reference ref="810786502"/>
 							<reference ref="1049511871"/>
-							<reference ref="392184493"/>
+							<reference ref="668105650"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -2026,7 +2048,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">485</int>
-						<reference key="object" ref="392184493"/>
+						<reference key="object" ref="668105650"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -2198,7 +2220,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">488</int>
+			<int key="maxID">493</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

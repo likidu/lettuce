@@ -23,6 +23,7 @@
 
 @implementation MiddleViewController
 
+static bool isExpense=true;
 @synthesize uiNotes;
 @synthesize uiDate;
 @synthesize uiNumber;
@@ -40,6 +41,8 @@
 @synthesize formulaLabel;
 @synthesize imageNoteViewController;
 @synthesize dismissedHandler;
+@synthesize whichExpense;
+@synthesize clipImage;
 
 @synthesize inputText;
 @synthesize currentDate;
@@ -150,18 +153,18 @@
 }
 
 - (void)switchToincome:(id)sender {
- /*   lyyViewController *incomeViewController = [[lyyViewController alloc] initWithNibName:@"lyy" bundle:nil];
-    [self.view.superview addSubview:incomeViewController.view];
-    NSLog(@"22222");
-    [self.view removeFromSuperview];
-    [incomeViewController release];*/
-    
-    IncomeViewController *incomeViewController = [[IncomeViewController alloc] initWithNibName:@"IncomeViewController" bundle:nil];
-    [self.view.superview addSubview:incomeViewController.view];
-    NSLog(@"22222");
-    [self.view removeFromSuperview];
- //   [incomeViewController release];
-    
+    if (isExpense) {
+        [whichExpense setTitle:@"添加收入" forState:UIControlStateNormal];
+        [imageButton setHidden:YES];
+        [clipImage setHidden:YES];
+        isExpense = false;
+    }
+    else{
+        [whichExpense setTitle:@"添加支出" forState:UIControlStateNormal];
+        [imageButton setHidden:NO];
+        [clipImage setHidden:NO];
+        isExpense = true;
+    }
 }
 
 - (void)onCancel:(id)sender {
@@ -281,7 +284,7 @@
     self.imageViewPlaceHodler = nil;
     self.datePicker = nil;
     self.formulaLabel = nil;
-    
+    self.clipImage = nil;
     self.dismissedHandler = nil;
     
     AudioServicesDisposeSystemSoundID(self.tapSoundId);
@@ -458,6 +461,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"adaa");
     if (!needReset_)
         return;
     needReset_ = NO;
@@ -496,6 +500,9 @@
         imageView.hidden = YES;
         imageEditButton.hidden = YES;
         imageButton.hidden = NO;
+        isExpense = true;
+        clipImage.hidden = NO;
+        [whichExpense setTitle:@"添加支出" forState:UIControlStateNormal];
     }
     else {
         UIImage* image = [[ExpenseManager instance]loadImageNote:editingItem.pictureRef];
@@ -567,6 +574,10 @@
     
     self.imageNoteViewController = [[UIImageNoteViewController alloc]initWithNibName:@"UIImageNoteViewController" bundle:[NSBundle mainBundle]];
     imageNoteViewController.delegate = self;
+    
+    clipImage.hidden=NO;
+    isExpense = true;
+    [whichExpense setTitle:@"添加支出" forState:UIControlStateNormal];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -674,6 +685,7 @@
     viewInitialized = NO;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.clipImage = nil;
     self.uiNotes = nil;
     self.uiNumber = nil;
     self.uiDate = nil;

@@ -10,7 +10,6 @@
 #import "CategoryViewController.h"
 #import "ExpenseManager.h"
 #import "UIImageNoteViewController.h"
-#import "IncomeViewController.h"
 
 
 enum KeyTag {
@@ -84,7 +83,8 @@ typedef void(^MiddleViewControllerDismissedHandler)();
 @property(nonatomic, retain) IBOutlet UIImageView* imageViewPlaceHodler;
 @property(nonatomic, retain) IBOutlet UIDatePicker* datePicker;
 @property(nonatomic, retain) IBOutlet UILabel* formulaLabel;
-
+@property(nonatomic, retain) IBOutlet UIButton* whichExpense;
+@property (retain, nonatomic) IBOutlet UIImageView *clipImage;
 
 @property(nonatomic, retain) NSString* inputText;
 @property(nonatomic, retain) NSDate* currentDate;
