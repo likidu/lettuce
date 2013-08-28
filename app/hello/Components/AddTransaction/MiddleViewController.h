@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CategoryViewController.h"
 #import "ExpenseManager.h"
+#import "IncomeManager.h"
 #import "UIImageNoteViewController.h"
 
 

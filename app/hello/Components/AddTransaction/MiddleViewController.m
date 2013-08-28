@@ -9,6 +9,7 @@
 #import "CategoryViewController.h"
 #import "MiddleViewController.h"
 #import "ExpenseManager.h"
+#import "IncomeManager.h"
 #import "Foundation/NSRange.h"
 #import "CategoryManager.h"
 #import "LocationManager.h"
@@ -180,8 +181,6 @@ static bool isExpense=true;
 }
 
 - (void)onSave:(id)sender {
-    Expense* expense = [[[Expense alloc]init]autorelease];
-    
     double amount = curNumber;
     if (activeOp != opNone) {
         if (!isCurNumberDirty)
@@ -201,59 +200,81 @@ static bool isExpense=true;
     }
     
     if (amount < 0 || fuzzyEqual(amount, 0.0)) {
-        UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
+        
+        UIAlertView* alertView = [[[UIAlertView alloc]initWithTitle:@"莴苣账本" message:@"支出或收入金额不能为零或负数。" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil,nil]autorelease];
         [alertView show];
         return;
     }
-        
-    expense.amount = amount;
     
+    NSString *notes;
     if (uiNotes.tag != -1)
-        expense.notes = uiNotes.text;
+        notes = uiNotes.text;
     else
-        expense.notes = @"";
-    
-    expense.date = self.currentDate;
-    expense.categoryId = (categoryButton.tag > 0) ? categoryButton.tag : defaultCatId_;
-    
-    ExpenseManager* expMan = [ExpenseManager instance];
-    if (imageUpdated_) {
-        if (editingItem)
-            [expMan deleteImageNote:editingItem.pictureRef];
-        expense.pictureRef = [expMan saveImageNote:imageView.image];
-    }
-    else if (editingItem)
-        expense.pictureRef = editingItem.pictureRef;
-    
-    // only update location when adding new expense. never update when editing
-    if (!editingItem) {
-        if (false) {
-            expense.useLocation = YES;
-            CLLocationCoordinate2D location = [LocationManager getCurrentLocation];
-            expense.latitude = location.latitude;
-            expense.longitude = location.longitude;
-        }
-        else {
-            expense.useLocation = NO;
-            expense.latitude = 0.0;
-            expense.longitude = 0.0;
-        }
-    }
-    
-    if (editingItem) {
-        expense.expenseId = editingItem.expenseId;
-        [expMan updateExpense:expense];
-    }
-    else
-        [expMan addExpense:expense];
-    
-    self.editingItem = nil;
-    needReset_ = YES;
+        notes = @"";
 
+    
+    if (isExpense) {
+        Expense* expense = [[[Expense alloc]init]autorelease];
+        expense.amount = amount;
+        
+        expense.notes = notes;
+        
+        expense.date = self.currentDate;
+        expense.categoryId = (categoryButton.tag > 0) ? categoryButton.tag : defaultCatId_;
+        
+        ExpenseManager* expMan = [ExpenseManager instance];
+        if (imageUpdated_) {
+            if (editingItem)
+                [expMan deleteImageNote:editingItem.pictureRef];
+            expense.pictureRef = [expMan saveImageNote:imageView.image];
+        }
+        else if (editingItem)
+            expense.pictureRef = editingItem.pictureRef;
+        
+        // only update location when adding new expense. never update when editing
+        if (!editingItem) {
+            if (false) {
+                expense.useLocation = YES;
+                CLLocationCoordinate2D location = [LocationManager getCurrentLocation];
+                expense.latitude = location.latitude;
+                expense.longitude = location.longitude;
+            }
+            else {
+                expense.useLocation = NO;
+                expense.latitude = 0.0;
+                expense.longitude = 0.0;
+            }
+        }
+        
+        if (editingItem) {
+            expense.expenseId = editingItem.expenseId;
+            [expMan updateExpense:expense];
+        }
+        else
+            [expMan addExpense:expense];
+        
+        self.editingItem = nil;
+        needReset_ = YES;
+    }
+    else
+    {
+        Income* income = [[[Income alloc]init]autorelease];
+        income.amount = amount;
+        income.notes = notes;
+        income.date = self.currentDate;
+        
+        IncomeManager* incMan = [IncomeManager instance];
+        
+        [incMan addIncome:income];
+        self.editingItem = nil;
+        needReset_ = YES;
+        
+    }
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^(){
         if (self.dismissedHandler)
             self.dismissedHandler();
     }];
+
     
     // Todo: Add Mixpanel track point
 }
